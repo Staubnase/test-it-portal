@@ -1,0 +1,1346 @@
+﻿<script>
+    $(function () {
+        app.lib.handleMessages();
+    });
+</script>
+
+<div class="notification-container" ng-if="vm.getActiveNotifications().length > 0">
+    <div ng-repeat="n in vm.getActiveNotifications()" class="navigation-alert">
+        <div class=" alert" ng-class="vm.getNotificationClass(n)" role="alert" data-fade-speed="slow">
+            <p ng-if="n.title"><bold>{{ n.title }}</bold></p>
+            <strong>{{ n.text }}</strong>
+            <span ng-click="vm.removeNotification(n);" class="fa fa-times pull-right"></span>
+        </div>
+    </div>
+</div>
+<div class="main_wrapper">
+    <div class="viewbuilder-struct">
+        <div class="page_content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <adf-dashboard adf-model='vm.dashboard.model' editable='vm.dashboard.model.editable' collapsible='vm.dashboard.model.collapsible' structure='12' />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="template/modal/backdrop.html">
+    <div class="modal-backdrop">
+
+    </div>
+</script>
+
+<script type="text/ng-template" id="template/modal/window.html">
+    <div tabindex="-1" id="wedgetFlyout"
+         role="dialog"
+         class="modal in">
+
+        <div class="modal-dialog"
+             ng-class="{'modal-sm': size=='sm' , 'modal-md': size=='md' , 'modal-lg': size=='lg' }">
+
+            <div class="modal-content" modal-transclude></div>
+
+        </div>
+    </div>
+</script>
+
+<!--Below are the templates for desktop grid view.-->
+
+<script id="Cached_Lease_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Contract/Lease/Edit/#:Guid#">
+            <a href="/AssetManagement/Contract/Lease/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.field != 'DaysLeft') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.field == 'DaysLeft') { #
+        <td> #= (app.lib.GetDaysBetween(new Date(), LeaseEndDate) > 0) ? app.lib.GetDaysBetween(new Date(), LeaseEndDate) : 0 # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_SupportContract_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Contract/SupportandMaintenance/Edit/#:Guid#">
+            <a href="/AssetManagement/Contract/SupportandMaintenance/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.field != 'DaysLeft') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.field == 'DaysLeft') { #
+        <td> #= (app.lib.GetDaysBetween(new Date(), ContractEndDate) > 0) ? app.lib.GetDaysBetween(new Date(), ContractEndDate) : 0 # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_Warranty_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Contract/Warranty/Edit/#:Guid#">
+            <a href="/AssetManagement/Contract/Warranty/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.field != 'DaysLeft') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.field == 'DaysLeft') { #
+        <td> #= (app.lib.GetDaysBetween(new Date(), WarrantyEndDate) > 0) ? app.lib.GetDaysBetween(new Date(), WarrantyEndDate) : 0 # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_HardwareAsset_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+            #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/HardwareAsset/Edit/#:Guid#">
+            <a href="/AssetManagement/HardwareAsset/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i != 0 || (i == 0 && typeof data['Guid'] === 'undefined')) { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_SoftwareAsset_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/SoftwareAsset/Edit/#:Guid#">
+            <a href="/AssetManagement/SoftwareAsset/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.DataType != 'number') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.DataType == 'number') { #
+        <td> #= (item) ? kendo.toString(item, 'n0') : 0 # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_CatalogItem_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/CatalogItem/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/CatalogItem/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.field != 'Price') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(i != 0 && col.field == 'Price') { #
+        <td> #= (item) ? kendo.toString(item, 'n2') : 0 # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_Vendor_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/Vendor/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/Vendor/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_Standard_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/Standard/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/Standard/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_Organization_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/Organization/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/Organization/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_Subnet_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/Subnet/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/Subnet/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_Location_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/Location/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/Location/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_Invoice_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/Invoice/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/Invoice/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.field != 'TotalAmount') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(col.field == 'TotalAmount') { #
+        <td> #= (item) ? kendo.toString(item, 'n2') : 0 # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_Licence_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/License/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/License/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_PurchaseOrder_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/PurchaseOrder/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/PurchaseOrder/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.field != 'Amount') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(col.field == 'Amount') { #
+        <td> #= (item) ? kendo.toString(item, 'n2') : 0 # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_Purchase_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/Purchase/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/Purchase/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.field != 'Cost') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(col.field == 'Cost') { #
+        <td> #= (item) ? kendo.toString(item, 'n2') : 0 # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_NoticeEvent_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/NoticeEvent/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/NoticeEvent/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.DataType != 'number') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'number') { #
+        <td> #= (item) ? kendo.toString(item, 'n0') : 0 # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_CostCenter_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/CostCenter/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/CostCenter/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.field != 'Cost') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(col.field == 'Cost') { #
+        <td> #= (item) ? kendo.toString(item, 'n2') : 0 # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<script id="Cached_Consumable_tpl" type="text/x-kendo-template">
+    # var grid = (this.gridStateId) ? $("div[adf-grid-state-id='" + this.gridStateId + "']").data("kendoGrid") : this #
+    # var columns = grid.columns #
+    <tr data-uid="#: uid #">
+        # if(grid.dataSource && grid.dataSource.group) { #
+        #= new Array(grid.dataSource.group().length + 1).join('<td class="k-group-cell"></td>') #
+        # } #
+        # for (var i = 0; i < columns.length; i++) { #
+        # var col = columns[i] #
+        # var item = data[col.field] #
+        # if(col.hidden == false || !this.gridStateId) { #
+        # if(i == 0 && typeof data['Guid'] !== 'undefined') { #
+        <td class="grid-highlight-column-title grid-highlight-column" href="/AssetManagement/Administration/Consumables/Edit/#:Guid#">
+            <a href="/AssetManagement/Administration/Consumables/Edit/#:Guid#">
+                #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' #
+            </a>
+        </td>
+        # } #
+        # if(i == 0 && typeof data['Guid'] === 'undefined') { #
+        <td> #= (item) ? (col.DataType == 'date') ? kendo.toString(new Date(item), 'g') : item : '' # </td>
+        # } #
+        # if(i != 0 && col.DataType != 'date' && col.field != 'Price') { #
+        <td> #= (item) ? item : '' # </td>
+        # } #
+        # if(col.field == 'Price') { #
+        <td> #= (item) ? kendo.toString(item, 'n2') : 0 # </td>
+        # } #
+        # if(i != 0 && col.DataType == 'date') { #
+        <td> #= (item) ? kendo.toString(new Date(item), 'g') : '' # </td>
+        # } #
+        # } #
+        # } #
+    </tr>
+</script>
+
+<!--Below are the templates for mobile grid view.-->
+<script id="Cached_Default_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (typeof Name !== 'undefined' && _.isString(Name) && Name){ #
+            <span>#: Name #</span>
+            # }else if (typeof Guid !== 'undefined' && _.isString(Guid) && Guid){ #
+            <span>#: Guid #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (typeof Base_LastModified !== 'undefined' && _.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # }else if (typeof ModifiedDate !== 'undefined' && _.isString(ModifiedDate) && ModifiedDate){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(ModifiedDate))).fromNow() #</span>
+                # } #
+
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_HardwareAsset_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/HardwareAsset/Edit/#:Guid#'>#: Name #</a>
+            # } else {#
+            <span>#: Name #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (HardwareAssetStatus && _.isString(HardwareAssetStatus)){ #
+                <span>#: localizationHelper.localize("Status") #: #: HardwareAssetStatus # </span>
+                # } #
+
+                # if ((HardwareAssetStatus && _.isString(HardwareAssetStatus)) && (HardwareAssetType && _.isString(HardwareAssetType))){ #
+                &middot;
+                # } #
+                # if (HardwareAssetType && _.isString(HardwareAssetType)){ #
+                <span>#: localizationHelper.localize("Type") #: #: HardwareAssetType #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_SoftwareAsset_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/SoftwareAsset/Edit/#:Guid#'>#: Name #</a>
+            # } else {#
+            <span>#: Name #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (Version && _.isString(Version)){ #
+                <span>#: localizationHelper.localize("Version") #: #: Version # </span>
+                # } #
+
+                # if ((Version && _.isString(Version)) && (AvailableCount && _.isString(AvailableCount))){ #
+                &middot;
+                # } #
+                # if (AvailableCount && _.isString(AvailableCount)){ #
+                <span>#: localizationHelper.localize("Available") #: #: AvailableCount #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_CatalogItem_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/CatalogItem/Edit/#:Guid#'>#: DisplayName #</a>
+            # } else {#
+            <span>#: DisplayName #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (Type && Type.length > 0 ){ #
+                <span>#: Type # </span>
+                # } #
+
+                # if (Type && Type.length > 0 && Model && Model.length > 0 ){ #
+                &middot;
+                # } #
+
+                # if (Model && Model.length > 0 ){ #
+                <span>#: Model # </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_Lease_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Contract/Lease/Edit/#:Guid#'>#: Name #</a>
+            # } else {#
+            <span>#: Name #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(ContractStatus)){ #
+                <span>#: localizationHelper.localize("Status") #: #: ContractStatus # </span>
+                # } #
+
+                # if (_.isString(ContractStatus) && _.isNumber(DaysLeft)){ #
+                &middot;
+                # } #
+                # if (_.isNumber(DaysLeft)){ #
+                <span>#: DaysLeft # #: localizationHelper.localize("DaysLeft").toLowerCase() #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_SupportContract_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Contract/SupportandMaintenance/Edit/#:Guid#'>#: Name #</a>
+            # } else {#
+            <span>#: Name #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(ContractStatus)){ #
+                <span>#: localizationHelper.localize("ContractStatus") #: #: ContractStatus # </span>
+                # } #
+
+                # if (_.isString(ContractStatus) && _.isNumber(DaysLeft)){ #
+                &middot;
+                # } #
+                # if (_.isNumber(DaysLeft)){ #
+                <span>#: DaysLeft # #: localizationHelper.localize("DaysLeft").toLowerCase() #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_Warranty_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Contract/Warranty/Edit/#:Guid#'>#: Name #</a>
+            # } else {#
+            <span>#: Name #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(ContractStatus)){ #
+                <span>#: localizationHelper.localize("ContractStatus") #: #: ContractStatus # </span>
+                # } #
+
+                # if (_.isString(ContractStatus) && _.isNumber(DaysLeft)){ #
+                &middot;
+                # } #
+                # if (_.isNumber(DaysLeft)){ #
+                <span>#: DaysLeft # #: localizationHelper.localize("DaysLeft").toLowerCase() #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_Consumable_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/Consumables/Edit/#:Guid#'>#: Name #</a>
+            # } else {#
+            <span>#: Name #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (Price && Price.length > 0){ #
+                <span>
+                    #: localizationHelper.localize("Price") #: #: Price #
+                    # if (Price && Price.length > 0 && (Currency && _.isString(Currency))){ #
+                    #:Currency #
+                    # } #
+                </span>
+                # } #
+
+                # if (Price && Price.length > 0 && (Count && _.isString(Count))){ #
+                &middot;
+                # } #
+                # if (Count && _.isString(Count)){ #
+                <span>#: localizationHelper.localize("Available") #: #: Count #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_CostCenter_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/CostCenter/Edit/#:Guid#'>#: Name #</a>
+            # } else {#
+            <span>#: Name #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(CostCenterHasOrganization_DisplayName)){ #
+                <span>#: localizationHelper.localize("Organization") #: #: CostCenterHasOrganization_DisplayName #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_Invoice_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/Invoice/Edit/#:Guid#'>#: Name #</a>
+            # } else {#
+            <span>#: Name #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(Name)){ #
+                <span>
+                    #: localizationHelper.localize("Invoice") #: #: Name #
+                </span>
+                # } #
+                # if (_.isString(Name) && _.isString(Status)){ #
+                &middot;
+                # } #
+                # if (_.isString(Status)){ #
+                <span>
+                    #: Status #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(InvoiceHasVendor_DisplayName)){ #
+                <span>
+                    #: localizationHelper.localize("Vendor") #: #: InvoiceHasVendor_DisplayName #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(TotalAmount)){ #
+                <span>
+                    #: localizationHelper.localize("Total") #: #: TotalAmount #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_Licence_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/License/Edit/#:Guid#'>#: Name #</a>
+            # } else {#
+            <span>#: Name #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(LicenceHasVendor_DisplayName)){ #
+                <span>
+                    #: localizationHelper.localize("Vendor") #: #: LicenceHasVendor_DisplayName #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Type)){ #
+                <span>
+                    #: Type #
+                </span>
+                # } #
+                # if (_.isString(Type) && _.isString(Status)){ #
+                <span>
+                    &middot;
+                </span>
+                # } #
+                # if (_.isString(Status)){ #
+                <span>
+                    #: Status #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_Location_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/Location/Edit/#:Guid#'>#: DisplayName #</a>
+            # } else {#
+            <span>#: DisplayName #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(LocationAddress1)){ #
+                <span>
+                    #: LocationAddress1 #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(LocationAddress2)){ #
+                <span>
+                    #: LocationAddress2 #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(LocationCity)){ #
+                <span>
+                    #: LocationCity #
+                </span>
+                # } #
+                # if (_.isString(LocationState)){ #
+                <span>
+                    #: LocationState #
+                </span>
+                # } #
+                # if (_.isString(LocationCountry)){ #
+                <span>
+                    #: LocationCountry #
+                </span>
+                # } #
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+
+    </div>
+</script>
+
+<script id="Cached_Subnet_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/Subnet/Edit/#:Guid#'>#: DisplayName #</a>
+            # } else {#
+            <span>#: DisplayName #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(IPMask)){ #
+                <span>
+                    #: IPMask #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(SubnetMask)){ #
+                <span>
+                    #: SubnetMask #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_NoticeEvent_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/NoticeEvent/Edit/#:Guid#'>#: Title #</a>
+            # } else {#
+            <span>#: Title #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(Span)){ #
+                <span>
+                    #: Span #
+                </span>
+                # } #
+                # if (_.isString(NoticePeriod)){ #
+                <span>
+                    #: NoticePeriod #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(DueDate)){ #
+                <span>#: localizationHelper.localize("DueDate") #: #: moment(kendo.toString(new Date(DueDate))).format('LL') #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_Organization_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/Organization/Edit/#:Guid#'>#: DisplayName #</a>
+            # } else {#
+            <span>#: DisplayName #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(OrganizationHasCostCenter_DisplayName)){ #
+                <span>
+                    #: localizationHelper.localize("CostCenter") #: #: OrganizationHasCostCenter_DisplayName #
+                </span>
+                # } #
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_PurchaseOrder_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/PurchaseOrder/Edit/#:Guid#'>#: PurchaseOrderNumber #</a>
+            # } else {#
+            <span>#: PurchaseOrderNumber #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(PurchaseOrderHasCostCenter_DisplayName)){ #
+                <span>
+                    #: localizationHelper.localize("CostCenter") #: #: PurchaseOrderHasCostCenter_DisplayName #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Amount)){ #
+                <span>
+                    #: localizationHelper.localize("Amount") #: #: Amount #
+                </span>
+                # } #
+                # if (_.isString(Currency)){ #
+                <span>
+                    #: Currency #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(PurchaseOrderType)){ #
+                <span>
+                    #: PurchaseOrderType #
+                </span>
+                # } #
+                # if (_.isString(PurchaseOrderType) && _.isString(PurchaseOrderStatus)){ #
+                &middot;
+                # } #
+                # if (_.isString(PurchaseOrderStatus)){ #
+                <span>
+                    #: PurchaseOrderStatus #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_Purchase_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/Purchase/Edit/#:Guid#'>#: Name #</a>
+            # } else {#
+            <span>#: Name #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(PurchaseHasCostCenter_DisplayName)){ #
+                <span>
+                    #: localizationHelper.localize("CostCenter") #: #: PurchaseHasCostCenter_DisplayName #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(PurchaseHasPurchaseOrder_DisplayName)){ #
+                <span>
+                    #: localizationHelper.localize("PurchaseOrder") #: #: PurchaseHasPurchaseOrder_DisplayName #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_Standard_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/Standard/Edit/#:Guid#'>#: DisplayName #</a>
+            # } else {#
+            <span>#: DisplayName #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(Type)){ #
+                <span>
+                    #: localizationHelper.localize("Type") #: #: Type #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</script>
+
+<script id="Cached_Vendor_mtpl" type="text/x-kendo-template">
+    <div class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            # if (Guid && _.isString(Guid)){ #
+            <a href='/AssetManagement/Administration/Vendor/Edit/#:Guid#'>#: DisplayName #</a>
+            # } else {#
+            <span>#: DisplayName #</span>
+            # } #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(VendorContact)){ #
+                <span>
+                    #: VendorContact #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(VendorPhone)){ #
+                <span>
+                    #: localizationHelper.localize("Telephone") #: #: VendorPhone #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(VendorFax)){ #
+                <span>
+                    #: localizationHelper.localize("Fax") #: #: VendorFax #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(VendorEmail)){ #
+                <span>
+                    #: localizationHelper.localize("Email") #: #: VendorEmail #
+                </span>
+                # } #
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(Base_LastModified) && Base_LastModified){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(Base_LastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</script>
+<script>
+    //set our preferred culture
+    var data = $("meta[name='accept-language']").attr("content");
+    Globalize.culture(data);
+    kendo.culture(data);
+</script>
+
+
+<script>
+  $(document).ready(function () {
+      app.dashboardUtils.AddWidgetToggleButton();
+      //build the custom dashboard widgets on initial page load
+      app.custom.dashboard.build();
+  });
+</script>

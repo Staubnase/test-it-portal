@@ -1,0 +1,25 @@
+﻿<div id="commentWindow" class="defined-form hide">
+
+    <div class="col-group">
+        <div class="editor-label">
+            <label data-bind="html:commentMessage" ></label>
+        </div>
+        <div class="editor-field">
+            <textarea data-bind="value: comment, events: {input:textCounter}"
+                      data-value-update="input"
+                      class="k-textbox"
+                      rows="7" ></textarea>
+            <div class="inline-spacing">
+                <span data-bind="html:charactersRemaining"></span>
+                <span data-bind="html:charactersRemainingText"></span>
+            </div>
+        </div>
+    </div>
+    <div class="window-buttons">
+        <button class="btn btn-primary k-button"
+                data-bind="text: okText, enabled: okEnabled, events: { click: okClick }"></button>
+
+        <button class="btn btn-default k-button"
+                data-bind="text: cancelText, events: { click: cancelClick }"></button>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿<div data-bind="templateResources:'resources'" style="display: none">
+    <div data-template-name="gridCardTemplate" class="gridcard gridcard--config">
+        <p class="gridcard__title">#: DisplayName #</p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if ( ObjectClassName && ObjectClassName.length > 0 ){ #
+                <span>#: localizationHelper.localize("ObjectClassName") # #: ObjectClassName # </span>
+                # } #
+            </p>
+            <p>
+                # if ( Path && Path.length > 0 ){ #
+                <span>#: localizationHelper.localize("Path") # #: Path # </span>
+                # } #
+            </p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="mobilegrid__header">
+    </div>
+    <div data-bind="mobileWIGrid: viewModel" data-template-name="gridCardList" class="mobilegrid"></div>
+    <div class="mobilegrid__pager"></div>
+</div>

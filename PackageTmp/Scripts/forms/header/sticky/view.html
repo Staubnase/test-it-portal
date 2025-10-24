@@ -1,0 +1,131 @@
+﻿<div class="content-header__container">
+    <div class="content-header">
+        <div class="content-header__main">
+            <strong class="content-header__main__title" data-bind="text:viewModel.Title"></strong>
+            
+            <div class="content-header__main__details">
+                <div class="content-header__main__breadcrumbs-container">
+                    <div class="content-header__main__breadcrumb content-header__main__breadcrumb--button" data-bind="visible: view.controller.isParent">
+                        <a class="content-header__main__breadcrumbs__link" data-bind="attr: { href: view.controller.editHref}, text: viewModel.ParentWorkItem.Id">
+                        </a>
+                        <a class="content-header__main__breadcrumbs__link content-header__main__breadcrumb--button__icon-link" data-bind="click: view.controller.unlinkParent, visible: view.controller.isAnalystUser">
+                            <i class="fa fa-unlink"></i>
+                        </a>
+                    </div>
+                    <div class="content-header__main__breadcrumb" data-bind="visible: view.controller.isParent">
+                        <strong class="content-header__main__breadcrumbs__link" data-bind="text: viewModel.Id"></strong>
+                    </div>
+                    <strong class="content-header__main__breadcrumbs__link" data-bind="visible: view.controller.isParent === false, text: viewModel.Id"></strong>
+                    <div data-bind="visible:view.approvalHeaderModel.IsActivityHeader">
+                        <a class="content-header__main__breadcrumbs__link content-header__main__breadcrumb--button__icon-link" data-bind="attr: { href:view.approvalHeaderModel.ActivityEditUrl, visible:view.approvalHeaderModel.EnableParentLink }" target="_blank">
+                            <i class="fa fa-external-link" aria-hidden="true"></i>
+                        </a>
+                        <span class="ra-label" data-bind="text:view.approvalHeaderModel.ActivityText"></span>
+                    </div>
+                </div>
+                <span class="status-pill status-pill--active" data-bind="visible: view.statusVisible, text: viewModel.Status.Name">
+                    Active
+                </span>&nbsp;
+                <span class="status-pill status-pill--warning" data-bind="visible: viewModel.CiresonAnalyticsArchive">
+                    <%= localization.Archived %>
+                </span>
+                <div class="content-header__main__icon-stack hidden-print">
+                    <button id="headerAttachmentBtn" class="btn k-button btn-icon-stack" data-bind="click: view.viewAttachments, visible: view.showAttachments">
+                        <img src="../../../../Content/Images/Icons/RemoteManage/attach.svg" alt="attach" />
+                        <div class="content-header__collapser__icon-badge header-attachment-badge">
+                        </div>
+                    </button>
+                    <button id="remoteManageBtn" class="btn k-button btn-icon-stack" data-bind="click: view.doClick, visible: view.showRemoteManageIcon">
+                        <img src="../../../../Content/Images/Icons/RemoteManage/RS-black-simple@32h.png" alt="remote" />
+                    </button>
+                    <button class="btn k-button btn-icon-stack  visible-xs visible-sm" data-bind="click: view.toggleMore">
+                        <span class="fa fa-ellipsis-v"></span>
+                    </button>
+
+                    <div data-bind="visible: view.approvalHeaderModel.IsActivityHeader" class="ra-approval-button">
+                        <!--RA buttons-->
+                        <button class="btn btn-success btn-review"
+                                data-bind="events: { click: view.approvalHeaderModel.onApproveClick }, disabled:view.approvalHeaderModel.disabledButtons, visible:view.approvalHeaderModel.isReviewActivity">
+                            <%= localization.Approve %>
+                        </button>
+                        <button class="btn btn-danger btn-review"
+                                data-bind="events: { click: view.approvalHeaderModel.onRejectClick }, disabled:view.approvalHeaderModel.disabledButtons, visible:view.approvalHeaderModel.isReviewActivity">
+                            <%= localization.Reject %>
+                        </button>
+                        <!--RA buttons-->
+                        <!--MA buttons-->
+                        <button class="btn btn-success btn-manual"
+                                data-bind="events: { click: view.approvalHeaderModel.onCompleteClick }, disabled:view.approvalHeaderModel.disabledMAButtons, visible:view.approvalHeaderModel.isManualActivity">
+                            <%= localization.Completed %>
+                        </button>
+                        <button class="btn btn-danger btn-manual"
+                                data-bind="events: { click: view.approvalHeaderModel.onFailClick }, disabled:view.approvalHeaderModel.disabledMAButtons, visible:view.approvalHeaderModel.isManualActivity">
+                            <%= localization.Failed %>
+                        </button>
+                        <!--MA buttons-->
+                        <span>
+                            <button class="page-prev btn-link" data-bind="events:{click: view.approvalHeaderModel.previousClick}"><i class="fa fa-chevron-left"></i></button>
+                            <span class="page-text" data-bind="html: view.approvalHeaderModel.pageText"></span>
+                            <button class="page-next btn-link" data-bind="events:{click: view.approvalHeaderModel.nextClick}"><i class="fa fa-chevron-right"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-header__collapser hidden-xs hidden-sm hidden-print">
+            <div class="first-header-slo-container">
+            </div>
+
+            <div class="content-header__collapser__dropdown">
+                <div class="header-slo-container">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="content-header-backdrop" class="content-header__flyout__overlay">
+</div>
+<script id="header-slo-template" type="text/x-kendo-template">
+    <div class="content-header__collapser__icon-container">
+        <div class="header-slo-icon fa #: imageClass # content-header__collapser__icon">
+        </div>
+    </div>
+    <div class="content-header__collapser__main">
+        <div class="content-header__collapser__main__title header-slo-title">#: Title #</div>
+        <div class="content-header__collapser__main__datetime header-slo-timer"></div>
+    </div>
+    # if (index === '0') { #
+    <button class="content-header__collapser__caret-button fa fa-angle-up" onclick="closeSLODropdown()"></button>
+    # } #
+</script>
+<script id="first-header-slo-template" type="text/x-kendo-template">
+    <div class="content-header__collapser__icon-container">
+        <div class="header-slo-icon fa #: imageClass # content-header__collapser__icon">
+        </div>
+        # if (count > 1) { #
+        <div class="content-header__collapser__icon-badge"> #: count #
+        </div>
+        # } #
+    </div>
+    <div class="content-header__collapser__main">
+        <div class="content-header__collapser__main__title header-slo-title">#: Title #</div>
+        <div class="content-header__collapser__main__datetime header-slo-timer"></div>
+    </div>
+    # if (count > 1) { #
+    <button class="content-header__collapser__caret-button fa fa-angle-down" onclick="closeSLODropdown()"></button>
+    # } #
+</script>
+<div id="openmore" tabindex="-1" role="dialog" class="modal right fade" style="display: none">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="content-header__collapser content-header__collapser--side">
+                <div class="first-header-slo-container">
+                </div>
+                <div class="content-header__collapser__dropdown">
+                    <div class="header-slo-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

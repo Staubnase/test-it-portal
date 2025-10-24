@@ -1,0 +1,56 @@
+﻿{
+  "DisplayName": {
+    "field": "DisplayName",
+    "title": "Vendor Name",
+    "template": "#= (DisplayName) ? DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "VendorPhone": {
+    "field": "VendorPhone",
+    "title": "Telephone",
+    "template": "#= (VendorPhone) ? VendorPhone : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "VendorFax": {
+    "field": "VendorFax",
+    "title": "Fax",
+    "template": "#= (VendorFax) ? VendorFax : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "VendorContact": {
+    "field": "VendorContact",
+    "title": "Contact",
+    "template": "#= (VendorContact) ? VendorContact : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "VendorEmail": {
+    "field": "VendorEmail",
+    "title": "Email",
+    "template": "#= (VendorEmail) ? VendorEmail : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Areas/AssetManagement/Views/ContractWarranty/AddOrEdit.cshtml" hash="5ff6b2bd" filehash="ffffc0c0eb444be8" flags="110000" assembly="App_Web_rncbohou" type="ASP._Page_Areas_AssetManagement_Views_ContractWarranty_AddOrEdit_cshtml">
+    <filedeps>
+        <filedep name="/Areas/AssetManagement/Views/ContractWarranty/AddOrEdit.cshtml" />
+    </filedeps>
+</preserve>

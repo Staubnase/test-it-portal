@@ -1,0 +1,81 @@
+﻿
+<div>
+    <ol class="breadcrumb mar-top-1 mar-bot-0">
+        <li><a href="Listing#/">{{ localization.Home }}</a></li>
+        <li class="active">{{ localization.SearchRequestOffering }}</li>
+    </ol>
+    <div class="sc__header">
+        <h1>{{ localization.ServiceCatalogSearch }}</h1>
+        <service-panel categorydata="scData" placeholder="localization.BrowseByCategory"></service-panel><br />
+        <hr>
+    </div>
+    <div class-="sc__search">
+        <div class="search-row search-directive ng-pristine ng-valid" ng-form="" name="advSearchForm">
+            <div ng-show="showEmptySearchMessage" class="alert-container">
+                <div class="alert alert-danger ng-binding">{{ localization.Required }}</div>
+            </div>
+            <div class="search-wrapper pull-left">
+                <div class="input-group">
+                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid"
+                           ng-model="searchText"
+                           ng-keypress="search($event)"
+                           placeholder="{{ localization.SearchRequestOffering }}...">
+                    <div class="input-group-btn hidden-xs">
+                        <button type="button" class="btn btn-default filter-toggle ng-binding" data-toggle="dropdown">
+                            <i class="fa fa-filter ng-hide" ng-show="showAppliedFiltersIcon"></i>{{ filterLabel }}<i class="fa fa-caret-down margin-l10"></i>
+                        </button>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li ng-repeat="filter in filterItems" searchtype="{{ filter.value }}"><a ng-click="onFilterSelect($event)">{{ filter.name }}</a></li>
+                            <li class="divider"></li>
+                            <li searchtype="All"><a ng-click="onFilterSelect($event)" filterlabel="{{ localization.SearchAll }}">{{ localization.SearchAll }}</a></li>
+                        </ul>
+                    </div>
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary btn-search" type="button" ng-click="search($event)"><span class="fa fa-search"></span></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sc__search--kb mar-top-2 row">
+        <kb-group kb-data="kbBycategory"
+                  kb-class="col-md-6"
+                  kb-localization="localization"
+                  kb-noresult="kbNoResultCategory"
+                  kb-groupby="{{ localization.ByCategory }}"></kb-group>
+
+        <kb-group kb-data="kbBytype"
+                  kb-class="col-md-6"
+                  kb-localization="localization"
+                  kb-noresult="kbNoResultType"
+                  kb-groupby="{{ localization.ByType }}"></kb-group>
+    </div>
+    <div class="sc__search--ro row">
+        <div infinite-scroll="fetchMoreOffering()"
+             infinite-scroll-immediate-check="false"
+             infinite-scroll-disabled='fetching'
+             infinite-scroll-distance="0">
+
+            <request-search-result class="col-xs-12"
+                                   request-data="requestItems"
+                                   search-type="searchType"
+                                   localization="localization"
+                                   noresult=""
+                                   loading="roLoading"></request-search-result>
+
+            <div ng-show="fetching" class="sc-lazy-load">
+                <div class="spinner spinner-small">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+
+        </div>
+        <div ng-show="noMoreRequestsMessage.length > 0 && requestItems.length > 10">
+            <hr />
+            <p class="lead text-center">{{noMoreRequestsMessage}}</p>
+        </div>
+    </div>
+</div>
+

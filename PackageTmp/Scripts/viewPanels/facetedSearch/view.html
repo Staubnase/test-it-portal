@@ -1,0 +1,129 @@
+﻿<!-- facetedSearch-->
+<div data-bind="templateResources:'resources'">
+
+    <ul data-template-name="searchResultsTemplate" data-type="#: data.type #" class="faceted-search-list type-#: data.type #">
+        #if(data.type == "NoResults"){#
+        <li class="faceted-search-item">
+            <div>
+                <span>
+                    #: data.Title #
+                </span>
+            </div>
+        </li>
+        #} else {#
+        #if(data.type == "RequestOffering"){#
+        <li class="faceted-search-item no-hover">
+            <div>
+                <span class="column-title">#: localization.Requests #</span>
+            </div>
+        </li>
+        #} else if(data.type == "Favorite"){#
+        <li class="faceted-search-item no-hover">
+            <div>
+                <span class="column-title">#: localization.Favorites #</span>
+            </div>
+        </li>
+        #} else if(data.type == "KnowledgeArticle"){#
+        <li class="faceted-search-item no-hover">
+            <div>
+                <span class="column-title">#: localization.KnowledgeArticles #</span>
+            </div>
+        </li>
+        # } #
+        #if(data.type != "NoResults"){#
+        # for (var i = 0; i < data.results.length ; i++) { #
+        #var current = data.results[i];#
+        #current.Description = current.Description.replace(/["]/g,'\'')#
+        #if(data.type == "RequestOffering" || data.type == "Favorite"){#
+        <li class="faceted-search-item" data-tooltip="#:current.Description#">
+            <div>
+                <span>
+                    #if(!_.isNull(current.RequestOfferingLinkUrl)){#
+                    <a class="link" href="#:current.RequestOfferingLinkUrl#">
+                        <img class="hidden-xs hidden-sm" src="/ServiceCatalog/GetRequestOfferingImg/#:current.Id#" onerror="this.onerror = null; this.src = '/Content/Images/Icons/RequestOffering/RO_Default.png';" />
+                        <span class="list-title">#: current.Title #</span>
+                    </a>
+                    #} else {#
+                    <a class="link" href="/SC/ServiceCatalog/RequestOffering/#:current.Id#,#:current.ServiceOfferingId#">
+                        <img class="hidden-xs hidden-sm" src="/ServiceCatalog/GetRequestOfferingImg/#:current.Id#" onerror="this.onerror = null; this.src = '/Content/Images/Icons/RequestOffering/RO_Default.png';" />
+                        <span class="list-title">#: current.Title #</span>
+                    </a>
+                    # } #
+                </span>
+            </div>
+        </li>
+        #} else {#
+        <li class="faceted-search-item" data-tooltip="#:current.Description#">
+            <div>
+                <span>
+                    <a class="link" href="/KnowledgeBase/View/#:current.Id#">
+                        <img alt="image" class="hidden-xs hidden-sm ka-icon" src="/Content/Images/Icons/Drawer/kb-white.svg">
+                        <span class="list-title">#: current.Title #</span>
+                    </a>
+                </span>
+            </div>
+        </li>
+        # } #
+        # } #
+        # } #
+        #if(data.type == "RequestOffering" && data.showAllLink){#
+        <li class="faceted-search-item no-hover hidden-xs">
+            <br/>
+        </li>
+        <li class="faceted-search-item last-item cursor-pointer hidden-xs" data-click-location="#: data.type #">
+            <a class="cursor-pointer">#: localization.ViewAllRequests #</a>
+        </li>
+        <li class="faceted-search-item last-item cursor-pointer visible-xs" data-click-location="#: data.type #">
+            <a class="cursor-pointer">#: localization.ViewAll #</a>
+        </li>
+        #} else if(data.type == "Favorite" && data.showAllLink){#
+        <li class="faceted-search-item no-hover hidden-xs">
+            <br/>
+        </li>
+        <li class="faceted-search-item last-item cursor-pointer hidden-xs" data-click-location="#: data.type #">
+            <a class="cursor-pointer">#: localization.ViewAllFavorites #</a>
+        </li>
+        <li class="faceted-search-item last-item cursor-pointer visible-xs" data-click-location="#: data.type #">
+            <a class="cursor-pointer">#: localization.ViewAll #</a>
+        </li>
+        #} else if(data.type == "KnowledgeArticle" && data.showAllLink){#
+        <li class="faceted-search-item no-hover hidden-xs">
+            <br/>
+        </li>
+        <li class="faceted-search-item last-item cursor-pointer hidden-xs" data-click-location="#: data.type #">
+            <a class="cursor-pointer">#: localization.ViewAllKA #</a>
+        </li>
+        <li class="faceted-search-item last-item cursor-pointer visible-xs" data-click-location="#: data.type #">
+            <a class="cursor-pointer">#: localization.ViewAll #</a>
+        </li>
+        # } #
+        # } #
+    </ul>
+</div>
+
+<div class="row search-row">
+
+    <div class="service-request-body">
+        <h3 class="search-title" data-bind="localize: FacetedSearchLabel"></h3>
+        <div class="search-wrapper">
+            <div class="input-group" data-bind="ciresonFacetedSearchBehavior: selectedSearchResult">
+                <input type="text" class="form-control" data-template-part="autoCompleteInputPart" data-value-primitive="false" data-bind="value: selectedSearchResult" id="facetedSearch" />
+                <div class="input-group-btn" data-template-part="filterSelectPart">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span data-bind="text: currentSearchScopeText">Search All</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu pull-right" role="menu">
+                        <li data-searchtype="IWantToReportAnIssue"><a data-bind="localize: IWantToReportAnIssue"></a></li>
+                        <li data-searchtype="IWantToRequestSomething"><a data-bind="localize: IWantToRequestSomething"></a></li>
+                        <li data-searchtype="ChooseAFavoriteRequest"><a data-bind="localize: ChooseAFavoriteRequest"></a></li>
+                        <li class="divider"></li>
+                        <li data-searchtype="SearchAll"><a data-bind="localize: SearchAll"></a></li>
+                    </ul>
+                </div>
+                <span class="input-group-btn" data-template-part="searchButtonPart">
+                    <button class="btn btn-primary btn-search" type="button"><span class="fa fa-search"></span></button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

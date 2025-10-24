@@ -1,0 +1,100 @@
+﻿<!-- Problem Quick Add-->
+<div data-template="problemQuickAdd" class="drawerdetails-action">
+    <form class="drawerdetails-form">
+        <div class="col-sm-12 col-md-12">
+            <div>
+                <div class="editor-label">
+                    <label data-localize="Title"></label> <span id="TitleVal" style="display:none" class="error">*</span>
+                </div>
+                <div class="editor-field">
+                    <input class="k-textbox" data-bind="value: Title" type="text">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12">
+            <div>
+                <div class="editor-label">
+                    <label data-localize="Description"></label>
+                </div>
+                <div class="editor-field">
+                    <textarea data-bind="value: Description" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="editor-label">
+                    <label data-localize="AssignedTo"></label>
+                </div>
+                <div class="editor-field">
+                    <input data-control="userPicker" data-bind="value: AssignedWorkItem" data-control-bind="AssignedWorkItem" data-control-itemtype="problem">
+                </div>
+            </div>
+            <div>
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="padleft10">
+                        <div class="editor-label">
+                            <label data-localize="Source"></label>
+                        </div>
+                        <div class="editor-field">
+                            <div data-control="enumPicker" data-control-bind="Source" data-control-enumid="91C21D12-7E66-3E02-CC44-824F6B131547"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+                    <div class="editor-label">
+                        <label data-localize="Category"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Classification" data-control-enumid="9B2C7FA1-6A48-9592-4116-3F7385B068AC"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="Impact"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Impact" data-control-enumid="11756265-F18E-E090-EED2-3AA923A4C872"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+                    <div class="editor-label">
+                        <label data-localize="Urgency"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Urgency" data-control-enumid="04b28bfb-8898-9af3-009b-979e58837852"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="Priority"></label>
+                    </div>
+                    <div class="editor-field">
+                        <input class="k-textbox" data-bind="value: Priority" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,25 @@
+﻿<div data-cid="NumericControl" data-cid-propname="<%= PropertyName %>" class="form-group cs-form__numeric cs-form__numeric--<%= PropertyName %>">
+    <label class="control-label cs-form__numeric--label" for="<%= PropertyName %>" data-localize="<%= PropertyDisplayName %>">
+        <span><% if ( Required ){ %> <%= '(' + localization.Required + ')' %><% } %></span>
+    </label>
+    <input type="number"
+           name="<%= PropertyName %>"
+           class="form-control form-control-picker input-sm cs-form__numeric--input"
+           data-control="numericTextBox"
+           data-bind="value: <%= PropertyName %>"
+           data-control-decimals="<%= DecimalPlaces %>"
+           data-control-min="<%= MinValue%>"
+           data-control-max="<%= MaxValue %>"
+           data-step="<%= StepIncrement %>"
+           data-format="<%= Format%>"
+
+            <% if ( Disabled ){ %>
+                disabled
+            <% } %>
+
+            <% if ( Required ){ %>
+            required
+            <% } %>
+
+    />
+</div>

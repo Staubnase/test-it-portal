@@ -1,0 +1,72 @@
+﻿<div class="cireson-window defined-form task-window hide cs-form__predefined--knowledgeArticle-popup">
+    <div class="cireson-window--wrapper">
+        <div class="cireson-window--body">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label><%= localization.SearchText %></label>
+                        <span class="k-textbox k-space-right">
+                            <input type="text" data-bind="value: searchText" />
+                            <span data-bind="events:{click: search}" class="fa fa-search cursor-pointer">&nbsp;</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <label><%= localization.SelectObjects %></label>
+
+            <div class="objectPicker-container">
+                <div class="k-widget k-grid k-secondary"
+                     data-role="grid"
+                     data-bind="source: dataSource"
+                     data-selectable="multiple, row"
+                     data-sortable="true"
+                     data-filterable="true"
+                     data-scrollable="false"
+                     data-column-menu="true"
+                     data-pageable="true"
+                     data-editable="{mode: 'incell', create: false, update: false}"
+                     data-columns='[
+                { field: "ArticleId", title: localization.Id, width: "10%"},
+                { field: "Title", title: localization.Title, width: "90%"}
+                ]'>
+                </div>
+            </div>
+
+            <div class="objectPicker-actions">
+                <button data-role="button" data-bind="events:{click: add}" class="btn btn-primary k-button"><%= localization.Add %> </button>
+                <button data-role="button" data-bind="events:{click: remove}" class="btn btn-danger k-button"><%= localization.Remove %> </button>
+            </div>
+
+            <div class="k-widget k-grid k-secondary objectPicker-grid2-container"
+                 data-role="grid"
+                 data-bind="source: selectedItems"
+                 data-selectable="multiple, row"
+                 data-sortable="true"
+                 data-filterable="true"
+                 data-scrollable="false"
+                 data-column-menu="true"
+                 data-pageable="true"
+                 data-editable="{mode: 'incell', create: false, update: false}"
+                 data-columns='[
+                { field: "ArticleId", title: localization.Id, width: "10%"},
+                { field: "Title", title: localization.Title, width: "90%"}
+                ]'>
+            </div>
+
+        </div>
+        <div class="cireson-window--footer window-buttons">
+            <button data-role="button"
+                    class="btn btn-primary cs-form__predefined--save"
+                    data-bind="events: { click: save }">
+                <%= localization.OK %>
+            </button>
+            <button data-role="button"
+                    class="btn btn-default cs-form__predefined--cancel"
+                    data-bind="events: { click: cancel }">
+                <%= localization.Cancel %>
+            </button>
+        </div>
+    </div>
+    
+</div>

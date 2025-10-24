@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Areas/KB/Views/KnowledgeBase/GridPartial.cshtml" hash="5ff6b2bd" filehash="2410c3149f7e" flags="110000" assembly="App_Web_14muvupk" type="ASP._Page_Areas_KB_Views_KnowledgeBase_GridPartial_cshtml">
+    <filedeps>
+        <filedep name="/Areas/KB/Views/KnowledgeBase/GridPartial.cshtml" />
+    </filedeps>
+</preserve>

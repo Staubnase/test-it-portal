@@ -1,0 +1,23 @@
+﻿<div class="form-group cs-form__enum cs-form__enum--<%= PropertyName %>">
+    <label class="control-label cs-form__enum--label" for="<%= PropertyName %>" data-localize="<%= PropertyDisplayName %>">
+        <span><% if ( Required ){ %> <%= '(' + localization.Required + ')' %><% } %></span>
+    </label>
+
+    <div class="form-control form-control-picker input-sm cs-form__enum--dropdown"
+         data-url="/api/V3/Enum/GetList"
+         data-combourl="/api/V3/Enum/GetFlatList/"
+         data-showpath="<%= ShowPath %>"
+         data-mustselectleafnode="<%= LeafNodeOnly %>"
+         data-bind="ciresonDropDownTree: '<%= EnumId %>', value: <%= PropertyName %>"
+         data-disabled="<%= Disabled %>"
+         data-role="<%= PropertyName %>"
+         data-filter="<%= FilterIds%>",
+         data-visible="<%= Visible%>"
+        <% if ( Required ){ %>
+        required
+        <% } %>
+        >
+
+    </div>
+
+</div>

@@ -1,0 +1,21 @@
+﻿/******************************************************************************************
+FireFox Specific Rules
+
+Use this document to fix style issues in FireFox
+Please put a comment in the file that defines the original property you are overriding
+*******************************************************************************************/
+
+@-moz-document url-prefix() {
+    //forms
+    .k-picker-wrap .k-icon {
+        margin-top: 5px;
+
+        &.k-i-calendar {
+            margin-top: 1px;
+        }
+    }
+    //popup window
+    div.k-window-content .cireson-window--wrapper {
+        padding-bottom: 90px;
+    }
+}

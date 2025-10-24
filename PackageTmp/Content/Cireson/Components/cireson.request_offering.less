@@ -1,0 +1,186 @@
+﻿/******************************************************************************************
+Request Offering - Custom Styles
+*******************************************************************************************/
+
+.sidebarImage {
+    width: 36px;
+    height: 36px;
+    padding: 5px;
+}
+
+.imageRight {
+    float: right;
+    margin: 5px;
+
+    img {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+.servicePanel {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        text-transform: none;
+    }
+
+    h3 {
+        font-size: @font-size-body-text;
+        margin-bottom: 10px;
+    }
+}
+
+#TheForm {
+    //page wizard styles
+    .form-wizard .form-wizard-levels {
+        position: relative;
+        float: left;
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+        margin-bottom: 10px;
+        background: @ro-wizard-paging-background;
+    }
+
+    .form-wizard .form-wizard-levels li {
+        float: left;
+        position: relative;
+    }
+
+    .form-wizard .form-wizard-levels li a {
+        display: block;
+        float: left;
+        color: @text-color-body-reverse;
+        text-align: center;
+        text-decoration: none;
+        padding: 14px 10px 10px 20px;
+        height: 50px;
+        margin-right: 25px;
+        position: relative;
+
+        &:hover {
+            /*text-decoration: none;*/
+        }
+    }
+
+    .form-wizard .form-wizard-levels li.active a:after {
+        left: 100%;
+        top: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: @ro-wizard-paging-background;
+        border-left-color: @v-color-link-hover;
+        border-width: 25px;
+        margin-top: -25px;
+    }
+
+    .form-wizard .form-wizard-levels li.active a {
+        background: @v-color-link-hover;
+    }
+
+    .form-wizard .form-wizard-levels li a span {
+        display: block;
+        float: left;
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+        font-size: @font-size-meta-text;
+        background: @v-color-link;
+        border: 1px solid @v-color-link;
+    }
+
+    .form-wizard .form-wizard-levels li.active a span {
+        background: @v-color-link;
+        border-color: @v-color-link;
+    }
+    
+
+    .k-multiselect-wrap {
+        ul {
+            li {
+                line-height: 25px;
+
+                span.k-icon {
+                    background-image: none;
+                    padding: 10px;
+                }
+
+                span.k-select{
+                    padding: 22px 0;
+                }
+
+                span.k-i-close:before {
+                    content: "\f00d";
+                    font-family: FontAwesome;
+                    font-weight: bold;
+                    color: @v-color-link;
+                    font-size: @font-size-meta-text;
+                    position: absolute;
+                    top: 11px;
+                }
+            }
+        }
+    }
+
+    
+
+}
+
+/**multi-select styles*/
+// common cell styles
+.multiselect-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: -5px -10px;
+    span {
+        padding: 5px;
+    }
+}
+// header cell styles
+.multiselect-header {
+    color: @v-color-white;
+    background: @v-color-gray-darker;
+    border: 1px solid @v-color-gray-darker;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    span {
+        padding: 5px;
+        line-height: 1;
+        border: 1px solid @v-color-gray-darker;
+        border-style: none none solid solid;
+        background: @v-color-gray-mid;
+        font-weight: bold;
+        flex: 10 1 0;
+    }
+}
+// item cell styles
+.multiselect-items {
+    border: 1px solid @border-color-light;
+    border-left: none;
+}
+
+.multiselect-item {
+    word-wrap: break-word;
+    border-bottom: 4px solid @border-color-light;
+
+    span {
+        border: 1px solid @border-color-light;
+        border-style: none none solid solid;
+        color: @v-color-black;
+        flex: 10 1 0;
+    }
+}
+/** end of multi-select styles*/
+    

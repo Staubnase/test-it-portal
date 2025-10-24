@@ -1,0 +1,122 @@
+﻿<!-- Incident Quick Add-->
+<div data-template="incidentQuickAdd" class="drawerdetails-action">
+    <form class="drawerdetails-form">
+
+        <div class="col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+                    <div class="editor-label">
+                        <label data-localize="AffectedUser"></label>
+                    </div>
+                    <div class="editor-field">
+                        <input data-control="userPicker" data-bind="value: RequestedWorkItem" data-control-bind="RequestedWorkItem" data-control-itemtype="Incident">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="Alternatecontactmethod"></label>
+                    </div>
+                    <div class="editor-field">
+                        <input id="ContactMethod" data-bind="value: ContactMethod" class="k-textbox" type="text" name="ContactMethod" onchange="SetStateFlag('ObjectState', 'Dirty')">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+                    <div class="editor-label">
+                        <label data-localize="Classification"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Classification" data-control-enumid="1f77f0ce-9e43-340f-1fd5-b11cc36c9cba"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="Source"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Source" data-control-enumid="5d59071e-69b3-7ef4-6dee-aacc5b36d898"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div>
+                <div class="editor-label">
+                    <label data-localize="Title"></label> <span id="TitleVal" style="display:none" class="error">*</span>
+                </div>
+                <div class="editor-field">
+                    <input class="k-textbox" data-bind="value: Title" type="text">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div>
+                <div class="editor-label">
+                    <label data-localize="Description"></label>
+                </div>
+                <div class="editor-field">
+                    <textarea data-bind="value: Description" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+                    <div class="editor-label">
+                        <label data-localize="Impact"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Impact" data-control-enumid="11756265-f18e-e090-eed2-3aa923a4C872"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="Urgency"></label>
+
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Urgency" data-control-enumid="04b28bfb-8898-9af3-009b-979e58837852"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+                    <div class="editor-label">
+                        <label data-localize="SupportGroup"></label>
+
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="TierQueue" data-control-enumid="c3264527-a501-029f-6872-31300080b3bf"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="AssignedTo"></label>
+                    </div>
+                    <div class="editor-field">
+                        <input data-control="userPicker" data-bind="value: AssignedWorkItem" data-control-bind="AssignedWorkItem" data-control-itemtype="Incident">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

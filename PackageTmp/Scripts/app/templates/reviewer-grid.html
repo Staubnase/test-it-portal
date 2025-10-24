@@ -1,0 +1,83 @@
+﻿<div>
+    <div class="reviewer-edit row">
+        <div data-show="securityCheck_addOrEdit" class="col-md-6 relateditems-grid">
+            <input data-control="userPickerOld" data-control-itemtype="reviewer" class="search-combo" />
+        </div>
+        <div data-show="userIsPicked" class="col-md-6">
+
+            <label class="editor-checkbox checkbox">
+                <input data-bind="checked: Veto" type="checkbox" />
+                <span class="checkbox-label" data-localize="HasVeto"></span>
+            </label>
+
+            <label class="editor-checkbox checkbox"><input data-bind="checked: MustVote" type="checkbox" /> <span data-localize="MustVote" class="checkbox-label"></span></label>
+            <button class="k-button hideIfCannotAddReviewerReviewActivity" data-hide="userInEdit" data-enabled="userIsPicked" data-click="add" type="button" data-localize="Add"></button>
+            <button class="k-button " data-show="userInEdit" data-click="save" type="button" data-localize="Save"></button>
+            <button class="k-button" data-show="userInEdit" data-click="cancel" type="button" data-localize="Cancel"></button>
+        </div>
+    </div>
+    <div class="reviewer-controls hidden-xs">
+        <!--reverse order so we can float them right-->
+        <button class="k-button hideIfCannotRejectReviewActivity" data-enabled="userIsSelected" data-click="reject" type="button" data-localize="Reject"></button>
+        <button class="k-button hideIfCannotApproveReviewActivity" data-enabled="userIsSelected" data-click="approve" type="button" data-localize="Approve"></button>
+        <button class="k-button hideIfCannotDeleteReviewerReviewActivity" data-enabled="userIsSelected" data-click="remove" type="button" data-localize="Remove"></button>
+        <button class="k-button hideIfCannotEditReviewerReviewActivity" data-hide="userInEdit" data-enabled="userIsSelected" data-click="edit" type="button" data-localize="Edit"></button>
+    </div>
+  
+    <div class="hidden-xs">
+        <table data-kendo-control="grid">
+
+            <tbody></tbody>
+        </table>
+    </div>
+    <div>
+        <div data-bind="templateResources:'resources'" class="hide">
+            <div data-template-name="mobileGridTemplate" class="gridcard gridcard--activity">
+                <div class="checkbox gridcard__checkbox">
+                    <input type="checkbox" id="selected_#:(User.Id) ? User.Id : User.BaseId#">
+                    <label for="selected_#:(User.Id) ? User.Id : User.BaseId#"></label>
+                </div>
+                <div class="grid--reviewer">#:User.Name#</div>
+                <div class="gridcard__detailblock">
+                    #if (Veto==true) { # #: localization.HasVeto # # }# 
+                    #if (Veto==true && MustVote==true) { # &middot # } #
+                    #if (MustVote==true) { # #: localization.MustVote # # } #
+                </div>
+                <div class="gridcard__detailblock">
+                    <p>#: localization.Decision #: #:(!_.isNull(Decision.Name)) ? Decision.Name : ''#</p>
+                    <p>#: localization.DecisionDate #: #:(DecisionDate) ? kendo.toString(new Date(DecisionDate), 'g'):''#</p>
+                    <p>#: localization.VotedBy #: #:(!_.isNull(VotedBy.Name)) ? VotedBy.Name : ''#</p>
+                </div>
+                <div class="gridcard__detailblock">
+                    <p>#: localization.Comment #: #:(!_.isNull(Comments)) ? Comments : ''#</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <span class="review-header-list visible-xs" data-localize="CurrentReviewers"></span>
+            <div data-kendo-control="gridMobile" class="mobilegrid"></div>
+        </div>
+    </div>
+    <div class="reviewer-controls">
+        <!--reverse order so we can float them right-->
+        <button class="k-button hideIfCannotRejectReviewActivity" data-enabled="gridNotEmpty" data-click="rejectAll" type="button" data-localize="RejectAll"></button>
+        <button class="k-button hideIfCannotApproveReviewActivity" data-enabled="gridNotEmpty" data-click="approveAll" type="button" data-localize="ApproveAll"></button>
+    </div>
+    <div>
+        <!--this will pe localize soon-->
+        <p class="review-default-detail gridcard__detailblock visible-xs" data-localize="SelectReviewersToPerformActions"></p>
+        <div class="mobile-reviewer-controls visible-xs hide">
+            <span class="review-display-text" data-localize="MultiEditFormTitle"></span>
+            <div class="review-dropdown">
+                <i class="fa fa-caret-down"></i>
+            </div>
+            <ul class="hide">
+                <li><a class="k-button hideIfCannotEditReviewerReviewActivity" data-hide="userInEdit" data-enabled="userIsSelected" data-role="button" data-click="edit" data-localize="Edit"></a></li>
+                <li><a class="k-button hideIfCannotDeleteReviewerReviewActivity" data-enabled="userIsSelected" data-role="button" data-click="remove" data-localize="Remove"></a></li>
+                <li><a class="k-button hideIfCannotApproveReviewActivity" data-enabled="userIsSelected" data-role="button" data-click="approve" data-localize="Approve"></a></li>
+                <li><a class="k-button hideIfCannotRejectReviewActivity" data-enabled="userIsSelected" data-role="button" data-click="reject" data-localize="Reject"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+

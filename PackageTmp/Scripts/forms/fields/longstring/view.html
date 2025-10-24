@@ -1,0 +1,27 @@
+﻿<div class="form-group <%= visible %> cs-form__longstring cs-form__longstring--<%= PropertyName %>" style="">
+
+    <label class="control-label cs-form__longstring--label" for="<%= PropertyName %>" data-localize="<%= PropertyDisplayName %>">
+        <span><% if ( Required ){ %> <%= '(' + localization.Required + ')' %><% } %></span>
+    </label>
+    <textarea name="<%= PropertyName %>"
+              class="k-textbox form-control input-sm cs-form__longstring--textarea"
+              rows="<%= Rows %>"
+              data-bind="value: <%= PropertyName %><% if ( LimitLength ){ %>, events : { blur: view.longStringController.CheckLength }<% } %>"
+        <% if ( LimitLength ){ %>
+        maxlength="<%= MaxLength %>"
+        <% } %>
+
+        <% if ( Disabled ){ %>
+        readonly
+        <% } %>
+
+        <% if ( Required ){ %>
+        required
+        <% } %>
+
+        >
+    </textarea>
+    <% if ( LimitLength ){ %>
+    <p class="help-block validation-summary-errors cs-form__longstring--errors" style="display: none;"><%= localization.MaxLengthError.replace("{0}", MaxLength) %></p>
+    <% } %>
+</div>

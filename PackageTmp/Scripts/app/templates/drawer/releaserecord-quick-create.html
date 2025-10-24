@@ -1,0 +1,111 @@
+﻿<!-- Release Record Quick Add-->
+<div data-template="rrQuickAdd" class="drawerdetails-action">
+    <form class="drawerdetails-form">
+        <div class="col-sm-12 col-md-12">
+            <div>
+                <div class="editor-label">
+                    <label data-localize="Title"></label> <span id="TitleVal" style="display:none" class="error">*</span>
+                </div>
+                <div class="editor-field">
+                    <input class="k-textbox" data-bind="value: Title" type="text">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12">
+            <div>
+                <div class="editor-label">
+                    <label data-localize="Description"></label>
+                </div>
+                <div class="editor-field">
+                    <textarea data-bind="value: Description" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+                    <div class="editor-label">
+                        <label data-localize="Type"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Type" data-control-enumid="20497563-7723-D3D2-2C84-0CB70D7F6ADC"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="Category"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Category" data-control-enumid="C8416263-3DF1-6170-E857-FC7D0918A65E"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-12 col-md-12">
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+
+
+                    <div class="editor-label">
+                        <label data-localize="Impact"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Impact" data-control-enumid="510E6308-9637-DAC7-5814-92465703270A"></div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="Risk"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Risk" data-control-enumid="CCF92254-A404-3ED2-BE71-A9B5EEA4F19B"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-sm-12 col-md-12">
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+                    <div class="editor-label">
+                        <label data-localize="Priority"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Priority" data-control-enumid="A384FEEB-0FF6-3971-FAAC-9710C250B802"></div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="AssignedTo"></label>
+                    </div>
+                    <div class="editor-field">
+                        <input data-control="userPicker" data-bind="value: AssignedWorkItem" data-control-bind="AssignedWorkItem" data-control-itemtype="ReleaseRecord">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</div>

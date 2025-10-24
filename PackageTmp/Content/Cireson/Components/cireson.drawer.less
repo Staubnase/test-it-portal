@@ -1,0 +1,1258 @@
+/******************************************************************************************
+Application Drawer - Custom Styles
+*******************************************************************************************/
+
+.drawer {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    background-color: @v-color-gray-darker;
+    label {
+        color: white;
+        font-weight: normal;
+    }
+}
+
+.drawer-padding {
+    margin-bottom: @drawer-closed-height + 40; // make room for the drawer
+}
+
+// blanket class for items that are clickable
+.drawer-button {
+    cursor: pointer;
+}
+
+.drawertaskbar {
+    font-size: @font-size-meta-text;
+    color: @text-color-body-reverse;
+    margin-right: 0;
+    height: @drawer-closed-height;
+    text-align: center;
+
+    .fa-lg {
+        position: relative;
+        top: -1px;
+        font-size: @font-size-icon-large-screen;
+    }
+
+    .nav-icon-color {
+        color: @v-color-link-hover;
+    }
+    // blame bootstrap and tooltip not working on disabled fields for these three class
+    .tooltip-container {
+        position: absolute;
+        width: 100%;
+        height: 36px; //set to the height of the li element it is inside of
+    }
+
+    .tooltip-container-drawer-button {
+        position: absolute;
+        width: 70px;
+        height: @drawer-closed-height;
+    }
+
+    .tooltip-container-hidden {
+        z-index: -1;
+    }
+
+    .drawertaskbar-newbutton {
+        float: left;
+        width: 50px; //extra width needed for firefox
+        height: @drawer-closed-height;
+        padding: 0 15px;
+        border-right: 1px solid @v-color-black;
+        background-color: inherit;
+        .transition(all .15s);
+
+        &:hover {
+            color: @text-color-body-reverse;
+            background-color: @v-color-link-hover;
+
+            .nav-icon-color {
+                color: @text-color-body-reverse;
+            }
+        }
+
+        @media @large-screen-only {
+            width: 80px;
+            white-space: nowrap;
+            padding: 0 5px;
+            background-color: transparent;
+            text-align: center;
+        }
+    }
+
+    .drawertaskbar-newbutton-img {
+        float: left;
+        padding-top: 15px;
+
+        @media @large-screen-only {
+            padding-top: 0;
+            float: none;
+            display: inline-block;
+        }
+    }
+
+    .drawertaskbar-newbutton-text {
+        color: @text-color-body-reverse;
+        text-transform: uppercase;
+        margin-left: 8px;
+        //override for this in FF less
+        line-height: @drawer-closed-height;
+
+        @media @small-and-medium-screen-only {
+            display: none;
+        }
+    }
+
+    .drawertaskbar-commands {
+        width: 90%;
+        margin: 0 auto;
+
+        @media @large-screen-only {
+            width: 100%;
+            padding-left: 80px;
+        }
+
+        .drawercommands-commands-contextual {
+        }
+
+        .drawer-task-menu {
+            font-family: @font-family-sans;
+            text-align: left;
+            bottom: @drawer-closed-height - 14;
+            padding: 0;
+            border-radius: @default-border-radius @default-border-radius 0 0 !important;
+
+            & li {
+                cursor: pointer;
+
+                &[disabled] {
+                    cursor: default;
+
+                    & a {
+                        color: @drawer-taskbar-disable-color;
+                        pointer-events: none;
+                    }
+                }
+
+                & a {
+                    margin: 0;
+                    padding: 8px 15px !important;
+                }
+            }
+        }
+
+        .divider-left {
+            &:before {
+                content: "";
+                border-left: 1px solid @v-color-gray-darkest;
+                position: absolute;
+                height: @drawer-closed-height;
+
+                @media @small-and-medium-screen-only {
+                    height: @drawer-closed-height-small-screen;
+                }
+            }
+        }
+
+        .btn-taskbar {
+            background-color: inherit;
+            color: @drawer-taskbar-default-color;
+            text-decoration: none;
+            border: none;
+            width: 70px;
+            padding: 3px;
+
+            &:hover,
+            &:focus {
+                background-color: @v-color-black;
+                color: @drawer-taskbar-active-color;
+            }
+
+            &:hover {
+                /*.opacity(.8);*/
+                background-color: @v-color-black;
+                color: @drawer-taskbar-active-color;
+            }
+
+            &[disabled] {
+                background-color: transparent;
+                -ms-opacity: 0.3;
+                opacity: 0.3;
+            }
+
+            div {
+                text-transform: uppercase;
+                padding: 10px 0;
+            }
+        }
+
+        .btn-link {
+            font-size: 1em;
+            color: @drawer-taskbar-default-color;
+            text-decoration: none;
+            .border-radius (0);
+            border: none;
+            width: 70px;
+            height: @drawer-closed-height;
+            line-height: @drawer-closed-height;
+            padding: 0;
+
+            & .fa {
+                font-size: @font-size-body-text;
+                position: static;
+                margin-right: 10px;
+                color: @v-color-link-hover;
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: @drawer-taskbar-active-color;
+                background-color: @v-color-link-hover;
+
+                & .fa {
+                    color: @text-color-body-reverse;
+                }
+
+                @media @small-and-medium-screen-only {
+                    color: inherit;
+                    background-color: inherit;
+                }
+            }
+
+            &[disabled] {
+                background-color: transparent;
+                -ms-opacity: @button-disabled-opacity;
+                opacity: @button-disabled-opacity;
+            }
+
+            @media @large-screen-only {
+                width: auto;
+                padding: 0 10px 0 10px;
+                border: 0 !important;
+                height: @drawer-closed-height;
+
+                &:hover {
+                    width: auto;
+                    padding: 0 10px 0 10px;
+                    border: 0 !important;
+                }
+            }
+
+            div {
+                font-size: @font-size-meta-text;
+                text-transform: uppercase;
+                padding: 10px 0;
+                color: @text-color-body-reverse;
+
+                @media @large-screen-only {
+                    display: inline-block;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+.pinned_subnav {
+    .drawertaskbar-newbutton {
+        width: @side-nav-small-width;
+    }
+
+    .drawertaskbar-newbutton-text {
+        display: none;
+    }
+
+    .drawertaskbar-newbutton-img {
+        margin-top: @drawer-closed-height / 3;
+    }
+}
+
+.drawer-showmenu {
+
+    .drawer-drawermenu {
+        bottom: -(@drawer-closed-height); //position reative to parent
+        .transition(all .15s);
+
+        @media @small-and-medium-screen-only {
+            top: 0;
+        }
+    }
+
+    @media @small-and-medium-screen-only {
+        position:fixed;
+	    top:0;
+    }
+}
+
+.drawer-drawermenu {
+    font-size: @font-size-body-text;
+    color: @text-color-body-reverse;
+    background-color: @drawer-background-color;
+    z-index: 11000; //11000 to push it over enum picker drop down (which is in 10000 range)
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: @drawer-open-height;
+    bottom: -(@drawer-closed-height + @drawer-open-height);
+    .transition(all .3s); //this is for close animation
+    .ci, .fa {
+        font-size: @font-size-drawer-nav-icon-large-screen;
+    }
+
+    .k-textbox,
+    textarea,
+    input,
+    .k-widget,
+    .k-dropdown-wrap {
+        border-style: none !important;
+    }
+
+    .k-header .k-textbox {
+        border-style: solid !important;
+    }
+
+    .drawermenu-title {
+        padding: 20px 20px 10px;
+        text-transform: uppercase;
+        color: @text-color-body-reverse-light;
+    }
+
+    .drawermenu-closebutton {
+        border: 0;
+        height: 32px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 32px;
+        overflow: hidden;
+
+        div {
+            position: relative;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &:hover {
+                left: -64px;
+            }
+
+            &:active {
+                left: -192px;
+            }
+        }
+
+        @media @medium-screen-only {
+            top: 10px !important;
+        }
+    }
+
+    .drawermenu-menuandbutton {
+        // min-width: 1024px;
+        width: 100%;
+        height: @drawer-open-height - 95;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .drawermenu-menuarea {
+        // width: 1024px; // this get resized as needed
+        // height: 260px;
+    }
+
+    .drawermenu-menu {
+        float: left;
+    }
+
+    .drawermenu-tile {
+        float: left;
+        display: none;
+        min-width: @drawer-tile-width !important; // set to min-width rather than width to allow them to grow slightly if needed
+        .k-ie & {
+            @media @large-screen-only {//conflict on windows phone.
+                width: @drawer-tile-width !important;
+            }
+        }
+        height: @drawer-open-height - 100;
+        padding-top: 8px;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        text-transform: none;
+
+        &:first-child {
+            display: inherit;
+        }
+
+        &.drawermenu-show {
+            display: inherit;
+            width: 225px;
+        }
+
+        ul {
+            height: @drawer-open-height - 110;
+            background-color: transparent;
+            border-right: 1px solid @drawer-hover-background-color;
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+
+            li {
+                position: relative;
+                background-color: transparent;
+                border-left: 2px solid transparent;
+                padding: 10px 15px 10px 0 !important;
+                .transition(all .15s);
+
+                i,
+                img {
+                    position: absolute;
+                    left: @main-content-margin-small-screen + 5px;
+                    top: 50%;
+                    width: 34px;
+                    font-size: @font-size-drawer-nav-icon-large-screen;
+                    vertical-align: middle;
+                    -webkit-transform: translateY(-50%);
+                    -ms-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                }
+
+                .drawermenu-tile-link {
+                    width: auto;
+                    position: relative;
+                    display: inline-block;
+                    padding: 0 15px 0 0 !important;
+                    margin-left: 55px;
+                }
+
+                &.drawermenu-selected {
+                    background-color: @drawer-hover-background-color;
+                    border-left: 2px solid @v-color-white;
+
+                    &.drawermenu-hover {
+                    }
+                }
+
+                &.drawermenu-hover,
+                &:hover {
+                    background-color: @v-color-link-hover;
+                }
+            }
+        }
+        //style the flyout menu
+        .k-animation-container {
+            margin-top: 0px;
+
+            .k-group {
+                border-width: 0px;
+                border-right: 1px solid @default-border-color;
+                .box-shadow(0px 0px 0px 0px fade(@v-color-black, 100%));
+                margin-left: 1px;
+            }
+        }
+    }
+
+    .drawermenu-details {
+        float: left;
+        padding: 10px 0 0 20px;
+        min-width: 320px;
+        max-width: 600px;
+        position: relative;
+        height: @drawer-open-height - 175;
+    }
+
+    .drawerdetails-details-box {
+        font-size: @font-size-body-text;
+        text-transform: capitalize;
+        max-width: 320px; //this prevents desc going below nin smaller resolutions
+        @media @large-screen-only {
+            max-width: 100%;
+        }
+    }
+
+    .drawerdetails-actions-box {
+        /*width: 355px;*/
+        .drawerdetails-loading {
+        }
+
+        .drawerdetails-heading {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        td.templatename {
+            padding: 12px 15px;
+            cursor: pointer;
+
+            strong {
+                display: block;
+                margin-bottom: 6px;
+            }
+        }
+
+        .k-state-selected {
+            .templatename {
+                background-color: @v-color-link;
+
+                div {
+                    color: @text-color-body-reverse;
+                }
+            }
+        }
+
+        .drawerdetails-action {
+            height: @drawer-open-height - 200; //todo: this was making the quick create template scrollable when it comes to desktop or tablet size
+            overflow-y: auto; //need this to scroll so we see the create button
+            padding: 15px 0 30px;
+
+            @media @small-and-medium-screen-only {
+                // NOTE_Drawerdetails_Action_Height
+                // height: ~"calc(100vh - @drawer-header-height-small-screen - @drawer-subheader-height-small-screen - @drawer-footer-height-small-screen)";
+                // unfortunately Less cannot process calc without being escaped, which does not work with variables
+                // will need to update hardcoded value below (per math shown above) when variable values are updated
+                height: ~"calc(100vh - 161px)" !important;
+            }
+
+            @media @medium-screen-only {
+                .drawerdetails-form {
+                    .col-md-12 div:first-child {
+                        .editor-field {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .drawerdetails-fromtemplate {
+            .k-widget {
+                height: auto !important;
+            }
+
+            .k-grid {
+                margin: 0;
+                padding: 10px 0 0;
+                box-sizing: border-box;
+
+                @media @small-and-medium-screen-only {
+                    padding: 10px 0 0;
+                }
+
+                .k-grid-content {
+                    margin-top: 10px;
+
+                    @media @small-and-medium-screen-only {
+                        // NOTE_Fromtemplate_Height_Small
+                        // height: ~"calc(100vh - 120px - @drawer-header-height-small-screen - @drawer-subheader-height-small-screen - @drawer-footer-height-small-screen)";
+                        // unfortunately Less cannot process calc without being escaped, which does not work with variables
+                        // will need to update hardcoded value below (per math shown above) when variable values are updated
+                        height: ~"calc(100vh - 286px)" !important;
+                        padding-bottom: @drawer-header-height-small-screen + @drawer-subheader-height-small-screen;
+                    }
+
+                    @media @large-screen-only {
+                        // NOTE_Fromtemplate_Height_Large
+                        // height: ~"calc(@drawer-open-height - 290px)";
+                        // unfortunately Less cannot process calc without being escaped, which does not work with variables
+                        // will need to update hardcoded value below (per math shown above) when variable values are updated
+                        height: ~"calc(550px - 290px)" !important;
+                    }
+                }
+
+                .k-header.k-grid-toolbar {
+                    padding: 5px 15px 0;
+
+                    @media @small-and-medium-screen-only {
+                        padding: 0 (@main-content-margin-small-screen + 5px);
+                    }
+                }
+            }
+        }
+    }
+
+    .drawermenu-createbutton {
+        border: 0;
+        position: relative;
+        right: 0;
+        bottom: -30px;
+        display: none;
+        // &:hover {
+        //     img {
+        //         left: -64px;
+        //     }
+        // }
+        // img {
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     &:hover {
+        //         left: -64px;
+        //     }
+        //     &:active {
+        //         left: -192px;
+        //     }
+        // }
+        .drawertask-cancel-button {
+            background-color: fade(@v-color-white, 15%);
+        }
+    }
+
+    .drawerdetails-form {
+        padding-right: 20px;
+
+        @media @large-screen-only {
+            .col-sm-12 {
+                margin-bottom: 15px;
+            }
+        }
+
+        .col-md-12,
+        .col-md-6,
+        .col-xs-12,
+        .col-xs-6,
+        .col-sm-12,
+        .col-sm-6 {
+            padding-left: 0;
+            padding-right: 0;
+            margin-top: 0;
+            // @media @large-screen-only {
+            //     margin-top: 5px;
+            // }
+        }
+
+        input,
+        textarea,
+        select,
+        .k-input,
+        .k-autocomplete,
+        .k-picker-wrap,
+        .k-numeric-wrap,
+        .k-dropdown-wrap,
+        .k-select,
+        .k-textbox {
+            border: none;
+            // border-radius: @default-border-radius;
+        }
+        // input,
+        // select,
+        // .k-input,
+        // .k-autocomplete,
+        // .k-picker-wrap,
+        // .k-numeric-wrap,
+        // .k-dropdown-wrap,
+        // .k-select,
+        // .k-textbox {
+        //     height: @input-height-large-screen;
+        //     line-height: @input-height-large-screen;
+        //     @media @small-and-medium-screen-only {
+        //         height: @input-height-small-screen;
+        //         line-height: @input-height-small-screen;
+        //     }
+        // }
+        input[role=combobox] {
+            // margin-top: 0;
+            @media @small-and-medium-screen-only {
+                height: @input-height-small-screen;
+            }
+
+            @media @large-screen-only {
+                height: @input-height-large-screen;
+            }
+        }
+        // input[role=textbox] {
+        //     margin-top: 0;
+        // }
+        .editor-label > label {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .k-custom-visible {
+            box-shadow: 0 4px 5px fade(@v-color-gray-darkest,80%);
+            border-radius: 0 0 @default-border-radius @default-border-radius;
+
+            @media @small-and-medium-screen-only {
+                max-height: 5.8rem !important;
+            }
+        }
+        //disable resizing of text area TFS 3573
+        textarea {
+            resize: none;
+            padding-top: 0;
+            padding-bottom: 0;
+
+            @media @small-and-medium-screen-only {
+                height: @input-height-small-screen;
+                min-height: @input-height-small-screen;
+            }
+
+            @media @large-screen-only {
+                height: @input-height-large-screen;
+            }
+        }
+        //for ie9
+        .k-ie.k-ie9 & {
+            //messed up in ie9 and this should be important to force changes.
+            .k-widget {
+                background-color: @v-color-white !important;
+            }
+
+            .k-widget,
+            .k-dropdown-wrap {
+                border-radius: 0 !important;
+                width: 100% !important;
+                /*color: @v-color-base !important;*/
+            }
+        }
+    }
+
+    .drawermenu-select-type {
+        display: none;
+    }
+}
+
+.drawer-form {
+    width: 100%;
+
+    & .drawer-fields {
+
+        & .drawer-button[data-bind*=Cancel] {
+            @media @small-and-medium-screen-only {
+                width: 50%;
+                left: auto;
+            }
+        }
+
+        & .drawer-button[data-bind*=Submit] {
+            margin-left: 0;
+
+            @media @small-and-medium-screen-only {
+                width: 50%;
+                right: auto;
+                opacity: 1;
+            }
+        }
+
+        & .drawer-button[data-bind*=Cancel],
+        & .drawer-button[data-bind*=Submit] {
+            span {
+                width: 100%;
+            }
+        }
+
+        & .drawer-button {
+            bottom: -5px;
+
+            @media @small-and-medium-screen-only {
+                 margin: 0;
+                 bottom: 35px;
+            }
+        }
+
+
+        @media @small-and-medium-screen-only {
+            padding: 0 @main-content-margin-small-screen;
+            height: 100%;
+            position: fixed;
+            top: 35px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    & .drawer-button {
+        position: relative;
+        float: right;
+        display: inline-block;
+        margin-left: 15px;
+    }
+
+    & .section-header {
+        color: @text-color-body-reverse-light;
+        text-transform: none;
+        border-bottom: 1px solid @default-border-color;
+        font-size: @font-size-body-text;
+        padding: 10px 0;
+        margin-top: 0;
+    }
+
+    & .drawer-button-submit.disabled {
+        -ms-opacity: 0.5;
+        opacity: 0.5;
+        pointer-events: none;
+        cursor: none;
+
+        span {
+            @media @small-and-medium-screen-only {
+                opacity: .5;
+            }
+        }
+    }
+}
+
+// media queries
+@media @small-and-medium-screen-only {
+
+    .drawer-open {
+        #main_wrapper {
+            position: fixed;
+            pointer-events: none;
+        }
+    }
+    //this for new dashboard
+    .new-dashboard .drawertaskbar {
+        bottom: 29px;
+    }
+
+    .drawertaskbar {
+        height: @drawer-closed-height-small-screen;
+        margin: 0;
+
+        .drawertaskbar-newbutton {
+            height: auto;
+            width: auto;
+            padding: 0;
+            background-color: @v-color-gray-darker;
+        }
+
+        .drawertaskbar-newbutton-img {
+            height: @drawer-closed-height-small-screen;
+            width: @side-nav-offscreen-margin;
+            float: none;
+            padding: 0;
+            margin: 0;
+
+            .fa-lg {
+                font-size: @font-size-icon-small-screen - 1px;
+                line-height: @drawer-closed-height-small-screen;
+                top: 0;
+            }
+        }
+
+        .drawertaskbar-commands {
+            text-align: left;
+
+            .btn-taskbar {
+                width: @drawer-button-width-small-screen;
+                height: @drawer-closed-height-small-screen;
+
+                div {
+                    display: none;
+                }
+            }
+
+            .btn-link {
+                line-height: @drawer-closed-height-small-screen;
+                height: @drawer-closed-height-small-screen;
+                width: @drawer-button-width-small-screen;
+                vertical-align: initial;
+
+                div {
+                    display: none;
+                }
+
+                .fa {
+                    margin-right: 0;
+                    position: relative;
+                    top: -1px;
+                }
+            }
+
+            .drawer-task-menu {
+                position: fixed !important;
+                left: 0;
+                right: 0;
+                bottom: @drawer-closed-height-small-screen;
+                padding: 10px 0;
+                border-radius: 0 !important;
+                .box-shadow(0 -4px 10px fade(@v-color-gray-darker,70%));
+
+                li {
+                    cursor: pointer;
+
+                    &[disabled] {
+                        cursor: default;
+
+                        a {
+                            pointer-events: none;
+                            .opacity(.3);
+                            color: @text-color-body-reverse !important;
+                        }
+                    }
+
+                    a {
+                        padding: 5px @main-content-margin-small-screen;
+                        color: @text-color-body-reverse !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//tablet view apply the same in desktop view and changing the scope into mobile size.
+//mobile was fine in this changes.
+@media @small-and-medium-screen-only {
+    .drawer-drawermenu {
+        position: fixed;
+        top: 100%;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        height: auto;
+        .transition(all .3s); // this is for close animation
+        .drawermenu-title {
+            height: @drawer-header-height-small-screen;
+            line-height: @drawer-header-height-small-screen;
+            padding: 0 @main-content-margin-small-screen + 5px;
+        }
+
+        .drawermenu-closebutton {
+            text-align: right;
+            top: 0;
+            height: @drawer-header-height-small-screen;
+
+            .fa {
+                line-height: @drawer-header-height-small-screen;
+            }
+        }
+
+        .drawermenu-menuandbutton {
+            height: auto;
+        }
+
+        .drawermenu-menuarea {
+            width: 100% !important;
+            height: 100%;
+        }
+
+        .drawermenu-menu {
+            width: 100%;
+        }
+
+        .drawer-menu-transition:not(:first-child) {
+            -webkit-transform: translateX(0) !important;
+            -ms-transform: translateX(0) !important;
+            transform: translateX(0) !important;
+            .transition(all .3s);
+        }
+
+        .drawermenu-tile, .drawermenu-details {
+            float: none;
+            position: absolute;
+            top: @drawer-header-height-small-screen;
+            // NOTE_Drawermenu_Tile_Height
+            // height: ~"calc(100vh - @drawer-header-height-small-screen - @drawer-subheader-height-small-screen)";
+            // unfortunately Less cannot process calc without being escaped, which does not work with variables
+            // will need to update hardcoded value below (per math shown above) when variable values are updated
+            height: ~"calc(100% - 90px)";
+            width: 100% !important;
+            padding-top: 0;
+            background-color: @drawer-background-color;
+
+            &:not(:first-child):not(.drawer-form) {
+                -webkit-transform: translateX(100%);
+                -ms-transform: translateX(100%);
+                transform: translateX(100%);
+                .transition(all .3s);
+                right: 0;
+                max-width: 800px;
+            }
+        }
+
+        .drawermenu-tile {
+
+            &:first-child {
+                .drawermenu-select-type {
+                    padding-left: @main-content-margin-small-screen + 5px !important;
+                    background: none;
+
+                    a {
+                        color: @text-color-body-reverse-light;
+                    }
+                }
+            }
+
+            &.drawermenu-show {
+                display: inherit;
+                width: 100%;
+            }
+
+
+            ul {
+                height: auto;
+                border: none;
+                padding-bottom: 20px;
+
+                li {
+                    padding: 0 (@main-content-margin-small-screen + 5px) !important;
+                    line-height: @drawer-subheader-height-small-screen;
+
+                    i,
+                    img {
+                        width: @font-size-drawer-nav-icon-small-screen;
+                        font-size: @font-size-drawer-nav-icon-small-screen;
+                        text-align: center;
+                    }
+
+                    &.drawermenu-select-type {
+                        background-color: @btn-default-color;
+                        margin: 0 0 5px;
+                        padding-left: 50px + @main-content-margin-small-screen !important;
+
+                        > i {
+                            color: @text-color-body-reverse;
+                        }
+
+                        > a {
+                            color: @text-color-body-reverse;
+                            text-decoration: none;
+                        }
+                    }
+
+                    .drawermenu-tile-link {
+                        width: 100%;
+                        padding: 0 0 0 45px !important;
+                        margin: 0;
+                    }
+
+                    &.drawermenu-selected {
+                        background-color: @v-color-black;
+                        border-left: none;
+                    }
+
+                    &.drawermenu-hover,
+                    &:hover {
+                        background-color: @v-color-black;
+                    }
+                }
+            }
+            //style the flyout menu
+            .k-animation-container {
+                margin-top: 0px;
+
+                .k-group {
+                    border-width: 0px;
+                    border-right: 1px solid @default-border-color;
+                    .box-shadow(0px 0px 0px 0px fade(@v-color-black, 100%));
+                    margin-left: 1px;
+                }
+            }
+        }
+
+        .drawermenu-details {
+            padding: 0;
+
+            .drawermenu-select-type {
+                position: relative;
+                line-height: @drawer-subheader-height-small-screen;
+                padding: 0 (@main-content-margin-small-screen + 5px) 0 (50px + @main-content-margin-small-screen);
+                background-color: @btn-default-color;
+
+                > i {
+                    color: @text-color-body-reverse;
+                    position: absolute;
+                    left: @main-content-margin-small-screen + 5px;
+                    top: 50%;
+                    width: 34px;
+                    font-size: 23px;
+                    vertical-align: middle;
+                    -webkit-transform: translateY(-50%);
+                    -ms-transform: translateY(-50%);
+                    transform: translateY(-50%);
+                }
+
+                > a {
+                    color: @text-color-body-reverse;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .drawerdetails-actions-box {
+            width: auto !important;
+            padding: 0;
+
+            .drawerdetails-action {
+                padding-right: (@main-content-margin-small-screen + 5px);
+                padding-left: (@main-content-margin-small-screen + 5px);
+                padding-bottom: @drawer-header-height-small-screen + @drawer-subheader-height-small-screen;
+            }
+
+            .drawerdetails-heading {
+                padding: 15px (@main-content-margin-small-screen + 5px) 0;
+            }
+            //add cursor to template selection
+            td.templatename {
+                padding: 10px (@main-content-margin-small-screen + 5px);
+                cursor: pointer;
+
+                strong {
+                    font-size: @font-size-body-text;
+                    font-weight: normal;
+                }
+
+                div {
+                    .meta-text();
+                }
+            }
+            // .k-grid {
+            // margin-right: 20px;
+            // height: 100% !important;
+            // }
+            .k-widget .km-scroll-wrapper {
+                position: relative;
+                width: 100%;
+                overflow: auto !important;
+                zoom: 1;
+            }
+
+            .k-grid-content {
+                margin-top: 20px;
+                height: 50vh !important;
+
+                tbody:before {
+                    content: "";
+                }
+            }
+        }
+
+        .drawermenu-createbutton {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            height: @drawer-footer-height-small-screen;
+            line-height: @drawer-footer-height-small-screen;
+            padding: 0 (@main-content-margin-small-screen + 5px);
+            background: @v-color-gray-light;
+
+            .btn {
+                width: 100%;
+                position: relative;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+        }
+
+        .drawermenu-createbutton-from-template {
+            border: 0;
+            position: relative;
+            display: block;
+            bottom: 0; // this was already changes before for some reason it was rollback.
+            color: @v-color-black;
+            margin-right: 35px;
+
+            &:hover {
+                img {
+                    left: -64px;
+                }
+            }
+        }
+
+        .drawerdetails-form {
+            padding-right: 0;
+
+            .padleft10 {
+                padding-left: 0;
+            }
+
+            .editor-field {
+                margin-bottom: 15px;
+
+                > span {
+
+                    i {
+                        font-size: @font-size-icon-small-screen;
+                        color: @v-color-link;
+                    }
+                }
+            }
+
+            input, select, textarea {
+                margin-bottom: 0;
+            }
+
+            .editor-label > label {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                text-transform: capitalize;
+                text-decoration: none;
+            }
+
+            .k-treeview .k-item {
+                padding: 0 10px;
+            }
+
+            .k-ext-treeview.k-treeview span.k-in {
+                padding: 5px 0;
+            }
+            //disable resizing of text area TFS 3573
+            textarea {
+                resize: none;
+            }
+        }
+    }
+
+    .drawermenu-select-type {
+        display: block !important;
+    }
+}
+
+// START: This will be used for sliding drawer
+
+.header_slide_transition {
+    top: @navbar-height-large-screen !important;
+    .transition(all .2s);
+
+    @media @small-and-medium-screen-only {
+        top: @navbar-height-small-screen !important;
+
+        .active-announcements & {
+            top: @navbar-height-small-screen + @announcements-collapsed-height !important;
+        }
+    }
+}
+
+
+
+.task_slide_transition {
+    -webkit-transform: translateY(@drawer-closed-height-small-screen * -1);
+    -ms-transform: translateY(@drawer-closed-height-small-screen * -1);
+    transform: translateY(@drawer-closed-height-small-screen * -1);
+    .transition(all .2s);
+}
+
+.slide-drawer-bottom-show {
+    @media @small-and-medium-screen-only {
+        bottom: 50px !important;
+    }
+}
+
+.slide-drawer-top-show {
+    @media @small-and-medium-screen-only {
+        top: @navbar-height-small-screen !important;
+    }
+}
+
+.slide-drawer-selected {
+    span {
+        color: @text-color-body-reverse !important;
+    }
+}
+
+
+// END: This will be used for sliding drawer

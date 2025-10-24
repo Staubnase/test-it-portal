@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="36px" viewBox="0 0 48 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>upload_to_cloud</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="v3--3" transform="translate(-600.000000, -385.000000)" fill="#DFDFDF" fill-rule="nonzero">
+            <g id="Group-15">
+                <g id="Group-14">
+                    <g id="Group" transform="translate(116.000000, 369.000000)">
+                        <g id="Group-2" transform="translate(484.000000, 16.000000)">
+                            <g id="upload_to_cloud">
+                                <path d="M24,0 C18,0 12.796876,3.1875 10,8.1875 C4.398438,9.1875 0,14 0,20 C0,26.601562 5.398438,32 12,32 L18,32 L18,28 L12,28 C7.601562,28 4,24.398438 4,20 C4,16 6.828126,12.789062 10.625,12.1875 L12.375,11.8125 L13.375,10.1875 C15.578126,6.390626 19.601562,4 24,4 C29.601562,4 34.421876,7.789062 35.625,13.1875 L36.1875,15.8125 L38.8125,16.1875 C41.8125,16.585938 43.8125,19.203126 43.8125,22 C43.8125,25.398438 41.210938,28 37.8125,28 L29.8125,28 L29.8125,32 L37.8125,32 C43.414062,32 47.8125,27.601562 47.8125,22 C48.015626,17 44.421876,12.789062 39.625,12.1875 C37.828126,5.1875 31.601562,0 24,0 Z M24,11.375 L16,22 L22,22 L22,36 L26,36 L26,22 L32,22 L24,11.375 Z" id="Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

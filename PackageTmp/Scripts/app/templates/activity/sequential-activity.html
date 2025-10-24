@@ -1,0 +1,21 @@
+﻿<div class="activity-item">
+    <div class="activity-item-header" style="display: block;" data-bind="attr: { data-activity-sequence: SequenceId }">
+        <span>
+            <span href="#" class="k-icon k-i-expand"></span>
+            <span><i class="ci ci-sequential-activity fa-lg"></i></span>
+            <span data-bind="visible: false"><i class="fa fa-share fa-lg text-warning"></i></span>
+            <span><i><img class='activity-item-status' src='/Content/Images/Activity Status/nullStatus.svg' /></i></span>
+            <span data-bind="attr: {class: HeaderCss}"><span data-bind="text: Id" style="font-weight:bold;"></span> - <span data-bind="text: Title"></span></span>
+            <span class="activity-item-header-actions">
+                <span data-bind="visible: ShowSkipIcon, attr: { title: IconTitle }" data-click="setSkip" class="padleft10"><i class="fa fa-share-square-o fa-lg"></i></span>
+                <span data-bind="visible: ShowUnskipIcon, attr: { title: IconTitle }" data-click="setSkip" class="padleft10"><i class="fa fa-share-square-o fa-lg fa-flip-horizontal"></i></span>
+                <span data-bind="visible: ShowReturnIcon, attr: { title: IconReturnTitle }" data-click="returnActivity" class="padleft10"><i class="fa fa-reply-all fa-lg"></i></span>
+            </span>
+        </span>
+    </div>
+    <div>
+
+    </div>
+    <div class="activity-item-children"></div>
+</div>
+ 

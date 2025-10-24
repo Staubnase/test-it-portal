@@ -1,0 +1,168 @@
+﻿{
+  "HardwareAssetStatus": {
+    "field": "HardwareAssetStatus",
+    "title": "Status",
+    "template": "#= (HardwareAssetStatus) ? HardwareAssetStatus : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "HardwareAssetType": {
+    "field": "HardwareAssetType",
+    "title": "Type",
+    "template": "#= (HardwareAssetType) ? HardwareAssetType : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "ObjectStatus": {
+    "field": "ObjectStatus",
+    "title": "Object Status",
+    "template": "#= (ObjectStatus) ? ObjectStatus : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "HardwareAssetHasVendor_DisplayName": {
+    "field": "HardwareAssetHasVendor_DisplayName",
+    "title": "Vendor Name",
+    "template": "#= (HardwareAssetHasVendor_DisplayName) ? HardwareAssetHasVendor_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "HardwareAssetHasOrganization_DisplayName": {
+    "field": "HardwareAssetHasOrganization_DisplayName",
+    "title": "Organization Name",
+    "template": "#= (HardwareAssetHasOrganization_DisplayName) ? HardwareAssetHasOrganization_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "HardwareAssetHasLocation_DisplayName": {
+    "field": "HardwareAssetHasLocation_DisplayName",
+    "title": "Location Name",
+    "template": "#= (HardwareAssetHasLocation_DisplayName) ? HardwareAssetHasLocation_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "HardwareAssetHasWarranty_DisplayName": {
+    "field": "HardwareAssetHasWarranty_DisplayName",
+    "title": "Warranty",
+    "template": "#= (HardwareAssetHasWarranty_DisplayName) ? HardwareAssetHasWarranty_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "HardwareAssetHasLease_DisplayName": {
+    "field": "HardwareAssetHasLease_DisplayName",
+    "title": "Lease",
+    "template": "#= (HardwareAssetHasLease_DisplayName) ? HardwareAssetHasLease_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'M/d/yyyy h:mm tt') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+   "HardwareAssetHasWarranty_WarrantyStartDate": {
+     "field": "HardwareAssetHasWarranty_WarrantyStartDate",
+     "title": "Warranty Start Date",
+     "template": "#= (HardwareAssetHasWarranty_WarrantyStartDate) ? kendo.toString(new Date(HardwareAssetHasWarranty_WarrantyStartDate), 'M/d/yyyy h:mm tt') : '' #",
+     "DataType": "date",
+     "hidden": false
+  },
+   "HardwareAssetHasWarranty_WarrantyEndDate": {
+     "field": "HardwareAssetHasWarranty_WarrantyEndDate",
+     "title": "Warranty End Date",
+     "template": "#= (HardwareAssetHasWarranty_WarrantyEndDate) ? kendo.toString(new Date(HardwareAssetHasWarranty_WarrantyEndDate), 'M/d/yyyy h:mm tt') : '' #",
+     "DataType": "date",
+     "hidden": false
+  },
+   "HardwareAssetHasLease_LeaseStartDate": {
+     "field": "HardwareAssetHasLease_LeaseStartDate",
+     "title": "Lease Start Date",
+     "template": "#= (HardwareAssetHasLease_LeaseStartDate) ? kendo.toString(new Date(HardwareAssetHasLease_LeaseStartDate), 'M/d/yyyy h:mm tt') : '' #",
+     "DataType": "date",
+     "hidden": false
+  },
+  "HardwareAssetHasLease_LeaseEndDate": {
+    "field": "HardwareAssetHasLease_LeaseEndDate",
+    "title": "Lease End Date",
+    "template": "#= (HardwareAssetHasLease_LeaseEndDate) ? kendo.toString(new Date(HardwareAssetHasLease_LeaseEndDate), 'M/d/yyyy h:mm tt') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "HardwareAssetHasSupportContract_DisplayName": {
+    "field": "HardwareAssetHasSupportContract_DisplayName",
+    "title": "Support Contract",
+    "template": "#= (HardwareAssetHasSupportContract_DisplayName) ? HardwareAssetHasSupportContract_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "HardwareAssetHasSupportContract_ContractEndDate": {
+    "field": "HardwareAssetHasSupportContract_ContractEndDate",
+    "title": "Contract End Date",
+    "template": "#= (HardwareAssetHasSupportContract_ContractEndDate) ? kendo.toString(new Date(HardwareAssetHasSupportContract_ContractEndDate), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "HardwareAssetHasSupportContract_ContractStartDate": {
+    "field": "HardwareAssetHasSupportContract_ContractStartDate",
+    "title": "Contract Start Date",
+    "template": "#= (HardwareAssetHasSupportContract_ContractStartDate) ? kendo.toString(new Date(HardwareAssetHasSupportContract_ContractStartDate), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "MasterContractStartingDate": {
+    "field": "MasterContractStartingDate",
+    "title": "Lease/Warranty Start Date",
+    "template": "#= (MasterContractStartingDate) ? kendo.toString(new Date(MasterContractStartingDate), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "MasterContractEndDate": {
+    "field": "MasterContractEndDate",
+    "title": "Lease/Warranty End Date",
+    "template": "#= (MasterContractEndDate) ? kendo.toString(new Date(MasterContractEndDate), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "ReceivedDate": {
+    "field": "ReceivedDate",
+    "title": "Received Date",
+    "template": "#= (ReceivedDate) ? kendo.toString(new Date(ReceivedDate), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "MasterContractStartingDate": {
+    "field": "MasterContractStartingDate",
+    "title": "Lease/Warranty Start Date",
+    "template": "#= (MasterContractStartingDate) ? kendo.toString(new Date(MasterContractStartingDate), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "MasterContractEndDate": {
+    "field": "MasterContractEndDate",
+    "title": "Lease/Warranty End Date",
+    "template": "#= (MasterContractEndDate) ? kendo.toString(new Date(MasterContractEndDate), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "ReceivedDate": {
+    "field": "ReceivedDate",
+    "title": "Received Date",
+    "template": "#= (ReceivedDate) ? kendo.toString(new Date(ReceivedDate), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

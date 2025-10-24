@@ -1,0 +1,16 @@
+﻿<div class="cireson-window--wrapper cs-form__flyout--authToken--confirm">
+    <div class="cireson-window--body">
+        <div class="row">
+            <div class="col-md-10 pad50"><span id="tokenMessage" data-bind="html:vm.PlatformTokenMessage"></span></div>
+            <div class="col-md-11 pad1"><pre id="tokenText" data-bind="html:vm.Token"></pre></div>
+        </div>
+        
+    </div>
+    <div class="window-buttons cireson-window--footer">
+        <button data-role="button"
+                class="btn btn-primary"
+                data-bind="events: { click: copyToClipboard }">
+            Copy to Clipboard
+        </button>
+    </div>
+</div>

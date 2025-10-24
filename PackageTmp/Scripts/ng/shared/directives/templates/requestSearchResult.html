@@ -1,0 +1,39 @@
+﻿<div>
+    <div ng-show="loading">
+        <div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
+    </div>
+    <div class="sc__ro-lists sc-group-container" ng-show="!loading">
+        <h3>{{ localization.MatchingRequestOfferings }}</h3>
+        <hr>
+        <div class="row">
+            <div class="ro-item-list" data-ng-repeat="request in requestData">
+                <div class="media-link">
+                    <a ng-if="request.RequestOfferingLinkUrl!=null" href="{{request.RequestOfferingLinkUrl}}" target="{{request.RequestOfferingLinkTargetType}}">
+                        <img ng-src="/ServiceCatalog/GetRequestOfferingImg/{{ request.Id }}"
+                             onerror="this.onerror=null; this.src='/Content/Images/Icons/RequestOffering/RO_Default.png';"
+                             class="img-responsive pad-top-0-5">
+                    </a>
+                    <a ng-if="request.RequestOfferingLinkUrl==null" href="/ServiceCatalog/RequestOffering/{{ request.Id }},{{ request.ServiceOfferingId }}">
+                        <img ng-src="/ServiceCatalog/GetRequestOfferingImg/{{ request.Id }}"
+                             onerror="this.onerror=null; this.src='/Content/Images/Icons/RequestOffering/RO_Default.png';"
+                             class="img-responsive pad-top-0-5">
+                    </a>
+                    <div>
+                        <h5>
+                            <a ng-if="request.RequestOfferingLinkUrl!=null" href="{{request.RequestOfferingLinkUrl}}" target="{{request.RequestOfferingLinkTargetType}}">{{ request.Title }}</a>
+                            <a ng-if="request.RequestOfferingLinkUrl==null" href="/ServiceCatalog/RequestOffering/{{ request.Id }},{{ request.ServiceOfferingId }}">{{ request.Title }}</a>
+                            <span class="ro-desc" ng-bind-html="request.Description"></span>
+                        </h5>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="requestData.length === 0">
+            <div class="media-link">
+                <span>{{ localization.NoMatchingRequestOfferings }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+

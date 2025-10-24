@@ -1,0 +1,63 @@
+﻿{
+  "PurchaseOrderNumber": {
+    "field": "PurchaseOrderNumber",
+    "title": "Purchase Order Number",
+    "template": "#= (PurchaseOrderNumber) ? PurchaseOrderNumber : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "PurchaseOrderHasCostCenter_DisplayName": {
+    "field": "PurchaseOrderHasCostCenter_DisplayName",
+    "title": "Cost Center Code",
+    "template": "#= (PurchaseOrderHasCostCenter_DisplayName) ? PurchaseOrderHasCostCenter_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "PurchaseOrderHasVendor_DisplayName": {
+    "field": "PurchaseOrderHasVendor_DisplayName",
+    "title": "Vendor Name",
+    "template": "#= (PurchaseOrderHasVendor_DisplayName) ? PurchaseOrderHasVendor_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "PurchaseOrderDate": {
+    "field": "PurchaseOrderDate",
+    "title": "Purchase Order Date",
+    "template": "#= (PurchaseOrderDate) ? kendo.toString(new Date(PurchaseOrderDate), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "PurchaseOrderType": {
+    "field": "PurchaseOrderType",
+    "title": "Purchase Order Type",
+    "template": "#= (PurchaseOrderType) ? PurchaseOrderType : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "PurchaseOrderStatus": {
+    "field": "PurchaseOrderStatus",
+    "title": "Purchase Order Status",
+    "template": "#= (PurchaseOrderStatus) ? PurchaseOrderStatus : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

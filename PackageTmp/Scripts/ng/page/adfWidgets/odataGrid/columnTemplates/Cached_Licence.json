@@ -1,0 +1,56 @@
+﻿{
+  "Name": {
+    "field": "Name",
+    "title": "License Name",
+    "template": "#= (Name) ? Name : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "LicenceHasVendor_DisplayName": {
+      "field": "LicenceHasVendor_DisplayName",
+      "title": "Vendor Name",
+      "template": "#= (LicenceHasVendor_DisplayName) ? LicenceHasVendor_DisplayName : '' #",
+      "DataType": "string",
+      "hidden": false
+  },
+  "Type": {
+    "field": "Type",
+    "title": "License Type",
+    "template": "#= (Type) ? Type : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Status": {
+    "field": "Status",
+    "title": "License Status",
+    "template": "#= (Status) ? Status : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "ExpiryDate": {
+     "field": "ExpiryDate",
+     "title": "Expiry Date",
+     "template": "#= (ExpiryDate) ? kendo.toString(new Date(ExpiryDate), 'g') : '' #",
+     "DataType": "date",
+     "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

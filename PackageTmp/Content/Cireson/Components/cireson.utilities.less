@@ -1,0 +1,276 @@
+﻿/******************************************************************************************
+Custom Utility Classes
+*******************************************************************************************/
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-move {
+    cursor: move;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.text-plain {
+    font-weight: normal;
+    text-transform: none;
+}
+
+.text-muted {
+    color: @text-color-body-light;
+}
+
+.normal {
+    font-weight: normal;
+}
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.overflow-auto-important {
+    overflow: auto !important;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.clear {
+    clear: both;
+}
+
+// need this to fight back the fade class when on desktop screen size
+.affix {
+    opacity: 1;
+}
+
+.inline-spacing {
+    padding-top: 10px;
+}
+
+.margin-t10 {
+    margin-top: 10px;
+}
+
+.margin-t20 {
+    margin-top: 20px;
+}
+
+.margin-t27 {
+    margin-top: 27px;
+}
+
+.margin-t30 {
+    margin-top: 30px;
+}
+
+.margin-t50 {
+    margin-top: 50px;
+}
+
+.margin-b10 {
+    margin-bottom: 10px;
+}
+
+.margin-b20 {
+    margin-bottom: 20px;
+}
+
+.margin-b30 {
+    margin-bottom: 30px;
+}
+
+.margin-b50 {
+    margin-bottom: 50px;
+}
+
+.margin-l10 {
+    margin-left: 10px;
+}
+
+.margin-l20 {
+    margin-left: 20px;
+}
+
+.margin-l30 {
+    margin-left: 30px;
+}
+
+.margin-l50 {
+    margin-left: 50px;
+}
+
+.margin-l5 {
+    margin-left: 5px !important;
+}
+
+.margin-r5 {
+    margin-right: 5px !important;
+}
+
+.margin-r10 {
+    margin-right: 10px !important;
+}
+
+.margin-r20 {
+    margin-right: 20px;
+}
+
+.margin-r30 {
+    margin-right: 30px;
+}
+
+.margin-r50 {
+    margin-right: 50px;
+}
+
+.padleft10 {
+    padding-left: 10px;
+}
+
+.pad50 {
+    padding: 50px;
+}
+
+.pad10 {
+    padding: 10px;
+}
+
+.pad5 {
+    padding: 5px;
+}
+
+.pad0 {
+    padding: 0;
+}
+
+.text-black {
+    color: @v-color-black !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+/* this is used for the resize textarea binder*/
+
+.hidden-textarea {
+    display: none;
+    white-space: pre-wrap;
+    width: 100%;
+    min-height: 50px;
+    word-wrap: break-word;
+}
+
+.pre-wrap {
+    white-space: pre-wrap;
+}
+
+.pad-bot-0-5 {
+    padding-bottom: .5rem;
+}
+
+.pad-bot-1 {
+    padding-bottom: 1rem;
+}
+
+.pad-bot-2 {
+    padding-bottom: 2rem;
+}
+
+.pad-top-0-5 {
+    padding-top: .5rem;
+}
+
+.pad-top-1 {
+    padding-top: 1rem;
+}
+
+.pad-top-1-5 {
+    padding-top: 1.5rem;
+}
+
+.mar-bot-0 {
+    margin-bottom: 0px;
+}
+
+.mar-top-1 {
+    margin-top: 1rem;
+}
+
+.mar-top-1-5 {
+    margin-top: 1.5rem;
+}
+
+.mar-top-2 {
+    margin-top: 2rem;
+}
+
+.mar-top-3 {
+    margin-top: 3rem;
+}
+
+.mar-top-neg1 {
+    margin-top: -1rem;
+}
+
+.mar-right-1 {
+    margin-right: 1rem;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.display-block {
+    display: block !important;
+}
+
+.details-separator {
+    &:before {
+        content: '\2022';
+        margin-left: 4px;
+        margin-right: 4px;
+        color: rgb(241,241,241);
+    }
+}
+
+.arrow {
+    &:before {
+        content: '▼';
+        display: inline-block;
+        transition: all 0.3s;
+        color: @query-label-color;
+    }
+}
+
+
+.arrow-right {
+    &:before {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        position: relative;
+        top: -2px;
+    }
+}

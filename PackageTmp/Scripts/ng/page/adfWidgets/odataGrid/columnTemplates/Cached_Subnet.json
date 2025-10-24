@@ -1,0 +1,42 @@
+﻿{
+  "DisplayName": {
+    "field": "DisplayName",
+    "title": "Subnet Name",
+    "template": "#= (DisplayName) ? DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "IPMask": {
+    "field": "IPMask",
+    "title": "IP Address Range",
+    "template": "#= (IPMask) ? IPMask : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "SubnetMask": {
+    "field": "SubnetMask",
+    "title": "Subnet Mask",
+    "template": "#= (SubnetMask) ? SubnetMask : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

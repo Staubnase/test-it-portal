@@ -1,0 +1,16 @@
+﻿<div class="form-group cs-form__dropdownlist cs-form__dropdownlist--<%= PropertyName %>" data-bind="ciresonDropDownList: ControlObject"
+
+<% if ( Required ){ %>
+    required
+<% } %>
+    >
+    <label data-template-part="labelPart" class="control-label cs-form__dropdownlist--label" for="<%= PropertyName %>">
+    </label>
+
+    <input class="form-control form-control-picker input-sm cs-form__dropdownlist--input" data-template-part="inputControlPart" data-control-bind="<%= PropertyName %>"
+        <% if ( Required ){ %>
+        required
+        <% } %>
+         >
+    </input>
+</div>

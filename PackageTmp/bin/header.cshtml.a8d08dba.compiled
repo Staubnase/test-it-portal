@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Views/Home/Header.cshtml" hash="5ff6b2bd" filehash="ffffc74ffe73d63c" flags="110000" assembly="App_Web_tsudwxi0" type="ASP._Page_Views_Home_Header_cshtml">
+    <filedeps>
+        <filedep name="/Views/Home/Header.cshtml" />
+    </filedeps>
+</preserve>

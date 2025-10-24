@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Areas/AssetManagement/Views/PurchaseOrder/NewAndEdit.cshtml" hash="5ff6b2bd" filehash="11bd7bed5f6e" flags="110000" assembly="App_Web_2ynfv4fn" type="ASP._Page_Areas_AssetManagement_Views_PurchaseOrder_NewAndEdit_cshtml">
+    <filedeps>
+        <filedep name="/Areas/AssetManagement/Views/PurchaseOrder/NewAndEdit.cshtml" />
+    </filedeps>
+</preserve>

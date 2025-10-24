@@ -1,0 +1,61 @@
+﻿
+<div class="search-row search-directive" ng-form name="advSearchForm">
+    <div ng-show="showEmptySearchMessage" class="alert-container">
+        <div class="alert alert-danger">{{localization.Required}}</div>
+    </div>
+    <div class="search-wrapper">
+        <div class="input-group">
+            <input type="text"
+                   class="form-control"
+                   ng-model="searchText"
+                   ng-keypress="search($event)"
+                   placeholder="{{localization.SearchPlaceholder}}" />
+            <div class="input-group-btn hidden-xs">
+                <button type="button" class="btn btn-default filter-toggle" ng-click="toggleShowFilters($event)">
+                    <i class="fa fa-filter" ng-show="showAppliedFiltersIcon"></i>{{localization.FilterSearchBy}}<i class="fa fa-caret-down margin-l10"></i>
+                </button>
+            </div>
+            <span class="input-group-btn">
+                <button class="btn btn-primary btn-search" type="button" ng-click="search($event)"><span class="fa fa-search"></span></button>
+            </span>
+        </div>
+    </div>
+    <div class="filters-wrapper" style="display: none;">
+        <div class="filters">
+            <div class="col-xs-6 filter-column-header">
+                <p>{{localization.SearchWithinCategory}}</p>
+            </div>
+            <div class="col-xs-6 filter-column-header">
+                <p>{{localization.SearchWithinType}}</p>
+            </div>
+            <div class="col-xs-6 filter-column">
+                <div ng-repeat="category in categories" class="filter-boxes">
+                    <div class="checkbox checkbox-inline">
+                        <input type="checkbox"
+                               id="{{category.id}}"
+                               value="{{category.id}}"
+                               ng-model="category.selected"
+                               ng-click="onFilterChanged()">
+                        <label class="control-label" for="{{category.id}}">{{category.name}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 filter-column">
+                <div ng-repeat="type in types" class="filter-boxes">
+                    <div class="checkbox checkbox-inline">
+                        <input type="checkbox"
+                               id="{{type.id}}"
+                               value="{{type.id}}"
+                               ng-model="type.selected"
+                               ng-click="onFilterChanged()">
+                        <label class="control-label" for="{{type.id}}">{{type.name}}</label>
+                    </div>
+                </div>
+            </div>
+
+
+            
+        </div>
+    </div>
+</div>
+

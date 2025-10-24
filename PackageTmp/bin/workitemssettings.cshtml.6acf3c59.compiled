@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Areas/Settings/Views/Admin/WorkItemsSettings.cshtml" hash="5ff6b2bd" filehash="7805b83e165" flags="110000" assembly="App_Web_50i330no" type="ASP._Page_Areas_Settings_Views_Admin_WorkItemsSettings_cshtml">
+    <filedeps>
+        <filedep name="/Areas/Settings/Views/Admin/WorkItemsSettings.cshtml" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,15 @@
+﻿<div class="container-fluid">
+    <div class="row sc-main-wrapper">
+        <div class="col-sm-9 col-sm-right-offset-3">
+            <div ui-view></div>
+        </div>
+        <div class="col-sm-3 sidebar-right pad-top-1-5 hidden-xs">
+            <h4 class="text-left">{{localization.BrowseByCategory}}</h4>
+            <hr class="tree-heading-hr">
+            <div class="sc-filter">
+                <input type="text" class="form-control sc-text-search" placeholder="{{ localization.FilterServices }} " ng-model="filterText">
+                <service-tree class="bottom-mb10" categorydata='scData' searchtext="filterText" favorites="{{ localization.Favorites }}"></service-tree>
+            </div>
+        </div>
+    </div>
+</div>

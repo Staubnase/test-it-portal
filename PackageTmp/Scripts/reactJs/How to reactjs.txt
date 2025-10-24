@@ -1,0 +1,13 @@
+﻿-go to your folder
+-run npm init -y
+-npm i react react-dom
+-npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader file-loader css-loader webpack webpack-cli
+-on the package.json make this changes. Mode="development" when coding, mode="production" when release.
+	"scripts": {
+    "build": "webpack --mode development"
+  },
+-create a file name webpack.config.js
+-configure webpack.config.js
+-npm install --save-dev html-webpack-plugin
+-npm run build
+

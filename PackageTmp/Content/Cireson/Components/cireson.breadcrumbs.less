@@ -1,0 +1,28 @@
+﻿/******************************************************************************************
+Breadcrumbs - Custom Styles
+*******************************************************************************************/
+
+.breadcrumbs {
+    background: @v-color-gray-lightest;
+    border-bottom: 1px solid @border-color-light;
+    min-height: 28px;
+    padding: 8px 25px;
+    margin-bottom: 20px;
+    position: relative;
+    font-size: @font-size-body-text;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+
+        li {
+            list-style: none;
+            float: left;
+
+            &.sep {
+                padding: 0 8px;
+            }
+        }
+    }
+}

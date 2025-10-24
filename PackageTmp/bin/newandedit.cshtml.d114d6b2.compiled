@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Areas/AssetManagement/Views/Location/NewAndEdit.cshtml" hash="5ff6b2bd" filehash="2006f1967feb" flags="110000" assembly="App_Web_44dlrikt" type="ASP._Page_Areas_AssetManagement_Views_Location_NewAndEdit_cshtml">
+    <filedeps>
+        <filedep name="/Areas/AssetManagement/Views/Location/NewAndEdit.cshtml" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,1207 @@
+﻿/******************************************************************************************
+Service Catalog - Custom Styles
+*******************************************************************************************/
+
+.service-catalog-content {
+    .topfav-row {
+        html[dir='rtl'] & {
+            float: right;
+        }
+    }
+
+    .list-wrapper {
+        width: 100%;
+        height: @thumb-area-height + 5px;
+        overflow: hidden;
+    }
+
+    .thumbnail {
+        border-color: @v-color-white;
+        height: @thumb-area-height + 5px;
+        margin-bottom: 0;
+        width: @md-thumb-size + 10px;
+        float: left;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            cursor: pointer;
+            position: absolute;
+
+            &:hover {
+                .opacity(0.7);
+            }
+        }
+
+        .favorite {
+            position: absolute;
+            z-index: 12;
+            opacity: 0;
+            width: @md-thumb-size;
+            height: @md-thumb-size;
+
+            div.inner {
+                display: block;
+                width: @md-thumb-size;
+                height: @md-thumb-size;
+                overflow: hidden;
+                /*vertical-align: middle;*/
+                padding: 8px;
+                color: @text-color-body-reverse;
+
+                .fa {
+                    font-size: @font-size-icon-large-screen;
+                    /*color: @v-color-link;*/
+                    text-decoration: none;
+                    right: 3px;
+                    bottom: 3px;
+                    position: absolute;
+                    cursor: pointer;
+                }
+                //addhover switch to star fa icons
+                .fa-star {
+                    &:hover {
+                        &:before {
+                            content: "\f006";
+                        }
+                    }
+                }
+
+                .fa-star-o {
+                    &:hover {
+                        &:before {
+                            content: "\f005";
+                        }
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .favorite {
+                opacity: 1;
+                background: fade(@v-color-black, 15%) center no-repeat;
+            }
+        }
+    }
+
+    .thumbnail-lg {
+        .thumbnail;
+        width: 200px;
+        height: 250px;
+        /*overflow: hidden;*/
+        &:hover {
+            .favorite {
+                background: fade(@v-color-black, 15%) center no-repeat;
+            }
+        }
+    }
+
+    .mid-thumb {
+        /*overflow: hidden;
+        position: relative;*/
+        height: @md-thumb-size;
+        width: @md-thumb-size;
+
+        img {
+            height: @md-thumb-size;
+            width: @md-thumb-size;
+        }
+
+        .ka-icon {
+            background-color: @v-color-gray-light;
+            padding: 25px;
+        }
+
+        &.ka-result-thumb {
+            height: @lg-thumb-size;
+            width: @lg-thumb-size;
+        }
+    }
+
+    .lg-thumb {
+        /*overflow: hidden;
+        position: relative;*/
+        height: @lg-thumb-size;
+        width: @lg-thumb-size;
+
+        img {
+            height: @lg-thumb-size;
+            width: @lg-thumb-size;
+        }
+
+        .ka-icon {
+            background-color: @v-color-gray-light;
+            padding: 25px;
+        }
+
+        &.ka-result-thumb {
+            height: @lg-thumb-size;
+            width: @lg-thumb-size;
+        }
+
+        .favorite {
+            width: @lg-thumb-size;
+            height: @lg-thumb-size;
+
+            div.inner {
+                width: @lg-thumb-size;
+                height: @lg-thumb-size;
+            }
+        }
+    }
+
+    .caption {
+        background-color: @v-color-white;
+        padding: 0 10px 0 0;
+
+        h5 {
+            text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            overflow: hidden;
+            //white-space:nowrap;
+        }
+    }
+    /* indent 2nd level */
+    .list-unstyled li > ul > li {
+        margin-left: 10px;
+        padding: 8px;
+    }
+    /*
+    .panel-heading {
+        border-color: @v-color-white;
+    }*/
+    .mini-template-body {
+        border-bottom: 1px solid @border-color-light;
+        padding: 0 0 15px;
+
+        .so-blocks {
+            float: left;
+            height: 125px;
+            width: 254px;
+            overflow: hidden;
+
+            section {
+                width: 125px;
+                float: left;
+                margin-right: 1px;
+            }
+
+            html[dir='rtl'] & {
+                float: right;
+            }
+        }
+
+        div.so-blocks,
+        div.so-blocks div {
+            /* Setting a common base */
+            margin: 0;
+            padding: 0;
+        }
+
+        div.so-blocks div {
+            display: inline-block;
+            width: @sm-thumb-size;
+            height: @sm-thumb-size;
+            margin-bottom: 4px;
+            // background: @v-color-gray-light;
+            //max amount to display at the largest resolutions
+            &:nth-child(n+13) {
+                display: none;
+            }
+
+            img {
+                width: @sm-thumb-size;
+                height: @sm-thumb-size;
+            }
+        }
+
+        .more-ros {
+            /* font-size: 28px; */
+            padding: 14px 13px !important; //will have to change based on widht height
+            background-color: @v-color-gray-light;
+            color: @text-color-body-reverse;
+            margin-left: 3px !important;
+            cursor: pointer;
+        }
+
+        .mini-services {
+            margin-bottom: 20px;
+            margin-right: 10px;
+            min-width: 254px;
+
+            img {
+                cursor: pointer;
+
+                &:hover {
+                    .opacity(0.7);
+                }
+            }
+        }
+    }
+
+    .top-list {
+        > div {
+            margin: 5px;
+            padding: 2px;
+
+            div {
+                width: 35px;
+                height: 35px;
+                background-color: @v-color-gray-light;
+                display: inline-block;
+            }
+
+            i {
+                float: right;
+                padding: 7px 2px 0px 0px;
+                // background-color: @v-color-gray-light;
+                // padding: 3px;
+                // margin-right: 2px;
+            }
+
+            a {
+                // padding-bottom: 5px;
+                vertical-align: top;
+            }
+        }
+    }
+
+    .search-row {
+        // margin-left: 45px;
+        .search-wrapper {
+            padding: 5px;
+            border: 1px solid @default-border-color;
+
+            input {
+                border-style: none;
+            }
+
+            button {
+                border-style: none;
+            }
+        }
+    }
+
+    .service-request-nav {
+        width: 235px;
+        position: absolute;
+        top: 0 !important;
+    }
+
+    .service-request-body {
+        margin-left: 235px;
+
+        html[dir='rtl'] & {
+            margin-right: 235px;
+        }
+
+        .overlay {
+            display: none;
+            margin: 0 @main-content-margin-large-screen;
+
+            @media @small-and-medium-screen-only{
+                margin: 0 @main-content-margin-small-screen;
+            }
+
+            h5 {
+                padding-bottom: 5px;
+            }
+        }
+
+        &.alt {
+            margin-left: 0;
+
+            html[dir='rtl'] & {
+                margin-right: 0;
+            }
+
+            .cat {
+                > h4 {
+                    padding: 4px 10px 10px 2px;
+                    border-bottom: 1px solid @v-color-link;
+                }
+            }
+        }
+    }
+
+    .sc-item-list .media-link:after {
+        background-color: transparent;
+    }
+
+    .sc-item {
+
+        h5 small {
+            margin-left: 0;
+        }
+    }
+}
+
+.k-fx-swap.k-fx-start .k-fx-next {
+    -webkit-transform: translatex(100%);
+    -moz-transform: translatex(100%);
+    transform: translatex(100%);
+}
+
+// the final position of the current div
+.k-fx-swap.k-fx-end .k-fx-current {
+    opacity: 0;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+
+/* Alt Service Catalog CSS
+------------------------------------------------------------------------------------------*/
+
+.alt-service-catalog {
+    /*margin-left: 15px;*/
+}
+
+.sc-item-list {
+    //top items styles
+    &.alt-top-list {
+        margin: 0 auto;
+
+        .block-title {
+            padding-bottom: 10px;
+            border-bottom: solid 1px @v-color-link;
+        }
+
+        .media {
+            &:nth-child(n+6) {
+                display: none;
+            }
+        }
+
+        .media + .media {
+            padding-top: 15px;
+            border-top: solid 1px @border-color-light;
+        }
+
+        .media-link {
+            img {
+                width: 30px;
+                height: 30px;
+
+                &.ka-icon {
+                    background-color: @v-color-gray-light;
+                    padding: 4px;
+                }
+            }
+        }
+
+        .media-body {
+            height: auto;
+            overflow: hidden;
+
+            @media @small-and-medium-screen-only {
+                height: auto;
+            }
+        }
+
+        .media-heading {
+            small {
+                display: none;
+            }
+        }
+    }
+
+    .media {
+        border-top: none;
+        padding-top: 0;
+
+        & > .pull-left {
+            margin-right: 10px;
+        }
+    }
+
+    .media-heading {
+        font-weight: normal;
+        margin-top: 0;
+
+        a {
+            text-decoration: none !important;
+        }
+
+        small {
+            color: @text-color-body-light;
+            display: block;
+            margin-top: 5px;
+            //hide desc on mobile
+            @media @small-and-medium-screen-only {
+                display: none;
+            }
+        }
+    }
+
+    .media-body {
+        height: 75px;
+        overflow: hidden;
+
+        @media @small-and-medium-screen-only {
+            height: auto;
+        }
+    }
+
+    .media-link {
+        display: block !important;
+        position: relative !important;
+        overflow: hidden !important;
+        text-align: center;
+
+        img {
+            width: 60px;
+            height: 60px;
+
+            @media @small-and-medium-screen-only {
+                width: 30px;
+                height: 30px;
+            }
+
+            &.ka-icon {
+                background-color: @v-color-gray-light;
+                padding: 7px;
+            }
+        }
+
+        .fa {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            font-size: @font-size-heading-page;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin-left: -15px;
+            margin-bottom: -15px;
+            color: @v-color-link;
+            z-index: 99; //to avoid overlapping from side_nav sub panel. side_nav z-index is 10.
+            opacity: 0;
+            cursor: pointer;
+        }
+        //addhover switch to star fa icons
+        .fa-star {
+            &:hover {
+                &:before {
+                    content: "\f005";
+                }
+            }
+        }
+
+        .fa-star-o {
+            &:hover {
+                &:before {
+                    content: "\f006";
+                }
+            }
+        }
+    }
+
+    .media-link:after {
+        transition: all .15s;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: fade(@v-color-link, 100%); // creates rgba
+        z-index: 10;
+    }
+
+    .media-link:hover .fa {
+        bottom: 50%;
+        opacity: 1;
+    }
+
+    .media-link:hover:after {
+        background-color: fade(@v-color-gray-mid, 50%); // creates rgba
+    }
+    //set default sizing/settings
+    .sc-item {
+        position: relative;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+        float: left;
+
+        .catalog-content & {
+            padding-left: 30px;
+        }
+
+        @media @small-and-medium-screen-only {
+            width: 100%;
+        }
+
+        @media @medium-screen-only {
+            width: 50%;
+        }
+
+        @media @large-screen-only {
+            width: 33%;
+        }
+
+        @media @large-screen-only {
+            width: 25%;
+        }
+    }
+}
+
+// @media @small-and-medium-screen-only {
+//     [class~='sc-item'],
+//     [class*='ro-item'] {
+//         &:hover {
+//             background: @featured-link-bg;
+//         }
+//     }
+// }
+
+// TODO: Need Media Queries To Change Custom Thumb Padding
+@media (max-width: 1200px) {
+    .service-catalog-content .mini-template-body div.so-blocks {
+        div:nth-child(n+9) {
+            display: none;
+        }
+    }
+}
+
+@media @small-and-medium-screen-only {
+    .service-catalog-content {
+        .service-request-body {
+            margin-left: 15px;
+        }
+
+        .list-wrapper {
+            height: @thumb-area-height - 50;
+        }
+
+        .thumbnail {
+            height: @thumb-area-height - 50;
+            width: @md-thumb-size - 48;
+        }
+
+        .mid-thumb {
+            height: @md-thumb-size - 50;
+            width: @md-thumb-size - 48;
+
+            img {
+                height: @md-thumb-size - 50;
+                width: @md-thumb-size - 50;
+            }
+
+            .favorite {
+                /*letter-spacing hide the overlay on small screen*/
+                display: none;
+                width: @md-thumb-size - 50;
+                height: @md-thumb-size - 50;
+
+                div.inner {
+                    width: @md-thumb-size - 50;
+                    height: @md-thumb-size - 50;
+                }
+            }
+        }
+
+        .mini-template-body div.so-blocks {
+            height: 50px;
+            width: 100%;
+
+            section {
+                width: auto;
+                float: left;
+                margin-right: 3px;
+            }
+
+            div {
+                width: 50px;
+                height: 50px;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+
+            div:nth-child(n+10) {
+                display: none;
+            }
+        }
+    }
+}
+
+//fixes for the old service catalog
+.service-catalog-search {
+    margin-bottom: 10px;
+
+    input {
+        height: 20px;
+    }
+}
+
+
+/* Styles for version 4 for service catalog
+------------------------------------------------------------------------------------------*/
+
+.sc-main-wrapper {
+    a {
+        text-decoration: none;
+    }
+
+    .tree-heading-hr {
+        display: none;
+    }
+}
+
+.sc-kabar-nav {
+    @item-icon-margin: 25px;
+    .sc-kanav {
+        li {
+            span {
+                display: block;
+                color: @v-color-link;
+                margin-top: 0;
+                padding: 5px 0;
+                @media @large-screen-only {
+                }
+                small:before {
+                    content: "";
+                    display: inline-block;
+                    width: 5px;
+                }
+                .fa {
+                    position: relative;
+                    top: 4px;
+                    font-size: @font-size-icon-small-screen - 3px;
+                }
+            }
+
+            ul.sc-kanav {
+                li {
+                    @media @small-and-medium-screen-only {
+                       padding-top: 10px;
+                    }
+                    @media @large-screen-only {
+                       padding-top: 5px;
+                    }
+
+                    div {
+                        margin-left: @item-icon-margin;
+                        font-size: 0; // eliminate white space between inline <a> elements in markup
+
+                        .a-link {
+                            font-size: @font-size-body-text; // reset font-size from parent div
+                            font-weight: normal;
+                            text-decoration: none;
+                        }
+
+                        .a-icon {
+                            position: relative;
+                            top: 1px;
+                            display: inline-block;
+                            width: @item-icon-margin;
+                            margin-left: -@item-icon-margin;
+                            color: @v-color-black !important;
+                            @media @small-and-medium-screen-only {
+                                .fa {
+                                    font-size: @font-size-icon-small-screen;
+                                }
+                            }
+                        }
+                    }
+
+                    p {
+                        .meta-text();
+                        margin-left: @item-icon-margin;
+                        .a-link-desc {
+                            display: block;
+                            font-weight: normal;
+                            margin-top: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .article-list {
+        p.small {
+            padding-left: 35px;
+            padding-top: 6px;
+        }
+    }
+}
+
+.sc-kanav {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    li {
+        div {
+            a {
+                font-weight: normal;
+                // padding: 4px 0 4px 1px;
+                text-decoration: none;
+            }
+
+            small {
+                color: @text-color-body-light;
+            }
+        }
+    }
+}
+
+.sc-page-header > {
+    h2, h3 {
+        font-size: @font-size-heading-section;
+        margin-bottom: 15px;
+
+        @media @small-and-medium-screen-only {
+            margin-top: 30px;
+        }
+
+        + hr {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media @large-screen-only {
+        + .sc-page-header {
+            margin-top: 20px;
+        }
+    }
+}
+.sc__heading > h1 {
+    text-transform: capitalize;
+}
+
+.breadcrumb ~ .sc__heading > h1 {
+    margin-top: .75em;
+}
+
+//fix flatten image issue on sc
+.sc__home-ro-lists .ro-item-home {
+    // I dont know why this class set to the image.
+    // I just override the prop.
+    a > .pad-top-0-5 {
+        padding-top: 2px !important;
+    }
+}
+
+.sc__home-ro-lists {
+    @media @small-and-medium-screen-only {
+        div:not(: first-child) {
+            top: 15px;
+        }
+    }
+}
+
+// .sc__home {
+//     @media @small-and-medium-screen-only {
+//         hr {
+//             display: none;
+//         }
+
+//         h2 {
+//             font-weight: bold;
+//             font-size: @font-size-heading-page;
+//         }
+//     }
+// }
+
+.sc-kanav-home {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    @media @small-and-medium-screen-only {
+        margin-bottom: 20px;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    li {
+        div {
+            padding-left: 0;
+            margin-bottom: 10px;
+            @media @small-and-medium-screen-only {
+                float: none;
+                margin-bottom: 0;
+            }
+
+            a {
+                display: block;
+                margin-top: 3px;
+                margin-left: 25px;
+                @media @small-and-medium-screen-only {
+                    margin-top: 0;
+                }
+            }
+
+            .a-icon {
+                color: @v-color-black;
+                position: absolute;
+                top: 6px;
+                left: 0;
+                @media @small-and-medium-screen-only {
+                    top: 3px;
+                    font-size: @font-size-icon-small-screen - 3px;
+                }
+            }
+
+            small {
+                display: block;
+                margin-top: 3px;
+                margin-left: 25px;
+                color: @text-color-body-light;
+            }
+
+            br {
+                display: none; // remove unnecessary markup
+            }
+        }
+    }
+}
+
+.sc-kanav > li {
+    display: block;
+    position: relative;
+}
+
+.sc-kanav > li > a {
+    display: inline-block;
+    position: relative;
+
+    &:hover {
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    &:focus {
+        background-color: transparent;
+        text-decoration: none;
+    }
+}
+
+.sc-kanav > li > span {
+    display: inline-block;
+    position: relative;
+
+    &:hover {
+        cursor: pointer;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    &:focus {
+        background-color: transparent;
+        text-decoration: none;
+    }
+}
+
+.sc-item-panel {
+    .sc-header {
+        cursor: pointer;
+    }
+
+    .item-panel > div > ul > li {
+        padding-bottom: 5px;
+        font-size: @font-size-meta-text;
+    }
+}
+
+// .sc__ka-lists {
+//     @media @small-and-medium-screen-only {
+//         margin: 0;
+//     }
+// }
+
+.sc__ro-lists {
+    // @media @small-and-medium-screen-only {
+    //     & > div {
+    //         margin: 0;
+    //     }
+    // }
+
+    .media {
+        margin-top: 0;
+    }
+
+    .media__so-image {
+
+        @media @small-and-medium-screen-only {
+            width: 30px;
+            height: 30px;
+        }
+
+        @media @large-screen-only {
+            height: 45px;
+            width: 45px;
+        }
+    }
+
+
+    .media-body {
+        @media @small-and-medium-screen-only {
+            margin-left: 45px;
+        }
+        @media @large-screen-only {
+            margin-left: 60px;
+        }
+    }
+    .media__so-desc {
+        min-height: 15px;
+
+        @media @small-and-medium-screen-only {
+            min-height: 5px;
+        }
+    }
+
+    .media-heading {
+        margin-bottom: 0;
+    }
+
+    [class*=col]:nth-child(odd) {
+        clear: left;
+    }
+}
+
+.sc__so-details {
+    @media @small-and-medium-screen-only {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    &--image {
+        margin-bottom: 10px;
+    }
+
+    &--desc {
+    }
+}
+
+.ro-item-list {
+    width: 100%;
+    float: left;
+
+    .media-link {
+        position: relative;
+        margin: 20px;
+
+        img {
+            margin: -5px 20px 0 10px;
+            height: inherit;
+            width: 60px;
+            float: left;
+
+            @media @small-and-medium-screen-only {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        .img-35 {
+            margin: 6px 20px 0 0;
+            display: block;
+            height: 35px;
+            width: 35px;
+            float: left;
+        }
+
+        .ro-desc {
+            display: block;
+            font-size: @font-size-meta-text;
+        }
+    }
+}
+
+.kb-group-container {
+    & > h3 {
+        margin-bottom: 10px;
+    }
+}
+
+.sc-group-container {
+    & > h3 {
+        margin-bottom: 10px;
+    }
+}
+
+.ro-item-home {
+    padding-left: 0;
+    margin-bottom: 5px;
+
+    h5 {
+        margin-bottom: 0 !important;
+        margin-top: .8em;
+    }
+
+    img {
+        height: 35px;
+        width: 35px;
+        float: left;
+        margin-right: 10px;
+    }
+}
+
+@media @small-and-medium-screen-only {
+    .ro-item-home {
+        padding-bottom: 5px;
+
+        h5 {
+            margin-top: .3em;
+        }
+
+        .pad-top-0-5 {
+            padding-top: .2rem;
+        }
+    }
+}
+
+.sc__search {
+    padding-left: 0;
+    padding-right: 0;
+
+
+    &--kb,
+    &--ro {
+        @media @small-and-medium-screen-only {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}
+
+.sc__home {
+}
+
+.sc-search {
+    border: @v-color-link solid 2px;
+    padding: 2px;
+
+    input {
+        border: none;
+        padding-left: 10px;
+    }
+
+    button {
+        margin-left: 0;
+    }
+}
+
+.sc-filter {
+    padding-top: 10px;
+
+    @media @large-screen-only {
+        padding-top: 0;
+    }
+
+    .bottom-mb10 {
+        margin-top: 20px; // override inline markup
+    }
+
+    .sidebar-nav .nav li ul.nav li a {
+        padding-left: 0;
+    }
+}
+
+.sc-alert {
+    padding: 10px;
+    margin-bottom: -14px;
+    width: 76px;
+}
+
+.sc-filter-menu {
+    button {
+        cursor: pointer;
+        border-color: @border-color-light !important;
+        margin-right: 2px;
+        background: @v-color-gray-lighter !important;
+    }
+
+    button:hover {
+        background: @v-color-gray-lighter !important;
+    }
+}
+
+.sc-lazy-load {
+    float: left;
+    margin-left: 50%;
+}
+
+.sc-cat-dropdown {
+    width: 100%;
+    height: 50px;
+    border: 1px solid @default-border-color;
+    position: relative;
+    padding: 5px;
+    .border-radius();
+    margin-top: 20px;
+
+    > .sc-cat-dropdown-default {
+        float: right;
+        width: 35px;
+        height: 32px;
+        text-align: center;
+        margin: 2px;
+        color: @v-color-black;
+        text-decoration: none;
+
+        > i {
+            margin-top: 10px;
+        }
+    }
+
+    > span {
+        padding: 5px;
+        float: left;
+        color: @v-color-placeholder;
+        font-size: @font-size-heading-subsection;
+        font-weight: normal;
+    }
+}
+
+.sc-cat-dropdown-content {
+    width: 100%;
+    border: 1px solid @disabled-border-color;
+    border-top: none;
+    max-height: 200px;
+    overflow: scroll;
+    z-index: 101;
+    position: absolute;
+    background: @v-color-white;
+    display: none;
+
+    > ul {
+        list-style: none;
+
+        > li {
+            text-decoration: none;
+            font-size: @font-size-heading-section;
+
+            > span {
+                float: left;
+                width: 100%;
+            }
+
+            > a {
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+.ro-so-image img {
+    margin-top: -15px;
+}
+
+
+.k-combobox .k-dropdown-wrap:before,
+.k-picker-wrap:before,
+.k-numeric-wrap:before
+{
+    content: none!important;
+}

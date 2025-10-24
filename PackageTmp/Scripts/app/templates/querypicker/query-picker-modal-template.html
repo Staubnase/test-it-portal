@@ -1,0 +1,35 @@
+﻿<div id="query-picker-dialog" tabindex="-1" role="dialog" class="modal right fade" style="display: none">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-header--filter no-padding">
+                <div class="col-sm-6">
+                    <div>
+                        <span class="modal-header--filter__title" data-bind="html:labelText"></span>
+                    </div>
+                    <div data-bind="visible:isMultiSelection">
+                        <label class="checkbox checkbox-primary">
+                            <input type="checkbox" data-bind="checked: isSelectedAll">
+                            <span class="checkbox-label modal-header--filter__checkbox-label" data-localize="SelectAll"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group pad-top-1">
+                        <input id="searchfilter" data-bind="value: filter" type="text" class="form-control modal-header--filter__input">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body modal-body--top-5 no-padding">
+                <div id="more-selection"
+                     class="modal__selectable-list--with-pagination">
+
+                </div>
+                <div id="more-selection-pager" class="k-pager-wrap k-list-pager modal__pager"></div>
+            </div>
+            <div class="modal-footer" data-bind="visible:isMultiSelection">
+                <input class="btn btn-default k-button modal__footer--input-button" tabindex="0" data-bind="value: cancelText, events: { click: onCancelClick }" />
+                <input class="btn btn-default k-button k-btn-primary modal__footer--input-button" tabindex="0" data-bind="value: confirmText, events: { click: onConfirmClick }" />
+            </div>
+        </div>
+    </div>
+</div>

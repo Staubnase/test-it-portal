@@ -1,0 +1,132 @@
+﻿/******************************************************************************************
+Cireson Admin Login Page
+*******************************************************************************************/
+
+// TODO: on Login page, update markup to include login.min.css only (remove cireson.min.css).
+// This will load only the subset of styles needed for the login screen (to improve performance)
+// and will place the bootstrap and custom styles in the correct cascade.
+
+
+/* Global Variables
+------------------------------------------------------------------------------------------*/
+@import (reference) "../bootstrap/variables.less";
+@import (reference) "../bootstrap/mixins.less";
+@import (reference) "../Cireson/cireson.variables.main.less";
+@import (reference) "../Cireson/cireson.variables.frameworks.less";
+@import (reference) "../Cireson/cireson.mixins.less";
+
+
+/* Base Styles
+------------------------------------------------------------------------------------------*/
+// Required Bootstrap Styles
+@import "../bootstrap/normalize.less";
+@import "../bootstrap/scaffolding.less";
+@import "../Cireson/Components/bootstrap/cireson.bootstrap.forms.less";
+@import "../Cireson/Components/bootstrap/cireson.bootstrap.buttons.less";
+@import "../Cireson/Components/bootstrap/cireson.bootstrap_overrides.less";
+
+// Required Custom Styles
+@import "../Cireson/cireson.font-families.less";
+@import "../Cireson/cireson.global.less";
+@import "../Cireson/Components/cireson.typography.less";
+@import "../Cireson/Components/cireson.forms.less";
+
+//font-awesome for the checkbox
+@import "../Cireson/Components/font-awesome/cireson.font-awesome.less";
+
+/* Styles common to all breakpoints
+------------------------------------------------------------------------------------------*/
+
+.login-icon {
+    font-size: 0; // collapse extra space around image
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.login_heading {
+    font-size: @font-size-heading-page;
+    margin-top: 0;
+
+    span {
+        color: @text-color-body-light;
+
+        a {
+            color: @text-color-body-light;
+        }
+    }
+}
+
+.submit_section {
+    margin-top: 20px;
+
+    > div {
+        margin-top: 20px;
+    }
+}
+
+
+/* Styles for small & medium screens
+------------------------------------------------------------------------------------------*/
+
+@media @small-and-medium-screen-only {
+
+    body {
+        padding: 0;
+    }
+
+    .login_container {
+        width: 100%;
+        padding: 20px;
+
+        form {
+            height: 100vh;
+        }
+    }
+}
+
+
+/* Styles for large screens
+------------------------------------------------------------------------------------------*/
+
+@media @large-screen-only {
+
+    body {
+        padding: 40px 0;
+        background: @v-color-gray-lightest;
+    }
+
+    .login_container {
+        width: 380px;
+        margin: 0 auto;
+
+        form {
+            padding: 20px;
+            border: 1px solid @border-color-light;
+            .border-radius();
+            background: @v-color-white;
+        }
+    }
+}
+
+
+/* Styles for kendo overlay (loading screen when connecting)
+------------------------------------------------------------------------------------------*/
+
+.k-overlay
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10001;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+
+//load after above line so we cascade
+@import "../Cireson/Components/cireson.overlays.less";
+@import "../Cireson/Components/cireson.spinkit.less";

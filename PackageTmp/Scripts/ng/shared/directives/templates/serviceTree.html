@@ -1,0 +1,18 @@
+﻿<nav class="sidebar-nav">
+    <ul class="nav sidenav">
+        <li><a class="link" href="/ServiceCatalog/Listing#/Favorites">{{ favorites }}</a></li>
+        <li data-ng-repeat="cat in categorydata | sortableObjectFilter: 'Category.Name'">
+            <!--Im not sure if this anchor will be change to div or other element since it was already there and I just used the css.
+        I guess david used the right side panel on KB so hard to change any styles. So I guess it must be stay as anchor or rework the existing right panel css.-->
+            <a class="link" ng-click="toggleBar($event)">
+                {{ cat.Category.Name }}<small> ({{ result.length }})</small>
+                <i ng-class="{'fa fa-chevron-down':searchtext.length > 0 , 'fa fa-chevron-left': searchtext.length === 0 }" class="fa fa-chevron-left pull-right"></i>
+            </a>
+            <ul class="nav" ng-class="{ show: searchtext.length > 0 , hidden: searchtext.length === 0 }">
+                <li data-ng-repeat="serv in cat.Category.Services | caseInsensitiveFilter:searchtext as result">
+                    <a class="link" href="/ServiceCatalog/Listing#/Service/{{ serv.ServiceOfferingId }}">{{ serv.Service }}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>

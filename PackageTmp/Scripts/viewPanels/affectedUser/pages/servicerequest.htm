@@ -1,0 +1,121 @@
+
+<div class="viewbuilder-struct">
+    <div class="page_content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12" id="alertMessagesContainer"></div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div data-bind="affix:{top:auto}" class="task-panel task-panel-narrow">
+                <h2 data-localize="Tasks"></h2>
+                <ul class="taskmenu">
+                    <li class="link" onclick='window.location.assign("/AffectedUser#!/incident#")' data-localize="ConvertToIncident"></li>
+                </ul>
+            </div>
+            <form ng-submit="submit()" class="defined-form">
+                <div class="page-form">
+                    <div class="form-panel">
+                        <div class="row formrow">
+                            <div class="col-md-4">
+                                <label data-localize="AffectedUser"></label>
+                                <div class="editor-field">
+                                    <input class="form-group" data-control="userPicker" data-bind="value: AffectedUser" data-control-bind="AffectedUser" data-control-target="enduser" data-control-itemtype="Incident">
+                                    <input ng-show="false" id="enduserId" name="enduserId" value="" ng-model="enduser" ng-change="onEndUserSelected()" />
+                                    <input ng-show="false" id="enduserName" name="enduserName" value="" />
+                                </div>
+                                <div style="color:grey; font-weight: bold">
+                                    {{ enduserobj.Title }}<element ng-if="(enduserobj.Title && enduserobj.Department) || (enduserobj.Title && enduserobj.BusinessPhone)">,</element>
+                                    {{ enduserobj.Department }}<element ng-if="enduserobj.Department && enduserobj.BusinessPhone">,</element>
+                                    {{ enduserobj.BusinessPhone }}
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <label data-localize="AlternateContact"></label>
+                                <input ng-model="altcontact" type="text" />
+                            </div>
+                        </div>
+                        <div class="row formrow">
+                            <div class="col-md-12">
+                                <label data-localize="Title"></label>
+                                <input ng-model="title" maxlength="200" type="text" required />
+                            </div>
+                        </div>
+                        <div class="row formrow">
+                            <div class="col-md-12">
+                                <label data-localize="Description"></label>
+                                <textarea ng-model="description" maxlength="4000" rows="8"></textarea>
+                            </div>
+                        </div>
+                        <div class="row formrow">
+                            <div class="col-md-6">
+                                <label data-localize="Priority"></label>
+                                <div data-control="enumPicker" data-control-bind="priority" data-control-valuetargetid="priority" data-control-enumid="d55e65ea-fae9-f7db-0937-843bfb1367c0"></div>
+                                <input ng-show="false" id="priority" name="priority" value="" ng-model="priority" ng-change="updateEnumObject(priority, 'priority','priorityList')" />
+                            </div>
+                            <div class="col-md-6">
+                                <label data-localize="Urgency"></label>
+                                <div data-control="enumPicker" data-control-bind="srurgency" data-control-valuetargetid="srurgency" data-control-enumid="eb35f771-8b0a-41aa-18fb-0432dfd957c4"></div>
+                                <input ng-show="false" id="srurgency" name="srurgency" value="" ng-model="srurgency" ng-change="updateEnumObject(srurgency, 'srurgency','srUrgencyList')" />
+                            </div>
+                        </div>
+                        <div class="row formrow">
+                            <div class="col-md-6">
+                                <label data-localize="SupportGroup"></label>
+                                <div data-control="enumPicker" data-control-bind="supportgroup" data-control-valuetargetid="supportgroup" data-control-enumid="23c243f6-9365-d46f-dff2-03826e24d228"></div>
+                                <input ng-show="false" id="supportgroup" name="supportgroup" value="" ng-model="supportgroup" ng-change="updateEnumObject(supportgroup, 'supportgroup','supportGroupList')" />
+                            </div>
+                            <div class="col-md-6">
+                                <label data-localize="AssignedUser"></label>
+                                <div class="editor-field">
+                                    <input class="form-group" data-control="userPicker" data-bind="value: AssignedUser" data-control-bind="AssignedUser" data-control-target="assigneduser" data-control-itemtype="Incident">
+                                    <input ng-show="false" id="assigneduserId" name="assigneduserId" value="" ng-model="assigneduser" ng-change="onAssignedUserSelected()" />
+                                    <input ng-show="false" id="assigneduserName" name="assigneduserName" value="" />
+                                </div>
+                                <div style="color:grey; font-weight: bold">
+                                    {{ assigneduserobj.Title }}<element ng-if="(assigneduserobj.Title && assigneduserobj.Department) || (assigneduserobj.Title && assigneduserobj.BusinessPhone)">,</element>
+                                    {{ assigneduserobj.Department }}<element ng-if="assigneduserobj.Department && assigneduserobj.BusinessPhone">,</element>
+                                    {{ assigneduserobj.BusinessPhone }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row formrow">
+                            <div class="col-md-6">
+                                <label data-localize="Category"></label>
+                                <div data-control="enumPicker" data-control-bind="area" data-control-valuetargetid="area" data-control-enumid="3880594c-dc54-9307-93e4-45a18bb0e9e1"></div>
+                                <input ng-show="false" id="area" name="area" value="" ng-model="area" ng-change="updateEnumObject(area, 'area','areaList')" />
+                            </div>
+                            <div class="col-md-6">
+                                <label data-localize="Source"></label>
+                                <div data-control="enumPicker" data-control-bind="srsource" data-control-valuetargetid="srsource" data-control-enumid="848211a2-393a-6ec5-9c97-8e1e0cfebba2"></div>
+                                <input ng-show="false" id="srsource" name="srsource" value="" ng-model="srsource" ng-change="updateEnumObject(srsource, 'srsource','srSourceList')" />
+                            </div>
+                        </div>
+                        <div class="row formrow">
+                            <div class="col-md-6">
+                                <label data-localize="TemplateText"></label>
+                                <select ng-model="srtemplateid" required>
+                                    <option ng-repeat="template in srTemplateList" value="{{template.Id}}" required>
+                                        {{template.Name}} <!--({{template.Description}})-->
+                                    </option>
+                                </select>
+                            </div>
+                            <div ng-if="isMobile" class="col-md-6">
+                                <label data-localize="ToggleToChangeWorkItemType">&nbsp</label>
+                                <label class="switch">
+                                    <input id="switchToIRCheckbox" type="checkbox" checked onclick='window.location.assign("#/incident")'>
+                                    <div class="slider round"></div>
+                                </label>
+                            </div>
+                        </div>
+                        <input id="createSR" type="submit" class="btn btn-primary" value="Create SR" />
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+        

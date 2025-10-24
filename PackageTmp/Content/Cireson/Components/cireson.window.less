@@ -1,0 +1,405 @@
+﻿/******************************************************************************************
+Windows - Custom Styles
+*******************************************************************************************/
+
+.modal-window-open {
+    #main_wrapper {
+        position: fixed;
+        pointer-events: none;
+    }
+}
+
+.open-modal {
+    cursor: pointer;
+    background-size: 16px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding: 4px 0 4px 8px;
+    float: left;
+    margin-top: 7px;
+    color: @v-color-link;
+    font-size: @font-size-icon-large-screen !important;
+
+    html[dir~="rtl"] & {
+        float: none;
+        position: absolute;
+        left: 20px;
+    }
+}
+
+.object-info {
+    overflow: auto;
+    width: 100%;
+
+    @media @small-and-medium-screen-only {
+        height: auto;
+    }
+}
+
+.window-buttons {
+    width: 100%;
+    background-color: @v-color-bg-footer;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    @media @small-and-medium-screen-only {
+        border-top: 1px solid @v-color-bg-footer;
+        margin-left: 0;
+        padding-left: 0;
+        z-index: 1;
+    }
+    
+    & > button,
+    & > .btn,
+    & > .k-button {
+        width: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+
+        @media @small-and-medium-screen-only {
+            min-width: 3rem;
+        }
+
+        @media @large-screen-only {
+            min-width: 8rem;
+        }
+    }
+
+    html[dir="rtl"] & {
+        right: 0px;
+        margin-left: -16px;
+    }
+}
+
+#UserPickerWindow,
+#ObjectPickerWindow,
+.task-window {
+    // .k-grid {
+    //     div > a > span {
+    //         position: relative;
+    //         top: 8px;
+    //     }
+    // }
+    .k-button {
+        cursor: pointer;
+
+        .k-icon {
+            display: none;
+        }
+
+        label {
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+    }
+
+    .search-input {
+        width: 50%;
+    }
+
+    .k-combobox {
+        .k-dropdown-wrap {
+            .k-select {
+                padding-top: 0;
+            }
+        }
+    }
+
+    .k-textbox {
+        .border-radius();
+
+        a,
+        span {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            margin: 0;
+
+            &:not(span) {
+                right: 8px;
+            }
+        }
+
+        input {
+            margin-left: 0;
+        }
+
+        .fa-search {
+            font-size: @font-size-icon-large-screen;
+            color: @link-color;
+        }
+
+        .textbox-padding-right {
+            padding-right: 1.9em !important;
+        }
+    }
+
+    .objectPicker-container {
+        min-height: 170px;
+    }
+
+    .objectPicker-grid2-container {
+        min-height: 150px;
+    }
+
+    .objectPicker-actions {
+        position: relative;
+        margin: 5px;
+        text-align: center;
+    }
+
+    .window-buttons.objectPicker-single-grid {
+        bottom: 0;
+        padding-left: 0;
+    }
+}
+
+#MultiObjectPickerWindow {
+    .form-group {
+        .object-picker-search {
+            input {
+                padding-right: 40px;
+            }
+        }
+    }
+}
+
+#UserPickerWindow {
+    @media @small-and-medium-screen-only {
+        * {
+            box-sizing: border-box;
+        }
+
+        .user-listBox {
+            border: none;
+            margin: 0 -@main-content-margin-small-screen;
+        }
+
+        .user-info {
+            padding: 5px @main-content-margin-small-screen;
+            cursor: pointer;
+
+            dl {
+                margin-bottom: 0;
+            }
+
+            dt {
+                font-size: @font-size-body-text;
+                font-weight: normal;
+            }
+
+            &.k-state-selected {
+                color: @text-color-body-reverse;
+
+                dd {
+                    color: @text-color-body-reverse;
+                }
+            }
+        }
+
+        .popup-search-box {
+            border: 1px solid @border-color-light;
+            border-radius: @default-border-radius;
+            display: inline-flex;
+            width: 100%;
+
+            .search-input {
+                border: 0;
+                width: 100%;
+            }
+
+            .search-icon {
+                border-bottom-right-radius: @default-border-radius;
+                border-top-right-radius: @default-border-radius;
+                padding: 0 15px;
+                background-color: @v-color-link;
+
+                i {
+                    font-size: @font-size-icon-small-screen;
+                    line-height: @input-height-small-screen;
+                    padding: 0;
+                    color: @text-color-body-reverse;
+                }
+            }
+
+            .search-disabled {
+                background-color: @v-color-gray-light;
+                background-image: none;
+            }
+        }
+    }
+
+    & .km-scroll-container div .row {
+        margin-left: 0;
+        margin-right: 0;
+
+        .k-icon {
+            position: relative;
+            top: 9px;
+        }
+    }
+}
+
+.user-info-popup-buttons {
+    border: hsl(200,20%,91%) solid 1px;
+    bottom: -63px !important;
+    left: -1px !important;
+}
+
+.cireson-window {
+
+    &--body {
+        .k-header {
+            & > .k-grid-filter {
+                /*BUG 10742*/
+                z-index: 0;
+            }
+        }
+
+        .object-info {
+            td {
+                &.strong {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        table.k-editor {
+            border-spacing: 0;
+
+            td.k-editable-area {
+                padding: @input-indent;
+                border-radius: @default-border-radius;
+
+                &:hover {
+                    border-color: @v-color-link-hover;
+                }
+                // @media @small-and-medium-screen-only {
+                //   padding: 0;
+                // }
+            }
+        }
+
+        .k-upload {
+            margin-bottom: 15px;
+            margin-top: 15px;
+            width: 50%;
+            border: none;
+        }
+        // .row {
+        //     @media @small-and-medium-screen-only {
+        //         margin: 0;
+        //     }
+        // }
+    }
+
+    &--footer {
+        .userInfoLink {
+            width: 35%;
+        }
+
+        .k-ie & {
+            position: absolute;
+            bottom: -60px;
+        }
+    }
+}
+
+//email window
+#EmailNotificationWindow {
+
+    table.k-editor {
+	    height: 30vh !important;
+	    margin-bottom: auto !important;
+	    border-collapse: separate !important;
+    }
+
+    table.k-editor.editor-expanded{
+        height: 60vh !important;
+    }
+
+    .k-editor {
+	    .k-editable-area {
+		    border-radius: 6px !important;
+		    -moz-border-radius: 6px !important;
+		    &:hover {
+			    border-color: @v-color-link-hover !important;
+		    }
+	    }
+    }
+
+    /*tr[role='presentation'] .k-editor-toolbar {
+        margin-bottom: 7px;
+    }*/
+
+    .k-upload {
+        margin-bottom: 15px;
+        margin-top: 15px;
+        width: 50%;
+        border: none;
+    }
+}
+
+.session-notification{
+    display: none;
+}
+
+
+/* MODAL FADE RIGHT */
+.modal.right .modal-dialog {
+	position:absolute;
+	top:0;
+	right:0;
+	margin:0;
+}
+
+.modal.right .modal-content {
+	min-height:100vh;
+	border:0;
+}
+
+.modal.right .modal-body {
+    position: absolute;
+    top: 4em;
+    bottom: 3em;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.modal.right .modal-header {
+    height: 4em;
+}
+
+.modal.right .modal-footer {
+    position: absolute;
+    bottom: 0;
+     width: 100%; /* can use left: 0; right: 0; as well */
+    height: 4em;
+    padding: 25px;
+}
+
+.modal.right.fade .modal-dialog {
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+/*Prevent BODY from scrolling when a modal is opened*/
+
+body.modal-open {
+    overflow: hidden;
+}
+
+#extInputDialog{
+    k-window-content{
+        overflow:hidden !important;
+    }
+}
+
+#authTokenWindow-modal{
+    overflow:hidden;
+    height: 300px;
+}

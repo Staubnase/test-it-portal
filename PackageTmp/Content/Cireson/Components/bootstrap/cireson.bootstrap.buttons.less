@@ -1,0 +1,166 @@
+﻿/******************************************************************************************
+Bootstrap Alerts - Overrides
+
+This document is only for styles that override this Bootstrap component's core classes.
+
+Do not include styles that amend these classes within specific contexts or extend these ideas into new classes.
+Instead these should be placed within the corresponding cireson.[component].less file.
+*******************************************************************************************/
+
+/* Import core Bootstrap component first
+------------------------------------------------------------------------------------------*/
+
+@import "../../../bootstrap/buttons.less";
+
+/* Style Overrides
+------------------------------------------------------------------------------------------*/
+
+
+/* Base styles
+..........................................................................................*/
+
+.btn {
+    font-size: @font-size-button;
+    text-transform: capitalize;
+    border: 1px solid @btn-default-border;
+    .transition(all 0.15s);
+    height: @input-height-large-screen;
+    line-height: @input-height-large-screen - 1;
+
+    @media @small-and-medium-screen-only {
+        font-size: @font-size-button + .1rem;
+        height: @input-height-small-screen;
+        line-height: @input-height-small-screen - 1;
+    }
+
+    &:hover,
+    &:active,
+    &.active,
+    &.active &:focus,
+    &:focus {
+        text-decoration: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        color: @btn-hover-color;
+        background-color: @btn-hover-bg;
+        border-color: @btn-hover-border;
+
+        .fa {
+            color: @text-color-body-reverse;
+        }
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        cursor: default;
+        pointer-events: none; // Future-proof disabling of clicks
+        .opacity(@button-disabled-opacity);
+        .box-shadow(none);
+    }
+}
+
+a.btn {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none !important;
+    }
+}
+
+.btn-lg {
+    font-size: @font-size-button-large;
+    height: @input-height-large-screen * 1.3;
+    line-height: @input-height-large-screen * 1.3;
+
+    @media @small-and-medium-screen-only {
+        font-size: @font-size-button-large * 1.1;
+        height: @input-height-small-screen * 1.2;
+        height: @input-height-small-screen * 1.2;
+    }
+}
+
+/* Alternate Buttons
+..........................................................................................*/
+
+// .btn-default {
+//   // no overrides
+// }
+// .btn-primary {
+//   // no overrides
+// }
+// .btn-success {
+//   // no overrides
+// }
+// .btn-info {
+//   // no overrides
+// }
+// .btn-warning {
+//   // no overrides
+// }
+// .btn-danger {
+//   // no overrides
+// }
+// .btn-inverse {
+//   // no overrides
+// }
+
+/* Link buttons
+..........................................................................................*/
+
+// .btn-link {
+// &,
+// &:active,
+// &[disabled],
+// fieldset[disabled] & {
+//   // no overrides
+// }
+// &,
+// &:hover,
+// &:focus,
+// &:active {
+//   // no overrides
+// }
+// &:hover,
+// &:focus {
+//   // no overrides
+// }
+// &[disabled],
+// fieldset[disabled] & {
+//   &:hover,
+//   &:focus {
+//   // no overrides
+//   }
+// }
+// }
+
+/* Button sizes
+..........................................................................................*/
+
+// .btn-lg {
+//   // no overrides
+// }
+// .btn-sm {
+//   // no overrides
+// }
+// .btn-xs {
+//   // no overrides
+// }
+
+
+/* Block button
+..........................................................................................*/
+
+// .btn-block {
+//     // no overrides
+// }
+// .btn-block + .btn-block {
+//     // no overrides
+// }
+// input[type="submit"],
+// input[type="reset"],
+// input[type="button"] {
+//   &.btn-block {
+//     // no overrides
+//   }
+// }

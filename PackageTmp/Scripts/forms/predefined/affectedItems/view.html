@@ -1,0 +1,98 @@
+﻿<div data-bind="templateResources:'resources'" style="display:none" class="">
+    <div data-template-name="mobileGridTemplate" class="cs-form__predefined--affectedItems--mobile">
+        <!-- repeated template content here -->
+        <div class="gridcard gridcard--form">
+            <p class="gridcard__title">#: DisplayName #</p>
+            <div class="gridcard__detailblock">
+                <p>#: (typeof AssetStatus!="undefined") ? !_.isUndefined(AssetStatus.Name)?AssetStatus.Name:"" : "" #</p>
+                <p>#: (Path!=null ) ? Path : "" # </p>
+
+            </div>
+            <div class="gridcard__detailblock hidden-print" data-bind="visible: view.affectedItemController.showAddRemoveButtons">
+                <a class="k-delete-button">#: localization.Remove #</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row cs-form__predefined--affectedItems">
+    <div class="col-md-12 affecteditems-grid">
+        <div class="row hidden-print" data-bind="visible: view.affectedItemController.showAddRemoveButtons">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label"><%= localization.Configurationitem %></label>
+                    <div class="two-action-input-group">
+                        <input data-role="combobox" class="search-combo"
+                               data-placeholder="<%= localization.ChooseOne %>"
+                               data-value-primitive="true"
+                               data-text-field="Text"
+                               data-value-field="Value"
+                               data-filter="contains"
+                               data-auto-bind="false"
+                               data-min-length="3"
+                               data-bind="value: view.affectedItemController.selectedConfigItem, source: view.affectedItemController.configItemDataSource, events:{change:view.affectedItemController.onConfigItemChange }"
+                               data-cid="ci-searchbox" <% if ( Disabled ){ %> disabled <% } %>/>
+                        <span class="search"
+                              data-bind="events:{click: view.affectedItemController.searchConfigItem}"
+                              data-cid="affecteditemssearchicon" >
+                            <i class="fa fa-search" ></i>
+                        </span>
+                        <button data-role="button" class="search-button two-action-input-group__primary-action"
+                                data-bind="events:{click: view.affectedItemController.addConfigItem}"
+                                data-cid="affectedItemsSearchBoxAddButton"  <% if ( Disabled ){ %> disabled <% } %>>
+                            <%= localization.Add %>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group affected-user-item-search" data-bind="visible: view.affectedItemController.isUserCIVisible">
+                    <label class="control-label"><%= localization.AffectedUserItems %></label>
+                    <div class="two-action-input-group">
+                        <input data-role="combobox" class="search-combo"
+                               data-placeholder="<%= localization.ChooseOne %>"
+                               data-value-primitive="true"
+                               data-text-field="Text"
+                               data-value-field="Value"
+                               data-filter="contains"
+                               data-auto-bind="false"
+                               data-bind="value: view.affectedItemController.selectedUserConfigItem, source: view.affectedItemController.userConfigItemDataSource, events:{change:view.affectedItemController.onUserConfigItemChange }"
+                               data-cid="auitems-searchbox" <% if ( Disabled ){ %> disabled <% } %> />
+                        <button class="two-action-input-group__primary-action" data-role="button"
+                                data-bind="events:{click: view.affectedItemController.addUserConfigItem}"
+                                data-cid="affectedItemsComboBoxAddButton" <% if ( Disabled ){ %> disabled <% } %>>
+                            <%= localization.Add %>
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-role="grid"
+             data-bind="visible: view.affectedItemController.isDesktopView, source: view.affectedItemController.dataSource, events:{dataBinding: view.affectedItemController.onDataBinding}"
+             data-selectable="false"
+             data-sortable="true"
+             data-filterable="true"
+             data-scrollable="false"
+             data-column-menu="true"
+             data-pageable="false"
+             data-editable="{mode: 'incell', create: false, update: false}"
+             data-columns='[
+                    { title: "", width: "1%", template: "\u003cdiv data-base-id=\"#=BaseId#\" base-type=\"#=BaseType#\" class=\"aci-context-menu open-modal pull-right\" data-bind=\"visible: view.affectedItemController.isSlideOut\"\u003e\u003ci class=\"fa fa-info-circle\"\u003e\u003c/i\u003e\u003c/div\u003e\u003cdiv class=\"open-modal pull-right\" data-bind=\"visible: view.affectedItemController.isMoreInfo, events:{click:view.affectedItemController.showMoreInfo }\"\u003e\u003ci class=\"fa fa-info-circle\"/\u003e\u003c/i\u003e\u003c/div\u003e"},
+                    { field: "DisplayName", title: localization.DisplayName, width: "50%", attributes:{class: (app.featureSet.isActive("CMDBPortalCI")) ? "grid-highlight-column" : ""}, template: "# if \u0028app.featureSet.isActive\u0028\u0022CMDBPortalCI\u0022\u0029\u0029 \u007b # \u003ca target=\u0027_blank\u0027 href=\u0027#var url = app.gridUtils.getObjectLinkUrl\u0028data\u0029;##=url#\u0027\u003e#: DisplayName # \u003c/a\u003e\u003cspan class=\u0027pull-right relatedItems-grid-links\u0027\u003e\u003ca class=\u0027highlight-default-icon\u0027 target=\u0027_blank\u0027 href=\u0027#var url = app.gridUtils.getObjectLinkUrl\u0028data\u0029;##=url#\u0027\u003e\u003ci class=\u0027fa fa fa-external-link\u0027\u003e\u003c/i\u003e\u003c/a\u003e\u003c/span\u003e #\u007d else \u007b# #: DisplayName # # \u007d#"},
+                    { field: "BaseId", title: localization.BaseId, width: "25%", hidden: true },
+                    { field: "Path", title: localization.Path, width: "25%" },
+                    { field: "AssetStatus.Name", title: localization.Status, width: "25%" },
+                    { title: localization.Actions, width: "15%", command: [{ name: "destroy", buttonType: "ImageAndText", text: localization.Remove, className:"custom__grid-remove"}]}
+                ]'>
+        </div>
+        <div data-bind="visible: view.affectedItemController.isMobileView">
+            <div data-bind="mobileGrid: HasRelatedWorkItems" data-template-name="mobileGridTemplate" class="mobile-grid-parent"></div>
+        </div>
+        <!--context menu for info icon-->
+        <ul id="tccmenu" data-role="contextmenu"
+            data-filter=".aci-context-menu"
+            data-show-on="click"
+            data-bind="events:{select:view.affectedItemController.onContextmenuSelect, activate:view.affectedItemController.onContextmenuActivate}">
+        </ul>
+   </div>
+</div>

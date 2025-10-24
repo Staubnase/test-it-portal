@@ -1,0 +1,3 @@
+﻿<ul ng-class="{'nav sidenav':!isMobileDevice}">
+    <li ng-repeat="headline in headlines"> <a ng-click="scrollTo(headline)" ng-bind-html="headline.html"></a></li>
+</ul>

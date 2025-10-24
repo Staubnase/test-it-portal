@@ -1,0 +1,216 @@
+﻿#activityDiagram {
+    width: auto;
+    text-align: center;
+    margin-left: 60px;
+    margin-top: 20px;
+    min-height: 500px;
+    height: auto;
+
+    .activityWrapper {
+        width: 100%;
+    }
+
+
+    .childActivity {
+        position: relative;
+        float: none;
+        margin: 0px 20px 0px 20px;
+    }
+
+    .activityBox {
+        min-width: 150px;
+        max-width: 300px;
+        border: solid 1px;
+        border-left: solid 6px;
+        display: inline-flex;
+        text-align: left;
+    }
+
+    .activityParentBox {
+        min-width: 150px;
+        border: solid 1px;
+        border-left: solid 6px;
+        display: inline-flex;
+    }
+
+    .activityContent {
+        padding: 3px 10px;
+    }
+
+    .ParallelActivity .activityContent {
+        display: inline-flex;
+        flex-wrap: wrap;
+
+        .activityWrapper{
+            width: auto;
+            padding-bottom: 10px;
+        }
+    }
+
+    .SequentialActivity .activityContent {
+        display: grid;
+    }
+
+    .activityHeader {
+        padding: 3px 10px 3px 10px;
+        min-width: 200px;
+    }
+
+    .activityActions {
+
+        a {
+            padding-left: 8px;
+        }
+
+        ul {
+            li {
+                list-style: none;
+            }
+        }
+    }
+
+    .activityActions-parallel {
+        padding-left: 19px;
+        display: inline-flex;
+        padding-top: 10px;
+    }
+
+    .activitySendEmail {
+        cursor: pointer;
+    }
+
+    .activityID {
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .activityIDLink {
+        color: #008ed6;
+    }
+
+    .activityIDLink:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .activityTitle {
+        min-height: 20px;
+    }
+
+    .completed,
+    .Completed {
+        border-left-color: grey;
+    }
+
+    .skipped,
+    .Skipped {
+        border-left-color: gold;
+        border-bottom-color: gold;
+    }
+
+    .pending,
+    .Pending {
+        border-left-color: green;
+    }
+
+    .inprogress,
+    .Progress {
+        border-left-color: green;
+    }
+
+    .failed,
+    .Failed {
+        border-left-color: #ce0000;
+    }
+
+    .ParallelActivity {
+        &pending > div.activityHeader,
+        &Pending > div.activityHeader {
+            background: #d8e8e0;
+        }
+
+        &progress > div.activityHeader,
+        &Progress > div.activityHeader {
+            background: #d8e8e0;
+        }
+
+        &skipped > div.activityHeader,
+        &Skipped > div.activityHeader {
+            background: gold;
+        }
+
+        &failed > div.activityHeader,
+        &Failed > div.activityHeader {
+            background: pink;
+        }
+
+        &completed > div.activityHeader,
+        &Completed > div.activityHeader {
+            background: lightgrey;
+        }
+    }
+
+
+    .SequentialActivity.Pending > div.activityHeader {
+        background: #d8e8e0;
+    }
+
+    .SequentialActivity.Progress > div.activityHeader {
+        background: #d8e8e0;
+    }
+
+    .SequentialActivity.Skipped > div.activityHeader {
+        background: gold;
+    }
+
+    .SequentialActivity.Failed > div.activityHeader {
+        background: pink;
+    }
+
+    .SequentialActivity.Completed > div.activityHeader {
+        background: lightgrey;
+    }
+
+    .activityImage {
+        height: 18px;
+        width: 18px;
+        padding-right: 2px;
+    }
+
+    .classImage {
+        padding: 5px;
+        margin: 0px 36px 3px 36px;
+        border-bottom: dashed 1px lightgrey;
+    }
+
+    .lineClass {
+        border-left: dashed 1px lightgrey;
+        min-height: 20px;
+        width: 1px;
+        display: block;
+        margin-left: 50%;
+    }
+    /*.activityHeader .activityID {
+        span:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }*/
+    .diagramIcon {
+        margin-right: 7px;
+        width: 16px;
+    }
+
+    .assignedUser {
+        color: #000;
+    }
+
+    .reviewer {
+        color: #008ed6;
+    }
+
+    .reviewer:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}

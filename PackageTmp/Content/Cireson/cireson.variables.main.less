@@ -1,0 +1,479 @@
+﻿/******************************************************************************************
+APPLICATION VARIABLES
+
+* Custom Variables - Global
+* Custom Variables - Components
+*******************************************************************************************/
+
+
+/******************************************************************************************
+Custom Variables - Global
+*******************************************************************************************/
+
+
+/* Helper Variables
+------------------------------------------------------------------------------------------*/
+@image-folder:                               "/Content/Images"; 
+
+
+/* Responsive Breakpoints
+------------------------------------------------------------------------------------------*/
+@small-screen-only:                          ~"only screen and (max-width: 766px)";
+@medium-screen-only:                         ~"only screen and (min-width: 767px) and (max-width: 1023px)";
+@small-and-medium-screen-only:               ~"only screen and (max-width: 1023px)"; //change app.js 'isMobile()' function to reflect changes here
+@large-screen-only:                          ~"only screen and (min-width: 1024px)"; //change app.js 'isLargeScreen()' function to reflect changes here
+
+// archived breakpoints (not currently needed)
+// @highdensity:                                ~"only screen and (-webkit-min-device-pixel-ratio: 1.5)", ~"only screen and (min--moz-device-pixel-ratio: 1.5)", ~"only screen and (-o-min-device-pixel-ratio: 3/2)", ~"only screen and (min-device-pixel-ratio: 1.5)";
+// @mobile:                                     ~"only screen and (min-device-width : 320px) and (max-device-width : 767px)";
+// @tablet:                                     ~"only screen and (min-width: 768px) and (max-width: 1024px)";
+// @desktop:                                    ~"only screen and (min-width: 1025px)";
+// @desktop-xl:                                 ~"only screen and (min-width: 1824px)";
+// @bs-small:                                   ~"only screen and (min-width: 530px) and (max-width: 767px)"; // targets bootstrap sm class
+// @pablet:                                     ~"only screen and (min-width: 530px) and (max-width: 601px)"; // used on SC
+
+
+/* Layout
+------------------------------------------------------------------------------------------*/
+
+@main-content-margin-large-screen:           30px;
+@main-content-margin-small-screen:           15px;
+
+
+/* Typography
+------------------------------------------------------------------------------------------*/
+
+//families
+@font-family-sans:                           "PT Sans", sans-serif;
+@font-family-meta:                           "PT Sans Caption", sans-serif;
+@font-family-monospace:                      Menlo, Monaco, Consolas, "Courier New", monospace;
+
+/* Font url
+------------------------------------------------------------------------------------------*/
+@cirson-font-path: '../fonts/';
+@ptsans-regular-url: url("@{cirson-font-path}PT_Sans/PT_Sans-Web-Regular.ttf");
+@ptsans-bold-url: url("@{cirson-font-path}PT_Sans/PT_Sans-Web-Bold.ttf");
+@ptsans-caption-url: url("@{cirson-font-path}PT_Sans_Caption/PT_Sans-Caption-Web-Regular.ttf");
+@ptsans-captionbold-url: url("@{cirson-font-path}PT_Sans_Caption/PT_Sans-Caption-Web-Bold.ttf");
+@icon-font-woff-url: url("@{cirson-font-path}cireson.woff");
+@icon-font-ttf-url: url("@{cirson-font-path}cireson.ttf");
+@icon-font-svg-url: url("@{cirson-font-path}cireson.svg#cireson");
+
+//sizes
+@font-size-base-large-screen:                15px;
+@font-size-base-small-screen:                15px;
+
+@font-size-application-name:                 1.5rem;
+@font-size-heading-page:                     1.8rem;
+@font-size-heading-section:                  1.4rem;
+@font-size-heading-subsection:               1.2rem;
+@font-size-body-text:                        1rem;
+@font-size-body-featured-text:               1.2rem;
+@font-size-meta-text:                        0.866666667rem;
+@font-size-pre-text:                         0.866666667rem;
+@font-size-grid-text:                        @font-size-meta-text ;
+@font-size-grid-header-text:                 0.8rem;
+@font-size-button:                           @font-size-body-text;
+@font-size-button-large:                     @font-size-body-featured-text;
+@font-size-counter-text:                     5rem;
+
+@font-size-icon-large-screen:                15px;  // also see Kendo specific icon variables below
+@font-size-icon-small-screen:                17px;
+
+@font-size-side-nav-title:                   0.65rem;
+@font-size-side-nav-subpanel-title:          0.866666667rem;
+@font-size-side-nav-icon-large-screen:       27px;
+@font-size-side-nav-icon-small-screen:       27px;
+@font-size-drawer-nav-icon-large-screen:     23px;
+@font-size-drawer-nav-icon-small-screen:     @font-size-drawer-nav-icon-large-screen;
+@font-size-nav-small-screen:                 1.1rem;
+
+@font-size-avatar-large-screen:              2rem;
+@font-size-avatar-small-screen:              1.75rem;
+
+//line height
+@line-height-base:                           1.5;
+@line-height-heading:                        1.3;
+@line-height-grid:                           1.2;
+
+//weights
+@font-weight-heading:                        400;
+
+
+/* Colors
+------------------------------------------------------------------------------------------*/
+@query-base-hue: 200;
+
+@query-label-color: hsl(@query-base-hue, 1.2%, 49.2%);
+@query-sublabel-color: hsl(@query-base-hue, 3.5%, 83.3%);
+@query-border: hsl(@query-base-hue, 17.6%, 96.7%);
+@query-bg: hsl(@query-base-hue, 23.1%, 97.5%);
+@query-input-border: hsl(208, 9.2%, 72.4%);
+@query-input-text: hsl(206, 3.8%, 64.1%);
+// portal brand colors
+@portal-base-hue:                            200;
+@neutral-palette-saturation:                 20%;
+@color-palette-saturation:                   70%;
+
+@v-color-black:                              hsl(@portal-base-hue, @neutral-palette-saturation, 0%);
+@v-color-gray-darkest:                       hsl(@portal-base-hue, @neutral-palette-saturation, 12%);
+@v-color-gray-darker:                        hsl(@portal-base-hue, @neutral-palette-saturation, 25%);
+@v-color-gray-dark:                          hsl(@portal-base-hue, @neutral-palette-saturation, 39%);
+@v-color-gray-mid:                           hsl(@portal-base-hue, @neutral-palette-saturation, 52%); // keep mid at ≈50% lightness; affects accessiblity of 'light' text variables
+@v-color-gray-light:                         hsl(@portal-base-hue, @neutral-palette-saturation, 70%);
+@v-color-gray-lighter:                       hsl(@portal-base-hue, @neutral-palette-saturation, 91%);
+@v-color-gray-lightest:                      hsl(@portal-base-hue, @neutral-palette-saturation, 97%);
+@v-color-white:                              hsl(@portal-base-hue, @neutral-palette-saturation, 100%);
+
+@v-color-portal-dark:                        hsl(@portal-base-hue, @color-palette-saturation, 40%);
+@v-color-portal-light:                       hsl(@portal-base-hue, @color-palette-saturation, 65%);
+
+@v-color-workitem-id:                        #6ABBE0;
+
+// cireson brand colors
+@cireson-orange:                             hsl(31, 75%, 52%);
+@cireson-teal:                               hsl(177, 44%, 53%);
+
+// page
+@body-main-bg:                               @v-color-white;
+
+// links
+@link-base-hue:                              200;
+@v-color-link:                               hsl(@link-base-hue, 100%, 42%); // when changing this check rendered link color for accessibility (http://leaverou.github.io/contrast-ratio/)
+@v-color-link-hover:                         lighten(@v-color-link, 8%);
+@v-color-link-visited:                       desaturate(@v-color-link, 30%);
+@v-color-breadcrumb-visited:                 @v-color-link;
+@v-color-selected:                           hsl(@link-base-hue, 100%, 92%);
+
+// text
+@text-color-body-headings:                   @v-color-black;
+@text-color-body:                            @v-color-gray-darkest;
+@text-color-body-light:                      @v-color-gray-mid; // do not go *lighter* than this; text will not be accessible
+@text-color-body-disabled:                   @text-color-body-light;
+@text-color-body-reverse:                    @v-color-white;
+@text-color-body-reverse-light:              @v-color-gray-mid; // do not go *darker* than this; text will not be accessible
+
+// button & badge variation colors (bootstrap based)
+@v-color-primary:                            @v-color-link;
+@v-color-default:                            @v-color-gray-lightest;
+@v-color-info:                               #0D9AD4;
+@v-color-info-light:                         #D0F8FF;
+@v-color-success:                            #7FC732;
+@v-color-success-light:                      #DDFFD0;
+@v-color-error:                              #F10027;
+@v-color-error-light:                        #FFDED7;
+@v-color-warning:                            #D7AF0D;
+@v-color-warning-light:                      #EFDCA9;
+@v-color-inverse:                            @v-color-portal-dark;
+@v-color-disabled:                           @v-color-gray-lighter;
+@v-color-cireson-orange:                     #FF6E3B;
+
+@icon-badge: #e04952;
+@icon-red: #ec3324;
+@grey: #818181;
+@button-caret: #aeb1b3;
+// buttons
+@v-color-button-fg-primary:                  @text-color-body-reverse;
+@v-color-button-bg-primary:                  @v-color-primary;
+@v-color-button-bg-default:                  @body-main-bg;
+@v-color-button-fg-default:                  @v-color-primary;
+@v-color-button-bg-success:                  @v-color-success;
+@v-color-button-fg-success:                  @v-color-white;
+@v-color-button-bg-info:                     @v-color-info;
+@v-color-button-fg-info:                     @v-color-gray-mid;
+@v-color-button-bg-error:                    @v-color-error;
+@v-color-button-fg-error:                    @v-color-white;
+@v-color-button-bg-disabled:                 @v-color-disabled;
+@v-color-button-fg-disabled:                 @v-color-gray-mid;
+
+// borders
+@border-color-light:                         @v-color-gray-lighter;
+@border-color-mid:                           @v-color-gray-light;
+@border-color-dark:                          @v-color-gray-mid;
+
+@default-border-color:                       @border-color-mid;
+@disabled-border-color:                      @border-color-light;
+@semi-transparent-border-color:              fade(@v-color-black,80%);
+
+@horizontal-rule-color:                      @border-color-mid;
+@window-rule-color:                          @border-color-light;
+
+// icons
+@icon-color-dark:                            @v-color-portal-dark;
+@icon-color-light:                           @v-color-gray-light;
+
+// forms
+@v-color-placeholder:                        @text-color-body-light; 
+
+// workitem colors
+@v-color-incident:                           #D7AF0D;
+@v-color-servicerequest:                     #2ECC71;
+
+/* Form Elements
+------------------------------------------------------------------------------------------*/
+
+@input-height-small-screen:                  42px;
+@input-height-large-screen:                  32px;
+@input-border-width:                         1px;
+@input-border-color:                         @default-border-color;
+@input-padding:                              0;
+@input-indent:                               10px;
+@checkbox-size-large-screen:                 22px;
+@checkbox-tick-size-large-screen:            16px;
+@checkbox-size-small-screen:                 28px;
+@checkbox-tick-size-small-screen:            17px;
+@radio-button-size:                          17px;
+@radio-button-tick-size:                     11px;
+@checkbox-tick-icon-content:                 "\2713"; //kendo var
+@checkbox-border-width:                      @input-border-width;
+
+
+/* Buttons
+------------------------------------------------------------------------------------------*/
+
+@button-height-small-screen:                 @input-height-small-screen;
+@button-height-large-screen:                 @input-height-large-screen;
+@button-padding-vertical:                    0;
+@button-padding-horizontal:                  20px;
+@button-border-width:                        1px;
+@button-disabled-opacity:                    .4;
+@button-space-between:                       4px;
+
+
+/* Tables & Grids
+------------------------------------------------------------------------------------------*/
+
+@table-cell-padding-horizontal:              6px;
+@table-cell-padding-vertical:                4px;
+@table-border-color:                         hsl(@portal-base-hue, @neutral-palette-saturation, 80%);
+
+
+/* Shapes
+------------------------------------------------------------------------------------------*/
+
+@default-border-radius:                      3px;
+@pager-border-radius:                        @default-border-radius;
+@checkbox-border-radius:                     @default-border-radius;
+
+
+/******************************************************************************************
+Custom Variables - Components
+*******************************************************************************************/
+
+
+/* navbar
+------------------------------------------------------------------------------------------*/
+@navbar-height-small-screen:                 40px;
+@navbar-height-large-screen:                 42px;
+@navbar-default-color:                       @text-color-body-reverse;
+@navbar-default-bg:                          @v-color-gray-darker;
+@navbar-brand-small-color:                   fade(@v-color-white,50%); // creates rgba
+@navbar-search-dropdown-bg:                  @v-color-gray-darkest;
+@navbar-small-screen-icon-button-width:      35px;
+
+
+/* side nav
+------------------------------------------------------------------------------------------*/
+@side-nav-width:                             80px; //if you change this you need to make a change to full_nav_width in app.js
+@side-nav-small-width:                       50px;
+@side-nav-default-text-color:                @text-color-body-reverse;
+@side-nav-active-text-color:                 @v-color-portal-dark;
+@side-nav-secondary-link-color:              @text-color-body-reverse;
+@side-nav-active-bg:                         @v-color-white;
+@side-nav-active-bg-small-screen:            darken(@v-color-portal-light, 5%);
+@side-nav-hover-bg:                          @v-color-portal-dark;
+@side-nav-offscreen-margin:                  50px;
+@side-nav-api-width-large-screen:            250px;
+
+
+/* side nav sub nav panel
+------------------------------------------------------------------------------------------*/
+@sub-panel-width:                            176px;
+@sub-panel-bg:                               @side-nav-hover-bg;
+@sub-panel-heading-text-color:               @v-color-gray-light;
+
+
+/* body
+------------------------------------------------------------------------------------------*/
+@body-padding-top:                           @navbar-height-large-screen;
+
+
+/* header
+------------------------------------------------------------------------------------------*/
+@header-height:                              30px;
+@header-padding:                             4px;
+@header-font-size:                           @font-size-body-text;
+@header-font-color:                          @text-color-body-reverse;
+@header-content-background-color:            @v-color-portal-dark;
+@header-user-menu-background-color:          @v-color-portal-dark;
+@header-z-index:                             100;
+
+
+/* modals
+------------------------------------------------------------------------------------------*/
+@v-color-bg-footer:                          @v-color-gray-lighter;
+@k-window-top-padding:                       65px;
+@k-window-bottom-padding:                    75px; /*75px for the size of the window footer*/
+/* buttons
+------------------------------------------------------------------------------------------*/
+@btn-default-color:                          @v-color-primary;
+@btn-default-color-reverse:                  @text-color-body-reverse;
+@btn-default-bg:                             @body-main-bg;
+@btn-default-border:                         @v-color-primary;
+
+@btn-hover-color:                            @text-color-body-reverse;
+@btn-hover-bg:                               @v-color-link-hover;
+@btn-hover-border:                           transparent;
+
+@btn-primary-color:                          @text-color-body-reverse;
+@btn-primary-bg:                             @v-color-primary;
+@btn-primary-border:                         transparent;
+
+@btn-secondary-color:                        @btn-default-border;
+@btn-secondary-bg:                           @btn-default-bg;
+@btn-secondary-border:                       @btn-default-border;
+
+@btn-tertiary-color:                         @btn-default-border;
+@btn-tertiary-bg:                            @btn-default-bg;
+@btn-tertiary-border:                        transparent;
+
+@btn-success-color:                          @btn-default-color-reverse;
+@btn-success-bg:                             @v-color-success;
+@btn-success-border:                         transparent;
+
+@btn-info-color:                             @btn-default-color-reverse;
+@btn-info-bg:                                @v-color-info;
+@btn-info-border:                            transparent;
+
+@btn-warning-color:                          @btn-default-color-reverse;
+@btn-warning-bg:                             @v-color-warning;
+@btn-warning-border:                         transparent;
+
+@btn-danger-color:                           @btn-default-color-reverse;
+@btn-danger-bg:                              @v-color-error;
+@btn-danger-border:                          transparent;
+
+@btn-inverse-color:                          @btn-default-color;
+@btn-inverse-bg:                             @v-color-inverse;
+@btn-inverse-border:                         transparent;
+
+// small button
+@btn-sm-primary-color:                       @btn-default-color;
+@btn-sm-primary-bg:                          @btn-default-bg;
+
+
+/* tabs & nav pills
+------------------------------------------------------------------------------------------*/
+@nav-pills-link-hover-color:                 @v-color-link;
+@nav-pills-active-link-hover-color:          @v-color-black;
+@nav-pills-active-link-hover-bg:             @body-main-bg;
+@nav-pills-border-radius:                    0;
+
+
+/* ro page/wizard
+------------------------------------------------------------------------------------------*/
+@ro-wizard-active-border-color:              @v-color-portal-light;
+@ro-wizard-active-border-color-left:         @v-color-portal-dark;
+@ro-wizard-active-background-color:          @v-color-link-hover;
+@ro-wizard-paging-background:                @v-color-portal-dark;
+
+
+/* service catalog
+------------------------------------------------------------------------------------------*/
+@sm-thumb-size:                              60px;
+@md-thumb-size:                              125px;
+@lg-thumb-size:                              150px;
+@thumb-area-height:                          185px;
+
+
+/* action log
+------------------------------------------------------------------------------------------*/
+@action-log-mobile-image-width:              24px;
+
+
+/* dashboards
+------------------------------------------------------------------------------------------*/
+@dashboard-header-background-color:          @v-color-inverse;
+
+
+/* drawer
+------------------------------------------------------------------------------------------*/
+@drawer-closed-height:                       @navbar-height-large-screen;
+@drawer-closed-height-small-screen:          @navbar-height-small-screen;
+@drawer-button-width-small-screen:           50px;
+@drawer-background-color:                    @v-color-gray-darker;
+@drawer-hover-background-color:              @v-color-gray-darkest;
+@drawerdetails-form-border-color:            @v-color-white;
+@drawer-tile-width:                          240px;                             // extra width For FF
+@drawer-task-menu-bg:                        @v-color-gray-darkest;
+@drawer-taskbar-default-color:               @text-color-body-reverse;
+@drawer-taskbar-disable-color:               @text-color-body-reverse-light;    // this color set previews who create the taskbar
+@drawer-taskbar-active-color:                @text-color-body-reverse;
+@drawer-taskbar-box-shadow-color:            fade(@v-color-black,40%);          // creates rgba
+
+// Note: the variables below are used in some places that require them to be hardcoded
+// when updating these values, also search .less files for "NOTE_Drawerdetails_Height", 
+// "NOTE_Drawermenu_Tile_Height", "NOTE_Fromtemplate_Height_Small", , "NOTE_Fromtemplate_Height_Large",
+// "NOTE_Drawerdetails_Action_Height"
+@drawer-open-height:                         550px;
+@drawer-header-height-small-screen:          50px;
+@drawer-subheader-height-small-screen:       45px;
+@drawer-footer-height-small-screen:          66px;
+
+
+/* side panel
+------------------------------------------------------------------------------------------*/
+@sp-v-dark-bg:                               @v-color-gray-lighter;
+@sp-v-darker-bg:                             @v-color-gray-darker;
+@sp-v-info-bg:                               @v-color-gray-lightest;
+@sp-v-color-bg:                              @v-color-default;
+
+
+/* work item
+------------------------------------------------------------------------------------------*/
+@work-item-task-width-large-screen:          170px;
+@work-item-incident-color:                   @v-color-incident; 
+@work-item-servicerequest-color:             @v-color-servicerequest; 
+
+/* announcements
+------------------------------------------------------------------------------------------*/
+@announcements-heading-color:                @v-color-success;
+@announcements-heading-color-bg:             @v-color-gray-darker;
+@announcements-menu-height:                  250px;
+@announcements-collapsed-height:             @navbar-height-large-screen;
+
+
+/* featured link
+------------------------------------------------------------------------------------------*/
+@featured-link-bg:                           @v-color-selected;
+
+
+/* global search
+------------------------------------------------------------------------------------------*/
+@gs-v-carret-color:                          @v-color-gray-light;
+@gs-v-search-concept-color:                  @v-color-link;
+
+
+/* faceted search
+------------------------------------------------------------------------------------------*/
+@control-min-width:                          600px;
+@control-min-width-small:                    350px;
+
+
+/* pagination
+------------------------------------------------------------------------------------------*/
+@pagination-button-height-large-screen:      30px;
+@pagination-button-height-small-screen:      36px;
+
+
+/* mobile user menu drawer
+------------------------------------------------------------------------------------------*/
+@um-v-drawer-bg:                             @v-color-gray-dark;
+
+
+/* mobile api doc
+------------------------------------------------------------------------------------------*/
+@api-doc-active-bg:                          @v-color-portal-dark;
+
+
+

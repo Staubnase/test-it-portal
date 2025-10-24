@@ -1,0 +1,13 @@
+﻿<div class="form-group cs-form__button cs-form__button--<%= PropertyName %>">
+    <input type="button"
+           name="<%= PropertyName %>"
+           class="button btn btn-<%= ButtonType %> btn-<%= ButtonSize %> cs-form__button--input"
+           value="<%= PropertyDisplayName %>"
+           data-bind="click: <%= Action %>"
+
+            <% if ( Disabled ){ %>
+            disabled
+            <% } %>
+
+    />
+</div>

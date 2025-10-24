@@ -1,0 +1,384 @@
+﻿/******************************************************************************************
+Cireson Portal Global Styles
+*******************************************************************************************/
+
+
+/* Base Tags
+------------------------------------------------------------------------------------------*/
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: @font-family-sans;
+    line-height: @line-height-base;
+    margin-right: 0 !important;
+    color: @text-color-body;
+
+    @media @small-and-medium-screen-only {
+        font-size: @font-size-base-small-screen;
+    }
+
+    @media @large-screen-only {
+        font-size: @font-size-base-large-screen;
+    }
+}
+
+body {
+    width: 100%;
+    padding-top: @navbar-height-large-screen;
+    background: @body-main-bg;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: scrollbar;
+
+    @media @small-and-medium-screen-only {
+        padding-top: @navbar-height-small-screen;
+    }
+
+    body {
+        padding-top: 0;
+    }
+}
+
+hr {
+    clear: both;
+    border: none;
+    border-bottom: 1px solid @horizontal-rule-color;
+    margin: 0;
+    background: none;
+}
+
+pre {
+    font-size: @font-size-pre-text;
+
+    code {
+        font-size: @font-size-pre-text;
+    }
+}
+
+
+/* Layout
+------------------------------------------------------------------------------------------*/
+
+#main_wrapper {
+    position: relative;
+    margin: 0 0 100px @side-nav-width; //add padding for drawer and nav
+    min-height: 100%;
+    max-width: 100%;
+
+
+    @media @small-and-medium-screen-only {
+        margin-left: 50px;
+        padding-bottom: @drawer-closed-height-small-screen + 30px;
+    }
+}
+
+.wrapper {
+    margin-top: 5rem;
+}
+
+.no_sidebar #wrapper {
+    margin-left: 0;
+}
+
+
+.col-group {
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.c2 {
+    float: left;
+    width: 50%;
+
+    @media @small-and-medium-screen-only {
+        width: 100%;
+    }
+}
+
+.c3 {
+    float: left;
+    width: 33.33%;
+}
+
+
+header .container-fluid {
+    @media @small-and-medium-screen-only {
+        height: @navbar-height-small-screen;
+    }
+}
+
+html[dir='rtl'] .container-fluid .row [class*="col-md-"] {
+    float: right;
+}
+
+/*Support Tools
+------------------------------------------------------------------------------------------*/
+
+#headerAttachmentContainer{
+    @media @large-screen-only, @medium-screen-only {
+        width: calc(100% - 8vh);
+    }
+}
+
+#alertMessagesContainer:not(:empty){
+    &.sticky-header{
+         margin-top: 12vh;
+         margin-bottom: -12vh;
+         @media @small-and-medium-screen-only {
+            margin-top: 15vh;
+            margin-bottom: -15vh;
+         }
+    }
+}
+
+#main_wrapper.scroll-adjust-sticky-header > .viewbuilder-struct{
+    > .sticky-header{
+        &.page_bar{
+             // This will be used for mobile to adjust sticky header when scrolling up and down
+            top: 0 !important;
+        }
+    }
+}
+
+.sticky-header{
+    &.page_bar{
+        line-height: 1.5;
+        position: fixed;
+        width: 100%;
+        z-index: 15;
+        background-color: @body-main-bg;
+        padding: 0;
+
+        > div {
+            padding: 0;
+            border-bottom:none;
+        }
+    }
+
+    &.page-form, &.task-panel{
+       margin-top: 12vh;
+       @media only screen and (max-height: 800px) {
+           margin-top: 15vh;
+       }
+       @media only screen and (max-height: 600px) {
+           margin-top: 18vh;
+       }
+    }
+}
+
+.content-header__main__breadcrumbs__link:not(:hover){
+    text-decoration: none !important;    
+    color: @grey !important;
+    font-size: 16px !important;
+}
+
+.support-tools__widget__select-type.isDisabled {
+  cursor: not-allowed;
+  background: lighten(@grey, 43.14);
+  opacity: 0.8;
+
+  >*{
+      opacity: 0.8;
+  }
+}
+
+.status-pill {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.content-header__main{
+    width: 40%;
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max){
+        width: 90%;
+    }
+
+    @media @small-and-medium-screen-only {
+        width: 100%;
+    }
+
+    > .content-header__main__title{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+
+.first-header-slo-container {
+    > .content-header__collapser{
+        min-height: 0;
+        padding: 0;
+        border: 0;
+        min-width: 0;
+    }
+}
+
+@media @large-screen-only, @medium-screen-only{
+    .content-header__collapser__main__title{
+        min-width: 150px;
+        max-width: 350px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+
+#openmore {
+   @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max), @small-and-medium-screen-only {
+      > .modal-dialog {
+        width: @modal-sm;
+        margin: 39px auto;
+      }
+    }
+}
+
+/* Page Header
+------------------------------------------------------------------------------------------*/
+
+.page_bar {
+    line-height: 1.1;
+    padding: 17px @main-content-margin-large-screen 0;
+    margin-bottom: 20px;
+
+    @media @small-and-medium-screen-only {
+        padding: 15px @main-content-margin-small-screen;
+        margin-bottom: 0;
+    }
+
+    > div {
+        padding: 0 0 15px;
+        border-bottom: 1px solid @horizontal-rule-color;
+
+        &:not(#expanded_widget){
+            margin: 0;
+        }
+
+        @media @small-screen-only {
+            border: none;
+            padding: 0;
+        }
+
+        div:not(.multi-query__list__selected-items) > .row > [class*="col"] {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .row {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .page_title {
+        margin: 0;
+
+        span {
+            margin-right: 10px;
+        }
+
+        .label-heading {
+            position: relative;
+            top: -3px;
+            font-size: @font-size-body-text;
+            font-weight: normal;
+            border-radius: 3px;
+            padding: 0.4em 12px 0.3em;
+        }
+
+        @media @small-and-medium-screen-only {
+
+            span {
+                float: left;
+
+                &.label-heading {
+                    margin-top: 5px;
+
+                    &.label-info {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+
+        + p {
+            .meta-text();
+            margin: 1em 0 0;
+
+            &:empty {
+                display: none;
+            }
+        }
+    }
+
+    & + .breadcrumbs {
+        margin-top: -20px;
+    }
+}
+
+// slightly different markup used on these pages for the same idea
+.sc__header, .dashboard-container, .kb-homepage {
+    line-height: 1.1;
+    padding: 15px 0 0;
+    margin-bottom: 30px;
+
+    @media @small-and-medium-screen-only {
+        margin-bottom: 20px;
+    }
+
+    .row {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    hr, br {
+        display: none;
+    }
+
+    h1 {
+        font-size: @font-size-heading-page;
+        font-weight: bold;
+        text-transform: capitalize;
+        padding: 0 0 15px;
+        border-bottom: 1px solid @horizontal-rule-color;
+        margin: 0;
+    }
+
+    @media @small-and-medium-screen-only {
+        padding-bottom: 10px;
+    }
+
+    & + .breadcrumbs {
+        margin-top: -20px;
+    }
+}
+
+@media @small-and-medium-screen-only {
+    .page_bar [class*='col-sm'] {
+        &.text-right {
+            text-align: left;
+        }
+    }
+}
+
+@media @large-screen-only {
+    .page_bar [class*='col-lg'] {
+        &.text-right {
+            text-align: left;
+        }
+    }
+}
+
+// no scroll 
+.noscroll
+{
+    position: fixed; 
+    overflow-y: scroll;
+    width: 100%;
+}

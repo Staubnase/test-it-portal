@@ -1,0 +1,473 @@
+﻿/* add image/icon to header */
+/* get base64 background image code from http://webcodertools.com/imagetobase64converter */
+.headerContent {
+    background-image: url(data:image/png;base64,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);
+    background-repeat: no-repeat;
+    background-size: 30px;
+    padding-left: 35px; /* V3:Change */
+    background-position: 0px 8px; /* V3:Change */
+}
+
+/*header background color*/
+.header-bg-color {
+    background-color: #FF0000 !important;
+}
+/*announcements bar*/
+.announcements {
+    background: #c20000;
+}
+/* Header Menu Hover and Background Color*/
+.header-user:hover {
+    background-color: #C5200A !important;
+}
+/* sidebar background color */
+.sidebar-bg-color {
+    background-color: #f32a0f !important;
+}
+/*****************************************NEW V3 NAV STYLES********************************/
+/* sidebar sub panel background color */
+#side_nav .sub_panel {
+    background-color: #B90024 !important;
+}
+/* Link color new for V3 */
+a,
+a:link,
+a:visited,
+.link,
+.link:visited {
+    color: #B90024;
+}
+
+    .link:hover,
+    a:hover,
+    a:focus,
+    .link:focus {
+        color: #530010;
+    }
+
+.drawertaskbar .drawertaskbar-commands .btn-link .fa {
+    color: white !important;
+}
+/*open sub nav item background color*/
+.nav_open > a {
+    background-color: #B90024 !important;
+}
+/*pinned sub nav item background color*/
+.pinned_subnav .nav_active > a {
+    background-color: #B90024 !important;
+}
+/*active nav item text color */
+#side_nav > ul > li.nav_active > a,
+#side_nav > ul > li > a > span.nav_icon > i {
+    color: #B90024;
+}
+/*****************************************NEW V3 NAV STYLES********************************/
+/* drawer closed background color/gradient*/
+.drawertaskbar {
+    background-color: #c20000;
+    background-image: none;
+}
+/* open drawer menu*/
+.drawer-drawermenu {
+    background-color: #c20000;
+}
+    /* drawer title 'NEW' color */
+    .drawer-drawermenu .drawermenu-title {
+        color: #ff5c5c;
+    }
+    /* Drawer menu item hover background color */
+    .drawer-drawermenu .drawermenu-tile ul li:hover,
+    .drawer-drawermenu .drawermenu-tile ul li.drawermenu-selected {
+        background-color: #ff5c5c;
+    }
+    /* Drawer Menu Section Left Border Color */
+    .drawer-drawermenu .drawermenu-tile ul {
+        border-color: #f50000;
+    }
+/*  Grid Higlighted Column(s) Background Color */
+.k-grid td.grid-highlight-column,
+.k-grid td.grid-highlight-column-last,
+.k-grid td.grid-highlight-column-title {
+    background-color: #faaba1;
+}
+
+    .k-grid td.grid-highlight-column a,
+    .k-grid td.grid-highlight-column-last a,
+    .k-grid td.grid-highlight-column-title a {
+        color: #B90024 !important;
+        transition: none;
+        text-decoration: none;
+    }
+/*  Grid Higlighted Column(s) Hover Background Color */
+.k-grid tr:hover td.grid-highlight-column,
+.k-grid tr:hover td.grid-highlight-column-last,
+.k-grid tr:hover td.grid-highlight-column-title {
+    background-color: #C5200A;
+}
+
+    .k-grid tr:hover td.grid-highlight-column a,
+    .k-grid tr:hover td.grid-highlight-column-last a,
+    .k-grid tr:hover td.grid-highlight-column-title a {
+        color: #530010 !important;
+        transition: none;
+        text-decoration: none;
+    }
+/*  Grid Higlighted Column(s) Selected Background Color */
+.k-grid .k-state-selected td.grid-highlight-column,
+.k-grid .k-state-selected td.grid-highlight-column-last,
+.k-grid .k-state-selected td.grid-highlight-column-title {
+    background-color: #C5200A;
+}
+
+    .k-grid .k-state-selected td.grid-highlight-column a,
+    .k-grid .k-state-selected td.grid-highlight-column-last a,
+    .k-grid .k-state-selected td.grid-highlight-column-title a {
+        color: #530010 !important;
+        transition: none;
+        text-decoration: none;
+    }
+/* Form Heading Bottom accent color */
+.panel-heading {
+    border-color: #FF0000 !important;
+}
+/* Status Label Background Color */
+.label-info {
+    background-color: red !important;
+}
+/* Activity Status Text Color */
+.activity-list-container .activity-item-header .k-dropdown .k-dropdown-wrap .k-input,
+.activity-list-container .activity-item #activityStatus {
+    color: red;
+}
+
+.k-state-selected {
+    background-color: #C5200A !important;
+    border-color: #C5200A !important;
+}
+/*set the color of clickable controls like buttons checkboxes, etc*/
+/* we use standard bootstrap primary classes*/
+.checkbox input[type=checkbox]:checked + label:before,
+.checkbox-primary input[type=checkbox]:checked + label:before,
+.checkbox input[type=checkbox]:checked ~ .checkbox-label:before,
+.checkbox-primary input[type=checkbox]:checked ~ .checkbox-label:before {
+    background-color: #B90024;
+    border-color: #B90024;
+}
+
+.btn.btn-primary,
+.k-button.btn-primary,
+.affecteditems-grid .two-action-input-group .k-button,
+.relateditems-grid .two-action-input-group .k-button {
+    background-color: #B90024;
+    border-color: #B90024;
+}
+
+    .btn.btn-primary.btn-link,
+    .k-button.btn-primary.btn-link,
+    .affecteditems-grid .two-action-input-group .k-button.btn-link,
+    .relateditems-grid .two-action-input-group .k-button.btn-link {
+        background-color: transparent;
+    }
+
+        .btn.btn-primary.btn-link:hover,
+        .k-button.btn-primary.btn-link:hover,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link:hover,
+        .relateditems-grid .two-action-input-group .k-button.btn-link:hover,
+        .btn.btn-primary.btn-link:active,
+        .k-button.btn-primary.btn-link:active,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link:active,
+        .relateditems-grid .two-action-input-group .k-button.btn-link:active,
+        .btn.btn-primary.btn-link.active,
+        .k-button.btn-primary.btn-link.active,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link.active,
+        .relateditems-grid .two-action-input-group .k-button.btn-link.active,
+        .btn.btn-primary.btn-link.active .btn.btn-primary.btn-link:focus,
+        .btn.btn-primary.btn-link.active .k-button.btn-primary.btn-link:focus,
+        .btn.btn-primary.btn-link.active .affecteditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .btn.btn-primary.btn-link.active .relateditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .k-button.btn-primary.btn-link.active .btn.btn-primary.btn-link:focus,
+        .k-button.btn-primary.btn-link.active .k-button.btn-primary.btn-link:focus,
+        .k-button.btn-primary.btn-link.active .affecteditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .k-button.btn-primary.btn-link.active .relateditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link.active .btn.btn-primary.btn-link:focus,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link.active .k-button.btn-primary.btn-link:focus,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link.active .affecteditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link.active .relateditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .relateditems-grid .two-action-input-group .k-button.btn-link.active .btn.btn-primary.btn-link:focus,
+        .relateditems-grid .two-action-input-group .k-button.btn-link.active .k-button.btn-primary.btn-link:focus,
+        .relateditems-grid .two-action-input-group .k-button.btn-link.active .affecteditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .relateditems-grid .two-action-input-group .k-button.btn-link.active .relateditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .btn.btn-primary.btn-link:focus,
+        .k-button.btn-primary.btn-link:focus,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .relateditems-grid .two-action-input-group .k-button.btn-link:focus {
+            background-color: rgba(0, 0, 0, 0.2) !important;
+            border-color: rgba(0, 0, 0, 0.2) !important;
+        }
+
+    .btn.btn-primary:hover,
+    .k-button.btn-primary:hover,
+    .affecteditems-grid .two-action-input-group .k-button:hover,
+    .relateditems-grid .two-action-input-group .k-button:hover,
+    .btn.btn-primary:active,
+    .k-button.btn-primary:active,
+    .affecteditems-grid .two-action-input-group .k-button:active,
+    .relateditems-grid .two-action-input-group .k-button:active,
+    .btn.btn-primary.active,
+    .k-button.btn-primary.active,
+    .affecteditems-grid .two-action-input-group .k-button.active,
+    .relateditems-grid .two-action-input-group .k-button.active,
+    .btn.btn-primary.active .btn.btn-primary:focus,
+    .btn.btn-primary.active .k-button.btn-primary:focus,
+    .btn.btn-primary.active .affecteditems-grid .two-action-input-group .k-button:focus,
+    .btn.btn-primary.active .relateditems-grid .two-action-input-group .k-button:focus,
+    .k-button.btn-primary.active .btn.btn-primary:focus,
+    .k-button.btn-primary.active .k-button.btn-primary:focus,
+    .k-button.btn-primary.active .affecteditems-grid .two-action-input-group .k-button:focus,
+    .k-button.btn-primary.active .relateditems-grid .two-action-input-group .k-button:focus,
+    .affecteditems-grid .two-action-input-group .k-button.active .btn.btn-primary:focus,
+    .affecteditems-grid .two-action-input-group .k-button.active .k-button.btn-primary:focus,
+    .affecteditems-grid .two-action-input-group .k-button.active .affecteditems-grid .two-action-input-group .k-button:focus,
+    .affecteditems-grid .two-action-input-group .k-button.active .relateditems-grid .two-action-input-group .k-button:focus,
+    .relateditems-grid .two-action-input-group .k-button.active .btn.btn-primary:focus,
+    .relateditems-grid .two-action-input-group .k-button.active .k-button.btn-primary:focus,
+    .relateditems-grid .two-action-input-group .k-button.active .affecteditems-grid .two-action-input-group .k-button:focus,
+    .relateditems-grid .two-action-input-group .k-button.active .relateditems-grid .two-action-input-group .k-button:focus,
+    .btn.btn-primary:focus,
+    .k-button.btn-primary:focus,
+    .affecteditems-grid .two-action-input-group .k-button:focus,
+    .relateditems-grid .two-action-input-group .k-button:focus {
+        background-color: #ff204b !important;
+        border-color: #ff204b !important;
+    }
+
+.btn.btn-default,
+.k-button.btn-default {
+    background-color: #86001a;
+    border-color: #86001a;
+    color: white;
+}
+
+    .btn.btn-default:hover,
+    .k-button.btn-default:hover,
+    .btn.btn-default:active,
+    .k-button.btn-default:active,
+    .btn.btn-default.active,
+    .k-button.btn-default.active,
+    .btn.btn-default.active .btn.btn-default:focus,
+    .btn.btn-default.active .k-button.btn-default:focus,
+    .k-button.btn-default.active .btn.btn-default:focus,
+    .k-button.btn-default.active .k-button.btn-default:focus,
+    .btn.btn-default:focus,
+    .k-button.btn-default:focus {
+        background-color: #a0001f !important;
+        border-color: #a0001f !important;
+    }
+
+.drawertaskbar .drawertaskbar-newbutton:hover {
+    background-color: #ff204b;
+}
+/* special radio styles */
+.radio-primary input[type=radio]:checked + label:before {
+    border-color: #B90024;
+}
+
+.radio-primary input[type=radio]:checked + label:after {
+    background-color: #B90024;
+}
+
+.announcements,
+.announcement-item-title {
+    color: #0EAFFA !important;
+}
+/*some background seleted & hover states have some pretty deep definitions coming from our js framework,
+  so the only way to override them is to create a new rule for each definition
+*/
+/*RO heading bottom border*/
+.form-panel-narrow h3 {
+    border-color: #FF0000;
+}
+
+.search-row .search-wrapper {
+    border: 2px solid #B90024;
+}
+/*grid menu hover bg color*/
+.k-menu > .k-state-hover {
+    background-color: #C5200A !important;
+}
+/*grid menu selected bg color*/
+.k-menu > .k-state-selected {
+    background-color: #C5200A !important;
+}
+/*grid filter button color*/
+.k-animation-container .k-filter-item button[type='submit'] {
+    background-color: #B90024;
+    border-color: #B90024;
+}
+    /*grid filter button hover color*/
+    .k-animation-container .k-filter-item button[type='submit']:hover,
+    .k-animation-container .k-filter-item button[type='submit']:focus,
+    .k-animation-container .k-filter-item button[type='submit']:active,
+    .k-animation-container .k-filter-item button[type='submit'].active {
+        background-color: #C5200A;
+        border-color: #C5200A;
+    }
+/*This is for query prompt hover state*/
+div[data-control="checkboxGridByCriteria"].k-grid tr:hover {
+    background-color: #C5200A !important;
+}
+/*This is for query prompt selected state*/
+div[data-control="checkboxGridByCriteria"] .k-state-selected td {
+    background-color: #C5200A !important;
+}
+/*link colors on home page and kb home*/
+.articles .article-result a:link,
+.articles .article-result a:visited,
+.articles .article-result a:focus,
+.articles .article-result a:active,
+.breadcrumb a,
+.breadcrumb a:visited {
+    color: #B90024;
+}
+/*V6 - ARO wizard styles*/
+.form-wizard-levels {
+    background-color: #c20000 !important;
+}
+
+    .form-wizard-levels > li.active {
+        background-color: #c20000 !important;
+    }
+
+        .form-wizard-levels > li.active > a {
+            background-color: #ff3333 !important;
+        }
+
+            .form-wizard-levels > li.active > a:after {
+                border-color: #c20000 !important;
+                border-left-color: #ff3333 !important;
+            }
+
+    .form-wizard-levels > li > a > span {
+        background-color: red !important;
+        border-bottom-color: red !important;
+        border-left-color: red !important;
+        border-right-color: red !important;
+        border-top-color: red !important;
+    }
+
+.dropdown-menu {
+    background-color: #B90024;
+}
+
+    .dropdown-menu li a:hover {
+        background-color: #ff204b;
+    }
+
+.drawertaskbar .drawertaskbar-commands .btn-link:hover,
+.drawertaskbar .drawertaskbar-commands .btn-link:active,
+.drawertaskbar .drawertaskbar-commands .btn-link:focus {
+    background-color: #ff3333;
+}
+
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus,
+.navbar .navbar-nav > li > a:active,
+.navbar .navbar__search .navbar__search--dropdown .btn:hover,
+.navbar .navbar__search .navbar__search--dropdown .btn:focus,
+.navbar .navbar__search .navbar__search--dropdown .btn:active {
+    background-color: #ff3333 !important;
+}
+/*icon colors*/
+.form-group .fa,
+.form-group .icon-class,
+.defined-form .k-datetimepicker .k-select span.k-icon.k-i-calendar:before,
+.defined-form .k-datetimepicker .k-select span.k-icon.k-i-clock:before {
+    color: #B90024;
+}
+
+.fa.text-primary {
+    color: #B90024;
+}
+/*form inputs*/
+.k-textbox:hover,
+.k-state-default:hover,
+.k-state-focused,
+.k-state-active {
+    border-color: #B90024;
+}
+/*border radius reset*/
+.dropdown-menu {
+    border-radius: 0 0 3px 3px !important;
+}
+
+.drawer-task-menu {
+    border-radius: 3px 3px 0 0 !important;
+}
+
+.search-wrapper,
+#UserPickerPopupWindow .popup-search-box,
+.form-control,
+.k-multiselect-wrap ul li,
+#UserPickerWindow .popup-search-box,
+#UserPickerWindow .popup-search-box .search-icon .cireson-window--body table.k-editor td.k-editable-area,
+.gridcard__checkbox.checkbox label:before,
+textarea.k-textbox,
+.k-header,
+.k-grid-header-wrap,
+.k-grid .k-grouping-header,
+.k-grid-header,
+.k-pager-wrap .k-link,
+.k-grouping-header .k-group-indicator,
+.k-autocomplete.k-state-default,
+.k-picker-wrap.k-state-default,
+.k-numeric-wrap.k-state-default,
+.k-dropdown-wrap.k-state-default,
+.k-pager-numbers .k-state-selected,
+.k-pager-numbers .k-state-selected,
+.k-pager-wrap .k-state-selected,
+.k-ff .k-pager-numbers .k-link,
+.k-ff .k-pager-numbers .k-state-selected,
+.k-ie11 .k-pager-numbers .k-link,
+.k-ie11 .k-pager-numbers .k-state-selected,
+.k-safari .k-pager-numbers .k-link,
+.k-safari .k-pager-numbers .k-state-selected,
+.k-webkit .k-pager-numbers .k-link,
+.k-webkit .k-pager-numbers .k-state-selected,
+div.k-window-content > .km-scroll-container span.k-dropdown-wrap,
+.user-picker .ad-user-input,
+.user-picker .ad-user-group,
+.k-numeric-wrap input,
+.input-userpicker,
+textarea,
+select,
+.k-input,
+.k-autocomplete,
+.k-picker-wrap,
+.k-numeric-wrap,
+.k-dropdown-wrap,
+.k-select,
+.k-textbox,
+.breadcrumb,
+.btn,
+code,
+pre,
+.input-group-addon,
+.defined-form .k-multiselect.k-header,
+.drawertaskbar .tooltip-inner,
+.btn-group-vertical > .btn:last-child:not(:first-child),
+.btn-group-vertical > .btn:first-child:not(:last-child),
+.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+    border-radius: 3px !important;
+}
+
+.k-custom-visible {
+    border-radius: 0 0 3px 3px !important;
+}
+
+.navbar__search--dropdown .btn {
+    border-radius: 3px 0 0 3px !important;
+}
+
+.navbar__search--btn .btn {
+    border-radius: 0 3px 3px 0 !important;
+}

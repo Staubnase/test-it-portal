@@ -1,0 +1,42 @@
+<div class="form-group cs-form__userpicker cs-form__userpicker--<%= PropertyName %>" data-cid="userpicker" data-cid-propname="<%= PropertyName %>"
+            <% if ( Required ){ %>
+            required
+            <% } %>>
+
+    <div style="display:flex">
+        <label class="control-label cs-form__userpicker--label" for="<%= PropertyName %>" data-localize="<%= PropertyDisplayName %>">
+            <span><% if ( Required ){ %> <%= '(' + localization.Required + ')' %><% } %></span>
+        </label>
+
+        <% if ( app.featureSet.isActive('TeamsUserPresence')){ %>
+        <div id="cireson-teams" feature-set="TeamsUserPresence">
+            <% if ( TypeObject != null ){ %>
+            <mgt-person person-query="<%= TypeObject.Email %>" show-presence person-card="hover">
+                <template data-type="person-card">
+                    <mgt-person-card inherit-details>
+                        <template data-type="additional-details">
+                        </template>
+                    </mgt-person-card>
+                </template>
+            </mgt-person>
+            <% } %>
+        </div>
+        <% } %>
+    </div>
+    
+    <input class="input-userpicker cs-form__userpicker--input"
+           data-control="userPicker"
+           data-control-bind="<%= PropertyName %>"
+           data-control-extra="<%= ExtraProps %>"
+           data-control-delay="<%= Delay %>"
+           data-control-minlength="<%= MinLength %>"
+           data-control-filterbyanalyst="<%= FilterByAnalyst%>"
+           data-control-maxnumberofresults="<%= MaxNumberOfResults%>"
+           type="text"
+           name="<%= PropertyName %>"
+            <% if ( Disabled ){ %>
+            disabled
+            <% } %>
+
+    />
+</div>

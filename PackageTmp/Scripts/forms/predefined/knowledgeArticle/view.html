@@ -1,0 +1,53 @@
+﻿<div data-bind="templateResources:'resources'" style="display:none" class="">
+    <div data-template-name="mobileHTMLGridTemplate" class="cs-form__predefined--knowledgeArticle--mobile">
+        <!-- repeated template content here -->
+        <div class="gridcard gridcard--form">
+            <p class="gridcard__title">${KnowledgeArticleID}: ${Title}</p>
+            <div class="gridcard__detailblock">
+                # if ( Category && Category.length > 0 ){ #
+                <p>#: localizationHelper.localize("Category") #: #: Category # </p>
+                # } #
+                # if ( Type && Type.length > 0 ){ #
+                <p>#: localizationHelper.localize("Type") #: #: Type # </p>
+                # } #
+            </div>
+            <div class="gridcard__detailblock">
+                <a class="k-delete-button">#: localization.Remove #</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row cs-form__predefined--knowledgeArticle">
+    <div class="col-md-12 file-attachments"
+        <% if ( Disabled ){ %>
+        disabled
+        <% } %>>
+        
+    <div data-bind="visible: view.knowledgeArticleModel.showAddButton">
+        <button class="btn btn-primary hidden-print" data-role="button" data-bind="events:{click: view.knowledgeArticleModel.addClick}"><%= localization.Add %> </button>
+    </div>
+    
+    <% if ( IsMobileView == false ){ %>
+        <div data-role="grid"
+            data-bind="source: RelatedHTMLKB, events:{remove: view.knowledgeArticleModel.removeRelatedKB}"
+            data-selectable="true"
+            data-sortable="true"
+            data-filterable="true"
+            data-scrollable="false"
+            data-column-menu="true"
+            data-pageable="false"
+            data-editable="{mode: 'incell', create: false, update: false}"
+            data-columns='[
+                { field: "KnowledgeArticleID", title: localization.Id, width: "10%", attributes:{class:"grid-highlight-column"}},
+                { field: "Title", title: localization.Title, width: "50%", attributes:{class:"grid-highlight-column"}, template: "\u003ca target=\u0027_blank\u0027 href=\u0027#var url = \u0022/KnowledgeBase/View/\u0022 + data.KnowledgeArticleID##=url#\u0027\u003e#: Title # \u003c/a\u003e\u003cspan class=\u0027pull-right relatedItems-grid-links\u0027\u003e\u003ca class=\u0027highlight-default-icon\u0027 target=\u0027_blank\u0027 href=\u0027#var url = \u0022/KnowledgeBase/View/\u0022 + data.KnowledgeArticleID;##=url#\u0027\u003e\u003ci class=\u0027fa fa fa-external-link\u0027\u003e\u003c/i\u003e\u003c/a\u003e\u003c/span\u003e"},
+                { field: "Category", title: localization.Category, width: "20%" },
+                { field: "Type", title: localization.Type, width: "20%" },
+                { width: "4%", command: [{ name: "destroy", buttonType: "ImageAndText", text: localization.Remove }] }
+                ]'>
+        </div>
+    <% } %>
+    <% if ( IsMobileView ){ %>
+        <div data-role="listview" data-template="mobileHTMLGridTemplate" data-bind="source: RelatedHTMLKB, events: {remove: view.knowledgeArticleModel.removeRelatedKB}" class="mobile-grid-parent"></div>
+    <% } %>
+</div>

@@ -1,0 +1,70 @@
+﻿{
+  "DisplayName": {
+    "field": "DisplayName",
+    "title": "Organization Name",
+    "template": "#= (DisplayName) ? DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "OrganizationHasCostCenter_DisplayName": {
+    "field": "OrganizationHasCostCenter_DisplayName",
+    "title": "Cost Center Code",
+    "template": "#= (OrganizationHasCostCenter_DisplayName) ? OrganizationHasCostCenter_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "OrganizationHasLocation_LocationAddress1": {
+    "field": "OrganizationHasLocation_LocationAddress1",
+    "title": "Address 1",
+    "template": "#= (OrganizationHasLocation_LocationAddress1) ? OrganizationHasLocation_LocationAddress1 : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "OrganizationHasLocation_LocationAddress2": {
+    "field": "OrganizationHasLocation_LocationAddress2",
+    "title": "Address 2",
+    "template": "#= (OrganizationHasLocation_LocationAddress2) ? OrganizationHasLocation_LocationAddress2 : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "OrganizationHasLocation_LocationCity": {
+    "field": "OrganizationHasLocation_LocationCity",
+    "title": "City",
+    "template": "#= (OrganizationHasLocation_LocationCity) ? OrganizationHasLocation_LocationCity : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+   "OrganizationHasLocation_LocationState": {
+    "field": "OrganizationHasLocation_LocationState",
+    "title": "State",
+    "template": "#= (OrganizationHasLocation_LocationState) ? OrganizationHasLocation_LocationState : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+   "OrganizationHasLocation_LocationCountry": {
+    "field": "OrganizationHasLocation_LocationCountry",
+    "title": "Country",
+    "template": "#= (OrganizationHasLocation_LocationCountry) ? OrganizationHasLocation_LocationCountry : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

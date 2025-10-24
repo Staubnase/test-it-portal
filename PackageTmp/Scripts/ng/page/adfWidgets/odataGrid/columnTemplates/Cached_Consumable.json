@@ -1,0 +1,63 @@
+﻿{
+  "Name": {
+    "field": "Name",
+    "title": "Consumable Name",
+    "template": "#= (Name) ? Name : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "ObjectStatus": {
+    "field": "ObjectStatus",
+    "title": "Object Status",
+    "template": "#= (ObjectStatus) ? ObjectStatus : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "ConfigItemOwnedByUser_DisplayName": {
+    "field": "ConfigItemOwnedByUser_DisplayName",
+    "title": "Custodian",
+    "template": "#= (ConfigItemOwnedByUser_DisplayName) ? ConfigItemOwnedByUser_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "ConsumableHasLocation_DisplayName": {
+    "field": "ConsumableHasLocation_DisplayName",
+    "title": "Location",
+    "template": "#= (ConsumableHasLocation_DisplayName) ? ConsumableHasLocation_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Count": {
+    "field": "Count",
+    "title": "Available Count",
+    "template": "#= (Count) ? Count : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "Threshold": {
+    "field": "Threshold",
+    "title": "Reorder Point",
+    "template": "#= (Threshold) ? Threshold : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

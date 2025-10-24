@@ -1,0 +1,51 @@
+﻿<div class="articles mar-top-3">
+    <div ng-show="loading">
+        <div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
+    </div>
+    <div ng-show="!loading">
+        <div ng-show="noResults">
+            <h2>{{localization.NoResults}}</h2>
+        </div>
+        <div ng-show="!noResults" 
+             infinite-scroll="fetchMoreArticles()" 
+             infinite-scroll-immediate-check="false" 
+             infinite-scroll-disabled='fetching' 
+             infinite-scroll-distance="0">
+            
+            <h2>
+                {{localization.SearchForLabel}} {{searchText}}
+            </h2>
+
+            <div class="article-result" ng-repeat="article in articles">
+                <h5>
+                    <a href="/KnowledgeBase/View/{{article.ArticleId}}" class="article-external-link" target="_blank"><i class="fa fa-external-link"></i></a>
+                    <a href="/KnowledgeBase/View/{{article.ArticleId}}" class="article-title">
+                        <span class="text-muted" ng-show="article.Status.Id == '7557d680-56be-9bde-6f6b-e70a15de2da3'">[{{article.Status.Name}}] </span>
+                        {{article.Title}}
+                    </a>
+
+                    <!--metadata-->
+                    <small class="article-meta">
+                        {{localization.Rating}} {{article.AverageRating}}/5 &middot;
+                        {{article.ViewCount}} {{localization.Views}} &middot;
+                        {{localization.LastUpdated}}: {{article.LastModifiedDate}}
+                    </small>
+                </h5>
+                <p class="article-result-desc" ng-show="article.Description.length > 0">
+                    <span>{{article.Description}}</span>
+                    <a href="/KnowledgeBase/View/{{article.ArticleId}}">{{localization.ReadMore}}<i class="fa fa-angle-right"></i></a>
+                </p>
+            </div>
+
+            <div ng-show="fetching">
+                <div class="spinner spinner-small">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+            <hr />
+        </div>
+        <p class="lead text-center" ng-show="noMoreArticlesMessage.length > 0">{{noMoreArticlesMessage}}</p>
+    </div>
+</div>

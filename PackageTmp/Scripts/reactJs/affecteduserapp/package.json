@@ -1,0 +1,46 @@
+{
+  "name": "affected-user-app",
+  "version": "1.0.0",
+  "description": "affected user app for SMP",
+  "main": "app.js",
+  "scripts": {
+    "webpack": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@fluent/react": "^0.14.0",
+    "@fluentui/react": "^8.30.0",
+    "@progress/kendo-data-query": "^1.5.5",
+    "@progress/kendo-drawing": "^1.14.0",
+    "@progress/kendo-licensing": "^1.2.0",
+    "@progress/kendo-react-all": "^4.9.0",
+    "@progress/kendo-react-animation": "^4.9.0",
+    "@progress/kendo-react-buttons": "^4.9.0",
+    "@progress/kendo-react-data-tools": "^4.9.0",
+    "@progress/kendo-react-dateinputs": "^4.9.0",
+    "@progress/kendo-react-dropdowns": "^4.9.0",
+    "@progress/kendo-react-form": "^4.9.0",
+    "@progress/kendo-react-inputs": "^4.9.0",
+    "@progress/kendo-react-intl": "^4.9.0",
+    "@progress/kendo-react-labels": "^4.9.0",
+    "@progress/kendo-react-treeview": "^4.9.0",
+    "@progress/kendo-theme-default": "^4.41.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-router-dom": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^5.56.1",
+    "webpack-cli": "^4.8.0"
+  }
+}

@@ -1,0 +1,25 @@
+﻿/******************************************************************************************
+Directive: Ratings - Custom Styles
+*******************************************************************************************/
+.article-rating {
+    div {
+        display: inline;
+
+        > a, a:hover {
+            text-decoration: none;
+        }
+    }
+
+    .fa-star,
+    .fa-star-o {
+        /*font-size: 14px;*/
+        .sidebar-right & {
+            color: @v-color-black;
+        }
+
+        .visible-xs & {
+            font-size: @font-size-icon-large-screen;
+            color: @v-color-black;
+        }
+    }
+}

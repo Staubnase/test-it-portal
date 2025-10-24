@@ -1,0 +1,18 @@
+﻿<div class="nav-dropdown visible-xs">
+    <span class="nav-dropdown-default">{{placeholder}}</span>
+    <div class="nav-dropdown-trigger">
+        <i class="fa fa-sort-desc"></i>
+    </div>
+    <div class="nav-dropdown-content">
+        <ul>
+            <li ng-repeat="cat in categorydata">
+                <span class="sc-groupby">{{cat.Category.Name}}</span>
+                <ul>
+                    <li data-ng-repeat="serv in cat.Category.Services" class="{{serv.selected}}">
+                        <a ng-click="onChange(serv.ServiceOfferingId)">{{serv.Service}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

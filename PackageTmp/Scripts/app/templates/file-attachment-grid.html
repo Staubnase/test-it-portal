@@ -1,0 +1,36 @@
+﻿<div class="file-attachments">
+    <div class="file-attachment-controls clearfix" data-custom="fileUploaderInputContainer">
+
+        <!-- keep add button as label for IE on click issues for file input -->
+        <label class="k-button btn btn-primary text-plain" data-name="addBtn" data-click="add" data-localize="Add"></label>
+        <span class="error-message" data-custom="errorMessageCont">
+            <span data-custom="errorMessage"></span>
+            <span data-click="hideMessage" class="x-close">X</span>
+        </span>
+    </div>
+    <div>
+        <table data-kendo-control="grid">
+            <tbody></tbody>
+        </table>
+    </div>
+    <div>
+        <div data-kendo-control="listview-mobile" data-role="listview" class="list-view"></div>
+        <script type="text/x-kendo-template" id="file-attachment-mobile-template">
+            <div class="list-view-info">
+                <dl>
+                    <dt>#: DisplayName #</dt>
+                    <dd>#: (AddedDate) ? kendo.toString(new Date(AddedDate), 'MMMM dd, yyyy'):'' # &middot; #: Extension #</dd>
+                    <dd>#: AddedBy.DisplayName #</dd>
+                </dl>
+            </div>
+        </script>
+    </div>
+
+    <div class="clearfix">
+        <button class="btn btn-default k-button pull-right" data-enabled="rowIsSelected" data-click="remove" type="button" data-localize="Remove"></button>
+        <button class="btn btn-default k-button pull-right margin-r5" data-enabled="rowIsSelectedAndHasBaseId" data-hide="usesTargetId" data-click="open" type="button" data-localize="Open"></button>
+    </div>
+
+
+</div>
+

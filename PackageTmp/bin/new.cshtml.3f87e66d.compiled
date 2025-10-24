@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Views/ServiceRequest/New.cshtml" hash="5ff6b2bd" filehash="ffffc9f2a394f20e" flags="110000" assembly="App_Web_pufwdmks" type="ASP._Page_Views_ServiceRequest_New_cshtml">
+    <filedeps>
+        <filedep name="/Views/ServiceRequest/New.cshtml" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,36 @@
+﻿<div data-bind="templateResources:'resources'" style="display:none" class="">
+    <div data-template-name="mobileGridTemplate" class="mobile-grid cs-form__predefined--childWorkItems--mobile">
+        <!-- repeated template content here -->
+        <div class="gridcard gridcard--form">
+            <p class="gridcard__title">${Id}: ${Title}</p>
+            <div class="gridcard__detailblock">
+                <p>#: localizationHelper.localize("Status") #: #: Status # </p>
+                <p>#: localizationHelper.localize("LastModified") #: #: kendo.toString(kendo.parseDate(LastModified), "g") # </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row cs-form__predefined--childWorkItems">
+    <div class="col-md-12 file-attachments"
+         data-control="childWorkItems"
+         data-control-bind="ChildWorkItem"
+         data-control-show="IsParent"
+        <% if ( Disabled ){ %>
+        disabled
+        <% } %>>
+
+    <div >
+        <button class="btn btn-primary hidden-print" data-role="button" data-click="addClick"><%= localization.Add %> </button>
+    </div>
+    
+    <% if ( IsMobileView == false ){ %>
+        <div data-control-grid="objectGrid" class="inline-spacing"></div>
+    <% } %>
+    
+    <% if ( IsMobileView ){ %>
+        <div data-template-name="mobileGridTemplate" class="mobile-grid-parent" data-bind="mobileGrid: ChildWorkItem"></div>
+    <% } %>
+    
+    </div>
+</div>

@@ -1,0 +1,129 @@
+﻿
+<div class="sc__loading" ng-show="loading">
+    <div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
+</div>
+
+<div ng-show="!loading">
+    <!--thid div element hold all the content and this will be show after loading set to false-->
+    <div class="sc__header">
+            <h1>{{ localization.Home }}</h1>
+            <service-panel categorydata="scData" placeholder="localization.BrowseByCategory"></service-panel><br />
+            <hr>
+    </div>
+    <div class="sc__search">
+        <div class="search-row search-directive ng-pristine ng-valid" ng-form="" name="advSearchForm">
+            <div ng-show="showEmptySearchMessage" class="alert-container">
+                <div class="alert alert-danger ng-binding">{{ localization.Required }}</div>
+            </div>
+            <div class="search-wrapper pull-left">
+                <div class="input-group">
+                    <input type="text" class="form-control ng-pristine ng-untouched ng-valid"
+                           ng-model="searchText"
+                           ng-keypress="search($event)"
+                           placeholder="{{ localization.SearchRequestOffering }}...">
+                    <div class="input-group-btn hidden-xs">
+                        <button type="button" class="btn btn-default filter-toggle ng-binding" data-toggle="dropdown">
+                            <i class="fa fa-filter ng-hide" ng-show="showAppliedFiltersIcon"></i>{{ filterLabel }}<i class="fa fa-caret-down margin-l10"></i>
+                        </button>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li ng-repeat="filter in filterItems" searchtype="{{ filter.value }}"><a ng-click="onFilterSelect($event)">{{ filter.name }}</a></li>
+                            <li class="divider"></li>
+                            <li searchtype="All"><a ng-click="onFilterSelect($event)" filterlabel="{{ localization.SearchAll }}">{{ localization.SearchAll }}</a></li>
+                        </ul>
+                    </div>
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary btn-search" type="button" ng-click="search($event)"><span class="fa fa-search"></span></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sc__home">
+        <div class="sc-page-header sc__home-kb-lists row">
+            <div class="col-md-6 col-xs-12">
+                <h2>{{ localization.FeaturedArticles }}</h2>
+                <hr />
+                <ul class="sc-kanav-home" data-ng-repeat="article in featuredArticle">
+                    <li>
+                        <div class="col-xs-12">
+                            <a href="/KnowledgeBase/View/{{ article.ArticleId }}" target="_blank"><i class="fa fa-external-link a-icon"></i></a>
+                            <a href="/KnowledgeBase/View/{{ article.ArticleId }}">{{ article.Title  }}</a><br />
+                            <small>{{ localization.Rating }} {{ article.Rating }}/5 | {{localization.Views}}: {{article.ViewCount}} | {{localization.LastModified}}: {{article.LastModifiedDate | localizeDate}}</small>
+                        </div>
+                    </li>
+                </ul>
+                <div ng-show="featuredArticle.length === 0">
+                    <span>{{ localization.NoKnowledgeArticles }}</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <h2>{{ localization.PopularArticles }}</h2>
+                <hr />
+                <ul class="sc-kanav-home" data-ng-repeat="article in popularArticle">
+                    <li>
+                        <div class="col-xs-12">
+                            <a href="/KnowledgeBase/View/{{ article.ArticleId }}" target="_blank"><i class="fa fa-external-link a-icon"></i></a>
+                            <a href="/KnowledgeBase/View/{{ article.ArticleId }}">{{ article.Title  }}</a><br />
+                            <small>{{ localization.Rating }} {{ article.Rating }}/5 | {{localization.Views}}: {{article.ViewCount}} | {{localization.LastModified}}: {{article.LastModifiedDate | localizeDate}} </small>
+                        </div>
+                    </li>
+                </ul>
+                <div ng-show="popularArticle.length === 0">
+                    <span>{{ localization.NoKnowledgeArticles }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="sc-page-header sc__home-ro-lists row">
+            <div class="col-md-6 col-xs-12">
+                <h2>{{ localization.TopRequests }}</h2>
+                <hr />
+                <div data-ng-repeat="request in topRequest">
+                    <div class="col-xs-12 ro-item-home">
+                        <a ng-if="request.LinkUrl!=null" href="{{request.LinkUrl}}" target="{{request.LinkTargetType}}">
+                            <img ng-src="/ServiceCatalog/GetRequestOfferingImg/{{ request.Id }}"
+                                 onerror="this.onerror=null; this.src='/Content/Images/Icons/RequestOffering/RO_Default.png';"
+                                 class="img-responsive pad-top-0-5">{{request.RequestOfferingLinkTargetType}}
+                        </a>
+                        <a ng-if="request.LinkUrl==null" href="/ServiceCatalog/RequestOffering/{{ request.Id }},{{ request.ServiceInfo.Id }}">
+                            <img ng-src="/ServiceCatalog/GetRequestOfferingImg/{{ request.Id }}"
+                                 onerror="this.onerror=null; this.src='/Content/Images/Icons/RequestOffering/RO_Default.png';"
+                                 class="img-responsive pad-top-0-5">
+                        </a>
+                        <h5>
+                            <a ng-if="request.LinkUrl!=null" href="{{request.LinkUrl}}" target="{{request.LinkTargetType}}">{{ request.Title }}</a>
+                            <a ng-if="request.LinkUrl==null" href="/ServiceCatalog/RequestOffering/{{ request.Id }},{{ request.ServiceInfo.Id }}">{{ request.Title }}</a>
+                        </h5>
+                    </div>
+                </div>
+                <div ng-show="topRequest.length === 0">
+                    <span>{{ localization.NoRequestOfferings }}</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <h2>{{ localization.FavoriteRequests }}</h2>
+                <hr />
+                <div data-ng-repeat="request in favoriteRequest">
+                    <div class="col-xs-12 ro-item-home">
+                        <a ng-if="request.LinkUrl!=null" href="{{request.LinkUrl}}" target="{{request.LinkTargetType}}">
+                            <img ng-src="/ServiceCatalog/GetRequestOfferingImg/{{ request.Id }}"
+                                 onerror="this.onerror=null; this.src='/Content/Images/Icons/RequestOffering/RO_Default.png';"
+                                 class="img-responsive pad-top-0-5">
+                        </a>
+                        <a ng-if="request.LinkUrl==null" href="/ServiceCatalog/RequestOffering/{{ request.Id }},{{ request.ServiceInfo.Id }}">
+                            <img ng-src="/ServiceCatalog/GetRequestOfferingImg/{{ request.Id }}"
+                                 onerror="this.onerror=null; this.src='/Content/Images/Icons/RequestOffering/RO_Default.png';"
+                                 class="img-responsive pad-top-0-5">
+                        </a>
+                        <h5>
+                            <a ng-if="request.LinkUrl!=null" href="{{request.LinkUrl}}" target="{{request.LinkTargetType}}">{{ request.Title }}</a>
+                            <a ng-if="request.LinkUrl==null" href="/ServiceCatalog/RequestOffering/{{ request.Id }},{{ request.ServiceInfo.Id }}">{{ request.Title }}</a>
+                        </h5>
+                    </div>
+                </div>
+                <div ng-show="favoriteRequest.length === 0">
+                    <span>{{ localization.NoRequestOfferings }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

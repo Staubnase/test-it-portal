@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Areas/Administration/Views/Announcement/AddOrEditAnnouncement.cshtml" hash="5ff6b2bd" filehash="299e2ffbe89d" flags="110000" assembly="App_Web_4e2sd4yv" type="ASP._Page_Areas_Administration_Views_Announcement_AddOrEditAnnouncement_cshtml">
+    <filedeps>
+        <filedep name="/Areas/Administration/Views/Announcement/AddOrEditAnnouncement.cshtml" />
+    </filedeps>
+</preserve>

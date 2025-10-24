@@ -1,0 +1,41 @@
+﻿<div class="cireson-window defined-form task-window hide">
+    <div class="cireson-window--wrapper cs-form__flyout--authToken">
+        <div class="cireson-window--body">
+            <div class="row">
+                <div class="col-md-12 pad10">
+                    <div class="editor-label">
+                        <label><%= localization.Name %></label>
+                    </div>
+                    <div class="editor-field">
+                        <input data-bind="value: vm.TokenName" class="k-textbox" type="text">
+                    </div>
+                </div>
+                <div class="col-md-12 pad10">
+                    <div class="editor-label">
+                        <label><%= localization.ExpiryDate %></label>
+                    </div>
+                    <div class="editor-field">
+                        <input data-role="datepicker" data-bind="value: vm.TokenExpirationDate">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="window-buttons cireson-window--footer">
+            <button data-role="button"
+                    class="btn btn-primary"
+                    data-bind="events: { click: save }, visible: saveCancelBtn">
+                <%= localization.OK %>
+            </button>
+            <button data-role="button"
+                    class="btn btn-default"
+                    data-bind="events: { click: cancel }, visible: saveCancelBtn">
+                <%= localization.Cancel %>
+            </button>
+            <button data-role="button"
+                    class="btn btn-default"
+                    data-bind="events: { click: cancel}, visible: closeBtn ">
+                <%= localization.Close %>
+            </button>
+        </div>
+    </div>
+</div>

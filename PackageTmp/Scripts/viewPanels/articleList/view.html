@@ -1,0 +1,24 @@
+﻿<div data-bind="templateResources:'resources'" style="display:none">
+    <div data-template-name="articleTemplate" class="article-template">
+        <!-- repeated template content here -->
+        <h5>
+            <a href="/KnowledgeBase/View/#: ArticleId #" class="article-external-link" target="_blank"><i class="fa fa-external-link"></i></a>
+            <a href="/KnowledgeBase/View/#: ArticleId #" class="article-title">
+                #: Title #
+            </a>
+            <small>
+                <%= localization.Rating %> #: Rating #/5 &middot;
+                #: ViewCount # <%= localization.Views %> &middot;
+                <%= localization.LastUpdated %>:
+                #: kendo.toString(new Date(LastModifiedDate), 'd') #
+            </small>
+        </h5>
+    </div>
+</div>
+
+<div class="article-list">
+    <h2 data-bind="html: viewModel.label"></h2>
+    <hr />
+    <!-- bind articleList custom binding to viewModel (which is defined in controller.js) -->
+    <div data-bind="articleList: viewModel" data-template-name="articleList" ></div>
+</div>

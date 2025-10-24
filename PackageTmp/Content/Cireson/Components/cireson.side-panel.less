@@ -1,0 +1,193 @@
+﻿/******************************************************************************************
+Side Panel - Custom Styles
+*******************************************************************************************/
+
+.sidebar-nav {
+    .nav {
+        li {
+            line-height: 2;
+
+            a {
+                display: block;
+                padding: 0;
+                text-decoration: none;
+
+                &:hover {
+                    border: none;
+                    background-color: inherit;
+                }
+
+                &.active {
+                    border-left: 1px solid @v-color-link-visited;
+                    background-color: inherit;
+                    color: @v-color-link-visited;
+                }
+
+                .fa {
+                    @media @large-screen-only {
+                        .search-text {
+                            margin-top: 5px;
+                        }
+                    }
+                }
+            }
+
+            a.settings-new-item {
+                &:after {
+                    margin-left: 10px;
+                    content: "NEW";
+                    position: sticky;
+                    background-color: @v-color-cireson-orange;
+                    padding: 5px 12px 5px 12px;
+                    color: white;
+                    font-size: 12px;
+                    border-radius: 20px;
+                    font-weight: 700;
+                }
+            }
+
+            ul.nav li {
+                padding-left: 12px;
+
+                a {
+                    font-weight: normal;
+                    padding-left: 24px;
+                }
+
+                a.settings-new-item {
+                    &:after {
+                        margin-left: 10px;
+                        content: "NEW";
+                        position: sticky;
+                        background-color: @v-color-cireson-orange;
+                        padding: 5px 12px 5px 12px;
+                        color: white;
+                        font-size: 12px;
+                        border-radius: 20px;
+                        font-weight: 700;
+                    }
+                }
+
+                a:hover {
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: @v-color-portal-light;
+    border-right: 1px solid @border-color-light;
+}
+
+.sidebar-right {
+    position: fixed;
+    top: @navbar-height-large-screen;
+    bottom: @drawer-closed-height;
+    right: 0;
+    z-index: 1000;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: @sp-v-color-bg;
+    border-right: 1px solid @border-color-light;
+
+    @media @large-screen-only {
+        padding: 47px 30px 25px !important;
+
+        h4 {
+            margin-bottom: 24px; // pushes browse input to be aligned with search input
+        }
+
+        .sc-filter input {
+            height: 38px; // match search input height
+            line-height: 38px;
+        }
+
+        > .list-unstyled {
+            margin-bottom: 0;
+        }
+    }
+
+    .row,
+    .col-md-12 {
+        margin: 0;
+        padding-right: 0;
+        padding-left: 0;
+        border: none;
+    }
+
+    .active-announcements & {
+        top: 82px;
+    }
+
+    h4 {
+        font-size: @font-size-heading-section;
+        font-weight: normal;
+    }
+
+    > h1:first-child,
+    > h2:first-child,
+    > h3:first-child,
+    > h4:first-child,
+    > h5:first-child,
+    > h6:first-child,
+    h1:first-of-type,
+    h2:first-of-type,
+    h3:first-of-type,
+    h4:first-of-type,
+    h5:first-of-type,
+    h6:first-of-type {
+        margin-top: 0;
+    }
+}
+
+@media @large-screen-only {
+    .col-sm-9.col-sm-left-offset-3 {
+        margin-left: 27.5%;
+        width: 72.5%;
+    }
+
+    .col-sm-9.col-sm-right-offset-3 {
+        margin-right: 27.5%;
+        width: 72.5%;
+    }
+}
+
+
+/* Off canvas sidebar
+------------------------------------------------------------------------------------------*/
+
+@media @small-and-medium-screen-only {
+    .panel-offcanvas {
+        position: relative;
+        transition: all 0.3s ease-out;
+    }
+
+    .panel-offcanvas-right.active {
+        right: 33%;
+    }
+
+    .panel-offcanvas-right.active .task-panel-narrow {
+        right: -33%;
+        position: absolute;
+        top: 0;
+        width: 33%;
+        margin-left: 5px;
+    }
+
+    #sidebar,
+    #sidebar a,
+    #sidebar-footer a {
+        padding-left: 3px;
+    }
+}

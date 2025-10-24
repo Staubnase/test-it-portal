@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Areas/AssetManagement/Views/Invoice/NewAndEdit.cshtml" hash="5ff6b2bd" filehash="ffffcd1ca3b7dac8" flags="110000" assembly="App_Web_rw4j1pxa" type="ASP._Page_Areas_AssetManagement_Views_Invoice_NewAndEdit_cshtml">
+    <filedeps>
+        <filedep name="/Areas/AssetManagement/Views/Invoice/NewAndEdit.cshtml" />
+    </filedeps>
+</preserve>

@@ -1,0 +1,129 @@
+﻿
+<div class="container-fluid kb-mobile-container-content">
+    <div class="row">
+        <div class="col-sm-12 kb">
+            <div ng-show="loading">
+                <div class="spinner spinner-small">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+            <div class="row" ng-show="!loading">
+                <div class="col-sm-9 col-sm-right-offset-3">
+                    <ol class="breadcrumb mar-top-1">
+                        <li><a href="/View/0aef4765-0efa-4a65-84c1-324b09231223">{{localization.KnowledgeBase}}</a></li>
+                        <li ng-repeat="crumb in article.CategoryBreadcrumbs | orderBy: '-HierarchyLevel'">
+                            <a href="/KnowledgeBase/Listing#/category/{{crumb.Name}}/{{crumb.Id}}">{{crumb.Name}}</a>
+                        </li>
+                    </ol>
+                    <h1>{{article.Title}}</h1>
+                    <!--This section will be show in smaller screen-->
+                    <div class="visible-xs">
+                        <div class="kb-article-details-content pull-left">
+                            <div class="pull-left">
+                                <ul class="list-unstyled color-light">
+                                    <li class="article-ratings">{{localization.Ratings}}:</li>
+                                    <li class="article-view-count">{{localization.Views}}:</li>
+                                    <li class="article-modified">{{localization.Modified}}:</li>
+                                    <li class="article-status" ng-show="isAnalyst">{{localization.Status}}:</li>
+                                </ul>
+                            </div>
+                            <div class="pull-left margin-l10">
+                                <ul class="list-unstyled">
+                                    <li><span rating class="article-rating" score="article.Rating" max="5" readonly></span></li>
+                                    <li>{{article.ViewCount}}</li>
+                                    <li>{{article.LastModifiedDate| date:'MMM d, yyyy'}}</li>
+                                    <li ng-show="isAnalyst">{{article.Status.Name}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="article-table-of-contents">
+                            <h5>{{localization.TableOfContents}}</h5>
+                            <nav class="sidebar-nav">
+                                <table-of-contents is-mobile-device="true" content="article.EndUserContent" content-class="article-enduser-content" class="nav sidenav" />
+                            </nav>
+                            <nav class="sidebar-nav" ng-if="isAnalyst && article.AnalystContent">
+                                <hr>
+                                <ul class="nav sidenav"><li class="analyst-link"><a><h1 ng-click="scrollToContent('analyst-content')">{{localization.AnalystContent}}</h1></a></li></ul>
+                                <table-of-contents is-mobile-device="true" content="article.AnalystContent" content-class="kb-analyst-content" class="nav sidenav" />
+                            </nav>
+                        </div>
+                    </div>
+                    <hr class="hidden-xs">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12" id="alertMessagesContainer"></div>
+                        </div>
+                    </div>
+                    <div class="article-enduser-content" ng-bind-html="article.EndUserContentTrusted()"></div>
+                    <div id="analyst-content" class="article-analyst-content" ng-if="isAnalyst && article.AnalystContent">
+                        <h4>{{localization.AnalystContent}}</h4>
+                        <div class="kb-analyst-content" ng-bind-html="article.AnalystContentTrusted()"></div>
+                    </div>
+                    
+
+                    <div class="article-comment-rating">
+                        <div class="row mar-top-3 bg-dark-grey">
+                            <div class="col-xs-1 hidden-xs"><i class="fa fa-file-text-o fa-4x"></i></div> <!-- We need to use Font Awesome Here -->
+                            <div class="col-xs-12">
+                                <form name="commentForm" ng-submit="addCommentRating(newComment,rating)" novalidate>
+                                    <h4>{{localization.WasArticleHelpful}}</h4>
+                                    {{localization.Rate}}: <span rating class="article-rating" score="rating.Rating" max="5"></span>
+                                    <span class="article-user-rating-date" ng-show="rating.CreatedDate">- {{localization.YourLastRating}}: {{rating.CreatedDate| date:"MM/dd/yyyy"}}</span>
+                                    <div class="form-group" ng-class="{ 'has-error' : commentForm.comment.$invalid && !commentForm.comment.$pristine }">
+                                        <textarea class="form-control" name="comment" placeholder="{{localization.ArticleCommentPlaceholder}}" ng-model="newComment.Comment"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary pull-right mar-top-1">{{localization.Submit}}</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div ng-show="alertClass">
+                            <div class="alert" ng-class="alertClass">{{alertMsg}}</div>
+                        </div>
+                        <h2>{{localization.Comments}}<small>({{articleComments.length}})</small></h2>
+                        <hr>
+
+                        <div ng-repeat="comment in articleComments">
+                            <div class="row mar-top-2 article-comment">
+                                <div class="col-xs-12">
+                                    <user-avatar user="comment"></user-avatar>
+                                    <div class="comment {{commentAlignment}}">
+                                        <div>
+                                            <small>{{comment.UserFirstName}} {{comment.UserLastName}} - {{comment.CreatedDate| date:"MM/dd/yyyy"}}</small>
+                                            <span ng-show="isKnowledgeManager" class="{{commentAlignment}} fa fa-trash-o fa-lg cursor-pointer" ng-click="deleteComment(comment)"></span>
+                                        </div>
+                                        <p>{{comment.Comment}}</p>
+                                        <!--<a href="#"><i class="fa fa-reply"></i> Reply</a>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 sidebar-right pad-top-1-5 hidden-xs">
+                    <ul class="list-unstyled">
+                        <li class="article-ratings"><strong>{{localization.Ratings}}:</strong> <span rating class="article-rating" score="article.Rating" max="5" readonly></span></li>
+                        <li class="article-view-count"><strong>{{localization.Views}}:</strong> {{article.ViewCount}}</li>
+                        <li class="article-modified"><strong>{{localization.Modified}}:</strong> {{article.LastModifiedDate| date:'MMM d, yyyy'}}</li>
+                        <li class="article-status" ng-show="isAnalyst"><strong>{{localization.Status}}:</strong> {{article.Status.Name}}</li>
+                    </ul>
+                    <hr class="tree-heading-hr">
+
+                    <div class="article-table-of-contents">
+                        <h5>{{localization.TableOfContents}}</h5>
+                        <nav class="sidebar-nav">
+                            <table-of-contents is-mobile-device="false" content="article.EndUserContent" content-class="article-enduser-content" class="nav sidenav" />
+                        </nav>
+                        <nav class="sidebar-nav" ng-if="isAnalyst && article.AnalystContent">
+                            <hr>
+                            <ul class="nav sidenav"><li class="analyst-link"><a><h1 ng-click="scrollToContent('analyst-content')">{{localization.AnalystContent}}</h1></a></li></ul>
+                            <table-of-contents is-mobile-device="false" content="article.AnalystContent" content-class="kb-analyst-content" class="nav sidenav" />
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

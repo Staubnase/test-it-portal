@@ -1,0 +1,168 @@
+﻿{
+  "Version": {
+    "field": "Version",
+    "title": "Version",
+    "template": "#= (Version) ? Version : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "SoftwareAssetStatus": {
+    "field": "SoftwareAssetStatus",
+    "title": "Status",
+    "template": "#= (SoftwareAssetStatus) ? SoftwareAssetStatus : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "SoftwareAssetType": {
+    "field": "SoftwareAssetType",
+    "title": "Type",
+    "template": "#= (SoftwareAssetType) ? SoftwareAssetType : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "ObjectStatus": {
+    "field": "ObjectStatus",
+    "title": "Object Status",
+    "template": "#= (ObjectStatus) ? ObjectStatus : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "SoftwareAssetHasCostCenter_DisplayName": {
+    "field": "SoftwareAssetHasCostCenter_DisplayName",
+    "title": "Cost Center",
+    "template": "#= (SoftwareAssetHasCostCenter_DisplayName) ? SoftwareAssetHasCostCenter_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "IsUnlimited": {
+    "field": "IsUnlimited",
+    "title": "Unlimited",
+    "template": "#= (IsUnlimited) ? IsUnlimited : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "PurchaseCount": {
+    "field": "PurchaseCount",
+    "title": "PurchaseCount",
+    "template": "#= (PurchaseCount) ? PurchaseCount : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "InstallCount": {
+    "field": "InstallCount",
+    "title": "InstallCount",
+    "template": "#= (InstallCount) ? InstallCount : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "AvailableCount": {
+    "field": "AvailableCount",
+    "title": "AvailableCount",
+    "template": "#= (AvailableCount) ? AvailableCount : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "CPUMode": {
+    "field": "CPUMode",
+    "title": "HeaderCPUMode",
+    "template": "#= (CPUMode) ? CPUMode : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "AuthorizedComputerCount": {
+    "field": "AuthorizedComputerCount",
+    "title": "AuthorizedComputerCount",
+    "template": "#= (AuthorizedComputerCount) ? AuthorizedComputerCount : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "AuthorizedInstallCount": {
+    "field": "AuthorizedInstallCount",
+    "title": "AuthorizedInstallCount",
+    "template": "#= (AuthorizedInstallCount) ? AuthorizedInstallCount : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "UnauthorizedComputerCount": {
+    "field": "UnauthorizedComputerCount",
+    "title": "UnauthorizedComputerCount",
+    "template": "#= (UnauthorizedComputerCount) ? UnauthorizedComputerCount : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "UpgradeLicences": {
+    "field": "UpgradeLicences",
+    "title": "HeaderUpgradeLicences",
+    "template": "#= (UpgradeLicences) ? UpgradeLicences : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "UpgradesAvailable": {
+    "field": "UpgradesAvailable",
+    "title": "HeaderUpgradesAvailable",
+    "template": "#= (UpgradesAvailable) ? UpgradesAvailable : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "DowngradeLicences": {
+    "field": "DowngradeLicences",
+    "title": "HeaderDowngradeLicences",
+    "template": "#= (DowngradeLicences) ? DowngradeLicences : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "DowngradesAvailable": {
+    "field": "DowngradesAvailable",
+    "title": "HeaderDowngradesAvailable",
+    "template": "#= (DowngradesAvailable) ? DowngradesAvailable : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "TotalPurchaseCount": {
+    "field": "TotalPurchaseCount",
+    "title": "HeaderTotalPurchaseCount",
+    "template": "#= (TotalPurchaseCount) ? TotalPurchaseCount : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "SoftwareAssetHasSupportContract_DisplayName": {
+    "field": "SoftwareAssetHasSupportContract_DisplayName",
+    "title": "Support Contract",
+    "template": "#= (SoftwareAssetHasSupportContract_DisplayName) ? SoftwareAssetHasSupportContract_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "SoftwareAssetHasSupportContract_ContractEndDate": {
+    "field": "SoftwareAssetHasSupportContract_ContractEndDate",
+    "title": "Contract End Date",
+    "template": "#= (SoftwareAssetHasSupportContract_ContractEndDate) ? kendo.toString(new Date(SoftwareAssetHasSupportContract_ContractEndDate), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "SoftwareAssetHasSupportContract_ContractStartDate": {
+    "field": "SoftwareAssetHasSupportContract_ContractStartDate",
+    "title": "Contract Start Date",
+    "template": "#= (SoftwareAssetHasSupportContract_ContractStartDate) ? kendo.toString(new Date(SoftwareAssetHasSupportContract_ContractStartDate), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

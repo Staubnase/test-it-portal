@@ -1,0 +1,21 @@
+﻿<div class="form-group cs-form__date cs-form__date--<%= PropertyName %>"
+    <% if ( Required ){ %>
+    required
+    <% } %>
+    >
+    <label class="control-label cs-form__date--label" for="<%= PropertyName %>" data-localize="<%= PropertyDisplayName %>">
+        <span><% if ( Required ){ %> <%= '(' + localization.Required + ')' %><% } %></span>
+    </label>
+    <input name="<%= PropertyName %>" class="cs-form__date--input"
+           data-control="datePicker"
+           data-control-bind="<%= PropertyName %>"
+           data-control-from="<%= FromFilter %>"
+           data-control-to="<%= ToFilter %>"
+           data-control-from-relative="<%= FromRelative %>"
+           data-control-to-relative="<%= ToRelative %>"
+    <% if ( Disabled ){ %>
+    disabled
+    <% } %>
+
+     />
+</div>

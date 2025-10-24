@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Areas/HelpPage/Views/Shared/_Layout.cshtml" hash="18ade275" filehash="2196d526144f" flags="110000" assembly="App_Web_ri3bqplf" type="ASP._Page_Areas_HelpPage_Views_Shared__Layout_cshtml">
+    <filedeps>
+        <filedep name="/Areas/HelpPage/Views/Shared/_Layout.cshtml" />
+    </filedeps>
+</preserve>

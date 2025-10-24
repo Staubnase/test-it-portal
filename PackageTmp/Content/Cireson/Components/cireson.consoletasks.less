@@ -1,0 +1,71 @@
+﻿
+/******************************************************************************************
+Console Tasks - Custom Styles
+*******************************************************************************************/
+
+
+#ChangeStatusWindow,
+#AssignToAnalystByGroupWindow,
+.task-window {
+
+    .send-email-attachment-error {
+        color: @v-color-error;
+    }
+
+    .k-upload {
+        .k-button {
+            width: 100%;
+
+            input {
+                border: none;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        .k-upload-status {
+            margin-top: 20px;
+            left: 6px;
+        }
+
+        div {
+            background: none;
+            cursor: pointer;
+            height: @input-height-large-screen;
+            line-height: @input-height-large-screen;
+
+            @media @small-and-medium-screen-only {
+                height: @input-height-small-screen;
+                height: @input-height-small-screen;
+            }
+        }
+
+        .k-upload-button span {
+            top: 50%;
+            transform: translateY(-46%);
+            position: absolute;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: @v-color-link;
+        }
+    }
+}
+
+#AssignToAnalystByGroupWindow {
+    .window-buttons.objectPicker-single-grid {
+        position: absolute;
+        bottom: 0;
+        padding-left: 0;
+    }
+}
+
+#AcknowledgeIncidentWindow {
+    .checkbox {
+        .checkbox-label {
+            padding-left: 15px;
+        }
+    }
+}

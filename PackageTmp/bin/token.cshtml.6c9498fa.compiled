@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Views/AuthenticationToken/Token.cshtml" hash="5ff6b2bd" filehash="fffff4f6588cc5e7" flags="110000" assembly="App_Web_psmell5b" type="ASP._Page_Views_AuthenticationToken_Token_cshtml">
+    <filedeps>
+        <filedep name="/Views/AuthenticationToken/Token.cshtml" />
+    </filedeps>
+</preserve>

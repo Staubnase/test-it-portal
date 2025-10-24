@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Areas/Settings/Views/Admin/HeaderFooterScriptSettings.cshtml" hash="5ff6b2bd" filehash="ffffc1768765f680" flags="110000" assembly="App_Web_50i330no" type="ASP._Page_Areas_Settings_Views_Admin_HeaderFooterScriptSettings_cshtml">
+    <filedeps>
+        <filedep name="/Areas/Settings/Views/Admin/HeaderFooterScriptSettings.cshtml" />
+    </filedeps>
+</preserve>

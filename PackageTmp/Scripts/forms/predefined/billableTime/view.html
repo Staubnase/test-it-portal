@@ -1,0 +1,66 @@
+﻿<div class="cs-form__predefined--billableTime">
+    <div data-control="billableTime" data-control-bind="AppliesToWorkItem"
+        <% if ( Disabled ){ %>
+        disabled
+        <% } %>
+
+        >
+    <div class="row hidden-print" data-bind="visible: view.billableTimeController.isVisible">
+        <div class="col-md-3">
+            <div class="form-group" data-cid="work-itemBillableTime" data-cid-propname="hours">
+                <label for="hourNumeric"><%= localization.hours %></label>
+                <div class="form-control form-control-picker input-sm">
+                    <input id="hourNumeric" data-role="numerictextbox"
+                           data-format="#.##"
+                           data-min="0"
+                           data-bind="value: view.billableTimeController.btHour,
+                               events: {spin: view.billableTimeController.onHourSpin }"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" data-cid="work-itemBillableTime" data-cid-propname="minutes">
+                <label for="minuteNumeric"><%= localization.minutes %></label>
+                <div class="form-control form-control-picker input-sm">
+                    <input id="minuteNumeric" data-role="numerictextbox"
+                           data-format="#.##"
+                           data-min="0"
+                           data-bind="value: view.billableTimeController.btMinute,
+                               events: {spin: view.billableTimeController.onMinuteSpin }"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 margin-t30">
+            <button class="btn btn-primary" data-role="button" data-bind="events: {click: view.billableTimeController.onAddClick}" data-cid="billableTimeAddButton"><%= localization.Add %> </button>
+            <button class="btn btn-default" data-role="button" data-bind="events: {click: view.billableTimeController.onSubtractClick}" data-cid="billableTimeSubtractButton"><%= localization.Subtract %> </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div data-control="grid"></div>
+            <div data-role="grid" class="billable-time-grid"
+                 data-bind="source: view.billableTimeController.dataSource, events:{dataBinding: view.billableTimeController.onDataBinding, dataBound: view.billableTimeController.onDataBound, cellClose: view.billableTimeController.onCellClose, remove: view.billableTimeController.remove}"
+                 data-selectable="false"
+                 data-sortable="true"
+                 data-filterable="true"
+                 data-scrollable="false"
+                 data-column-menu="true"
+                 data-pageable="false"
+                 data-editable="{mode: 'inline'}"
+                 data-columns='[
+                { field: "BillableTime.DisplayName", title: localization.Analyst, width: "300px", attributes: { "class": "grid-highlight-column" } },
+                { field: "BaseId", title: localization.BaseId, width: "30px", hidden: true },
+                { field: "LastUpdatedDisplay", title: localization.LastUpdated, width: "100px" },
+                { field: "TimeInMinutes", title: localization.TimeInMinutes, width: "100px", attributes: { "class": "pull-right" } },
+                <% if ( !Disabled ){ %>
+                 { width: "100px", command: [{ name: "destroy", buttonType: "ImageAndText", text: localization.Remove}]}
+                <% } %>
+            ]'>
+            </div>
+            <div class="pull-right">
+                <label id="btTotalTimeInString" data-bind="html: view.billableTimeController.btTotalTimeInString"></label>
+            </div>
+        </div>
+        </div>
+</div>
+</div>

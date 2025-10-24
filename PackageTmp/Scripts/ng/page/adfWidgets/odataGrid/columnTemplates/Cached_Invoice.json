@@ -1,0 +1,49 @@
+﻿{
+  "Name": {
+    "field": "Name",
+    "title": "Invoice Name",
+    "template": "#= (Name) ? Name : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "InvoiceHasVendor_DisplayName": {
+    "field": "InvoiceHasVendor_DisplayName",
+    "title": "Vendor Name",
+    "template": "#= (InvoiceHasVendor_DisplayName) ? InvoiceHasVendor_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "InvoiceHasCostCenter_DisplayName": {
+    "field": "InvoiceHasCostCenter_DisplayName",
+    "title": "Cost Center Code",
+    "template": "#= (InvoiceHasCostCenter_DisplayName) ? InvoiceHasCostCenter_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Status": {
+    "field": "Status",
+    "title": "Invoice Status",
+    "template": "#= (Status) ? Status : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

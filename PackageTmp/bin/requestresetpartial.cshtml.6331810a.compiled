@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Views/Login/RequestResetPartial.cshtml" hash="5ff6b2bd" filehash="ffffe943e8b28c00" flags="110000" assembly="App_Web_hwivl5pd" type="ASP._Page_Views_Login_RequestResetPartial_cshtml">
+    <filedeps>
+        <filedep name="/Views/Login/RequestResetPartial.cshtml" />
+    </filedeps>
+</preserve>

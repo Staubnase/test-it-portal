@@ -1,0 +1,2 @@
+﻿$ScriptDirectory = "C:\inetpub\CiresonPortal\CacheBuilder\WindowsService\Scripts"
+schtasks.exe /create /RU SYSTEM /RL HIGHEST /sc minute /mo 1 /tn "Keep Cache Builder Alive" /tr "powershell.exe $ScriptDirectory\Repair-CacheBuilder.ps1"

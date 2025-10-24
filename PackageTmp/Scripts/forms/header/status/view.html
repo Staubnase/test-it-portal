@@ -1,0 +1,8 @@
+﻿<h1 class="page_title">
+    <span data-bind="text: view.title"></span><span>-</span><span class="uppercase" data-bind="text: view.id"></span>
+    <span class="cursor-pointer" id="viewAttachments" data-bind="click: view.viewAttachments, visible: view.filesCount > 0"><i class="fa fa-paperclip text-primary" style="font-size: inherit"></i></span>
+    <span class="label label-info label-heading" id="statusname" data-bind="visible: view.statusVisible, text: viewModel.Status.Name"></span>
+    <span class="label label-heading" data-bind="visible: viewModel.IsParent"><img src="/Content/Images/Icons/WorkItemsStatus/workitem-parent-icon.svg"></span>
+</h2>
+
+

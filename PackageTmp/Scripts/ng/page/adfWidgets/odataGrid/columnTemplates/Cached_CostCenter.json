@@ -1,0 +1,42 @@
+﻿{
+  "Name": {
+    "field": "Name",
+    "title": "Cost Center Code",
+    "template": "#= (Name) ? Name : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "CostCenterHasOrganization_DisplayName": {
+    "field": "CostCenterHasOrganization_DisplayName",
+    "title": "Organization",
+    "template": "#= (CostCenterHasOrganization_DisplayName) ? CostCenterHasOrganization_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "ConfigItemOwnedByUser_DisplayName": {
+    "field": "ConfigItemOwnedByUser_DisplayName",
+    "title": "Custodian",
+    "template": "#= (ConfigItemOwnedByUser_DisplayName) ? ConfigItemOwnedByUser_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+   "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

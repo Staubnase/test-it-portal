@@ -1,0 +1,43 @@
+/******************************************************************************************
+Overlays - Custom Styles
+*******************************************************************************************/
+
+.form-overlay {
+    display: block;
+    z-index: 12000;
+    opacity: 0.5;
+    // font-size: large;
+    text-align: center;
+    color: @text-color-body-reverse;
+    padding-top: 250px;
+    text-transform: capitalize;
+
+    .spinner {
+        margin: 80px auto 20px;
+    }
+}
+
+.loading-overlay {
+    position: absolute;
+    z-index: 9999;
+    background-color: fade(@v-color-black, 80%); // creates rgba
+}
+
+.loading-overlay-textcont {
+    padding: 10px;
+    text-align: center;
+    color: @text-color-body;
+    font-weight: bold;
+    font-size: @font-size-meta-text;
+}
+
+.white-out {
+    background-color: @v-color-white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    color: @text-color;
+    opacity: 1;
+    padding-top: 150px;
+}

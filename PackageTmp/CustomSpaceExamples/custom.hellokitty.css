@@ -1,0 +1,463 @@
+﻿/*header background color*/
+.header-bg-color {
+    background-color: #ED2877 !important;
+}
+/*announcements bar*/
+.announcements {
+    background: #c7115a;
+}
+/* Header Menu Hover and Background Color*/
+.header-user:hover {
+    background-color: #D92365 !important;
+}
+/* sidebar background color */
+.sidebar-bg-color {
+    background-color: #e24d83 !important;
+}
+/*****************************************NEW V3 NAV STYLES********************************/
+/* sidebar sub panel background color */
+#side_nav .sub_panel {
+    background-color: #808080 !important;
+}
+/* Link color new for V3 */
+a,
+a:link,
+a:visited,
+.link,
+.link:visited {
+    color: #808080;
+}
+
+    .link:hover,
+    a:hover,
+    a:focus,
+    .link:focus {
+        color: #4d4d4d;
+    }
+
+.drawertaskbar .drawertaskbar-commands .btn-link .fa {
+    color: white !important;
+}
+/*open sub nav item background color*/
+.nav_open > a {
+    background-color: #808080 !important;
+}
+/*pinned sub nav item background color*/
+.pinned_subnav .nav_active > a {
+    background-color: #808080 !important;
+}
+/*active nav item text color */
+#side_nav > ul > li.nav_active > a,
+#side_nav > ul > li > a > span.nav_icon > i {
+    color: #808080;
+}
+/*****************************************NEW V3 NAV STYLES********************************/
+/* drawer closed background color/gradient*/
+.drawertaskbar {
+    background-color: #c7115a;
+    background-image: none;
+}
+/* open drawer menu*/
+.drawer-drawermenu {
+    background-color: #c7115a;
+}
+    /* drawer title 'NEW' color */
+    .drawer-drawermenu .drawermenu-title {
+        color: #f47dad;
+    }
+    /* Drawer menu item hover background color */
+    .drawer-drawermenu .drawermenu-tile ul li:hover,
+    .drawer-drawermenu .drawermenu-tile ul li.drawermenu-selected {
+        background-color: #f47dad;
+    }
+    /* Drawer Menu Section Left Border Color */
+    .drawer-drawermenu .drawermenu-tile ul {
+        border-color: #ec1f71;
+    }
+/*  Grid Higlighted Column(s) Background Color */
+.k-grid td.grid-highlight-column,
+.k-grid td.grid-highlight-column-last,
+.k-grid td.grid-highlight-column-title {
+    background-color: #f8d1df;
+}
+
+    .k-grid td.grid-highlight-column a,
+    .k-grid td.grid-highlight-column-last a,
+    .k-grid td.grid-highlight-column-title a {
+        color: #808080 !important;
+        transition: none;
+        text-decoration: none;
+    }
+/*  Grid Higlighted Column(s) Hover Background Color */
+.k-grid tr:hover td.grid-highlight-column,
+.k-grid tr:hover td.grid-highlight-column-last,
+.k-grid tr:hover td.grid-highlight-column-title {
+    background-color: #D92365;
+}
+
+    .k-grid tr:hover td.grid-highlight-column a,
+    .k-grid tr:hover td.grid-highlight-column-last a,
+    .k-grid tr:hover td.grid-highlight-column-title a {
+        color: #4d4d4d !important;
+        transition: none;
+        text-decoration: none;
+    }
+/*  Grid Higlighted Column(s) Selected Background Color */
+.k-grid .k-state-selected td.grid-highlight-column,
+.k-grid .k-state-selected td.grid-highlight-column-last,
+.k-grid .k-state-selected td.grid-highlight-column-title {
+    background-color: #D92365;
+}
+
+    .k-grid .k-state-selected td.grid-highlight-column a,
+    .k-grid .k-state-selected td.grid-highlight-column-last a,
+    .k-grid .k-state-selected td.grid-highlight-column-title a {
+        color: #4d4d4d !important;
+        transition: none;
+        text-decoration: none;
+    }
+/* Form Heading Bottom accent color */
+.panel-heading {
+    border-color: #ED2877 !important;
+}
+/* Status Label Background Color */
+.label-info {
+    background-color: #CC2C72 !important;
+}
+/* Activity Status Text Color */
+.activity-list-container .activity-item-header .k-dropdown .k-dropdown-wrap .k-input,
+.activity-list-container .activity-item #activityStatus {
+    color: #CC2C72;
+}
+
+.k-state-selected {
+    background-color: #D92365 !important;
+    border-color: #D92365 !important;
+}
+/*set the color of clickable controls like buttons checkboxes, etc*/
+/* we use standard bootstrap primary classes*/
+.checkbox input[type=checkbox]:checked + label:before,
+.checkbox-primary input[type=checkbox]:checked + label:before,
+.checkbox input[type=checkbox]:checked ~ .checkbox-label:before,
+.checkbox-primary input[type=checkbox]:checked ~ .checkbox-label:before {
+    background-color: #808080;
+    border-color: #808080;
+}
+
+.btn.btn-primary,
+.k-button.btn-primary,
+.affecteditems-grid .two-action-input-group .k-button,
+.relateditems-grid .two-action-input-group .k-button {
+    background-color: #808080;
+    border-color: #808080;
+}
+
+    .btn.btn-primary.btn-link,
+    .k-button.btn-primary.btn-link,
+    .affecteditems-grid .two-action-input-group .k-button.btn-link,
+    .relateditems-grid .two-action-input-group .k-button.btn-link {
+        background-color: transparent;
+    }
+
+        .btn.btn-primary.btn-link:hover,
+        .k-button.btn-primary.btn-link:hover,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link:hover,
+        .relateditems-grid .two-action-input-group .k-button.btn-link:hover,
+        .btn.btn-primary.btn-link:active,
+        .k-button.btn-primary.btn-link:active,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link:active,
+        .relateditems-grid .two-action-input-group .k-button.btn-link:active,
+        .btn.btn-primary.btn-link.active,
+        .k-button.btn-primary.btn-link.active,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link.active,
+        .relateditems-grid .two-action-input-group .k-button.btn-link.active,
+        .btn.btn-primary.btn-link.active .btn.btn-primary.btn-link:focus,
+        .btn.btn-primary.btn-link.active .k-button.btn-primary.btn-link:focus,
+        .btn.btn-primary.btn-link.active .affecteditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .btn.btn-primary.btn-link.active .relateditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .k-button.btn-primary.btn-link.active .btn.btn-primary.btn-link:focus,
+        .k-button.btn-primary.btn-link.active .k-button.btn-primary.btn-link:focus,
+        .k-button.btn-primary.btn-link.active .affecteditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .k-button.btn-primary.btn-link.active .relateditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link.active .btn.btn-primary.btn-link:focus,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link.active .k-button.btn-primary.btn-link:focus,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link.active .affecteditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link.active .relateditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .relateditems-grid .two-action-input-group .k-button.btn-link.active .btn.btn-primary.btn-link:focus,
+        .relateditems-grid .two-action-input-group .k-button.btn-link.active .k-button.btn-primary.btn-link:focus,
+        .relateditems-grid .two-action-input-group .k-button.btn-link.active .affecteditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .relateditems-grid .two-action-input-group .k-button.btn-link.active .relateditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .btn.btn-primary.btn-link:focus,
+        .k-button.btn-primary.btn-link:focus,
+        .affecteditems-grid .two-action-input-group .k-button.btn-link:focus,
+        .relateditems-grid .two-action-input-group .k-button.btn-link:focus {
+            background-color: rgba(0, 0, 0, 0.2) !important;
+            border-color: rgba(0, 0, 0, 0.2) !important;
+        }
+
+    .btn.btn-primary:hover,
+    .k-button.btn-primary:hover,
+    .affecteditems-grid .two-action-input-group .k-button:hover,
+    .relateditems-grid .two-action-input-group .k-button:hover,
+    .btn.btn-primary:active,
+    .k-button.btn-primary:active,
+    .affecteditems-grid .two-action-input-group .k-button:active,
+    .relateditems-grid .two-action-input-group .k-button:active,
+    .btn.btn-primary.active,
+    .k-button.btn-primary.active,
+    .affecteditems-grid .two-action-input-group .k-button.active,
+    .relateditems-grid .two-action-input-group .k-button.active,
+    .btn.btn-primary.active .btn.btn-primary:focus,
+    .btn.btn-primary.active .k-button.btn-primary:focus,
+    .btn.btn-primary.active .affecteditems-grid .two-action-input-group .k-button:focus,
+    .btn.btn-primary.active .relateditems-grid .two-action-input-group .k-button:focus,
+    .k-button.btn-primary.active .btn.btn-primary:focus,
+    .k-button.btn-primary.active .k-button.btn-primary:focus,
+    .k-button.btn-primary.active .affecteditems-grid .two-action-input-group .k-button:focus,
+    .k-button.btn-primary.active .relateditems-grid .two-action-input-group .k-button:focus,
+    .affecteditems-grid .two-action-input-group .k-button.active .btn.btn-primary:focus,
+    .affecteditems-grid .two-action-input-group .k-button.active .k-button.btn-primary:focus,
+    .affecteditems-grid .two-action-input-group .k-button.active .affecteditems-grid .two-action-input-group .k-button:focus,
+    .affecteditems-grid .two-action-input-group .k-button.active .relateditems-grid .two-action-input-group .k-button:focus,
+    .relateditems-grid .two-action-input-group .k-button.active .btn.btn-primary:focus,
+    .relateditems-grid .two-action-input-group .k-button.active .k-button.btn-primary:focus,
+    .relateditems-grid .two-action-input-group .k-button.active .affecteditems-grid .two-action-input-group .k-button:focus,
+    .relateditems-grid .two-action-input-group .k-button.active .relateditems-grid .two-action-input-group .k-button:focus,
+    .btn.btn-primary:focus,
+    .k-button.btn-primary:focus,
+    .affecteditems-grid .two-action-input-group .k-button:focus,
+    .relateditems-grid .two-action-input-group .k-button:focus {
+        background-color: #b3b3b3 !important;
+        border-color: #b3b3b3 !important;
+    }
+
+.btn.btn-default,
+.k-button.btn-default {
+    background-color: #676767;
+    border-color: #676767;
+    color: white;
+}
+
+    .btn.btn-default:hover,
+    .k-button.btn-default:hover,
+    .btn.btn-default:active,
+    .k-button.btn-default:active,
+    .btn.btn-default.active,
+    .k-button.btn-default.active,
+    .btn.btn-default.active .btn.btn-default:focus,
+    .btn.btn-default.active .k-button.btn-default:focus,
+    .k-button.btn-default.active .btn.btn-default:focus,
+    .k-button.btn-default.active .k-button.btn-default:focus,
+    .btn.btn-default:focus,
+    .k-button.btn-default:focus {
+        background-color: #737373 !important;
+        border-color: #737373 !important;
+    }
+
+.drawertaskbar .drawertaskbar-newbutton:hover {
+    background-color: #b3b3b3;
+}
+/* special radio styles */
+.radio-primary input[type=radio]:checked + label:before {
+    border-color: #808080;
+}
+
+.radio-primary input[type=radio]:checked + label:after {
+    background-color: #808080;
+}
+
+.announcements,
+.announcement-item-title {
+    color: #F5588A !important;
+}
+/*some background seleted & hover states have some pretty deep definitions coming from our js framework,
+  so the only way to override them is to create a new rule for each definition
+*/
+/*RO heading bottom border*/
+.form-panel-narrow h3 {
+    border-color: #ED2877;
+}
+
+.search-row .search-wrapper {
+    border: 2px solid #808080;
+}
+/*grid menu hover bg color*/
+.k-menu > .k-state-hover {
+    background-color: #D92365 !important;
+}
+/*grid menu selected bg color*/
+.k-menu > .k-state-selected {
+    background-color: #D92365 !important;
+}
+/*grid filter button color*/
+.k-animation-container .k-filter-item button[type='submit'] {
+    background-color: #808080;
+    border-color: #808080;
+}
+    /*grid filter button hover color*/
+    .k-animation-container .k-filter-item button[type='submit']:hover,
+    .k-animation-container .k-filter-item button[type='submit']:focus,
+    .k-animation-container .k-filter-item button[type='submit']:active,
+    .k-animation-container .k-filter-item button[type='submit'].active {
+        background-color: #D92365;
+        border-color: #D92365;
+    }
+/*This is for query prompt hover state*/
+div[data-control="checkboxGridByCriteria"].k-grid tr:hover {
+    background-color: #D92365 !important;
+}
+/*This is for query prompt selected state*/
+div[data-control="checkboxGridByCriteria"] .k-state-selected td {
+    background-color: #D92365 !important;
+}
+/*link colors on home page and kb home*/
+.articles .article-result a:link,
+.articles .article-result a:visited,
+.articles .article-result a:focus,
+.articles .article-result a:active,
+.breadcrumb a,
+.breadcrumb a:visited {
+    color: #808080;
+}
+/*V6 - ARO wizard styles*/
+.form-wizard-levels {
+    background-color: #c7115a !important;
+}
+
+    .form-wizard-levels > li.active {
+        background-color: #c7115a !important;
+    }
+
+        .form-wizard-levels > li.active > a {
+            background-color: #f15795 !important;
+        }
+
+            .form-wizard-levels > li.active > a:after {
+                border-color: #c7115a !important;
+                border-left-color: #f15795 !important;
+            }
+
+    .form-wizard-levels > li > a > span {
+        background-color: #CC2C72 !important;
+        border-bottom-color: #CC2C72 !important;
+        border-left-color: #CC2C72 !important;
+        border-right-color: #CC2C72 !important;
+        border-top-color: #CC2C72 !important;
+    }
+
+.dropdown-menu {
+    background-color: #808080;
+}
+
+    .dropdown-menu li a:hover {
+        background-color: #b3b3b3;
+    }
+
+.drawertaskbar .drawertaskbar-commands .btn-link:hover,
+.drawertaskbar .drawertaskbar-commands .btn-link:active,
+.drawertaskbar .drawertaskbar-commands .btn-link:focus {
+    background-color: #f15795;
+}
+
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus,
+.navbar .navbar-nav > li > a:active,
+.navbar .navbar__search .navbar__search--dropdown .btn:hover,
+.navbar .navbar__search .navbar__search--dropdown .btn:focus,
+.navbar .navbar__search .navbar__search--dropdown .btn:active {
+    background-color: #f15795 !important;
+}
+/*icon colors*/
+.form-group .fa,
+.form-group .icon-class,
+.defined-form .k-datetimepicker .k-select span.k-icon.k-i-calendar:before,
+.defined-form .k-datetimepicker .k-select span.k-icon.k-i-clock:before {
+    color: #808080;
+}
+
+.fa.text-primary {
+    color: #808080;
+}
+/*form inputs*/
+.k-textbox:hover,
+.k-state-default:hover,
+.k-state-focused,
+.k-state-active {
+    border-color: #808080;
+}
+/*border radius reset*/
+.dropdown-menu {
+    border-radius: 0 0 3px 3px !important;
+}
+
+.drawer-task-menu {
+    border-radius: 3px 3px 0 0 !important;
+}
+
+.search-wrapper,
+#UserPickerPopupWindow .popup-search-box,
+.form-control,
+.k-multiselect-wrap ul li,
+#UserPickerWindow .popup-search-box,
+#UserPickerWindow .popup-search-box .search-icon .cireson-window--body table.k-editor td.k-editable-area,
+.gridcard__checkbox.checkbox label:before,
+textarea.k-textbox,
+.k-header,
+.k-grid-header-wrap,
+.k-grid .k-grouping-header,
+.k-grid-header,
+.k-pager-wrap .k-link,
+.k-grouping-header .k-group-indicator,
+.k-autocomplete.k-state-default,
+.k-picker-wrap.k-state-default,
+.k-numeric-wrap.k-state-default,
+.k-dropdown-wrap.k-state-default,
+.k-pager-numbers .k-state-selected,
+.k-pager-numbers .k-state-selected,
+.k-pager-wrap .k-state-selected,
+.k-ff .k-pager-numbers .k-link,
+.k-ff .k-pager-numbers .k-state-selected,
+.k-ie11 .k-pager-numbers .k-link,
+.k-ie11 .k-pager-numbers .k-state-selected,
+.k-safari .k-pager-numbers .k-link,
+.k-safari .k-pager-numbers .k-state-selected,
+.k-webkit .k-pager-numbers .k-link,
+.k-webkit .k-pager-numbers .k-state-selected,
+div.k-window-content > .km-scroll-container span.k-dropdown-wrap,
+.user-picker .ad-user-input,
+.user-picker .ad-user-group,
+.k-numeric-wrap input,
+.input-userpicker,
+textarea,
+select,
+.k-input,
+.k-autocomplete,
+.k-picker-wrap,
+.k-numeric-wrap,
+.k-dropdown-wrap,
+.k-select,
+.k-textbox,
+.breadcrumb,
+.btn,
+code,
+pre,
+.input-group-addon,
+.defined-form .k-multiselect.k-header,
+.drawertaskbar .tooltip-inner,
+.btn-group-vertical > .btn:last-child:not(:first-child),
+.btn-group-vertical > .btn:first-child:not(:last-child),
+.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+    border-radius: 3px !important;
+}
+
+.k-custom-visible {
+    border-radius: 0 0 3px 3px !important;
+}
+
+.navbar__search--dropdown .btn {
+    border-radius: 3px 0 0 3px !important;
+}
+
+.navbar__search--btn .btn {
+    border-radius: 0 3px 3px 0 !important;
+}

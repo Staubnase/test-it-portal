@@ -1,0 +1,71 @@
+﻿/******************************************************************************************
+Kendo Styles
+*******************************************************************************************/
+
+/* Kendo Components (pulled from kendo/2020.3.1118/web/common/all.less)
+
+   NOTE - Only import modules that are needed and do not edit these files directly. 
+          If overides are needed, create or edit a /kendo/cireson.kendo.[component].less file instead.
+   TODO - Audit application to see which of these styles are actually needed.
+------------------------------------------------------------------------------------------*/
+@import "../Kendo/2020.3.1118/web/common/mixins.less";
+@import "../Kendo/2020.3.1118/web/common/base.less";
+@import "../Kendo/2020.3.1118/web/common/responsivepanel.less";
+//@import "../Kendo/2020.3.1118/web/common/forms.less";
+//@import "../Kendo/2020.3.1118/web/common/window.less";
+@import "../Kendo/2020.3.1118/web/common/tabstrip.less";
+@import "../Kendo/2020.3.1118/web/common/panelbar.less";
+@import "../Kendo/2020.3.1118/web/common/menu.less";
+@import "../Kendo/2020.3.1118/web/common/treelist.less";
+@import "../Kendo/2020.3.1118/web/common/gantt.less";
+@import "../Kendo/2020.3.1118/web/common/pivot.less";
+@import "../Kendo/2020.3.1118/web/common/calendar.less";
+@import "../Kendo/2020.3.1118/web/common/treeview.less";
+@import "../Kendo/2020.3.1118/web/common/inputs.less";
+@import "../Kendo/2020.3.1118/web/common/notification.less";
+@import "../Kendo/2020.3.1118/web/common/progressbar.less";
+@import "../Kendo/2020.3.1118/web/common/slider.less";
+@import "../Kendo/2020.3.1118/web/common/scheduler.less";
+//@import "../Kendo/2020.3.1118/web/common/tooltip.less";
+@import "../Kendo/2020.3.1118/web/common/toolbar.less";
+@import "../Kendo/2020.3.1118/web/common/splitter.less";
+@import "../Kendo/2020.3.1118/web/common/upload.less";
+@import "../Kendo/2020.3.1118/web/common/imagebrowser.less";
+@import "../Kendo/2020.3.1118/web/common/dataviz.less";
+//@import "../Kendo/2020.3.1118/web/common/adaptive.less";
+@import "../Kendo/2020.3.1118/common/transitions.less";
+@import "../Kendo/2020.3.1118/web/common/virtuallist.less";
+@import "../Kendo/2020.3.1118/web/common/font-icons.less";
+@import "../Kendo/2020.3.1118/web/common/spreadsheet.less";
+@import "../Kendo/2020.3.1118/web/kendo.common-fiori.less";
+
+// Kendo Mobile Specific Styles
+// TODO - Audit application to see which of these styles are actually needed.
+@import "../Kendo/2020.3.1118/mobile/kendo.mobile.all.less";
+
+
+/* Cireson Kendo Overrides
+
+   NOTE - Overrides to base Kendo styles are added within these files.
+          Can create new files for styles that do not match an existing override component.
+------------------------------------------------------------------------------------------*/
+@import "../Cireson/Components/kendo/cireson.kendo.grid.less";
+@import "../Cireson/Components/kendo/cireson.kendo.editor.less";
+
+// Also importing old 'cireson.kendo_overrides.less' file, for now.
+// This file needs to be broken into separate override component files, replacing core
+// imports above, as needed. (Follow pattern in 'cireson.bootstrap.less' file.)
+@import "../Cireson/Components/kendo/cireson.kendo_overrides.less";
+
+
+/* Kendo PDF Export
+------------------------------------------------------------------------------------------*/
+@import "../Kendo/2020.3.1118/web/fonts/DejaVu/dejavu.less";
+
+.kendo-pdf-hide-pseudo-elements {
+    &:before, &:after { display: none !important; }
+}
+
+/* Import old kendo.cireson.less (which imports the theme template and kendo ext stuff */
+/*@import "kendo.cireson.less";*/
+

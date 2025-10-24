@@ -1,0 +1,24 @@
+﻿<div class="form-group cs-form__checkbox cs-form__checkbox--<%= PropertyName %> <%= visible %>">
+    <% if ( !Inline ){ %>
+    <label class="control-label cs-form__checkbox--label" data-localize="<%= PropertyDisplayName %>"><span><% if ( Required ){ %> <%= '(' + localization.Required + ')' %><% } %></span></label>
+    <% } %>
+
+    <div class="checkbox <% if ( Inline ){ %> checkbox-inline <% } else { %> checkbox-block <% } %> cs-form__checkbox__div">
+        <input type="checkbox" class="cs-form__checkbox--input"
+               name="<%= PropertyName %>"
+               id="<%= PropertyName %>"
+               data-bind="checked: <%= PropertyName %>"<% if ( Disabled ){ %>
+        disabled
+        <% } %>
+
+        />
+
+
+        <label class="control-label cs-form__checkbox--label-inline" for="<%= PropertyName %>">
+            <% if ( Inline ){ %>
+            <span data-localize="<%= PropertyDisplayName %>"></span>
+            <% } %>
+        </label>
+
+    </div>
+</div>

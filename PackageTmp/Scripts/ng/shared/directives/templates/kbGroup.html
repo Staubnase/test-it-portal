@@ -1,0 +1,33 @@
+﻿
+<div class="{{ kbClass }} kb-group-container">
+    <h3>{{ kbLocalization.MatchingKnowledgeArticles }} <small>{{ kbGroupby }}</small></h3>
+    <hr>
+    <nav class="sc-kabar-nav">
+        <ul class="sc-kanav article-list">
+            <li data-ng-repeat="ka in kbData">
+                <span ng-click="toggleBar($event)">{{ ka.Group.Name }}<small>({{ ka.Group.Count }})</small> <i class="fa fa-chevron-left pull-right"></i></span>
+                <ul class="sc-kanav " hidden>
+                    <li data-ng-repeat="article in ka.Group.Articles">
+                        <div>
+                            <a class="a-link a-icon" href="/KnowledgeBase/View/{{ article.ArticleId }}" target="_blank"><i class="fa fa-external-link"></i></a>
+                            <a class="a-link" href="/KnowledgeBase/View/{{ article.ArticleId }}">{{ article.Title  }}</a><br />
+                            <small>{{ kbLocalization.Rating }} {{ article.AverageRating }}/5 | {{kbLocalization.Views}}: {{article.ViewCount}} | {{kbLocalization.LastModified}}: {{article.LastModifiedDate | date:"MMMM dd, yyyy"}}</small>
+                        </div>
+                        <p ng-show="article.Description.length > 0" ng-bind-html="article.Description"></p>
+                    </li>
+                    <li>
+                        <div ng-show="ka.isExcess && ka.isCategory">
+                            <a class="a-link" href="/KnowledgeBase/Listing#/search/{{ ka.ViewAll.SearchText }}/{{ ka.ViewAll.Id }}/">View All Matching Articles</a><br />
+                        </div>
+                        <div ng-show="ka.isExcess  && ka.isType">
+                            <a class="a-link" href="/KnowledgeBase/Listing#/search/{{ ka.ViewAll.SearchText }}//{{ ka.ViewAll.Id }}">View All Matching Articles</a><br />
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li ng-show="kbNoresult">
+                <p>{{ kbLocalization.NoMatchingKnowledgeArticles }}</p>
+            </li>
+        </ul>
+    </nav>
+</div>

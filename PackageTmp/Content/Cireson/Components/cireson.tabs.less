@@ -1,0 +1,169 @@
+﻿/******************************************************************************************
+Tabs - Custom Styles
+*******************************************************************************************/
+
+#PlanningTabs {
+    .k-content,
+    .k-state-active {
+        border-color: @v-color-white;
+    }
+
+    .k-tabstrip-items {
+        .k-link {
+            color: @text-color-body-light;
+            font-size: @font-size-meta-text;
+            text-transform: uppercase;
+        }
+
+        .k-state-default {
+            border-color: @v-color-white;
+        }
+
+        .k-state-active {
+            .k-link {
+                color: @v-color-black;
+            }
+        }
+    }
+}
+
+
+/* Temporary for this tab navigation in mobile device
+------------------------------------------------------------------------------------------*/
+
+.nav-dropdown {
+    position: relative;
+    z-index: 11;
+    border: 1px solid @v-color-gray-light;
+    border-style: solid none;
+    margin: -1px -@main-content-margin-small-screen 0;
+    background: @v-color-white;
+
+    .nav-dropdown-default {
+        font-size: @font-size-heading-section;
+        .text-ellipsis(1);
+        padding: 15px @main-content-margin-small-screen;
+        color: @v-color-link;
+        overflow: hidden;
+    }
+
+    .nav-dropdown-trigger {
+        padding: 15px @main-content-margin-small-screen;
+        text-align: right;
+        /* cover the drop down and allow click on entire input instead of just icon */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        i {
+            position: relative;
+            top: .2rem;
+            color: @icon-color-light;
+        }
+    }
+
+    .nav-dropdown-content {
+        position: relative;
+        display: none;
+        max-height: 50vh;
+        font-size: @font-size-nav-small-screen;
+        line-height: @line-height-base;
+        overflow: scroll;
+        padding-bottom: 15px;
+
+        li:not([ng-repeat]) {
+            padding: 5px @main-content-margin-small-screen;
+        }
+        li[ng-repeat] li {
+            padding: 5px @main-content-margin-small-screen;
+        }
+
+        .listStyle() {
+            ul {
+                list-style: none;
+                padding: 0;
+                margin-bottom: 0;
+
+                li {
+
+                    a,
+                    span {
+                        color: @v-color-black;
+                        text-decoration: none;
+                        text-transform: capitalize;
+
+                        i {
+                            color: @v-color-black !important;
+                        }
+                    }
+
+                    a[href] {
+                        color: @v-color-black;
+
+                        &.active {
+                            background: @featured-link-bg;
+                        }
+                    }
+
+                    .sc-groupby {
+                        .meta-text();
+                        text-transform: uppercase;
+                        margin-left: 20px !important;
+                        @media @small-and-medium-screen-only {
+                            display: inline-block;
+                            padding: 15px @main-content-margin-small-screen 10px;
+                            margin-left: 0 !important;
+                        }
+                    }
+
+                    li.active,
+                    li:hover {
+                        background: @featured-link-bg;
+                    }
+                }
+            }
+        }
+
+        .listStyle();
+
+        nav {
+            .listStyle();
+
+            ul li {
+                padding-left: 20px;
+
+                .tree-label {
+                    left: 20px !important;
+                }
+
+                a {
+                    i {
+                        left: -5px;
+                        top: 4px !important;
+                        margin-left: 0;
+                    }
+
+                    .fa-caret-down {
+                        color: lighten(@btn-default-color, 30%) !important;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.nav-dropdown + .tab-content {
+    margin-bottom: 15px;
+}
+
+.show-nav-content {
+    .nav-dropdown-content {
+        display: block;
+    }
+    &.nav-dropdown {
+        .box-shadow(0 4px 10px fade(@v-color-gray-darker,30%));
+    }
+}

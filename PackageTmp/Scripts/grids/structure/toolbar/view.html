@@ -1,0 +1,80 @@
+﻿<script type="text/x-kendo-template" id="toolbarTemplate">
+    <div class="pull-right">
+        <label for="locale" class="control-label">
+            <span>#: localizationHelper.localize("SelectLocale") #</span>
+        </label>
+        <input id="locale" />
+    </div>
+    <div class="">
+        <label class='checkbox checkbox-primary'>
+            <input type='checkbox' id='showAlreadyTranslated'>
+            <span class="checkbox-label">#: localizationHelper.localize("ShowAlreadyTranslated") #</span>
+        </label>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="myWorktoolbarTemplate">
+    <div class="clearfix">
+        <ul class="nav nav-pills toolbar-tabs">
+            <li class="active"><a data-subtype="myworkitems"> #: localizationHelper.localize("WorkItem") #</a></li>
+            <li><a data-subtype="myapprovals">#: localizationHelper.localize("Approval") #</a></li>
+            <li><a data-subtype="myactivities">#: localizationHelper.localize("Activities") #</a></li>
+            <li><a data-subtype="mymanualactivities">#: localizationHelper.localize("ManualActivities") #</a></li>
+        </ul>
+
+        <input type='hidden' id='gridViewId' value='myworkitems' </input>
+    </div>
+    <div>
+        <a class="k-button pull-right btn btn-default btn-clear-grid-filters">#: localizationHelper.localize("ResetGridFilters") #</a>
+        <a class="k-button pull-right btn btn-default btn-grid-export"><i class="fa fa-file-excel-o btn-mywork-export"></i>#: localizationHelper.localize("Export") #</a>
+        <label class="checkbox checkbox-primary" id="toggleActivities">
+            <input type="checkbox" data-checked="false">
+            <input id="showActivitiesInGrid" type="hidden" value="false"><span class="checkbox-label">#: localizationHelper.localize("ShowActivities") #</span>
+        </label>
+        <label class="checkbox checkbox-primary" id="toggleInactive">
+            <input type="checkbox" data-checked="false">
+            <input id="showInActivesInGrid" type="hidden" value="false"><span class="checkbox-label">#: localizationHelper.localize("ShowInactiveWorkItems") #</span>
+        </label>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="myWorkFreeToolbarTemplate">
+    <div class="clearfix">
+        <ul class="nav nav-pills toolbar-tabs">
+            <li class="active"><a data-subtype="myapprovals">#: localizationHelper.localize("Approval") #</a></li>
+            <li><a data-subtype="myactivities">#: localizationHelper.localize("Activities") #</a></li>
+            <li><a data-subtype="mymanualactivities">#: localizationHelper.localize("ManualActivities") #</a></li>
+        </ul>
+
+        <input type='hidden' id='gridViewId' value='myapprovals'</input>
+    </div>
+    <div>
+        <a class="k-button pull-right btn btn-default btn-clear-grid-filters">#: localizationHelper.localize("ResetGridFilters") #</a>
+        <a class="k-button pull-right btn btn-default btn-grid-export"><i class="fa fa-file-excel-o btn-mywork-export"></i>#: localizationHelper.localize("Export") #</a>
+        <label class="checkbox checkbox-primary" id="toggleInactive">
+            <input type="checkbox" data-checked="false">
+            <input id="showInActivesInGrid" type="hidden" value="false"><span class="checkbox-label">#: localizationHelper.localize("ShowInactiveWorkItems") #</span>
+        </label>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="myWorkFreeAnalystToolbarTemplate">
+    <div class="clearfix">
+        <ul class="nav nav-pills toolbar-tabs">
+            <li class="active"><a data-subtype="myincidents">#: localizationHelper.localize("Incident") #</a></li>
+            <li><a data-subtype="myapprovals">#: localizationHelper.localize("Approval") #</a></li>
+            <li><a data-subtype="myactivities">#: localizationHelper.localize("Activities") #</a></li>
+            <li><a data-subtype="mymanualactivities">#: localizationHelper.localize("ManualActivities") #</a></li>
+        </ul>
+
+        <input type='hidden' id='gridViewId' value='myincidents'</input>
+    </div>
+    <div>
+        <a class="k-button pull-right btn btn-default btn-clear-grid-filters">#: localizationHelper.localize("ResetGridFilters") #</a>
+        <a class="k-button pull-right btn btn-default btn-grid-export"><i class="fa fa-file-excel-o btn-mywork-export"></i>#: localizationHelper.localize("Export") #</a>
+        <label class="checkbox checkbox-primary" id="toggleInactive">
+            <input type="checkbox" data-checked="false">
+            <input id="showInActivesInGrid" type="hidden" value="false"><span class="checkbox-label">#: localizationHelper.localize("ShowInactiveWorkItems") #</span>
+        </label>
+    </div>
+</script>

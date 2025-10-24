@@ -1,0 +1,180 @@
+﻿/******************************************************************************************
+Dashboards - Custom Styles
+*******************************************************************************************/
+
+.dashboard-container {
+
+
+    .dashboard {
+        margin-top: 35px;
+    }
+
+    #alertMessagesContainer{
+        margin-top:20px;
+    }
+}
+
+
+
+.dashboard-header {
+    color: @text-color-body-reverse;
+
+    h4 {
+        color: @text-color-body-reverse;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .equal-col {
+        margin-bottom: -99999px;
+        padding-bottom: 99999px;
+    }
+
+    .equal-row {
+        overflow: hidden;
+    }
+
+    .search-area {
+        background-color: @dashboard-header-background-color;
+        padding-right: 25px;
+
+        .search-title {
+            h3 {
+                color: @text-color-body-reverse;
+                padding-left: 30px;
+                text-transform: none;
+                font-weight: bold;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+        }
+
+        .filter-checkboxes {
+            .row {
+                padding-left: 30px;
+            }
+
+            .filter-box {
+                background: darken(@dashboard-header-background-color, 10%);
+                /* The IE9 Fallback */
+                background: fade(@v-color-black, 80%); // creates rgba
+                padding: 10px 40px 10px 15px;
+            }
+
+            .checkbox {
+                margin: 0px 0px;
+                text-transform: uppercase;
+            }
+
+            .checkbox-primary input[type=checkbox] + label:before {
+                background-color: inherit;
+                border-color: @v-color-white;
+            }
+
+            .checkbox-primary input[type=checkbox]:checked + label:before {
+                background-color: @v-color-link;
+                border-color: @v-color-link;
+            }
+
+            .checkbox-primary input[type=checkbox]:checked + label:after {
+                color: @text-color-body-reverse;
+            }
+        }
+
+
+        .input-group {
+            padding-left: 30px;
+            padding-bottom: 20px;
+
+            input {
+                border-right: 1px solid @v-color-white;
+            }
+
+            .input-group-button {
+            }
+
+            .btn-default {
+                color: @dashboard-header-background-color;
+                padding: 2px 8px;
+                .border-radius(0);
+                border-left: 1px solid @v-color-white;
+                border-top: 1px solid @border-color-light;
+                border-bottom: 1px solid @border-color-light;
+
+                &:active,
+                &:focus,
+                &:visited,
+                &:hover {
+                    background-color: @v-color-white;
+                    border-left: 0;
+                    border-top: 1px solid @border-color-light;
+                    border-bottom: 1px solid @border-color-light;
+                }
+            }
+        }
+    }
+
+    .sc-button {
+        padding-top: 10px;
+        background-color: @v-color-link;
+        text-align: center;
+
+        i {
+            color: @v-color-link-hover;
+        }
+    }
+}
+
+#dashboardQueryGrid{
+    table{
+       table-layout:fixed;
+       td{
+            white-space: nowrap;
+            text-overflow: ellipsis;
+       }
+    }
+}
+
+
+
+#columns_listbox {
+    div {
+        display: block;
+        padding: 5px 10px;
+        border-bottom: 1px solid #DDD;
+        cursor: pointer;
+
+        p {
+            color: @v-color-gray-light !important;
+            font-size: @font-size-small;
+
+            strong {
+                color: @v-color-gray-light !important;
+            }
+        }
+    }
+}
+
+.odata-dashboard-select {
+    .k-input {
+        
+    }
+}
+
+#groupBy-list {
+    p{
+        font-size:11px;
+    }
+}
+
+.odata-selected-name {
+    height: 0px
+}
+
+.odata-selected-sub-name {
+    font-size: 10px;
+    position: relative;
+    top: 14px;
+}

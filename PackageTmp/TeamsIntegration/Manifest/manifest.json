@@ -1,0 +1,121 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.6/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.6",
+  "version": "1.0",
+  "showLoadingIndicator": false,
+  "id": "%%MS_APP_ID%%",
+  "packageName": "com.cireson.msteams.smp",
+  "developer": {
+    "name": "Cireson",
+    "websiteUrl": "https://cireson.com",
+    "privacyUrl": "https://cireson.com/privacy-statement/",
+    "termsOfUseUrl": "https://cireson.com/eula"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "%%Bot_Name%%",
+    "full": " Service Manager Portal %%Bot_Name%%"
+  },
+  "description": {
+    "short": "Interact with the Cireson Portal for System Center Service Manager through Teams",
+    "full": "%%Bot_Name%% for the Cireson SCSM Portal enables employees throughout an organization the ability to tap into Global Search directly from a chat serving up Work Items, Configuration Items, and Knowledge Articles. In addition, %%Bot_Name%% also provides the opportunity to personalize Work Item notifications such as Assignment and Action Log updates, add conversations to a Work Item's Action Log, and retrieve My Work/My Requests."
+  },
+  "accentColor": "%%ACCENT_COLOR%%",
+  "bots": [
+    {
+      "botId": "%%MS_APP_ID%%",
+      "scopes": [ "personal" ],
+      "commandLists": [
+        {
+          "scopes": [ "personal" ],
+          "commands": [
+            {
+              "title": "My Requests",
+              "description": "Get my work item request from %%Bot_Name%%"
+            },
+            {
+              "title": "My Work",
+              "description": "Get my work item from %%Bot_Name%%"
+            },
+            {
+              "title": "Log Out",
+              "description": "Logs the user out of Portal"
+            },
+            {
+              "title": "Help",
+              "description": "Help message for the %%Bot_Name%%"
+            },
+            {
+              "title": "Troubleshoot",
+              "description": "Troubleshooting for the %%Bot_Name%%"
+            }
+          ]
+        }
+      ],
+      "supportsFiles": false,
+      "isNotificationOnly": false
+    }
+  ],
+  "composeExtensions": [
+    {
+      "botId": "%%MS_APP_ID%%",
+      "canUpdateConfiguration": false,
+      "commands": [
+        {
+          "id": "searchTicket",
+          "type": "query",
+          "title": "Search",
+          "description": "",
+          "initialRun": true,
+          "fetchTask": true,
+          "context": [
+            "commandBox",
+            "compose"
+          ],
+          "parameters": [
+            {
+              "name": "param",
+              "title": "param",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "id": "addToActionLog",
+          "type": "action",
+          "title": "Add as comment",
+          "description": "",
+          "initialRun": false,
+          "fetchTask": true,
+          "context": [ "message" ],
+          "parameters": [
+            {
+              "name": "param",
+              "title": "param",
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "messageHandlers": [
+        {
+          "type": "link",
+          "value": {
+            "domains": [ "%%SMP_URL%%" ]
+          }
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "*.botframework.com",
+    "%%SMP_URL%%"
+  ]
+}

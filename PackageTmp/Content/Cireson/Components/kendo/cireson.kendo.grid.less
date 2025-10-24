@@ -1,0 +1,432 @@
+﻿/******************************************************************************************
+Kendo Grid - Overrides
+
+This document is only for styles that override this Kendo component's core classes.
+
+Do not include styles that amend these classes within specific contexts or extend these ideas into new classes.
+Instead these should be placed within the corresponding cireson.[component].less file
+*******************************************************************************************/
+
+
+/* Import core Kendo component first
+------------------------------------------------------------------------------------------*/
+@import "../../../Kendo/2020.3.1118/web/common/grid.less";
+
+
+/* Style Overrides
+------------------------------------------------------------------------------------------*/
+
+//remove border from bottom of toolbar
+.k-grid-toolbar:first-child,
+.k-grouping-header + .k-grid-toolbar {
+    border-width: 0;
+}
+
+//thicker bottom border under column header row
+.k-grid-header th.k-header,
+.k-filter-row th,
+.k-grid td {
+    border-width: 0 0 3px 1px;
+    padding-left: @table-cell-padding-horizontal;
+    padding-right: @table-cell-padding-horizontal;
+}
+
+.k-grid table {
+    width: 100% !important;
+}
+
+//change grid header sort indicator
+.k-grid-header .k-link span.k-i-arrow-n,
+.k-grid-header .k-link:hover span.k-i-arrow-n {
+    background-position: -128px -240px; /*white*/
+    //background-position: -112px -240px;  /*black*/
+}
+
+//change grid header sort indicator
+.k-grid-header .k-link span.k-i-arrow-s,
+.k-grid-header .k-link:hover span.k-i-arrow-s {
+    background-position: -128px -256px; /*white*/
+    //background-position: -112px -256px; /*black*/
+}
+
+.k-grid {
+    .k-pager-numbers {
+        @media @small-and-medium-screen-only {
+            left: inherit !important;
+        }
+
+        .k-current-page {
+            .k-link {
+                @media @small-and-medium-screen-only {
+                    border-radius: 0;
+                    border: none;
+                    background-color: transparent;
+                    text-align: center;
+                    padding-top: 5px;
+                }
+            }
+        }
+    }
+}
+
+/* Grid lists for mobile
+..........................................................................................*/
+.mobilegrid {
+    border: none;
+    margin: 0 -@main-content-margin-small-screen;
+
+    &__tasklist {
+        margin: 10px -20px 30px -20px;
+
+        .k-button {
+            width: 100%;
+            padding: 10px 0;
+            color: @v-color-link;
+
+            & > .fa {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    &__pager {
+        padding-top: 20px !important;
+        margin: 0 -@main-content-margin-small-screen !important;
+
+        &.k-pager-wrap {
+            padding: 0 @main-content-margin-small-screen;
+            border: none;
+            border-top: 1px solid @default-border-color;
+
+            > .k-link {
+                float: none;
+            }
+        }
+        //icons
+        .k-pager-nav > .k-icon {
+            /*font-size: @kendo-icon-size-large - 4px;*/
+            /*font-family: FontAwesome;*/
+            padding-top: 0;
+            /*height: @pagination-button-height-small-screen - 2px;*/
+            line-height: @pagination-button-height-small-screen - 2px;
+            background-image: none;
+
+            &:before {
+                display: inline-block;
+                color: @v-color-link;
+            }
+
+            &.k-i-arrow-e:before {
+                content: "\f105";
+            }
+
+            &.k-i-seek-e:before {
+                content: "\f101";
+            }
+
+            &.k-i-seek-w:before {
+                content: "\f100";
+            }
+
+            &.k-i-arrow-w:before {
+                content: "\f104";
+            }
+        }
+        //next, prev, first, last buttons
+        & > .k-link {
+            width: @pagination-button-height-small-screen;
+            height: @pagination-button-height-small-screen - 2px;
+            border: 1px solid @default-border-color;
+            margin: 0;
+            background-color: @v-color-white !important;
+
+            &.k-state-disabled {
+                border: 1px solid @disabled-border-color;
+                background-color: @v-color-white;
+                opacity: 1;
+
+                &.k-pager-nav > .k-icon:before {
+                    color: @text-color-body-light;
+                }
+            }
+            //prev button
+            &:nth-child(4n+2) {
+                border-radius: 0 @pager-border-radius @pager-border-radius 0;
+            }
+            //next button
+            &:nth-child(4n+4) {
+                border-radius: @pager-border-radius 0 0 @pager-border-radius;
+                margin-left: 0;
+            }
+
+            &.k-pager-first {
+                border-radius: @pager-border-radius 0 0 @pager-border-radius;
+                border-right: none;
+            }
+
+            &.k-pager-last {
+                border-radius: 0 @pager-border-radius @pager-border-radius 0;
+                border-left: none;
+            }
+        }
+        //current page number
+        .k-pager-numbers {
+            position: static;
+            display: inline-flex;
+            width: @pagination-button-height-small-screen;
+            height: @pagination-button-height-small-screen;
+            margin: 0;
+            margin-left: -16px;
+
+            .k-current-page {
+                .k-link {
+                    width: auto;
+                    line-height: @pagination-button-height-small-screen + 2px;
+                    text-align: center;
+                    padding: 0;
+                    border: none;
+                    background-color: transparent;
+                }
+            }
+        }
+        //select list
+        .k-pager-sizes {
+            padding: 0;
+            margin-top: 10px;
+            width: 100%;
+            display: inline-block !important;
+
+            & .k-widget.k-dropdown {
+                margin: 0 10px 0 0;
+                width: 75px;
+
+
+                & > .k-dropdown-wrap {
+                    &.k-state-default {
+                        border-color: @default-border-color;
+                        border-radius: @pager-border-radius;
+                        height: @pagination-button-height-small-screen - 2px;
+                    }
+
+                    .k-input, .k-select {
+                        height: @pagination-button-height-small-screen - 2px;
+                        line-height: @pagination-button-height-small-screen - 2px;
+                    }
+
+                    .k-select {
+                    }
+
+                    .k-select > .k-i-arrow-s {
+                        background-image: none;
+                        font-size: 0;
+                        font-family: FontAwesome;
+                        padding-right: 5px;
+
+                        &:before {
+                            display: inline-block;
+                            content: "\f0d7";
+                            width: 1rem;
+                            font-size: 1rem;
+                            line-height: 1;
+                            color: @gs-v-carret-color;
+                        }
+                    }
+                }
+            }
+        }
+        //info
+        .k-pager-info {
+            float: left;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        &--empty {
+            position: absolute;
+            top: 5px;
+        }
+    }
+
+    &__search {
+        padding-top: 15px;
+        padding-bottom: 12px;
+
+        .checkbox {
+            margin-bottom: 0 !important;
+        }
+
+        & > &__btn {
+            .btn {
+                border: 1px solid @v-color-link;
+                width: 46px;
+                background-color: @v-color-link;
+                color: @btn-primary-color;
+                padding: 0;
+            }
+        }
+    }
+
+    &__header {
+        padding: 0 @main-content-margin-small-screen;
+        background-color: @v-color-gray-lightest;
+        margin-left: -@main-content-margin-small-screen;
+        margin-right: -@main-content-margin-small-screen;
+
+        .k-widget:first-child {
+            margin-top: 15px;
+        }
+
+        & > .nav-pills {
+            margin-bottom: 0;
+
+            & > li,
+            & > li.active,
+            & > li > a,
+            & > li.active > a:hover,
+            & > li.active > a:focus {
+                background-color: transparent;
+            }
+
+            li > a {
+                padding-bottom: 15px;
+            }
+        }
+
+        > .checkbox {
+            margin-bottom: 17px !important;
+        }
+
+    }
+}
+
+/* Grid cards
+..........................................................................................*/
+.gridcard {
+    padding: 15px @main-content-margin-small-screen;
+    background-color: @v-color-white;
+    /*use .gridcard--whatever to adjust as need for the mobile lists in various areas of app*/
+    &:not(:first-child) {
+        border-top: 1px solid @border-color-light;
+    }
+
+    &--form {
+        padding-left: 0;
+    }
+
+    &--workitem {
+    }
+
+    &--asset {
+    }
+
+    &--config {
+    }
+
+    &--knowledge {
+        .gridcard__title {
+            margin-right: 35px;
+        }
+    }
+
+    &--activity {
+    }
+
+    &--announcement {
+    }
+
+    &--selected {
+        border-color: @v-color-selected !important;
+        background-color: @v-color-selected !important;
+    }
+
+    p {
+        margin-bottom: 5px;
+    }
+
+    &__action-icon {
+        display: inline;
+        float: right;
+        font-size: @kendo-icon-size;
+    }
+
+    &__checkbox {
+        margin: 0;
+        margin-top: 8px;
+        margin-right: 3px;
+        float: right;
+
+
+        &.checkbox label:before {
+            border-radius: @default-border-radius;
+            top: -7px;
+            width: @checkbox-size-small-screen;
+            height: @checkbox-size-small-screen;
+            left: 5px;
+        }
+
+        &.checkbox label:after {
+            top: -3px !important;
+            left: 8px !important;
+            font-size: @checkbox-tick-size-small-screen !important;
+        }
+    }
+
+    &__title {
+        color: @v-color-link;
+        font-size: @font-size-heading-subsection;
+        .text-overflow();
+
+        .mobile-icon {
+            margin-top: -4px;
+            padding-right: 2px;
+        }
+    }
+
+    &__detailblock {
+        .meta-text();
+        margin-top: 11px;
+
+        &--truncated {
+            .twoline-ellipsis();
+        }
+    }
+
+    .k-delete-button {
+        color: @v-color-error;
+    }
+}
+
+.billable-time-grid {
+    @media @small-and-medium-screen-only {
+        overflow-x: auto;
+    }
+}
+
+.btn-mywork-export{
+    margin: -3px 0 0 0;
+    padding: 0 3px;
+}
+
+
+/* my request grid active/inactive tabs - bug 11023*/
+.toolbar-tabs {
+    width: 55%;
+    @media @small-and-medium-screen-only {
+        width: 100%;
+    }
+    html[dir~="rtl"] & {
+        left: 65px;
+    }
+    
+
+}
+
+.k-filter-menu-container {
+    .k-action-buttons {
+        border: none;
+        text-align: center;
+        bottom: 0;
+        padding: 0;
+        margin: 0;
+    }
+}

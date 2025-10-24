@@ -1,0 +1,32 @@
+﻿<script type="text/x-kendo-template" id="createLocalizationTemplate">
+    <div class="alert alert-danger" data-bind="localize: RequiredFieldsErrorMessage, visible: formInvalid"></div>
+    <div class="form-group">
+        <label class="control-label" for="Key">
+            <span data-bind="localize: Key"></span>
+            (<span data-bind="localize: Required"></span>)
+        </label>
+        <input type="text" class="k-textbox form-control input-sm" data-bind="value: Key, events: { blur: checkIfKeyIsValid }" required>
+        <p class="help-block validation-summary-errors" data-bind="localize: KeyAlreadyExists, visible: hasDuplicateKey"></p>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="English">
+            <span data-bind="localize: English"></span>
+            (<span data-bind="localize: Required"></span>)
+        </label>
+        <input type="text" class="k-textbox form-control input-sm" data-bind="value: English, events: { blur: checkForValue }" required>
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="ContextNotes">
+            <span data-bind="localize: ContextNotes"></span>
+        </label>
+        <textarea class="k-textbox form-control input-sm" rows="2" data-bind="value: ContextNotes"></textarea>
+    </div>
+    <div class="form-group">
+        <button type="button" data-bind="click: saveRecord, enabled: canSubmit" class="k-button btn btn-primary">
+            <span data-bind="localize: Save"></span>
+        </button>
+        <button type="button" data-bind="click: cancel" class="k-button btn btn-default">
+            <span data-bind="localize: Cancel"></span>
+        </button>
+    </div>
+</script>

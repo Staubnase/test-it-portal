@@ -1,0 +1,570 @@
+﻿<div data-bind="templateResources:'resources'" style="display: none">
+    <div data-template-name="CatalogItem" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", data.BaseId) #'>#: data.Name74d965de373c4ab1bbfd2b593997697e #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (Typeb586382a549742ed99a25853ccd3f7b5 && Typeb586382a549742ed99a25853ccd3f7b5.length > 0 ){ #
+                <span>#: Typeb586382a549742ed99a25853ccd3f7b5 # </span>
+                # } #
+
+                # if (Typeb586382a549742ed99a25853ccd3f7b5 && Typeb586382a549742ed99a25853ccd3f7b5.length > 0 && Modela71d95617f7f4e578eb4da72ada704f6 && Modela71d95617f7f4e578eb4da72ada704f6.length > 0 ){ #
+                &middot;
+                # } #
+
+                # if (Modela71d95617f7f4e578eb4da72ada704f6 && Modela71d95617f7f4e578eb4da72ada704f6.length > 0 ){ #
+                <span>#: Modela71d95617f7f4e578eb4da72ada704f6 # </span>
+                # } #
+            </p>
+            <p>
+                <span>#: localizationHelper.localize("LastModified") #: #: moment(kendo.toString(new Date(LastModifiedebdc03efb57148fb89a9465d28f71c64))).fromNow() #</span>
+            </p>
+        </div>
+    </div>
+    <div data-template-name="LeaseContract" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: data.parent().parent().editUrl.replace("|ID|", BaseId) #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringContractStatus)){ #
+                <span>#: localizationHelper.localize("ContractStatus") #: #: stringContractStatus # </span>
+                # } #
+
+                # if (_.isString(stringContractStatus) && _.isNumber(stringDaysLeft)){ #
+                &middot;
+                # } #
+                # if (_.isNumber(stringDaysLeft)){ #
+                <span>#: stringDaysLeft # #: localizationHelper.localize("DaysLeft").toLowerCase() #</span>
+                # } #
+            </p>
+            <p>
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastUpdated))).fromNow() #</span>
+            </p>
+        </div>
+    </div>
+    <div data-template-name="SupportAndMaintenanceContract" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringContractName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringContractStatus)){ #
+                <span>#: localizationHelper.localize("ContractStatus") #: #: stringContractStatus # </span>
+                # } #
+
+                # if (_.isString(stringContractStatus) && _.isNumber(stringDaysLeft)){ #
+                &middot;
+                # } #
+                # if (_.isNumber(stringDaysLeft)){ #
+                <span>#: stringDaysLeft # #: localizationHelper.localize("DaysLeft").toLowerCase() #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastUpdated)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastUpdated))).fromNow() #</span>
+                # } #
+
+            </p>
+        </div>
+    </div>
+    <div data-template-name="WarrantyContract" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringWarrantyName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringContractStatus)){ #
+                <span>#: localizationHelper.localize("ContractStatus") #: #: stringContractStatus # </span>
+                # } #
+
+                # if (_.isString(stringContractStatus) && _.isNumber(stringDaysLeft)){ #
+                &middot;
+                # } #
+                # if (_.isNumber(stringDaysLeft)){ #
+                <span>#: stringDaysLeft # #: localizationHelper.localize("DaysLeft").toLowerCase() #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastUpdated)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastUpdated))).fromNow() #</span>
+                # } #
+
+            </p>
+        </div>
+    </div>
+    <div data-template-name="HardwareAsset" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringHardwareAssetName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (headerHWAssetStatus && _.isString(headerHWAssetStatus)){ #
+                <span>#: localizationHelper.localize("Status") #: #: headerHWAssetStatus # </span>
+                # } #
+
+                # if ((headerHWAssetStatus && _.isString(headerHWAssetStatus)) && (headerHWAssetType && _.isString(headerHWAssetType))){ #
+                &middot;
+                # } #
+                # if (headerHWAssetType && _.isString(headerHWAssetType)){ #
+                <span>#: localizationHelper.localize("Type") #: #: headerHWAssetType #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+
+            </p>
+        </div>
+    </div>
+    <div data-template-name="SoftwareAsset" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringSoftwareAssetName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (headerVersion && _.isString(headerVersion)){ #
+                <span>#: localizationHelper.localize("Version") #: #: headerVersion # </span>
+                # } #
+
+                # if ((headerVersion && _.isString(headerVersion)) && (stringAvailableCount && _.isString(stringAvailableCount))){ #
+                &middot;
+                # } #
+                # if (stringAvailableCount && _.isString(stringAvailableCount)){ #
+                <span>#: localizationHelper.localize("Available") #: #: stringAvailableCount #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+
+            </p>
+        </div>
+    </div>
+    <div data-template-name="Consumable" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: headerConsumableName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (stringPrice && stringPrice.length > 0){ #
+                <span>
+                    #: localizationHelper.localize("Price") #: #: stringPrice #
+                    # if (stringPrice && stringPrice.length > 0 && (headerCurrency && _.isString(headerCurrency))){ #
+                    #: headerCurrency #
+                    # } #
+                </span>
+                # } #
+
+                # if (stringPrice && stringPrice.length > 0 && (headerCount && _.isString(headerCount))){ #
+                &middot;
+                # } #
+                # if (headerCount && _.isString(headerCount)){ #
+                <span>#: localizationHelper.localize("Available") #: #: headerCount #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+    <div data-template-name="CostCenter" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringCostCenterName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringCustodian)){ #
+                <span>
+                    #: localizationHelper.localize("Custodian") #: #: stringCustodian #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringOrganization)){ #
+                <span>#: localizationHelper.localize("Organization") #: #: stringOrganization #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+    <div data-template-name="Invoice" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>AAAAAAAA</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringInvoiceOrderNumber)){ #
+                <span>
+                    #: localizationHelper.localize("Invoice") #: #: stringInvoiceOrderNumber #
+                </span>
+                # } #
+                # if (_.isString(stringInvoiceOrderNumber) && _.isString(headerInvoiceStatus)){ #
+                &middot;
+                # } #
+                # if (_.isString(headerInvoiceStatus)){ #
+                <span>
+                    #: headerInvoiceStatus #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringVendorName)){ #
+                <span>
+                    #: localizationHelper.localize("Vendor") #: #: stringVendorName #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringTotalAmount)){ #
+                <span>
+                    #: localizationHelper.localize("Total") #: #: stringTotalAmount #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+    <div data-template-name="License" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringLicenceName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringVendorName)){ #
+                <span>
+                    #: localizationHelper.localize("Vendor") #: #: stringVendorName #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(headerLicenceType)){ #
+                <span>
+                    #: headerLicenceType #
+                </span>
+                # } #
+                # if (_.isString(headerLicenceType) && _.isString(headerLicenceStatus)){ #
+                <span>
+                    &middot;
+                </span>
+                # } #
+                # if (_.isString(headerLicenceStatus)){ #
+                <span>
+                    #: headerLicenceStatus #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+    <div data-template-name="Location" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringLocationName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringLocationAddress1)){ #
+                <span>
+                    #: stringLocationAddress1 #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLocationAddress2)){ #
+                <span>
+                    #: stringLocationAddress2 #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLocationCity)){ #
+                <span>
+                    #: stringLocationCity #
+                </span>
+                # } #
+                # if (_.isString(stringLocationState)){ #
+                <span>
+                    #: stringLocationState #
+                </span>
+                # } #
+                # if (_.isString(stringLocationCountry)){ #
+                <span>
+                    #: stringLocationCountry #
+                </span>
+                # } #
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+    <div data-template-name="Subnet" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringSubnetName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringIPMask)){ #
+                <span>
+                    #: stringIPMask #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringSubnetMask)){ #
+                <span>
+                    #: stringSubnetMask #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+    <div data-template-name="NoticeEvent" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringTitle #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(headerNoticeSpan)){ #
+                <span>
+                    #: headerNoticeSpan #
+                </span>
+                # } #
+                # if (_.isString(headerNoticePeriod)){ #
+                <span>
+                    #: headerNoticePeriod #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(headerDueDate)){ #
+                <span>#: localizationHelper.localize("DueDate") #: #: moment(kendo.toString(new Date(headerDueDate))).format('LL') #</span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+    <div data-template-name="Organization" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringOrganizationName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringCostCenterName)){ #
+                <span>
+                    #: localizationHelper.localize("CostCenter") #: #: stringCostCenterName #
+                </span>
+                # } #
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringLocationAddress1)){ #
+                <span>
+                    #: stringLocationAddress1 #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLocationAddress2)){ #
+                <span>
+                    #: stringLocationAddress2 #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLocationCity)){ #
+                <span>
+                    #: stringLocationCity #
+                </span>
+                # } #
+                # if (_.isString(stringLocationState)){ #
+                <span>
+                    #: stringLocationState #
+                </span>
+                # } #
+                # if (_.isString(stringLocationCountry)){ #
+                <span>
+                    #: stringLocationCountry #
+                </span>
+                # } #
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+    <div data-template-name="PurchaseOrder" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringPurchaseOrderNumber #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringCostCenterName)){ #
+                <span>
+                    #: localizationHelper.localize("CostCenter") #: #: stringCostCenterName #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringAmount)){ #
+                <span>
+                    #: localizationHelper.localize("Amount") #: #: stringAmount #
+                </span>
+                # } #
+                # if (_.isString(headerCurrency)){ #
+                <span>
+                    #: headerCurrency #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(headerPurchaseOrderType)){ #
+                <span>
+                    #: headerPurchaseOrderType #
+                </span>
+                # } #
+                # if (_.isString(headerPurchaseOrderType) && _.isString(headerPurchaseOrderStatus)){ #
+                &middot;
+                # } #
+                # if (_.isString(headerPurchaseOrderStatus)){ #
+                <span>
+                    #: headerPurchaseOrderStatus #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+    <div data-template-name="Purchase" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringPurchaseName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(formLabelTitleCostCenter)){ #
+                <span>
+                    #: localizationHelper.localize("CostCenter") #: #: formLabelTitleCostCenter #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(formLabelTitlePurchaseOrder)){ #
+                <span>
+                    #: localizationHelper.localize("PurchaseOrder") #: #: formLabelTitlePurchaseOrder #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+    <div data-template-name="Standard" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringStandardName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringStandardType)){ #
+                <span>
+                    #: localizationHelper.localize("Type") #: #: stringStandardType #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+    <div data-template-name="Vendor" class="gridcard gridcard--asset">
+        <p class="gridcard__title">
+            <a href='#: data.parent().parent().editUrl.replace("|ID|", BaseId) #'>#: stringVendorName #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringContact)){ #
+                <span>
+                    #: stringContact #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringTelephone)){ #
+                <span>
+                    #: localizationHelper.localize("Telephone") #: #: stringTelephone #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringFax)){ #
+                <span>
+                    #: localizationHelper.localize("Fax") #: #: stringFax #
+                </span>
+                # } #
+            </p>
+            <p>
+                # if (_.isString(stringEmail)){ #
+                <span>
+                    #: localizationHelper.localize("Email") #: #: stringEmail #
+                </span>
+                # } #
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p>
+                # if (_.isString(stringLastModified)){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(stringLastModified))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="mobilegrid__header"></div>
+    <div data-bind="mobileWIGrid: viewModel" class="mobilegrid"></div>
+    <div class="mobilegrid__pager"></div>
+</div>

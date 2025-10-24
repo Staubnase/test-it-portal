@@ -1,0 +1,107 @@
+﻿/******************************************************************************************
+Service Level Objectives - Custom Styles
+*******************************************************************************************/
+
+.slo-container {
+    margin-bottom: -5px;
+    @media @small-and-medium-screen-only {
+        float: none !important;
+        margin-top: 5px;
+    }
+    @media @large-screen-only {
+        width: @work-item-task-width-large-screen;
+        margin-top: 1rem;
+    }
+}
+.slo-status-item {
+    float: left;
+    width: 100%;
+    padding: 0;
+    @media @small-and-medium-screen-only {
+        margin: 0;
+    }
+
+    li {
+        display: block;
+        list-style-image: none;
+        float: left;
+    }
+}
+
+.slo-icon {
+    width: 25px;
+    &.fa-lg {
+        font-size: @font-size-body-text;
+    }
+    @media @small-and-medium-screen-only {
+        width: 23px;
+        position: relative;
+        top: -1px;
+        margin-top: 5px;
+    }
+}
+
+.slo-timer {
+    text-align: right;
+    width: 7rem;
+    margin-left: -7rem;
+    padding-right: 10px;
+    @media @small-and-medium-screen-only {
+        float: none;
+        text-align: left;
+        margin-top: 5px;
+        margin-left: 0;
+        width: auto;
+    }
+}
+
+.slo-title {
+    float: right;
+    width: ~"calc(100% - 25px)";
+    @media @small-and-medium-screen-only {
+        width: auto;
+        margin-top: 5px;
+    }
+}
+
+
+/* Grid Form
+------------------------------------------------------------------------------------------*/
+
+.slo-togrid-allSlo {
+    right: 0;
+    margin-top: 19px;
+    position: absolute;
+    z-index: 9999;
+    background: @v-color-white;
+    padding: 5px;
+    border: 1px solid;
+    display: none;
+    color: @v-color-black;
+
+    ul {
+        clear: both;
+        padding: 0;
+        margin-bottom: 1px;
+
+        li {
+            display: inline;
+            list-style-image: none;
+        }
+    }
+}
+
+.slo-togrid-title-sub {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.slo-togrid-icon-sub {
+    padding: 0 2px;
+}
+
+.slo-grid-space {
+    .k-ff & {
+        width: 82px;
+    }
+}

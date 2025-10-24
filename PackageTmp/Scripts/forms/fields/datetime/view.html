@@ -1,0 +1,23 @@
+﻿<div class="form-group cs-form__datetime cs-form__datetime--<%= PropertyName %>">
+    <label class="control-label cs-form__datetime--label" for="<%= PropertyName %>" data-localize="<%= PropertyDisplayName %>">
+        <span><% if ( Required ){ %> <%= '(' + localization.Required + ')' %><% } %></span>
+    </label>
+
+    <input name="<%= PropertyName %>" class="cs-form__datetime--input"
+           data-control="dateTimePicker"
+           data-control-bind="<%= PropertyName %>"
+           data-control-from="<%= FromFilter %>"
+           data-control-to="<%= ToFilter %>"
+           data-control-from-relative="<%= FromRelative %>"
+           data-control-to-relative="<%= ToRelative %>"
+    
+    <% if ( Disabled ){ %>
+    disabled
+    <% } %>
+
+    <% if ( Required ){ %>
+    required
+    <% } %>
+
+    >
+</div>

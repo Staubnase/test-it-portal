@@ -1,0 +1,35 @@
+﻿<div class="configItemComponents cs-form__predefined--serviceComponents">
+    <div class="configItemComponentsTreeView">
+        <div data-role="treeview"
+             data-drag-and-drop="false"
+             data-text-field="DisplayName"
+             data-spritecssclass-field="type"
+             data-bind="source: items, events: { select: onSelect }">
+        </div>
+
+    </div>
+
+    <div class="propSelectedItem">Properties Of Selected Item</div>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label"><span>Name</span></label>
+                <div class="display-field name"></div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label class="control-label"><span>Class Name</span></label>
+                <div class="display-field className"></div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div class="relatedWorkItemsForSelectedItem">Related Work Items For Selected Item</div>
+    <hr class="relatedWorkItemsForSelectedItem-hr" />
+</div>
+

@@ -1,0 +1,63 @@
+﻿<div class="articles mar-top-3">
+    <div ng-show="loading">
+        <div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
+    </div>
+    <div ng-show="!loading">
+        <div ng-show="noResults">
+            <h2>{{localization.NoResults}}</h2>
+        </div>
+        <div ng-show="!noResults"
+             infinite-scroll="fetchMoreGroupedArticles()"
+             infinite-scroll-immediate-check="false"
+             infinite-scroll-disabled='fetching'
+             infinite-scroll-distance="0">
+
+            <h2>
+                {{localization.Category}} &ndash; {{rootGroupCategory}}
+            </h2>
+
+            <div class="article-result-group" ng-repeat="groupedArticle in articleList">
+                <div class="article-result">
+                    <h5>
+                        <a href="/KnowledgeBase/View/{{groupedArticle.Article.ArticleId}}" class="article-external-link" target="_blank"><i class="fa fa-external-link"></i></a>
+                        <a href="/KnowledgeBase/View/{{groupedArticle.Article.ArticleId}}" class="article-title">
+                            <span class="text-muted" ng-show="groupedArticle.Article.Status.Id == '7557d680-56be-9bde-6f6b-e70a15de2da3'">[{{groupedArticle.Article.Status.Name}}] </span>
+                            {{groupedArticle.Article.Title}}
+                        </a>
+
+                        <!-- metadata -->
+                        <small class="article-meta">
+                            <!--mini-crumb-->
+                            <span ng-repeat="crumb in groupedArticle.ContextCrumbs">
+                                <span ng-if="$first">
+                                    <span ng-class="{'mini-crumb-root':$first}">{{crumb.Name}}</span>
+                                </span>
+                                <span ng-if="!$first">
+                                    <a class="mini-crumb-link" href="#/category/{{crumb.Name}}/{{crumb.Id}}">{{crumb.Name}}</a>
+                                </span>
+                                <i class="fa fa-angle-right" ng-hide="$last"></i>
+                            </span> &middot;
+
+                            {{localization.Rating}} {{groupedArticle.Article.AverageRating}}/5 &middot;
+                            {{groupedArticle.Article.ViewCount}} {{localization.Views}} &middot;
+                            {{localization.LastUpdated}}: {{groupedArticle.Article.LastModifiedDate}}
+                        </small>
+                    </h5>
+                    <p class="article-result-desc" ng-show="groupedArticle.Article.Description.length > 0">
+                        <span>{{groupedArticle.Article.Description}}</span>
+                        <a href="/KnowledgeBase/View/{{groupedArticle.Article.ArticleId}}">{{localization.ReadMore}}<i class="fa fa-angle-right"></i></a>
+                    </p>
+                </div>
+            </div>
+            <div ng-show="fetching">
+                <div class="spinner spinner-small">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+            <hr />
+            <p class="lead text-center" ng-show="noMoreArticlesMessage.length > 0">{{noMoreArticlesMessage}}</p>
+        </div>
+    </div>
+</div>

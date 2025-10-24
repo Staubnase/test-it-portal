@@ -1,0 +1,66 @@
+﻿<div class="form-group cs-form__predefined--fileAttachmentsDradDrop" data-bind="visible:isVisible">
+    <div class="drop-zone-element hidden-print">
+        <div class="text-wrapper">
+            <span class="drag-image-text">
+                <img data-bind="visible:isDesktop" src="/Content/Images/Icons/FileUpload/upload_to_cloud.svg" />
+                <span data-bind="visible:isDesktop"><b><%= localization.DragAndDrop %> </b> <%= localization.YourFilesOr %> <a class="browse-file"><b><%= localization.Browse %></b></a></span>
+                <a  data-bind="visible:isMobile" class="browse-file"><b><%= localization.Browse %></b></a>
+                <div style="display:none"><input name="files" id="<%= randStr %>" type="file"/></div>
+            </span>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="fileattachment-list"></div>
+    <div class="fileattachment-img-modal"></div>
+</div>
+
+<script type="text/x-kendo-template" id="fileTemplate">
+    <div class="pull-left">
+        <div class="panel panel-default">
+            <div class="thumbnail-file">
+                <div class="cursor-pointer thumbnail-img">
+                    # if (DisplayName.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/)) { #
+                    <img src="data:image/png;base64,#= Content.data #" onerror="this.onerror = null; this.src = '/Content/Images/Icons/FileUpload/document.svg';" alt="#: DisplayName # image" />
+                    # } else{ #
+                    <div class="thumbnail-type">#: Extension #</div>
+                    # } #
+                </div>
+                <div class="thumbnail-caption">
+                    <span>#: DisplayName #</span>
+                    <div class="overlay">
+                        # if (DisplayName.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/)) { #
+                        <span class="label">
+                            <a class="icon custom-click view" view-image title="View Image">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                        </span>
+                        <span class="label">
+                            <a class="icon custom-click opennewtab" title="Open in New Tab">
+                                <i class="fa fa-external-link"></i>
+                            </a>
+                        </span>
+                        # } #
+                        # if (BaseId!=null) { #
+                        <span class="label">
+                            <a class="icon custom-click download" title="Download">
+                                <i class="fa fa-download"></i>
+                            </a>
+                        </span>
+                        # } #
+                        <span class="label">
+                            <a class="k-delete-button icon" href="\\#"  title="<%= localization.Remove %>"><i class="fa fa-trash"></i></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="thumbnail-data"><span>#:(AddedBy)?AddedBy.DisplayName:'' #</span></div>
+                <div class="thumbnail-data"><span>#:(AddedDate)?kendo.toString(moment(AddedDate, moment.ISO_8601).toDate(),'g'):''#</span></div>
+            </div>
+        </div>
+    </div>
+</script>
+<style>
+
+</style>

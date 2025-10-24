@@ -1,0 +1,31 @@
+﻿<div data-bind="templateResources:'resources'" style="display: none">
+    <div data-template-name="gridCardTemplate" class="gridcard gridcard--announcement">
+        <p class="gridcard__title">
+            <a href='/Administration/Announcement/Edit/#: Id #'>#: Title #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                <span>
+                    #: moment(kendo.toString(new Date(StartDate))).format('L') #
+                    &ndash;
+                    #: moment(kendo.toString(new Date(EndDate))).format('L') #
+                </span>
+            </p>
+            <p>
+                <span>#: Priority # #: localizationHelper.localize("Priority").toLowerCase() #</span>
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p class="gridcard__detailblock--truncated">
+                #: Body #
+            </p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="mobilegrid__header">
+    </div>
+    <div data-bind="mobileWIGrid: viewModel" data-template-name="gridCardList" class="mobilegrid"></div>
+    <div class="mobilegrid__pager"></div>
+</div>

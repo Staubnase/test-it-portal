@@ -1,0 +1,29 @@
+﻿/******************************************************************************************
+Alerts - Custom Styles
+*******************************************************************************************/
+
+#alertMessagesContainer {
+    min-height: 0;
+}
+
+.row:empty,
+#alertMessagesContainer:empty {
+    display: none;
+}
+
+.alert-mobile {
+    @media @small-and-medium-screen-only {
+        padding-left: 25px;
+    }
+}
+
+.alert-header-notification {
+    a{
+        text-decoration: none;
+    }
+    & span{
+        position: relative;
+        font-size: 100%;
+        font-weight: bold;
+    }
+}

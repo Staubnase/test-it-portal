@@ -1,0 +1,53 @@
+﻿<div class="container-fluid">
+    <div class="row kb">
+        <div class="col-sm-9 col-sm-right-offset-3">
+            <ol class="breadcrumb mar-top-1">
+                <li><a href="/View/0aef4765-0efa-4a65-84c1-324b09231223">{{localization.KnowledgeBase}}</a></li>
+                <li ng-repeat="crumb in breadcrumbs | orderBy: '-HierarchyLevel'">
+                    <a href="/KnowledgeBase/Listing#/category/{{crumb.Name}}/{{crumb.Id}}">{{crumb.Name}}</a>
+                </li>
+            </ol>
+            <div ng-hide="state.includes('listing.category') || state.includes('listing.search') || state.includes('listing.search/:searchText/:selectedCategories/:selectedTypes')">
+                <div ui-view="pageTitle">
+                    <h1>{{pageTitle}}</h1>
+                </div>
+                <hr />
+            </div>
+            <!--Responsive ka category-->
+            <div class="nav-dropdown visible-xs">
+                <span class="nav-dropdown-default">{{localization.BrowseByCategory}}</span>
+                <div class="nav-dropdown-trigger">
+                    <i class="fa fa-sort-desc"></i>
+                </div>
+                <div class="nav-dropdown-content">
+                    <cire-abn-tree tree-data="treeData"
+                                   tree-api-control="kbTreeControl"
+                                   select-handler="kbTreeSelectHandler(branch)"
+                                   state-handler="kbTreeStateHandler(branch)"
+                                   icon-expand="fa fa-caret-right"
+                                   icon-collapse="fa fa-caret-down">
+                    </cire-abn-tree>
+                </div>
+            </div><br />
+
+            <div class="article-search">
+                <cire-advanced-search></cire-advanced-search>
+            </div>
+        
+            <!-- this is where all the sub states will go -->
+            <div ui-view class="kb-listing-body"></div>
+
+        </div>
+        <div class="col-sm-3 sidebar-right pad-top-1-5 hidden-xs">
+            <h4 class="text-left">{{localization.BrowseByCategory}}</h4>
+
+            <cire-abn-tree tree-data="treeData"
+                           tree-api-control="kbTreeControl"
+                           select-handler="kbTreeSelectHandler(branch)"
+                           state-handler="kbTreeStateHandler(branch)"
+                           icon-expand="fa fa-chevron-left"
+                           icon-collapse="fa fa-chevron-down">
+            </cire-abn-tree>
+        </div>
+    </div>
+</div>

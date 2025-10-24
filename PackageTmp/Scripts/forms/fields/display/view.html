@@ -1,0 +1,6 @@
+﻿<div class="form-group cs-form__display cs-form__display--<%= PropertyName %>">
+    <% if ( !HideLabel ){ %>
+    <label class="control-label cs-form__display--label" for="<%= PropertyName %>" data-localize="<%= PropertyDisplayName %>"></label>
+    <% } %>
+    <div class="display-field cs-form__display--field" data-bind="text: <%= PropertyName %>"></div>
+</div>

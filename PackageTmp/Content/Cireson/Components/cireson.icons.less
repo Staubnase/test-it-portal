@@ -1,0 +1,271 @@
+﻿/******************************************************************************************
+Icons - Custom Styles
+*******************************************************************************************/
+@charset "UTF-8";
+
+/* Global Icon Styles
+------------------------------------------------------------------------------------------*/
+.fa,
+.icon-class {
+    font-size: @font-size-icon-large-screen;
+    text-decoration: none !important;
+
+    @media @small-and-medium-screen-only {
+        font-size: @font-size-icon-small-screen;
+    }
+
+    .form-group & {
+        color: @v-color-link;
+    }
+}
+
+.delete-icon {
+    color: @v-color-error;
+    text-decoration: underline !important;
+
+    &:hover {
+        cursor: pointer;
+        color: darken(@v-color-error, 20%);
+    }
+}
+
+.fa.fa-4x {
+    font-size: 4rem;
+}
+
+.fa-lg {
+    vertical-align: 0;
+    line-height: 1;
+    font-size: 1.1em;
+    vertical-align: text-bottom;
+    @media @small-and-medium-screen-only {
+        font-size: @font-size-icon-small-screen * 1.4;
+    }
+}
+
+/* Cireson Custom Icons
+------------------------------------------------------------------------------------------*/
+.ci {
+    display: inline-block;
+    text-rendering: auto; // optimizelegibility throws things off #1094
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[data-icon]:before {
+    font-family: "cireson" !important;
+    content: attr(data-icon);
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="ci-"]:before,
+[class*=" ci-"]:before {
+    font-family: "cireson" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ci-unfold:before {
+    content: "\78";
+}
+
+.ci-fold:before {
+    content: "\79";
+}
+
+.ci-branch:before {
+    content: "\7a";
+}
+
+.ci-compare:before {
+    content: "\41";
+}
+
+.ci-merge:before {
+    content: "\42";
+}
+
+.ci-pull-request:before {
+    content: "\43";
+}
+
+.ci-checklist:before {
+    content: "\44";
+}
+
+.ci-forked:before {
+    content: "\45";
+}
+
+.ci-calendar:before {
+    content: "\46";
+}
+
+.ci-clock:before {
+    content: "\47";
+}
+
+.ci-issue-closed:before {
+    content: "\48";
+}
+
+.ci-issue-opened:before {
+    content: "\49";
+}
+
+.ci-issue-reopened:before {
+    content: "\4a";
+}
+
+.ci-link-external:before {
+    content: "\4b";
+}
+
+.ci-stop:before {
+    content: "\4c";
+}
+
+.ci-split:before {
+    content: "\4d";
+}
+
+.ci-parent:before {
+    content: "\4e";
+}
+
+.ci-parent-add:before {
+    content: "\4f";
+}
+
+.ci-parent-edit:before {
+    content: "\50";
+}
+
+.ci-parent-remove:before {
+    content: "\51";
+}
+
+.ci-parent-settings:before {
+    content: "\52";
+}
+
+.ci-hierarchy:before {
+    content: "\53";
+}
+
+.ci-server:before {
+    content: "\54";
+}
+
+.ci-server-add:before {
+    content: "\55";
+}
+
+.ci-change-request:before {
+    content: "\61";
+}
+
+.ci-from-template:before {
+    content: "\62";
+}
+
+.ci-knowledge-base:before {
+    content: "\63";
+}
+
+.ci-new-incident:before {
+    content: "\64";
+}
+
+.ci-new-knowledge-base:before {
+    content: "\65";
+}
+
+.ci-new-problem:before {
+    content: "\66";
+}
+
+.ci-new-release-record:before {
+    content: "\67";
+}
+
+.ci-new-service-request:before {
+    content: "\68";
+}
+
+.ci-problem:before {
+    content: "\69";
+}
+
+.ci-quick-create:before {
+    content: "\6a";
+}
+
+.ci-release-record:before {
+    content: "\6b";
+}
+
+.ci-service-request:before {
+    content: "\6c";
+}
+
+.ci-work-item:before {
+    content: "\6d";
+}
+
+.ci-asset-management:before {
+    content: "\6e";
+}
+
+.ci-cloud-download:before {
+    content: "\6f";
+}
+
+.ci-subnet:before {
+    content: "\70";
+}
+
+.ci-incident:before {
+    content: "\71";
+}
+
+.ci-dependent-activity:before {
+    content: "\72";
+}
+
+.ci-review-activity:before {
+    content: "\73";
+}
+
+.ci-sequential-activity:before {
+    content: "\74";
+}
+
+.ci-manual-activity:before {
+    content: "\75";
+}
+
+.ci-parallel-activity:before {
+    content: "\76";
+}
+
+.ci-docs:before {
+    content: "\77";
+}
+
+.ci-more-info:before {
+    content: "\56";
+}

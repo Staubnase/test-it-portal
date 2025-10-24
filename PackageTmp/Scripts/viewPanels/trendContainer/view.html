@@ -1,0 +1,10 @@
+﻿<div data-bind="trendContainer: viewModel, style: { fontSize: viewModel.baseFontSize}" class="trend-container">
+    
+    <label data-bind="text: viewModel.label, style: { fontSize: viewModel.labelSize, height: viewModel.labelSize }"></label>
+
+    <p class="trend-number" data-bind="style: { lineHeight: viewModel.propertyValue.lineHeight}">
+        <span data-bind="text: viewModel.propertyValue.text, attr: {data-property-name: viewModel.propertyName },
+                         style: { color: viewModel.propertyValue.color, fontSize: viewModel.propertyValue.size }"></span>
+    </p>
+
+</div>

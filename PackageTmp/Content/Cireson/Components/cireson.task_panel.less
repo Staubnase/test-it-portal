@@ -1,0 +1,148 @@
+﻿/******************************************************************************************
+Task Panel - Custom Styles
+*******************************************************************************************/
+
+.task-panel {
+    position: absolute;
+    right: @main-content-margin-large-screen;
+
+    @media @small-and-medium-screen-only {
+        // display: none; // try to use the display rule to eliminate windows phone issue.
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+        -webkit-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+        transform: translateY(100%); // fixed other phone issues..
+        // max-height: 100vh;
+        // overflow-y: scroll;
+
+        h2 {
+            color: @text-color-body-reverse;
+        }
+    }
+
+    &.active {
+        @media @small-and-medium-screen-only {
+            right: 0;
+        }
+    }
+
+    &.affix {
+        position: fixed;
+        top: 62px;
+        bottom: 42px;
+        overflow: auto;
+    }
+
+    > h1:first-child,
+    > h2:first-child,
+    > h3:first-child {
+        margin-top: 0;
+    }
+
+    h2 {
+        .section-header();
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+        margin: 0;
+        padding: 3px 0;
+        cursor: pointer;
+        text-transform: capitalize;
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        a,
+        .link,
+        &.link {
+            display: block;
+            text-decoration: none;
+        }
+    }
+}
+
+.task-panel-narrow {
+    width: @work-item-task-width-large-screen;
+
+    @media @small-and-medium-screen-only {
+        // margin: 0;
+        width: 100%;
+        background: @v-color-portal-dark;
+        .box-shadow(0 -4px 10px fade(@v-color-gray-darker,70%));
+
+        h2 {
+            display: none;
+        }
+
+        li {
+            font-size: @font-size-nav-small-screen;
+            color: @text-color-body-reverse;
+            padding: 5px @main-content-margin-small-screen;
+
+            &:first-child {
+                padding-top: 5px;
+            }
+
+            &:hover,
+            &:active {
+                background-color: @v-color-link-hover;
+                color: @text-color-body-reverse;
+            }
+        }
+    }
+
+    // setups fade for background shade
+    &:after {
+        content: "";
+        opacity: 0;
+        .transition(opacity .5s);
+    }
+
+    &.task_slide_transition {
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 100%;
+            z-index: -1;
+            height: 100vh;
+            background: fade(@v-color-gray-darkest,30%);
+            opacity: 1;
+            pointer-events: none;
+        }
+
+    }
+}
+
+.task-panel-wide {
+    width: 300px;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.mobile-task-panel {
+    position: fixed;
+    margin-top: 15px;
+    right: 5px;
+    z-index: 200;
+}
+
+#ChangeStatusWindow #resolutionDescription {
+
+    textarea {
+        height: 130px;
+    }
+}
+

@@ -1,0 +1,38 @@
+﻿<div data-bind="templateResources:'resources'" style="display:none">
+    <div data-template-name="mobileGridTemplate" class="cs-form__predefined--multipleObjectPicker--mobile s-form__predefined--multipleObjectPicker--mobile--<%= PropertyName %>">
+        <!-- repeated template content here -->
+        <div class="gridcard gridcard--form">
+            <p class="gridcard__title">${title}</p>
+            <div class="gridcard__detailblock">
+                # $.each(details, function (index, item) {
+                # <p>${item}</p>  #
+                });
+                #
+            </div>
+        </div>
+        
+    </div>
+</div>
+<div class="row cs-form__predefined--multipleObjectPicker cs-form__predefined--multipleObjectPicker--<%= PropertyName %>">
+    <div class="col-md-12">
+    <div data-control="multipleObjectPicker"
+         data-control-bind="HasRelatedWorkItems"
+         id="<%= PropertyName %>"
+        <% if ( Disabled ){ %>
+        disabled
+    <% } %>
+    >
+
+        <button data-role="button" class="btn btn-primary hidden-print" data-click="addClick" ><%= localization.Add %> </button>
+        <div class="grid-container">
+            <% if ( IsMobileView == false ){ %>
+            <div data-control-grid="objectGrid" class="inline-spacing"></div>
+            <% } %>
+
+            <% if ( IsMobileView ){ %>
+            <div data-template-name="mobileGridTemplate" class="mobile-grid-parent" data-bind="mobileGrid: <%= PropertyName %>" multiple-picker data-columns="<%= ClassProperties %>"></div>
+            <% } %>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿/******************************************************************************************
+Print Media - Custom Styles
+*******************************************************************************************/
+
+@media print {
+    .drawer,
+    #side_nav,
+    .task-panel,
+    .content-header__flyout,
+    .two-action-input-group__primary-action,
+    #myTab {
+        display: none;
+    }
+
+    .mobile-task-panel.visible-xs.visible-xs-block,
+    #alertMessagesContainer,
+    .announcements {
+        display: none !important;
+    }
+
+    .content-header__main{
+        width: 100%;
+        border: none;
+        margin: 0 2vh 0 -5vh !important;
+        padding: 0;
+        >.content-header__main__title{
+            text-overflow: unset;
+            white-space: unset;
+        }
+    }
+
+    .sticky-header{
+        &.page-form{
+            margin: 5vh 2vh 0 -5vh !important;
+            >.form-panel{
+                padding: 0;
+            }
+        }
+        &.page_bar{
+            position: absolute;
+        }
+    }
+
+    .header_slide_container{
+        visibility: hidden;
+        display: none;
+    }
+
+    .active-announcements #main_wrapper{
+        margin-top: 0;
+    }
+}

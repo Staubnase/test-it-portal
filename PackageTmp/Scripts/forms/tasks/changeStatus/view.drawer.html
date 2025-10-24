@@ -1,0 +1,92 @@
+﻿<div class="cireson-window defined-form hide">
+    <div class="cireson-window--wrapper">
+        <div class="cireson-window--body">
+            <!-- status picker for IR or SR statuses -->
+            <div class="form-group">
+                <label class="control-label" data-bind="localize: Status">
+                </label>
+                <div class="form-control form-control-picker input-sm"
+                     data-role="Status"
+                     data-url="/api/V3/Enum/GetList"
+                     data-combourl="/api/V3/Enum/GetFlatList/"
+                     data-disabled="false"
+                     data-bind="ciresonDropDownTree: wiStatusTypeId, value: newStatusObj, options: { showPath: showPath,  mustSelectLeafNode: leafNodeOnly }"></div>
+            </div>
+            <!-- resolution category picker for IR -->
+            <div data-bind="visible: irStatusResolved">
+                <div class="form-group">
+                    <label class="control-label">
+                        <span data-bind="localize: ResolutionCategory"></span> (<span data-bind="localize: Required"></span>)
+                    </label>
+                    <div class="form-control form-control-picker input-sm"
+                         data-role="Resolution"
+                         data-url="/api/V3/Enum/GetList"
+                         data-combourl="/api/V3/Enum/GetFlatList/"
+                         data-disabled="false"
+                         data-bind="ciresonDropDownTree: resolutionResultEnumId, value: newResolutionId, options: { showPath: showPath,  mustSelectLeafNode: leafNodeOnly }"></div>
+
+                </div>
+                <!-- resolution description for IR -->
+                <div class="form-group">
+                    <label class="control-label" data-bind="localize: ResolutionDescription">
+                    </label>
+                    <textarea class="k-textbox form-control input-sm" rows="5"
+                              data-bind="value: resolutionDescription" maxlength="4000"></textarea>
+                </div>
+
+                <!-- resolve child incidents: let analyst decide option-->
+                <div class="form-group" data-bind="visible: irResolveChildOption">
+                    <div class="checkbox  checkbox-inline ">
+                        <input type="checkbox" name="resolveChildIncident" data-bind="checked: resolveChildIncident">
+                        <label class="control-label" for="resolveChildIncident">
+                            <span data-bind="localize: ResolveChildIncidentMessage" />
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div data-bind="visible: srStatusCompleted">
+                <!-- SR Implementation Results -->
+                <div class="form-group">
+                    <label class="control-label">
+                        <span data-bind="localize: ImplementationResults"></span>
+                    </label>
+                    <div class="form-control form-control-picker input-sm"
+                         data-role="Resolution"
+                         data-url="/api/V3/Enum/GetList"
+                         data-combourl="/api/V3/Enum/GetFlatList/"
+                         data-disabled="false"
+                         data-bind="ciresonDropDownTree: resolutionResultEnumId, value: newResultId, options: { showPath: showPath,  mustSelectLeafNode: leafNodeOnly }"></div>
+
+                </div>
+                <!-- SR Implementation Notes -->
+                <div class="form-group">
+                    <label class="control-label">
+                        <span data-bind="localize: Implementationnotes"></span> (<span data-bind="localize: Required"></span>)
+                    </label>
+                    <textarea class="k-textbox form-control input-sm" rows="5"
+                              data-bind="value: resultNote" maxlength="4000"></textarea>
+                </div>
+            </div>
+            <!-- comment for SR in 'Cancelled' status -->
+            <div class="form-group" data-bind="visible: srStatusCancelled">
+                <label class="control-label" data-bind="localize: Comment">
+                </label>
+                <textarea class="k-textbox form-control input-sm" rows="5"
+                          data-bind="value: resultComment" maxlength="4000"></textarea>
+            </div>
+        </div>
+        <div class="cireson-window--footer window-buttons">
+            <div id="changeStatusErrorWin" class="error"></div>
+            <button data-role="button" class="btn btn-primary"
+                    data-bind="enabled: okEnabled,
+                           events: { click: okClick }">
+                <%= localization.OK %>
+            </button>
+            <button data-role="button" class="btn btn-default"
+                    data-bind="events: { click: cancelClick }">
+                <%= localization.Cancel %>
+            </button>
+        </div>
+    </div>
+</div>

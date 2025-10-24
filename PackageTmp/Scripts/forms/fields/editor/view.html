@@ -1,0 +1,10 @@
+﻿<div class="form-group cs-form__editor cs-form__editor--<%= PropertyName %>">
+    <label class="control-label cs-form__editor--label" for="<%= PropertyName %>" data-localize="<%= PropertyDisplayName %>">
+        <span><% if ( Required ){ %> <%= '(' + localization.Required + ')' %><% } %></span>
+    </label>
+    <textarea class="form-editor cs-form__editor--textarea" data-control="editor" style="height:<%= Height %>px" name="<%= PropertyName %>">
+        <%= Content %>
+    </textarea>
+</div>
+
+

@@ -1,0 +1,66 @@
+﻿<div data-bind="templateResources:'resources'" style="display: none">
+    <div data-template-name="gridCardTemplate" class="gridcard gridcard--workitem">
+        <div class="checkbox gridcard__checkbox">
+            <input type="checkbox" id="selected_#: Id #">
+            <label for="selected_#: Id #"></label>
+        </div>
+        <p class="gridcard__title">
+            <img class="mobile-icon" src="/Content/Images/Icons/WorkTypeIcons/#: Icon #" alt="#: Icon #">#: Title #
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if ( Priority && Priority.length > 0 ){ #
+                <span>#: localizationHelper.localize("Priority") # #: Priority # </span>
+                # } #
+
+                # if ( Priority && Priority.length > 0 && AffectedUser && AffectedUser.length > 0 ){ #
+                &middot;
+                # } #
+
+                # if ( AffectedUser && AffectedUser.length > 0 ){ #
+                <span>#: AffectedUser #</span>
+                # } #
+            </p>
+            <p>
+                # if ( Category && Category.length > 0 ){ #
+                <span>#: Category # </span>
+                # } #
+
+                # if ( Category && Category.length > 0 && Id && Id.length > 0 ){ #
+                &middot;
+                # } #
+
+                # if ( Id && Id.length > 0 ){ #
+                <span>#: Id # </span>
+                # } #
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p>
+                <span>#: localizationHelper.localize("LastWorked") #: #: moment(kendo.toString(new Date(LastModified))).fromNow() #</span>
+            </p>
+            <p>
+                <span>#: localizationHelper.localize("Age") #: #: moment(kendo.toString(new Date(Created))).fromNow() #</span>
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p>
+                # if ( AssignedUser && AssignedUser.length > 0 ){ #
+                <span>#: localizationHelper.localize("AssignedTo") #: #: AssignedUser # </span>
+                # } #
+            </p>
+            <p>
+                # if ( Tier && Tier.length > 0 ){ #
+                <span>#: localizationHelper.localize("SupportGroup") #: #: Tier # </span>
+                # } #
+            </p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="mobilegrid__header">
+    </div>
+    <div data-bind="mobileWIGrid: viewModel" data-template-name="gridCardList" class="mobilegrid"></div>
+    <div class="mobilegrid__pager"></div>
+</div>

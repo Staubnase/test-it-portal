@@ -1,0 +1,92 @@
+﻿/******************************************************************************************
+Directive: Advanced Search - Custom Styles
+*******************************************************************************************/
+
+.search-directive {
+
+    .alert-container {
+        & .alert {
+            display: inline-block;
+            margin-bottom: 0;
+            margin-left: 0;
+            height: 30px;
+            padding: 5px 15px;
+        }
+    }
+
+    .filter-toggle {
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        color: @text-color-body-reverse;
+        background-color: @v-color-gray-dark !important;
+
+        &:hover {
+            background-color: @v-color-link-hover !important;
+        }
+
+        .fa-filter {
+            color: @v-color-link;
+        }
+    }
+
+    .filters-wrapper {
+        max-height: 400px;
+
+        .filters {
+            width: 1%;
+            display: table-cell;
+            padding: 15px 0;
+            background-color: @v-color-gray-lightest;
+            border: 1px solid @v-color-link;
+            border-top: none;
+            box-shadow: 1px 1px 3px 0 fade(@v-color-portal-dark, 10%); // creates rgba
+            .border-radius(0 0 10px 10px);
+
+
+            & > div:nth-child(odd) {
+                border-right: 1px solid @default-border-color;
+            }
+
+
+            .filter-column {
+                max-height: 300px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                margin-top: -16px;
+                margin-bottom: -15px;
+                padding-top: 40px;
+                padding-bottom: 20px;
+            }
+
+            .filter-column-header {
+                p {
+                    font-weight: bold;
+                    text-align: center;
+                    font-size: @font-size-meta-text;
+                    background-color: @v-color-gray-lightest;
+                    z-index: 1;
+                    position: absolute;
+                    right: 18px;
+                    top: -15px;
+                    left: 0;
+                    height: 30px;
+                    padding-top: 10px;
+                }
+            }
+        }
+    }
+
+    .filter-boxes {
+        display: inline-block;
+        width: 50%;
+
+        .checkbox {
+            margin-bottom: -5px;
+
+            label.control-label {
+                font-weight: normal;
+                text-transform: capitalize;
+            }
+        }
+    }
+}

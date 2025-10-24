@@ -1,0 +1,371 @@
+<div data-bind="templateResources:'resources'" style="display:none">
+
+    <div data-template-name="sectionTemplate">
+        <div class="query-or" data-bind="localize: Or, invisible: isFirstSection"></div>
+        <label data-bind="localize: {key: QuerySectionTitle, value: displayName, localizeValue: false}"></label>
+        <div data-template="rootCriteriaTemplate" data-bind="source:criteriaRoot"></div>
+        <!--<input type="checkbox" data-bind="checked:showJson" /> ShowJson
+        <div data-bind="prettyJson:criteriaRoot, visible: showJson"></div>-->
+    </div>
+
+    <span data-template-name="isnull"></span>
+    <span data-template-name="isnotnull"></span>
+    <span data-template-name="isme"></span>
+    <span data-template-name="isnotme"></span>
+
+    <div data-template-name="rootCriteriaTemplate" class="rules-group-container">
+        <div class="section-header">
+
+            <div class="pull-right">
+                <button class="btn btn-primary k-button" data-bind="click: createCriteriaGroup, localize: AddGroup">*AddGroup*</button>
+                <button class="btn btn-primary k-button" data-bind="click: createCriteria, localize: AddFilter">*AddFilter*</button>
+                <button class="btn btn-danger k-button" data-bind="click: removeCriteria, localize: Remove">*Remove*</button>
+            </div>
+        </div>
+
+        <div class="rules-group-header">
+
+            <select data-bind="value:groupOperator">
+                <option value="And" data-bind="localize: And">*And*</option>
+                <option value="Or" data-bind="localize: Or">*Or*</option>
+            </select>
+        </div>
+        <!--<span data-bind="text:type"></span><input data-bind="value: value" />-->
+        <div class="rules-group-body">
+            <div data-template="criteriaItemContainer" data-bind="source:items" class="rules-list"></div>
+        </div>
+        <!--<button data-bind="click: createCriteriaGroup">Add Group</button>
+        <button data-bind="click: createCriteria">Add Filter</button>-->
+    </div>
+
+    <div class="rule-container defined-form" role="form" data-template-name="criteriaItemContainer" data-bind="templateSwitch:type">
+        <div data-case="criteriaGroupTemplate" class="rule-group-container">
+            <!--<button data-bind="click:createCriteriaGroup">add group</button>-->
+            <div data-template="rootCriteriaTemplate" data-bind="source:this"></div>
+        </div>
+        <div data-case="criteriaTemplate" class="form-inline">
+            <div class="form-group">
+                <input data-role="combobox"
+                       data-placeholder="Choose field..."
+                       data-text-field="displayName"
+                       data-value-primitive="false"
+                       data-value-field="name"
+                       data-bind="value: field, source: fields, events:{change:onFieldChanged}"
+                       class="" />
+            </div>
+            <div class="form-group">
+                <input data-role="dropdownlist"
+                       data-placeholder="..."
+                       data-text-field="display"
+                       data-value-primitive="true"
+                       data-value-field="name"
+                       data-bind="value: operator, source: validOperators, events:{change:onOperatorChanged}"
+                       class="rule-container-operator" />
+            </div>
+            <div data-bind="templateSwitch: field.fieldType, visible: showCriteriaControl" class="form-group"></div>
+
+            <button type="submit" class="btn btn-danger k-button" data-bind="click: removeCriteria, localize: Remove"></button>
+        </div>
+    </div>
+
+    <!--field type templates-->
+    <div data-template-name="enumTemplate" data-url="/api/V3/Enum/GetList" data-bind="ciresonEnumPicker:field.templateValue, value:value.enumValue"></div>
+    <div data-template-name="affectedconfigitemTemplate" data-bind="ciresonConfigItemBehavior: value.configItemValue" class="config-item-dropdown">
+        <div data-template-part="dropDownTreePart" data-url="/api/V3/Config/GetAffectedItemsList/" data-bind="ciresonDropDownTree:field.templateValue, value:value.configItemValue">
+            <span class="config-search" data-template-part="searchButtonPart"></span>
+        </div>
+    </div>
+
+    <div data-template-name="relatedconfigitemTemplate" data-bind="ciresonConfigItemBehavior: value.configItemValue" class="config-item-dropdown">
+        <div data-template-part="dropDownTreePart" data-url="/api/V3/Config/GetAffectedItemsList/" data-bind="ciresonDropDownTree:field.templateValue, value:value.configItemValue">
+            <span class="config-search" data-template-part="searchButtonPart"></span>
+        </div>
+    </div>
+    <span data-template-name="stringTemplate" class="search-text">
+        <input class="k-textbox input-sm search-text" data-default data-bind="value: value.stringValue" />
+    </span>
+    <span data-template-name="doubleTemplate" class="search-text">
+        <input data-role="numerictextbox"
+               ddata-format="#"
+               data-min="0"
+               data-step="1"
+               data-decimal="0"
+               data-bind="value: value.stringValue"
+               class="" />
+    </span>
+    <div data-template-name="boolTemplate">
+        <div class="form-group">
+            <input data-role="combobox"
+                   data-text-field="name"
+                   data-value-field="value"
+                   data-value-primitive="true"
+                   data-placeholder="..."
+                   data-source="[{ name: 'True', value: '1' },{ name: 'False', value: '0' }]"
+                   data-bind="value: value.stringValue"
+                   class="" />
+        </div>
+    </div>
+    <div data-template-name="dateTemplate" data-bind="templateSwitch:operator">
+        <div data-default>
+            <div data-bind="ciresonRelativeDatePicker:value.isRelative">
+                <span data-bind="visible:value.isRelative">
+                    <span class="form-group">
+                        <input data-role="numerictextbox"
+                               ddata-format="#"
+                               data-min="0"
+                               data-step="1"
+                               data-decimal="0"
+                               data-bind="visible:showNumericPicker, value: value.numericValue, events:{change: dropdownChange}"
+                               class="" />
+                    </span>
+                    <span class="form-group">
+                        <input data-role="combobox"
+                               data-text-field="name"
+                               data-value-field="value"
+                               data-value-primitive="true"
+                               data-placeholder="..."
+                               data-bind="value: value.relativeDateValue, source: dropdownDataSource, events:{change: dropdownChange}"
+                               class="" />
+                    </span>
+                </span>
+                <span class="form-group" data-bind="visible:showDatePicker">
+                    <input data-parse-formats="yyyy-MM-ddThh:mm:ss" data-bind="value: value.dateValue, ciresonDateTimePicker:value.dateValue" />
+                </span>
+                <span class="relative-datetime form-group">
+                    <label class=" checkbox">
+                        <input type="checkbox" data-bind="checked: value.isRelative" />
+                        <span data-bind="localize:RelativeDate" class="checkbox-label"></span>
+                    </label>
+                </span>
+            </div>
+        </div>
+        <div data-case="between">
+            <div data-bind="ciresonRelativeDatePicker:value.isRelative">
+                <span data-bind="visible:value.isRelative">
+                    <span class="form-group">
+                        <input data-role="numerictextbox"
+                               ddata-format="#"
+                               data-min="0"
+                               data-step="1"
+                               data-decimal="0"
+                               data-bind="visible:showNumericPicker, value: value.numericValue, events:{change: dropdownChange}"
+                               class="" />
+                    </span>
+                    <span class="form-group">
+                        <input data-role="combobox"
+                               data-text-field="name"
+                               data-value-field="value"
+                               data-value-primitive="true"
+                               data-placeholder="..."
+                               data-bind="value: value.relativeDateValue, source: dropdownDataSource, events:{change: dropdownChange}"
+                               class="" />
+                    </span>
+                </span>
+                <span class="form-group" data-bind="visible:showDatePicker">
+                    <input data-parse-formats="yyyy-MM-ddThh:mm:ss" data-bind="value: value.dateValue, ciresonDateTimePicker:value.dateValue" />
+                </span>
+                <span class="relative-datetime form-group">
+                    <label class=" checkbox">
+                        <input type="checkbox" data-bind="checked: value.isRelative" />
+                        <span data-bind="localize:RelativeDate" class="checkbox-label"></span>
+                    </label>
+                </span>
+            </div>
+            -
+            <div data-bind="ciresonRelativeEndDatePicker:this">
+                <span data-bind="visible:value.isEndRelative">
+                    <span class="form-group">
+                        <input data-role="numerictextbox"
+                               ddata-format="#"
+                               data-min="0"
+                               data-step="1"
+                               data-decimal="0"
+                               data-bind="visible:value.showEndNumericPicker, value: value.numericEndValue, events:{change: dropdownEndChange}"
+                               class="" />
+                    </span>
+                    <span class="form-group">
+                        <input data-role="combobox"
+                               data-text-field="name"
+                               data-value-field="value"
+                               data-value-primitive="true"
+                               data-placeholder="..."
+                               data-bind="value: value.relativeEndDateValue, source: dropdownDataSource, events:{change: dropdownEndChange}"
+                               class="" />
+                    </span>
+                </span>
+                <span data-bind="visible:value.showEndDatePicker">
+                    <input data-parse-formats="yyyy-MM-ddThh:mm:ss" data-bind="value: value.endValue, ciresonDateTimePicker:value.endValue" />
+                </span>
+                <span class="relative-datetime">
+                    <label class=" checkbox">
+                        <input type="checkbox" data-bind="checked: value.isEndRelative" />
+                        <span data-bind="localize:RelativeDate" class="checkbox-label"></span>
+                    </label>
+                </span>
+
+            </div>
+
+        </div>
+    </div>
+    <!--row template for objectView tables.-->
+    <table>
+        <tr data-template-name="keyValueRowTemplate">
+            <td data-bind="text:key"></td>
+            <td data-bind="text:val"></td>
+        </tr>
+    </table>
+    <div data-template-name="userTemplate">
+        <div class="input-group user-picker" data-default data-bind="ciresonUserPickerBehavior: value.userValue">
+            <div data-template-part="userDetailWindowPart" data-title="Window Title goes here">
+                <table><tbody data-template="keyValueRowTemplate" data-bind="source: userDetailDataSource"></tbody></table>
+            </div>
+
+            <div class="input-group ad-user-group">
+                <span tabindex="-1" role="presentation" class="k-widget k-autocomplete k-header form-control k-state-default" data-bind="style:{paddingLeft: paddingLeft}">
+                    <i class="ad-user-info fa fa-info-circle cursor-pointer info-icon text-primary" data-template-part="detailsButtonPart" data-bind="visible: value.userValue.Id"></i>
+                    <input data-template-part="autoCompleteInputPart" data-value-primitive="false" data-bind="value:value.userValue" type="text" class="ad-user-input form-control k-input" data-role="autocomplete" autocomplete="off" role="textbox" aria-haspopup="true" aria-disabled="false" aria-readonly="false" aria-autocomplete="both" aria-owns="" style="width: 100%;">
+                    <span class="ad-user-search searchIcon" data-template-part="searchButtonPart">
+                        <i class="fa fa-search cursor-pointer text-primary"></i>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!--listview template-->
+    <div data-template-name="mobileGridTemplate" class="gridcard gridcard--workitem">
+        <p class="gridcard__title">#: Title #</p>
+        <div class="gridcard__detailblock">
+            <p>
+                # if ( Priority && Priority.length > 0 ){ #
+                <span>#: localizationHelper.localize("Priority") # #: Priority # </span>
+                # } #
+
+                # if ( Priority && Priority.length > 0 && AffectedUser && AffectedUser.length > 0 ){ #
+                &middot;
+                # } #
+
+                # if ( AffectedUser && AffectedUser.length > 0 ){ #
+                <span>#: AffectedUser #</span>
+                # } #
+            </p>
+            <p>
+                # if ( Category && Category.length > 0 ){ #
+                <span>#: Category # </span>
+                # } #
+
+                # if ( Category && Category.length > 0 && Id && Id.length > 0 ){ #
+                &middot;
+                # } #
+
+                # if ( Id && Id.length > 0 ){ #
+                <span>#: Id # </span>
+                # } #
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p>
+                <span>#: localizationHelper.localize("LastWorked") #: #: moment(kendo.toString(new Date(LastModified))).fromNow() #</span>
+            </p>
+            <p>
+                <span>#: localizationHelper.localize("Age") #: #: moment(kendo.toString(new Date(Created))).fromNow() #</span>
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p>
+                # if ( AssignedUser && AssignedUser.length > 0 ){ #
+                <span>#: localizationHelper.localize("AssignedTo") #: #: AssignedUser # </span>
+                # } #
+            </p>
+            <p>
+                # if ( Tier && Tier.length > 0 ){ #
+                <span>#: localizationHelper.localize("SupportGroup") #: #: Tier # </span>
+                # } #
+            </p>
+        </div>
+    </div>
+
+    <!--end field type templates-->
+</div>
+
+<div class="defined-form" data-bind="events: {keypress: searchOnEnter}">
+
+    <button class="wi-search-edit-btn btn btn-link btn-default k-button pull-right" data-bind="toggleValue: editMode, localize:Edit, visible: validActions.save"></button>
+
+    <div data-bind="slide: editMode" style="display:none" class="wi-search-wrapper">
+
+        <div class="form-inline margin-b20">
+            <div class="form-group">
+                <label data-bind="localize:AddWorkItemTypeSectionToSearchBy"></label>
+                <div data-role="dropdownlist" data-placeholder="Choose Work Item Type"  data-bound="updateModel" data-text-field="displayName" data-bind="source: sectionDefs, value: selectedSection"></div>
+            </div>
+            <div class="form-group">
+                <label> &nbsp;</label> <!--trick to line up button-->
+                <button class="btn btn-primary k-button" data-bind="click: addCriteriaSection, localize:AddSection"></button>
+            </div>
+        </div>
+
+        <div data-template="sectionTemplate" data-bind="source: query"></div>
+        <button data-bind="drawerMenuCommand:{titleKey: SearchButton, icon: fa-search, command: executeSearch, visible: validActions.search}"></button>
+
+        <div data-bind="modalDialogBehavior:this, dialogConfirmAction:clearQuery">
+            <div data-template-part="dialogWindowPart" data-title="ClearQuery" style="min-height:150px; min-width:300px;">
+                <span data-bind="localize: clearQueryPrompt">*clearquery?*</span>
+                <div class="window-buttons">
+                    <button class="btn btn-primary k-button" data-template-part="commandPart" data-bind="localize:Yes, click:clearQuery"></button>
+                    <button class="btn btn-default k-button" data-template-part="commandPart" data-bind="localize:No"></button>
+                </div>
+            </div>
+            <button data-template-part="openTriggerPart" data-bind="drawerMenuCommand:{titleKey: ClearQuery, icon: fa-times, visible: validActions.clearQuery}">*ClearQuery*</button>
+        </div>
+        <div data-bind="modalDialogBehavior:this, dialogConfirmAction:saveQuery">
+            <div data-template-part="dialogWindowPart" data-title="savequery" style="min-height:150px; min-width:350px;">
+                <div class="form-group">
+                    <label data-bind="localize: QueryName"></label>
+                    <input type="text" class="form-control k-textbox" data-bind="value:queryName" data-value-update="input">
+                    <div class="error" data-bind="visible: queryNameInValid, localize: QueryNameAlphaNumericValidationError"></div>
+                </div>
+                <div class="window-buttons">
+                    <button class="btn btn-primary k-button" data-template-part="commandPart" data-bind="click:saveQuery, enabled: queryNameValid, localize:Save">*Save*</button>
+                    <button class="btn btn-default k-button" data-template-part="commandPart" data-bind="localize:Cancel">*Cancel*</button>
+                </div>
+            </div>
+            <button data-template-part="openTriggerPart" data-bind="drawerMenuCommand:{titleKey: Save, icon: fa-check, visible: validActions.save}">*Save*</button>
+        </div>
+        <div data-bind="modalDialogBehavior:this, dialogConfirmAction:saveQueryAs">
+            <div data-template-part="dialogWindowPart" data-title="savequeryas" style="min-height:150px; min-width:350px;">
+                <div class="form-group">
+                    <label data-bind="localize: QueryName"></label>
+                    <input type="text" class="form-control k-textbox" data-bind="value:queryName" data-value-update="input">
+                    <div class="error" data-bind="visible: queryNameInValid, localize: QueryNameAlphaNumericValidationError"></div>
+                </div>
+                <div class="window-buttons">
+                    <button class="btn btn-primary k-button" data-template-part="commandPart" data-bind="click:saveQueryAs, enabled: queryNameValid, localize:SaveAs">*saveas*</button>
+                    <button class="btn btn-default k-button" data-template-part="commandPart" data-bind="localize:Cancel">*cancel*</button>
+                </div>
+            </div>
+            <button data-template-part="openTriggerPart" data-bind="drawerMenuCommand:{titleKey: SaveAs, icon: fa-save, visible: validActions.saveAs}"></button>
+        </div>
+        <div data-bind="modalDialogBehavior:this, dialogConfirmAction:deleteQuery">
+            <div data-template-part="dialogWindowPart" data-title="deletequery" style="min-height:150px; min-width:300px;">
+                <div class="form-group">
+                    <label data-bind="localize: DeleteQuery"></label>
+                    <span data-bind="text:queryName"></span>
+                </div>
+                <div class="window-buttons">
+                    <button class="btn btn-primary k-button" data-template-part="commandPart" data-bind="click:deleteQuery, enabled: queryName, localize:Delete">*Delete*</button>
+                    <button class="btn btn-default k-button" data-template-part="commandPart" data-bind="localize:Cancel">*Cancel*</button>
+                </div>
+            </div>
+            <button data-template-part="openTriggerPart" data-bind="drawerMenuCommand:{titleKey: Delete, icon: fa-trash, visible: validActions.delete}">*Delete*</button>
+        </div>
+    </div>
+    <!--<div data-role="treeview" data-template="criteriaTreeNodeTemplate" data-bind="source:criteriaRoot"></div>-->
+    <!--<div data-bind="prettyJson: sections"></div>-->
+
+
+
+    <div data-bind="ciresonGrid: gridVm" class="wi-search-results"></div>
+
+    <!--<div style="padding-top:40px" class="query-builder-grid-wrapper"></div>-->
+</div>

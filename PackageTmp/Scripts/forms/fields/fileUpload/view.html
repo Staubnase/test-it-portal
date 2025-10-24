@@ -1,0 +1,27 @@
+﻿<div class="form-group cs-form__fileupload cs-form__fileupload--<%= PropertyName %>">
+    <label class="control-label cs-form__fileupload--label" for="<%= PropertyName %>" data-localize="<%= PropertyDisplayName %>">
+        <span><% if ( Required ){ %> <%= '(' + localization.Required + ')' %><% } %></span>
+    </label>
+
+    <input id="<%= PropertyName %>" type="file"
+           accept="<%= AcceptExtension %>"
+           data-role="upload"
+           name="files"
+           data-async="{ saveUrl: '/FileAttachment/FileUpload/?BaseId=<%= BaseId %>&fieldName=<%= PropertyName %>', autoUpload: true }"
+           class="k-textbox form-control input-sm cs-form__fileupload--input"
+           data-bind="events: { select: onSelect, complete:complete, success:success }" />
+    <br />
+    <div id="div<%= PropertyName %>">
+        <div data-role="button"
+                data-sprite-css-class="k-icon k-edit"
+                data-bind="events: { click: onRemove }"
+             class="cs-form__fileupload--button">
+            <i class="fa fa-close"></i>
+        </div>
+        <div>
+        <img />
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,37 @@
+﻿<div id="AcknowledgeIncidentWindow" class="hide task-window cireson-window defined-form">
+    <div class="cireson-window--wrapper">
+        <div class="cireson-window--body">
+            <div class="inline-spacing">
+                <label><%= localization.AcknowledgementTime %> : <span data-bind="html:dateTimeNow"></span></label>
+                
+            </div>
+            <div class="inline-spacing">
+                <label><%= localization.AcknowledgementComment %></label>
+                <textarea id="acknowledgeComment" data-bind="value: actionLogComment, events: {input:textCounter}"
+                          data-value-update="input"
+                          class="k-textbox" rows=5></textarea>
+            </div>
+            <div class="inline-spacing">
+                <span data-bind="html:charactersRemaining"></span>
+                <span><%= localization.CharactersRemaining %></span>
+            </div>
+            <div class="inline-spacing checkbox checkbox-inline">
+                <input id="IsPrivate" type="checkbox" data-bind="checked: isPrivate" />
+                <label for="IsPrivate" class="checkbox-label"><%= localization.IsPrivate %></label>
+            </div>
+
+        </div>
+        <div class="window-buttons cireson-window--footer">
+            <button class="btn btn-primary"
+                    data-role="button"
+                    data-bind="enabled: okEnabled, events: { click: okClick }">
+                <%= localization.OK %>
+            </button>
+            <button class="btn btn-default"
+                    data-role="button"
+                    data-bind="events: { click: cancelClick }">
+                <%= localization.Cancel %>
+            </button>
+        </div>
+    </div>
+</div>

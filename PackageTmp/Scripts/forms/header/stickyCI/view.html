@@ -1,0 +1,24 @@
+﻿<div class="content-header__container">
+    <div class="content-header">
+        <div class="content-header__main">
+            <div class="content-header__main__title" data-bind="text: view.Title">
+            </div>
+            <div class="content-header__main__details">
+                <span class="status-pill status-pill--active" data-bind="visible: view.statusVisible, text: view.StatusName">
+                    Active
+                </span>
+                <div class="content-header__main__icon-stack hidden-print">
+                    <!--<button id="headerAttachmentBtn" class="btn k-button btn-icon-stack" data-bind="click: view.viewAttachments, visible: view.showAttachments">
+                        <img src="../../../../Content/Images/Icons/RemoteManage/attach.svg" alt="attach" />
+                    </button>-->
+                    <button id="remoteManageBtn" class="btn k-button btn-icon-stack" data-bind="click: view.doClick, visible: view.showRemoteManageIcon">
+                        <img src="../../../../Content/Images/Icons/RemoteManage/RS-black-simple@32h.png" alt="remote" />
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="content-header-backdrop" class="content-header__flyout__overlay">
+</div>

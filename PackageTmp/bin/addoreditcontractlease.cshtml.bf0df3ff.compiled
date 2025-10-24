@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Areas/AssetManagement/Views/ContractLease/AddOrEditContractLease.cshtml" hash="5ff6b2bd" filehash="1e50ad8074c1" flags="110000" assembly="App_Web_jghqpt3o" type="ASP._Page_Areas_AssetManagement_Views_ContractLease_AddOrEditContractLease_cshtml">
+    <filedeps>
+        <filedep name="/Areas/AssetManagement/Views/ContractLease/AddOrEditContractLease.cshtml" />
+    </filedeps>
+</preserve>

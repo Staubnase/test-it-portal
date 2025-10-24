@@ -1,0 +1,96 @@
+﻿<div class="container-fluid" data-bind="visible: false">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="pull-right ra-approval-space">
+                <div class="pull-right">
+                    <!--RA buttons-->
+                    <button class="btn btn-success btn-review"
+                            data-bind="events: { click: onApproveClick }, disabled:disabledButtons, visible:isReviewActivity">
+                        <%= localization.Approve %>
+                    </button>
+                    <button class="btn btn-danger btn-review"
+                            data-bind="events: { click: onRejectClick }, disabled:disabledButtons, visible:isReviewActivity">
+                        <%= localization.Reject %>
+                    </button>
+                    <!--RA buttons-->
+                    <!--MA buttons-->
+                    <button class="btn btn-success btn-manual"
+                            data-bind="events: { click: onCompleteClick }, disabled:disabledMAButtons, visible:isManualActivity">
+                        <%= localization.Completed %>
+                    </button>
+                    <button class="btn btn-danger btn-manual"
+                            data-bind="events: { click: onFailClick }, disabled:disabledMAButtons, visible:isManualActivity">
+                        <%= localization.Failed %>
+                    </button>
+                    <!--MA buttons-->
+                    <span>
+                        <button class="btn-link" data-bind="disabled:disablePrevious, events:{click: previousClick}"><i class="fa fa-chevron-left"></i></button>
+                        <span data-bind="html: pageText"></span>
+                        <button class="btn-link" data-bind="disabled:disableNext, events:{click: nextClick}"><i class="fa fa-chevron-right"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" data-bind="visible: isMobileView">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="pull-right ra-approval-button-mobile">
+                <div>
+                    <button class="btn-link" data-bind="disabled:disablePrevious, events:{click: previousClick}"><i class="fa fa-chevron-left"></i></button>
+                    <span data-bind="html: pageText"></span>
+                    <button class="btn-link" data-bind="disabled:disableNext, events:{click: nextClick}"><i class="fa fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!--RA buttons-->
+        <div class="col-md-12 col-xs-12">
+            <div class="ra-approval-button-mobile">
+                <button class="btn btn-success"
+                        data-bind="events: { click: onApproveClick }, disabled:disabledButtons, visible:isReviewActivity">
+                    <%= localization.Approve %>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-12 col-xs-12">
+            <div class="ra-approval-button-mobile">
+                <button class="btn btn-danger"
+                        data-bind="events: { click: onRejectClick }, disabled:disabledButtons, visible:isReviewActivity">
+                    <%= localization.Reject %>
+                </button>
+            </div>
+        </div>
+        <!--RA buttons-->
+        <!--MA buttons-->
+        <div class="col-md-12 col-xs-12">
+            <div class="ra-approval-button-mobile">
+                <button class="btn btn-success"
+                        data-bind="events: { click: onCompleteClick }, disabled:disabledMAButtons, visible:isManualActivity">
+                    <%= localization.Completed %>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-12 col-xs-12">
+            <div class="ra-approval-button-mobile">
+                <button class="btn btn-danger"
+                        data-bind="events: { click: onFailClick }, disabled:disabledMAButtons, visible:isManualActivity">
+                    <%= localization.Failed %>
+                </button>
+            </div>
+        </div>
+        <!--MA buttons-->
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <h1 class="page_title">
+                <span data-bind="text: title"></span><span>-</span><span class="uppercase" data-bind="text: workItemId"></span>
+                <span class="label label-info label-heading" id="statusname" data-bind="text: statusName"></span>
+                <span class="label label-heading" data-bind="visible: isParent"><img src="/Content/Images/Icons/WorkItemsStatus/workitem-parent-icon.svg"></span>
+            </h1>
+        </div>
+    </div>
+</div>
+

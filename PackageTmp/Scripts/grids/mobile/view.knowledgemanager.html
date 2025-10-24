@@ -1,0 +1,44 @@
+﻿<div data-bind="templateResources:'resources'" style="display: none">
+    <div data-template-name="gridCardTemplate" class="gridcard gridcard--knowledge">
+        <a class='gridcard__action-icon' href='javascript:;' onclick="app.lib.knowledgeManagerDeleteArticle(#:ArticleId #, this);">
+            <i class='fa fa-lg fa-trash'></i>
+        </a>
+        <p class="gridcard__title">
+            <a href='/KnowledgeBase/Edit/#:ArticleId#/'>#: Title #</a>
+        </p>
+        <div class="gridcard__detailblock">
+            <p>
+                <span>#: ViewCount # #: localizationHelper.localize("Views").toLowerCase() #</span>
+                &middot;
+                <span>#: CommentCount # #: localizationHelper.localize("Comments").toLowerCase() #</span>
+            </p>
+            <p>
+                <span> #: localizationHelper.localize("Rating") #: #: AverageRating #</span>
+                &middot;
+                <span> #: localizationHelper.localize("Popularity") #: #: Popularity #</span>
+            </p>
+        </div>
+        <div class="gridcard__detailblock">
+            <p>
+                # if ( StatusString && StatusString.length > 0 ){ #
+                <span>#: StatusString #</span>
+                # } #
+
+                # if ((LastModifiedDate && LastModifiedDate.length > 0) && (StatusString && StatusString.length > 0 )){ #
+                &middot;
+                # } #
+
+                # if ( LastModifiedDate && LastModifiedDate.length > 0 ){ #
+                <span>#: localizationHelper.localize("Updated") # #: moment(kendo.toString(new Date(LastModifiedDate))).fromNow() #</span>
+                # } #
+            </p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="mobilegrid__header">
+    </div>
+    <div data-bind="mobileWIGrid: viewModel" data-template-name="gridCardList" class="mobilegrid"></div>
+    <div class="mobilegrid__pager"></div>
+</div>

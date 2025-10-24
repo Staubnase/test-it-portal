@@ -1,0 +1,63 @@
+﻿{
+  "Name": {
+    "field": "Name",
+    "title": "Line Item [Purchase] Name",
+    "template": "#= (Name) ? Name : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "PurchaseType": {
+    "field": "PurchaseType",
+    "title": "Type",
+    "template": "#= (PurchaseType) ? PurchaseType : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "PurchaseHasCostCenter_DisplayName": {
+    "field": "PurchaseHasCostCenter_DisplayName",
+    "title": "Cost Center",
+    "template": "#= (PurchaseHasCostCenter_DisplayName) ? PurchaseHasCostCenter_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+   "PurchaseHasPurchaseOrder_DisplayName": {
+    "field": "PurchaseHasPurchaseOrder_DisplayName",
+    "title": "Purchase Order",
+    "template": "#= (PurchaseHasPurchaseOrder_DisplayName) ? PurchaseHasPurchaseOrder_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "PurchaseHasInvoice_DisplayName": {
+    "field": "PurchaseHasInvoice_DisplayName",
+    "title": "Invoice",
+    "template": "#= (PurchaseHasInvoice_DisplayName) ? PurchaseHasInvoice_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "PurchaseHasVendor_DisplayName": {
+    "field": "PurchaseHasVendor_DisplayName",
+    "title": "Vendor",
+    "template": "#= (PurchaseHasVendor_DisplayName) ? PurchaseHasVendor_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

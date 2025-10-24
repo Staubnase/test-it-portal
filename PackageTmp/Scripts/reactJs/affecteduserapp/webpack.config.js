@@ -1,0 +1,23 @@
+﻿module.exports = {
+    context: __dirname,
+    entry: "./app.js",
+    output: {
+        path: __dirname + "/dist",
+        filename: "affectedUserAppReact.js"
+    },
+    watch: true,
+    module: {
+        rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
+                }
+            }
+        ]
+    }
+}

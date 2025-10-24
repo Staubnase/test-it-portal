@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preserve resultType="2" virtualPath="/Areas/AssetManagement/Views/Subnet/NewAndEdit.cshtml" hash="5ff6b2bd" filehash="ffffe02738ae914e" flags="110000" assembly="App_Web_crmfflrs" type="ASP._Page_Areas_AssetManagement_Views_Subnet_NewAndEdit_cshtml">
+    <filedeps>
+        <filedep name="/Areas/AssetManagement/Views/Subnet/NewAndEdit.cshtml" />
+    </filedeps>
+</preserve>

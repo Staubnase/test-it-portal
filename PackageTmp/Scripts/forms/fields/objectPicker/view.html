@@ -1,0 +1,19 @@
+﻿<div class="form-group cs-form__objectpicker cs-form__objectpicker--<%= PropertyName %>" data-cid="objectpicker" data-cid-propname="<%= PropertyName %>">
+    <label class="control-label" for="<%= PropertyName %>" data-localize="<%= PropertyDisplayName %>">
+        <span><% if ( Required ){ %> <%= '(' + localization.Required + ')' %><% } %></span>
+    </label>
+    <input class="input-userpicker cs-form__objectpicker--input"
+           data-control="objectPicker"
+           data-control-bind="<%= PropertyName %>"
+           data-control-extra="<%= ExtraProps %>"
+           type="text"
+           name="<%= PropertyName %>"
+            <% if ( Disabled ){ %>
+            disabled
+            <% } %>
+
+            <% if ( Required ){ %>
+            required
+            <% } %>
+    />
+</div>

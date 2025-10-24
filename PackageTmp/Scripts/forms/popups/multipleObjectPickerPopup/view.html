@@ -1,0 +1,51 @@
+﻿<div id="MultiObjectPickerWindow" class="cireson-window defined-form task-window cs-form__popup--multiobjectpicker" data-cid="MultiObjectPickerWindow">
+    <div class="cireson-window--wrapper">
+        <div class="cireson-window--body">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label><%= localization.SearchText %></label>
+                        <span class="k-textbox k-space-right object-picker-search">
+                            <input type="text" data-objectpicker-action="search" data-objectpicker-action-value="search" value="" data-cid="MultiObjectPickerWindowSearchBox" />
+                            <span data-objectpicker-action="search" class="fa fa-search text-primary cursor-pointer"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label><%= localization.SearchObjectText %></label>
+                        <input type="text" data-objectpicker-control="comboBox">
+                    </div>
+                </div>
+            </div>
+
+
+            <label><%= localization.SelectObjects %></label>
+
+            <div class="objectPicker-container">
+                <div class="k-widget k-grid k-secondary" data-objectpicker-control="objectPickerGrid"></div>
+            </div>
+
+            <div class="objectPicker-actions">
+                <button data-objectpicker-action="addObject" class="btn btn-primary k-button" data-cid="multiobject-picker-add-object-btn"><%= localization.Add %></button>
+                <button data-objectpicker-action="removeObject" class="btn btn-danger k-button" data-cid="multiobject-picker-remove-object-btn"><%= localization.Remove %></button>
+            </div>
+
+            <div class="k-widget k-grid k-secondary objectPicker-grid2-container" data-objectpicker-control="objectPickerGrid2"></div>
+        </div>
+        <div class="cireson-window--footer window-buttons">
+            <button data-role="button"
+                    class="btn btn-primary cs-form__popup--save"
+                    data-bind="events: { click: save }"
+                    data-cid="multiobject-picker-ok-btn">
+                <%= localization.OK %>
+            </button>
+            <button data-role="button"
+                    class="btn btn-default cs-form__popup--cancel"
+                    data-bind="events: { click: cancel }"
+                    data-cid="multiobject-picker-cancel-btn">
+                <%= localization.Cancel %>
+            </button>
+        </div>
+    </div>
+</div>

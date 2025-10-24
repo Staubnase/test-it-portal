@@ -1,0 +1,35 @@
+﻿{
+  "DisplayName": {
+    "field": "DisplayName",
+    "title": "Catalog Item",
+    "template": "#= (DisplayName) ? DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Type": {
+    "field": "Type",
+    "title": "Catalog Item Type",
+    "template": "#= (Type) ? Type : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

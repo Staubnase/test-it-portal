@@ -1,0 +1,169 @@
+﻿/******************************************************************************************
+Directive: Navigation Tree - Custom Styles
+https://github.com/nickperkinslondon/angular-bootstrap-nav-tree
+*******************************************************************************************/
+
+.abn-tree {
+    cursor: pointer;
+    padding: 0;
+}
+
+ul.abn-tree i.indented {
+    padding: 2px;
+}
+
+
+ul.nav.abn-tree .level-1 .indented {
+    position: relative;
+    left: 0;
+}
+
+ul.nav.abn-tree .level-2 .indented {
+    position: relative;
+    left: 12px;
+}
+
+ul.nav.abn-tree .level-3 .indented {
+    position: relative;
+    left: 24px;
+}
+
+ul.nav.abn-tree .level-4 .indented {
+    position: relative;
+    left: 36px;
+}
+
+ul.nav.abn-tree .level-5 .indented {
+    position: relative;
+    left: 48px;
+}
+
+ul.nav.abn-tree .level-6 .indented {
+    position: relative;
+    left: 60px;
+}
+
+ul.nav.nav-list.abn-tree .level-7 .indented {
+    position: relative;
+    left: 72px;
+}
+
+ul.nav.nav-list.abn-tree .level-8 .indented {
+    position: relative;
+    left: 84px;
+}
+
+ul.nav.nav-list.abn-tree .level-9 .indented {
+    position: relative;
+    left: 96px;
+}
+
+@media @small-and-medium-screen-only {
+    ul.nav.abn-tree .level-1 {
+        padding-left: 20px;
+    }
+
+    ul.nav.abn-tree .level-2 {
+        padding-left: 42px;
+    }
+
+    ul.nav.abn-tree .level-3 {
+        padding-left: 64px;
+    }
+
+    ul.nav.abn-tree .level-4 {
+        padding-left: 86px;
+    }
+
+    ul.nav.abn-tree .level-5 {
+        padding-left: 108px;
+    }
+
+    ul.nav.abn-tree .level-6 {
+        padding-left: 130px;
+    }
+
+    ul.nav.nav-list.abn-tree .level-7 {
+        padding-left: 152px;
+    }
+
+    ul.nav.nav-list.abn-tree .level-8 {
+        padding-left: 174px;
+    }
+
+    ul.nav.nav-list.abn-tree .level-9 {
+        padding-left: 196px;
+    }
+
+    ul.nav.abn-tree .leaf .indented {
+        left: 0 !important;
+    }
+
+    ul.nav.abn-tree .level-1 .indented {
+        left: 20px !important;
+    }
+}
+
+
+.tree-dir {
+
+    i.pull-right.fa {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+        width: 22px;
+        position: absolute;
+        right: 0;
+        top: 2px;
+    }
+}
+
+.tree-heading-hr {
+    width: 100%;
+    margin: 30px 0;
+}
+
+.sidebar-nav {
+    .nav {
+        li {
+            a {
+
+                span {
+                    position: relative;
+                }
+            }
+
+            &.active {
+                .tree-label {
+                    border: none;
+                    font-weight: bold;
+
+                    @media @small-and-medium-screen-only {
+                        font-weight: normal;
+                    }
+                }
+
+                a:hover {
+                    border: none;
+                }
+
+                @media @small-and-medium-screen-only {
+                    background-color: @featured-link-bg;
+                }
+            }
+
+            &:hover {
+                .tree-label {
+                    border: none;
+                }
+            }
+
+            .tree-label, .tree-label:hover {
+                display: block;
+                border: none;
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+}

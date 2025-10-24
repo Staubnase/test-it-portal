@@ -1,0 +1,75 @@
+﻿/******************************************************************************************
+Bootstrap Forms - Overrides
+
+This document is only for styles that override this Bootstrap component's core classes.
+
+Do not include styles that amend these classes within specific contexts or extend these ideas into new classes.
+Instead these should be placed within the corresponding cireson.[component].less file.
+*******************************************************************************************/
+
+
+/* Import core Bootstrap component first
+------------------------------------------------------------------------------------------*/
+@import "../../../bootstrap/forms.less";
+
+/* Style Overrides
+------------------------------------------------------------------------------------------*/
+
+.form-control {
+    // remove glow on focus since it is too hard to add this to k-comboboxes
+    &:focus,
+    &:active {
+        outline: none;
+        .box-shadow(none);
+    }
+
+    @media @small-and-medium-screen-only {
+        margin-bottom: 20px;
+
+        &:not(.form-control) {
+            font-size: @font-size-heading-section;
+        }
+    }
+}
+
+.form-control, .input-sm {
+    height: @input-height-large-screen;
+    line-height: @input-height-large-screen - 1;
+
+    @media @small-and-medium-screen-only {
+        height: @input-height-small-screen;
+        height: @input-height-small-screen - 1;
+    }
+}
+
+.form-group {
+    margin-bottom: 15px;
+
+    @media @small-and-medium-screen-only {
+        .form-control {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+/* Checkboxes
+..........................................................................................*/
+
+.checkbox {
+    display: inline-block;
+    margin-top: 7px !important;
+    margin-right: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    & > input[type=checkbox] {
+        position: absolute;
+        opacity: 0;
+    }
+}
+
+.radio,
+.checkbox {
+    padding-left: 20px;
+}

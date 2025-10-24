@@ -1,0 +1,864 @@
+﻿/******************************************************************************************
+FRAMEWORK VARIABLES
+
+* Bootstrap Variable Updates
+* Kendo Variable Updates
+* Font Awesome Variable Updates
+!!IMPORTANT – This file references values from, and should be imported after, cireson.variables.main.less 
+*******************************************************************************************/
+
+
+/******************************************************************************************
+Bootstrap Variable Updates (covers variable names not already called above)
+*******************************************************************************************/
+
+/* Colors
+------------------------------------------------------------------------------------------*/
+@gray-darker:                                @v-color-gray-darkest;
+@gray-dark:                                  @v-color-gray-darker;
+@gray:                                       @v-color-gray-dark;
+@gray-light:                                 @v-color-gray-light;
+@gray-lighter:                               @v-color-gray-lightest;
+@brand-primary:                              @v-color-primary;
+@brand-success:                              @v-color-success;
+@brand-info:                                 @v-color-info;
+@brand-warning:                              @v-color-warning;
+@brand-danger:                               @v-color-error;
+
+
+/* Scaffolding
+------------------------------------------------------------------------------------------*/
+@body-bg:                                    @body-main-bg;
+@text-color:                                 @text-color-body;
+@link-color:                                 @v-color-link;
+@link-hover-color:                           @v-color-link-hover;
+
+
+/* Typography
+------------------------------------------------------------------------------------------*/
+@font-family-sans-serif:                     @font-family-sans;
+@font-family-serif:                          @font-family-sans;
+// @font-family-monospace:                      Menlo, Monaco, Consolas, "Courier New", monospace;  // already defined
+@font-family-base:                           @font-family-sans;
+
+@font-size-base:                             @font-size-body-text;
+@font-size-large:                            @font-size-heading-subsection;
+@font-size-small:                            @font-size-meta-text;
+@font-size-h1:                               @font-size-heading-page;
+@font-size-h2:                               @font-size-heading-section;
+@font-size-h3:                               @font-size-heading-subsection;
+@font-size-h4:                               @font-size-body-text;
+@font-size-h5:                               @font-size-body-text;
+@font-size-h6:                               @font-size-meta-text;
+@blockquote-font-size:                       @font-size-body-text;
+@page-header-border-color:                   @default-border-color;
+
+// @line-height-base:                           ; // already defined above
+@line-height-computed:                       floor((@font-size-base-large-screen * @line-height-base)); // not sure yet how Bootstrap is passing in different values for breakpoints
+                   
+@headings-font-family:                       inherit;
+@headings-font-weight:                       @font-weight-heading;
+@headings-line-height:                       @line-height-heading;
+                   
+@headings-color:                             @text-color-body-headings;
+@text-muted:                                 @text-color-body-light;
+@abbr-border-color:                          @default-border-color;
+@headings-small-color:                       @text-color-body-light;
+@blockquote-small-color:                     @text-color-body-light;
+@blockquote-border-color:                    @default-border-color;
+
+
+/* Iconography
+------------------------------------------------------------------------------------------*/
+// @icon-font-path:                             "../fonts/";
+// @icon-font-name:                             "glyphicons-halflings-regular";
+// @icon-font-svg-id:                           "glyphicons_halflingsregular";
+
+
+/* Components
+------------------------------------------------------------------------------------------*/
+@padding-base-vertical:                      @button-padding-vertical;
+@padding-base-horizontal:                    @button-padding-horizontal;
+@padding-large-vertical:                     @button-padding-vertical * 1.5;
+@padding-large-horizontal:                   @button-padding-horizontal * 1.5;
+@padding-small-vertical:                     @button-padding-vertical / 2;
+@padding-small-horizontal:                   @button-padding-horizontal / 2;
+@padding-xs-vertical:                        @button-padding-vertical / 4;
+@padding-xs-horizontal:                      @button-padding-horizontal / 4;
+@line-height-large:                          @input-height-small-screen;
+@line-height-small:                          @input-height-large-screen;
+@border-radius-base:                         @default-border-radius;
+@border-radius-large:                        @border-radius-base;
+@border-radius-small:                        @border-radius-base;
+@component-active-color:                     @text-color-body-reverse;
+@component-active-bg:                        @v-color-link;
+@caret-width-base:                           4px;
+@caret-width-large:                          5px;
+
+
+/* Tables
+------------------------------------------------------------------------------------------*/
+// @table-cell-padding:                         ; // already defined above
+@table-condensed-cell-padding:               @table-cell-padding-horizontal / 2;
+@table-bg:                                   transparent;
+@table-bg-accent:                            @v-color-gray-lightest;
+@table-bg-hover:                             @v-color-gray-lightest;
+@table-bg-active:                            @table-bg-hover;
+// @table-border-color:                         ; // already defined above
+
+
+/* Buttons
+------------------------------------------------------------------------------------------*/
+@btn-font-weight:                            normal;
+             
+// variable names below already defined above             
+// @btn-default-color:                          @v-color-primary;
+// @btn-default-bg:                             @body-bg;
+// @btn-default-border:                         @v-color-primary;
+             
+// @btn-primary-color:                          @btn-default-color-reverse;
+// @btn-primary-bg:                             @v-color-primary;
+// @btn-primary-border:                         @v-color-primary;
+             
+// @btn-success-color:                          @btn-default-color-reverse;
+// @btn-success-bg:                             @v-color-success;
+// @btn-success-border:                         @v-color-success;
+             
+// @btn-info-color:                             @btn-default-color-reverse;
+// @btn-info-bg:                                @v-color-info;
+// @btn-info-border:                            @v-color-info;
+             
+// @btn-warning-color:                          @btn-default-color-reverse;
+// @btn-warning-bg:                             @v-color-warning;
+// @btn-warning-border:                         @v-color-warning;
+             
+// @btn-danger-color:                           @btn-default-color-reverse;
+// @btn-danger-bg:                              @v-color-error;
+// @btn-danger-border:                          @v-color-error;
+             
+@btn-link-disabled-color:                    @v-color-disabled;
+
+
+/* Forms
+------------------------------------------------------------------------------------------*/
+@input-bg:                                   @v-color-white;
+@input-bg-disabled:                          @v-color-gray-lighter;
+@input-color:                                @text-color-body;
+@input-border:                               @input-border-color;
+@input-border-radius:                        @border-radius-base;
+@input-border-focus:                         @v-color-primary;
+@input-color-placeholder:                    @v-color-placeholder;
+@input-height-base:                          @input-height-large-screen; // not sure yet how Bootstrap is passing in different values for breakpoints
+@input-height-large:                         @input-height-base;
+@input-height-small:                         @input-height-base;
+@legend-color:                               @text-color-body-light;
+@legend-border-color:                        @default-border-color;
+@input-group-addon-bg:                       @v-color-gray-lighter;
+@input-group-addon-border-color:             @default-border-color;
+
+
+/* Form States & Alerts
+------------------------------------------------------------------------------------------*/
+@state-success-text:                         @v-color-success;
+@state-success-bg:                           @v-color-success-light;
+@state-success-border:                       @v-color-success;
+             
+@state-info-text:                            @v-color-info;
+@state-info-bg:                              @v-color-info-light;
+@state-info-border:                          @v-color-info;
+             
+@state-warning-text:                         @v-color-warning;
+@state-warning-bg:                           @v-color-warning-light;
+@state-warning-border:                       @v-color-warning;
+             
+@state-danger-text:                          @v-color-error;
+@state-danger-bg:                            @v-color-error-light;
+@state-danger-border:                        @v-color-error;
+
+
+/* Labels
+------------------------------------------------------------------------------------------*/
+@label-default-bg:                           @v-color-gray-mid;
+@label-primary-bg:                           @text-color-body;
+@label-success-bg:                           @v-color-success;
+@label-info-bg:                              @v-color-info;
+@label-warning-bg:                           @v-color-warning;
+@label-danger-bg:                            @v-color-error;
+@label-color:                                @v-color-white;
+@label-link-hover-color:                     @v-color-white;
+
+
+/* Dropdowns
+------------------------------------------------------------------------------------------*/
+@dropdown-bg:                                @v-color-white;
+@dropdown-border:                            fade(@v-color-black,85%); // creates rgba
+@dropdown-fallback-border:                   @default-border-color;
+@dropdown-divider-bg:                        @border-color-light;
+@dropdown-link-color:                        @text-color-body;
+@dropdown-link-hover-color:                  @text-color-body;
+@dropdown-link-hover-bg:                     @v-color-selected;
+@dropdown-link-active-color:                 @component-active-color;
+@dropdown-link-active-bg:                    @component-active-bg;
+@dropdown-link-disabled-color:               @text-color-body-light;
+@dropdown-header-color:                      @text-color-body-light;
+@dropdown-caret-color:                       @icon-color-light;
+
+
+/* Z-index
+------------------------------------------------------------------------------------------*/
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+// Note: These variables are not generated into the Customizer.
+@zindex-navbar:                              1000;
+@zindex-dropdown:                            1000;
+@zindex-popover:                             1010;
+@zindex-tooltip:                             1030;
+@zindex-navbar-fixed:                        1030;
+@zindex-modal-background:                    1040;
+@zindex-modal:                               1050;
+
+
+/* Media Query Breakpoints
+------------------------------------------------------------------------------------------*/
+@screen-xs:                                  480px;
+@screen-xs-min:                              @screen-xs;
+@screen-phone:                               @screen-xs-min;
+                 
+@screen-sm:                                  768px;
+@screen-sm-min:                              @screen-sm;
+@screen-tablet:                              @screen-sm-min;
+                 
+@screen-md:                                  992px;
+@screen-md-min:                              @screen-md;
+@screen-desktop:                             @screen-md-min;
+                 
+@screen-lg:                                  1200px;
+@screen-lg-min:                              @screen-lg;
+@screen-lg-desktop:                          @screen-lg-min;
+                 
+@screen-xs-max:                              (@screen-sm-min - 1);
+@screen-sm-max:                              (@screen-md-min - 1);
+@screen-md-max:                              (@screen-lg-min - 1);
+
+
+/* Grid System
+------------------------------------------------------------------------------------------*/
+@grid-columns:                               12;
+@grid-gutter-width:                          30px;
+@grid-float-breakpoint:                      @screen-sm-min;
+@grid-float-breakpoint-max:                  (@grid-float-breakpoint - 1);
+
+
+/* Container Sizes
+------------------------------------------------------------------------------------------*/
+@container-tablet:                           ((720px + @grid-gutter-width));
+@container-sm:                               @container-tablet;
+@container-desktop:                          ((940px + @grid-gutter-width));
+@container-md:                               @container-desktop;
+@container-large-desktop:                    ((1140px + @grid-gutter-width));
+@container-lg:                               @container-large-desktop;
+
+
+/* Navbar
+------------------------------------------------------------------------------------------*/
+// @navbar-height-large-screen:                              ; // already defined above
+@navbar-margin-bottom:                       @line-height-computed;
+@navbar-border-radius:                       @border-radius-base;
+@navbar-padding-horizontal:                  floor((@grid-gutter-width / 2));
+@navbar-padding-vertical:                    ((@navbar-height-large-screen - @line-height-computed) / 2);
+@navbar-collapse-max-height:                 340px;
+           
+// @navbar-default-color:                       ; // already defined above
+// @navbar-default-bg:                          ; // already defined above
+@navbar-default-border:                      darken(@navbar-default-bg, 6.5%);
+
+@navbar-default-link-color:                  @v-color-gray-mid;
+@navbar-default-link-hover-color:            @v-color-gray-darker;
+@navbar-default-link-hover-bg:               transparent;
+@navbar-default-link-active-color:           @v-color-gray-dark;
+@navbar-default-link-active-bg:              darken(@navbar-default-bg, 6.5%);
+@navbar-default-link-disabled-color:         @v-color-gray-lighter;
+@navbar-default-link-disabled-bg:            transparent;
+  
+@navbar-default-brand-color:                 @navbar-default-link-color;
+@navbar-default-brand-hover-color:           darken(@navbar-default-brand-color, 10%);
+@navbar-default-brand-hover-bg:              transparent;
+
+@navbar-default-toggle-hover-bg:             @v-color-gray-lighter;
+@navbar-default-toggle-icon-bar-bg:          @v-color-gray-mid;
+@navbar-default-toggle-border-color:         @v-color-gray-lighter;
+
+@navbar-inverse-color:                       @gray-light;
+@navbar-inverse-bg:                          @v-color-gray-darkest;
+@navbar-inverse-border:                      darken(@navbar-inverse-bg, 10%);
+
+@navbar-inverse-link-color:                  @gray-light;
+@navbar-inverse-link-hover-color:            @v-color-white;
+@navbar-inverse-link-hover-bg:               transparent;
+@navbar-inverse-link-active-color:           @navbar-inverse-link-hover-color;
+@navbar-inverse-link-active-bg:              darken(@navbar-inverse-bg, 10%);
+@navbar-inverse-link-disabled-color:         @text-color-body-reverse-light;
+@navbar-inverse-link-disabled-bg:            transparent;
+
+@navbar-inverse-brand-color:                 @navbar-inverse-link-color;
+@navbar-inverse-brand-hover-color:           @text-color-body-reverse;
+@navbar-inverse-brand-hover-bg:              transparent;
+
+@navbar-inverse-toggle-hover-bg:             @v-color-gray-darker;
+@navbar-inverse-toggle-icon-bar-bg:          @v-color-white;
+@navbar-inverse-toggle-border-color:         @v-color-gray-darker;
+
+
+/* Navs
+------------------------------------------------------------------------------------------*/
+@nav-link-padding:                              10px 15px;
+@nav-link-hover-bg:                             @gray-lighter;
+    
+@nav-disabled-link-color:                       @gray-light;
+@nav-disabled-link-hover-color:                 @gray-light;
+    
+@nav-open-link-hover-color:                     @v-color-white;
+    
+@nav-tabs-border-color:                         @v-color-gray-lighter;
+@nav-tabs-link-hover-border-color:              @gray-lighter;
+@nav-tabs-active-link-hover-bg:                 @body-bg;
+@nav-tabs-active-link-hover-color:              @gray;
+@nav-tabs-active-link-hover-border-color:       @v-color-gray-lighter;
+@nav-tabs-justified-link-border-color:          @v-color-gray-lighter;
+@nav-tabs-justified-active-link-border-color:   @body-bg;
+
+@nav-pills-border-radius:                       @border-radius-base;
+// @nav-pills-active-link-hover-bg:                ; already defined above
+// @nav-pills-active-link-hover-color:             ; already defined above
+
+
+/* Pagination
+------------------------------------------------------------------------------------------*/
+@pagination-color:                           @link-color;
+@pagination-bg:                              @v-color-white;
+@pagination-border:                          @v-color-gray-lighter;
+       
+@pagination-hover-color:                     @link-hover-color;
+@pagination-hover-bg:                        @gray-lighter;
+@pagination-hover-border:                    @v-color-gray-lighter;
+       
+@pagination-active-color:                    @v-color-white;
+@pagination-active-bg:                       @brand-primary;
+@pagination-active-border:                   @brand-primary;
+       
+@pagination-disabled-color:                  @gray-light;
+@pagination-disabled-bg:                     @v-color-white;
+@pagination-disabled-border:                 @v-color-gray-lighter;
+
+
+/* Pager
+------------------------------------------------------------------------------------------*/
+@pager-bg:                                   @pagination-bg;
+@pager-border:                               @pagination-border;
+// @pager-border-radius:                        ; already defined above
+@pager-hover-bg:                             @pagination-hover-bg;
+@pager-active-bg:                            @pagination-active-bg;
+@pager-active-color:                         @pagination-active-color;
+@pager-disabled-color:                       @pagination-disabled-color;
+
+
+/* Jumbotron
+------------------------------------------------------------------------------------------*/
+@jumbotron-padding:                          30px;
+@jumbotron-color:                            inherit;
+@jumbotron-bg:                               @v-color-white;             
+@jumbotron-heading-color:                    inherit;
+@jumbotron-font-size:                        @font-size-heading-section;
+
+
+/* Tooltips
+------------------------------------------------------------------------------------------*/
+@tooltip-max-width:                          200px;
+@tooltip-color:                              @text-color-body-reverse;
+@tooltip-bg:                                 @v-color-gray-darkest;
+@tooltip-opacity:                            .9;
+@tooltip-arrow-width:                        5px;
+@tooltip-arrow-color:                        @tooltip-bg;
+
+
+/* Popovers
+------------------------------------------------------------------------------------------*/
+@popover-bg:                                 @v-color-white;
+@popover-max-width:                          276px;
+@popover-border-color:                       @semi-transparent-border-color;
+@popover-fallback-border-color:              @default-border-color;
+@popover-title-bg:                           darken(@popover-bg, 3%);
+@popover-arrow-width:                        10px;
+@popover-arrow-color:                        @popover-bg;
+@popover-arrow-outer-width:                  (@popover-arrow-width + 1);
+@popover-arrow-outer-color:                  fadein(@popover-border-color, 5%);
+@popover-arrow-outer-fallback-color:         darken(@popover-fallback-border-color, 20%);
+
+
+/* Modals
+------------------------------------------------------------------------------------------*/
+@modal-inner-padding:                        @main-content-margin-large-screen;  // not sure yet how Bootstrap is passing in different values for breakpoints
+@modal-title-padding:                        15px;
+@modal-title-line-height:                    @line-height-base;
+@modal-content-bg:                           @v-color-white;
+@modal-content-border-color:                 @semi-transparent-border-color;
+@modal-content-fallback-border-color:        @v-color-gray-light;
+@modal-backdrop-bg:                          @v-color-black;
+@modal-backdrop-opacity:                     .5;
+@modal-header-border-color:                  @border-color-light;
+@modal-footer-border-color:                  @modal-header-border-color;
+@modal-lg:                                   900px;
+@modal-md:                                   600px;
+@modal-sm:                                   300px;
+
+
+/* Alerts
+------------------------------------------------------------------------------------------*/
+@alert-padding:                              @main-content-margin-large-screen;  // not sure yet how Bootstrap is passing in different values for breakpoints
+@alert-border-radius:                        @border-radius-base;
+@alert-link-font-weight:                     bold;
+               
+@alert-success-bg:                           @state-success-bg;
+@alert-success-text:                         @state-success-text;
+@alert-success-border:                       @state-success-border;
+               
+@alert-info-bg:                              @state-info-bg;
+@alert-info-text:                            @state-info-text;
+@alert-info-border:                          @state-info-border;
+               
+@alert-warning-bg:                           @state-warning-bg;
+@alert-warning-text:                         @state-warning-text;
+@alert-warning-border:                       @state-warning-border;
+               
+@alert-danger-bg:                            @state-danger-bg;
+@alert-danger-text:                          @state-danger-text;
+@alert-danger-border:                        @state-danger-border;
+
+
+/* Progress Bars
+------------------------------------------------------------------------------------------*/
+@progress-bg:                                @v-color-gray-lightest;
+@progress-bar-color:                         @v-color-white;
+@progress-bar-bg:                            @brand-primary;
+@progress-bar-success-bg:                    @brand-success;
+@progress-bar-warning-bg:                    @brand-warning;
+@progress-bar-danger-bg:                     @brand-danger;
+@progress-bar-info-bg:                       @brand-info;
+
+
+/* List Group
+------------------------------------------------------------------------------------------*/
+@list-group-bg:                              @v-color-white;
+@list-group-border:                          @border-color-light;
+@list-group-border-radius:                   @border-radius-base;
+@list-group-hover-bg:                        @v-color-gray-lightest;
+@list-group-active-color:                    @component-active-color;
+@list-group-active-bg:                       @component-active-bg;
+@list-group-active-border:                   @list-group-active-bg;
+@list-group-active-text-color:               lighten(@list-group-active-bg, 40%);
+@list-group-link-color:                      @v-color-gray-dark;
+@list-group-link-heading-color:              @v-color-gray-darker;
+
+
+/* Panels
+------------------------------------------------------------------------------------------*/
+@panel-bg:                                   @v-color-white;
+@panel-body-padding:                         10px @main-content-margin-large-screen;  // not sure yet how Bootstrap is passing in different values for breakpoints
+@panel-border-radius:                        @border-radius-base;
+               
+@panel-inner-border:                         @v-color-gray-lighter;
+@panel-footer-bg:                            @v-color-gray-lightest;
+               
+@panel-default-text:                         @gray-dark;
+@panel-default-border:                       @v-color-gray-lighter;
+@panel-default-heading-bg:                   @v-color-gray-lightest;
+               
+@panel-primary-text:                         @v-color-white;
+@panel-primary-border:                       @brand-primary;
+@panel-primary-heading-bg:                   @brand-primary;
+               
+@panel-success-text:                         @state-success-text;
+@panel-success-border:                       @state-success-border;
+@panel-success-heading-bg:                   @state-success-bg;
+               
+@panel-info-text:                            @state-info-text;
+@panel-info-border:                          @state-info-border;
+@panel-info-heading-bg:                      @state-info-bg;
+               
+@panel-warning-text:                         @state-warning-text;
+@panel-warning-border:                       @state-warning-border;
+@panel-warning-heading-bg:                   @state-warning-bg;
+               
+@panel-danger-text:                          @state-danger-text;
+@panel-danger-border:                        @state-danger-border;
+@panel-danger-heading-bg:                    @state-danger-bg;
+
+
+/* Thumbnails
+------------------------------------------------------------------------------------------*/
+@thumbnail-padding:                          4px;
+@thumbnail-bg:                               @body-bg;
+@thumbnail-border:                           @border-color-light;
+@thumbnail-border-radius:                    @border-radius-base;
+@thumbnail-caption-color:                    @text-color;
+@thumbnail-caption-padding:                  9px;
+
+
+/* Wells
+------------------------------------------------------------------------------------------*/
+@well-bg:                                    @v-color-gray-lightest;
+@well-border:                                @default-border-color;
+
+
+/* Badges
+------------------------------------------------------------------------------------------*/
+@badge-color:                                @v-color-white;
+@badge-link-hover-color:                     @v-color-white;
+@badge-bg:                                   @v-color-black;
+@badge-active-color:                         @v-color-white;
+@badge-active-bg:                            @v-color-link;
+@badge-font-weight:                          bold;
+@badge-line-height:                          1;
+@badge-border-radius:                        10px;
+
+
+/* Breadcrumbs
+------------------------------------------------------------------------------------------*/
+@breadcrumb-padding-vertical:                0;
+@breadcrumb-padding-horizontal:              1em;
+@breadcrumb-bg:                              @body-main-bg;
+@breadcrumb-color:                           @v-color-gray-lighter;
+@breadcrumb-active-color:                    @text-color-body;
+@breadcrumb-separator:                       "/";
+
+
+/* Carousel
+------------------------------------------------------------------------------------------*/
+@carousel-text-shadow:                       0 1px 2px fade(@v-color-black,40%); // creates rgba
+@carousel-control-color:                     @v-color-white;
+@carousel-control-width:                     15%;
+@carousel-control-opacity:                   .5;
+@carousel-control-font-size:                 @font-size-side-nav-icon-large-screen;
+@carousel-indicator-active-bg:               @v-color-white;
+@carousel-indicator-border-color:            @v-color-white;
+@carousel-caption-color:                     @v-color-white;
+
+
+/* Close
+------------------------------------------------------------------------------------------*/
+@close-font-weight:                          bold;
+@close-color:                                @v-color-black;
+@close-text-shadow:                          0 1px 0 @v-color-white;
+
+
+/* Code
+------------------------------------------------------------------------------------------*/
+@code-color:                                 #c7254e;
+@code-bg:                                    #f9f2f4;
+@kbd-color:                                  @v-color-white;
+@kbd-bg:                                     @v-color-gray-darker;
+@pre-bg:                                     @v-color-gray-lightest;
+@pre-color:                                  @gray-dark;
+@pre-border-color:                           @v-color-gray-lighter;
+@pre-scrollable-max-height:                  340px;
+
+
+/* Miscellaneous
+------------------------------------------------------------------------------------------*/
+@hr-border:                                  @border-color-light; 
+@component-offset-horizontal:                180px; // Horizontal offset for forms and lists.
+
+
+
+/******************************************************************************************
+Kendo Variable Updates (covers variable names not already called above)
+*******************************************************************************************/
+
+
+/* Global Variables
+------------------------------------------------------------------------------------------*/
+@input-height:                               @input-height-small-screen;
+// @input-indent:                               10px; // already defined above
+@editor-icon-size:                           2rem;
+@kendo-icon-size:                            @editor-icon-size;
+@kendo-icon-size-large:                      @font-size-side-nav-icon-small-screen;
+@menu-link-padding:                          .5em 1.1em .4em;
+@button-padding:                             @button-padding-vertical @button-padding-horizontal;
+@checkbox-size:                              @checkbox-size-large-screen;
+@checkbox-tick-size:                         @checkbox-tick-size-large-screen;
+@treeview-inner-padding:                     1px 0.3333em 1px 0.25em;
+@treeview-inner-margin:                      1px 0 1px 0.16666em;
+@scheduler-link-padding:                     0 1.1em;
+@grid-header-padding:                        .22em .2em .28em;
+
+@icon-positioning:                           "default";
+@fallback-texture:                           none;
+@texture:                                    none;
+@tooltip-texture:                            none;
+
+
+/* Widget Base Styles
+------------------------------------------------------------------------------------------*/
+@widget-background-color:                    @v-color-white;
+@widget-gradient:                            none;
+@widget-border-color:                        @input-border-color;
+@widget-text-color:                          @text-color-body;
+@widget-shadow:                              none;
+
+
+/* Selects
+------------------------------------------------------------------------------------------*/
+@select-background-color:                    @v-color-white;
+@select-border-color:                        @default-border-color;
+@select-hover-background-color:              @v-color-white;
+@select-group-background-color:              @v-color-white;
+// @select-text-color:                         @v-color-gray-darker;
+
+
+/* Dropdowns
+------------------------------------------------------------------------------------------*/
+@drop-down-background:                       @v-color-white;
+@drop-down-border-color:                     @default-border-color;
+@drop-down-hover-border-color:               @border-color-light;
+@drop-down-focused-border-color:             @default-border-color;
+@drop-down-text-color:                       @v-color-gray-darkest;
+
+
+/* Inputs
+------------------------------------------------------------------------------------------*/
+@input-background-color:                     @v-color-white;
+@input-text-color:                           @v-color-gray-darker;
+
+
+/* Links
+------------------------------------------------------------------------------------------*/
+@link-text-color:                            @v-color-white;
+
+
+/* Headers
+------------------------------------------------------------------------------------------*/
+@header-background-color:                    @v-color-white;
+@header-text-color:                          @v-color-gray-darkest;
+
+
+/* Buttons
+------------------------------------------------------------------------------------------*/
+@button-background-color:                    @v-color-white;
+@button-text-color:                          @v-color-gray-darkest;
+@button-border-color:                        @default-border-color;
+
+
+/* Group Base Styles
+------------------------------------------------------------------------------------------*/
+@group-background-color:                     @v-color-white;
+@group-border-color:                         @border-color-light;
+
+
+/* Content
+------------------------------------------------------------------------------------------*/
+@content-background-color:                   @widget-background-color;
+
+
+/*----------------------------------------------------------------------------------------
+   Widget States
+------------------------------------------------------------------------------------------*/
+
+/* Hover State
+------------------------------------------------------------------------------------------*/
+@hover-text-color:                           @v-color-gray-darkest;
+@hover-gradient:                             none;
+@hover-background-color:                     @v-color-white;
+@hover-border-color:                         @v-color-link-hover;
+@hover-shadow:                               none;
+
+
+/* Selected State
+------------------------------------------------------------------------------------------*/
+@selected-text-color:                       @text-color-body;
+@selected-gradient:                         none;
+@selected-background-color:                 @v-color-selected;
+@selected-border-color:                     @v-color-selected;
+@selected-shadow:                           none;
+
+
+/*Focused State
+------------------------------------------------------------------------------------------*/
+@focused-border-color:                      @default-border-color;
+@focused-shadow:                            none;
+@focused-item-shadow:                       inset 0 0 0 1px @v-color-gray-lighter;
+@focused-active-item-shadow:                inset 0 0 3px 1px @v-color-gray-lighter;
+
+
+/* Active State
+------------------------------------------------------------------------------------------*/
+@active-text-color:                         @v-color-black;
+@active-gradient:                           none;
+@active-background-color:                   @v-color-white;
+@active-border-color:                       @default-border-color;
+@active-shadow:                             none;
+
+
+/* Error State
+------------------------------------------------------------------------------------------*/
+@error-text-color:                          @v-color-error;
+@error-background-color:                    @v-color-white;
+@error-border-color:                        @v-color-error;
+
+
+/* Disabled State
+------------------------------------------------------------------------------------------*/
+@disabled-text-color:                       @v-color-gray-light;
+
+
+/* ToolTip
+------------------------------------------------------------------------------------------*/
+@tooltip-text-color:                        @v-color-gray-darker;
+@tooltip-background-color:                  @v-color-white;
+@tooltip-border-color:                      @border-color-light;
+
+
+/* Validation Message
+------------------------------------------------------------------------------------------*/
+@validation-text-color:                     @v-color-gray-darker;
+@validation-background-color:               transparent;
+@validation-border-color:                   @default-border-color;
+
+
+/* Splitter
+------------------------------------------------------------------------------------------*/
+@splitbar-background-color:                 @border-color-light;
+
+
+/* Slider
+------------------------------------------------------------------------------------------*/
+@draghandle-border-radius:                  0;
+@draghandle-border-color:                   @v-color-portal-dark;
+@draghandle-background-color:               @v-color-portal-dark;
+@draghandle-shadow:                         none;
+@draghandle-hover-border-color:             @hover-border-color;
+@draghandle-hover-background-color:         @hover-background-color;
+@draghandle-hover-shadow:                   none;
+
+
+/* Grid
+------------------------------------------------------------------------------------------*/
+@alt-background-color:                      @v-color-white;
+@cell-border-color:                         @border-color-light;
+@column-highlight-background-color:         @v-color-gray-lightest;
+
+
+/* Scheduler
+------------------------------------------------------------------------------------------*/
+@scheduler-background-color:                @v-color-white;
+@current-time-color:                        @v-color-error;
+@event-background-color:                    @v-color-portal-dark; // TODO
+@event-text-color:                          @v-color-white;
+@event-inverse-text-color:                  @v-color-gray-darker;
+@scheduler-nonwork-background-color:        transparent;
+@resize-background-color:                   @v-color-gray-mid;
+
+
+/* Upload
+------------------------------------------------------------------------------------------*/
+@upload-progress-background-color:          @v-color-info-light;
+@upload-progress-text-color:                @v-color-info;
+@upload-success-background-color:           @v-color-success-light;
+@upload-success-text-color:                 @v-color-success;
+@upload-error-background-color:             @v-color-error-light;
+@upload-error-text-color:                   @v-color-error;
+
+
+/* Loading Indicators
+------------------------------------------------------------------------------------------*/
+@loading-panel-color:                       @v-color-white;
+
+
+/* Shadows
+------------------------------------------------------------------------------------------*/
+@shadow-color:                              fade(@v-color-black,30%); // creates rgba
+@shadow-inset-color:                        transparent;
+
+
+/* Border Radii
+------------------------------------------------------------------------------------------*/
+@main-border-radius:                        0;
+@list-border-radius:                        @main-border-radius - 1;
+@inner-border-radius:                       @main-border-radius - 2;
+@slider-border-radius:                      13px;
+
+
+/* Icons
+------------------------------------------------------------------------------------------*/
+@default-icon-opacity:                      1;
+@icon-background-color:                     transparent;
+
+
+/* Calendar
+------------------------------------------------------------------------------------------*/
+@calendar-border-radius:                    0;
+@calendar-content-text-color:               @v-color-gray-darkest;
+@calendar-footer-background:                @v-color-white;
+@calendar-footer-text-decoration:           none;
+@calendar-footer-hover-text-decoration:     none;
+@calendar-footer-hover-background:          @v-color-link-hover;
+@calendar-footer-active-background:         @widget-background-color;
+@calendar-header-hover-text-decoration:     none;
+@calendar-header-hover-background:          @v-color-white;
+@calendar-group-background-color:           @v-color-white;
+
+
+/* Tabstrip
+------------------------------------------------------------------------------------------*/
+@tabstrip-items-border:                     @border-color-light;
+@tabstrip-active-background:                @v-color-white;
+@tabstrip-tabs-color:                       @v-color-gray-darkest;
+
+
+/* Menu
+------------------------------------------------------------------------------------------*/
+@menu-border-color:                         @v-color-portal-light;
+
+
+/* Pagination
+------------------------------------------------------------------------------------------*/
+@grid-pagination-text-color:                    @v-color-gray-darkest;
+@grid-pagination-background-color:              @v-color-gray-lightest;
+@grid-pagination-border:                        @border-color-light;
+    
+@grid-pagination-hover-text-color:              @text-color-body-reverse;
+@grid-pagination-hover-background-color:        @v-color-link-hover;
+@grid-pagination-hover-border:                  transparent;
+    
+@grid-pagination-selected-text-color:           @text-color-body-reverse;
+@grid-pagination-selected-background-color:     @v-color-portal-dark;
+@grid-pagination-selected-border:               transparent;
+    
+@grid-pagination-disabled-text-color:           @grid-pagination-text-color; // disabled style set via opacity
+@grid-pagination-disabled-background-color:     @grid-pagination-background-color; // disabled style set via opacity
+@grid-pagination-disabled-border:               transparent;
+
+
+/* Other
+------------------------------------------------------------------------------------------*/
+@form-widget-color:                         @v-color-gray-darkest;
+@secondary-border-color:                    @border-color-light;
+@secondary-text-color:                      @v-color-gray-darkest;
+@numeric-selected-background:               @v-color-gray-mid;
+@panelbar-items-border:                     @default-border-color;
+@panelbar-content-background:               @v-color-white;
+@panelbar-content-color:                    @v-color-gray-darkest;
+@window-shadow-style:                       1px 1px 7px 1px;
+@filter-menu-content-background:            @v-color-white;
+
+
+
+/******************************************************************************************
+Font Awesome Variable Updates
+*******************************************************************************************/
+
+
+/* Global Variables
+------------------------------------------------------------------------------------------*/
+@fa-border-color:     #eee;
+@fa-inverse:          #fff;
+@fa-li-width:         (30em / 14);

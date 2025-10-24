@@ -1,0 +1,72 @@
+﻿<div data-control="actionLog" class="cs-form__predefined--actionlog">
+    <div data-bind="visible:notArchived && !<%=Disabled%>">
+        <div class="row hidden-print" data-bind="visible:isDesktop">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="commentBoxEditor" data-localize="Comment"></label>
+                    <textarea id="commentBoxEditor" class="k-textbox form-control input-sm action-log-textarea" data-bind="value: commentBoxHTML"></textarea>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="pull-left">
+                    <span data-bind="text: charactersRemaining"></span>
+                    <span data-localize="CharactersRemaining"> </span>
+                </div>
+                <div class="pull-right">
+                    <button type="button" data-bind="click: addComment, enabled: addEnabled" class="k-button btn btn-primary action-log-add-button" data-localize="Add"></button>
+                </div>
+                <div data-bind="visible: isAnalyst" class="pull-right checkbox action-log-private">
+                    <input type="checkbox" data-bind="checked: isPrivate" id="actionLogisPrivate">
+
+                    <label class="label-middle-align checkbox-inline checkbox-label" data-localize="IsPrivate" for="actionLogisPrivate"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row hidden-print" data-bind="visible:isMobile">
+            <div class="action-log-mobile">
+                <textarea id="commentBoxEditorMobile" class="k-textbox form-control input-sm action-log-textarea" data-bind="value: commentBoxHTML"></textarea>
+                <div class="action-log-mobile-buttons">
+                    <button type="button" data-bind="click: addComment" data-localize="Add Comment" class="col-xs-7 btn btn-primary"></button>
+                    <div data-bind="visible: isAnalyst" class="pull-left checkbox checkbox-inline action-log-mobile-private">
+                        <input type="checkbox" data-bind="checked: isPrivate" id="actionLogisPrivate">
+                        <label class="label-middle-align control-label" data-localize="IsPrivate" for="actionLogisPrivate"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" data-bind="visible:isDesktop">
+            <div data-control-grid="actionLogGrid" class="inline-spacing"></div>
+            <!-- kendo details template used by action grid -->
+            <script data-id="commentDetailTemplate" type="text/kendo-tmpl">
+                <p name="CommentBoxDetail" class="action-log-comment">#: app.lib.decodeHTML(DescriptionDisplay)#</p>
+            </script>
+        </div>
+        <div data-bind="visible:isMobile">
+            <div data-role="listview" data-bind="source: actionLogSource" data-template="action-log-grid-mobile-template" class="action-log-mobile-grid "></div>
+            <script type="text/x-kendo-template" id="action-log-grid-mobile-template">
+                <div class="col-md-12 action-log-info">
+                    <div class="row">
+                        <div class="col-xs-2 action-log-icon">
+                            <img src="#:data.Image#" alt="#:data.Image#" />
+                        </div>
+                        <div class="col-xs-10 action-log-details">
+                            <p>
+                                #: EnteredBy # &middot; #: (EnteredDate) ? kendo.toString(new Date(EnteredDate), 'd'):'' #
+                            </p>
+                            <p> #: Title #</p>
+                        </div>
+                        <div class="col-xs-offset-2 col-xs-10 action-log-content">
+                            #: Description #
+                        </div>
+                        </div>
+                     </div>
+                    <div class="row">
+                    </div>
+                </div>
+            </script>
+        </div>
+    </div>
+</div>

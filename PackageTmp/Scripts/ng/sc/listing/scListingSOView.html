@@ -1,0 +1,106 @@
+﻿
+<div ng-show="loading">
+    <div class="spinner"><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div>
+</div>
+
+<div ng-show="!loading">
+    <!--thid div element hold all the content and this will be show after loading set to false-->
+    <ol class="breadcrumb mar-top-1 mar-bot-0">
+        <li><a href="Listing#/">{{ localization.Home }}</a></li>
+        <li class="active">{{ serviceCatalog.Category }}</li>
+        <li class="active">{{ soModel.ServiceInfo.Title }}</li>
+    </ol><br />
+    <service-panel categorydata="scData" placeholder="localization.BrowseByCategory"></service-panel>
+    <div class="sc__heading">
+        <h1 class="margin-b10">{{ soModel.ServiceInfo.Title }}</h1>
+        <hr>
+    </div>
+    <div class="sc__so-details row">
+        <div class="col-sm-2 sc__so-details--image" ng-show="soModel.ServiceInfo.OfferingImage64.length > 0"><img ng-src="/ServiceCatalog/GetServiceOfferingImg/{{ soModel.ServiceInfo.Id }}" class="img-responsive"></div>
+        <div class="col-sm-10 sc__so-details--desc">
+            <p ng-bind-html="soModel.ServiceInfo.Overview"></p>
+        </div>
+    </div>
+    <div class="sc__ro-lists sc-page-header">
+        <h3>{{ localization.RequestOfferings }}</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-6" data-ng-repeat="so in soItems">
+                <div class="media">
+                    <div class="pull-left media__so-image">
+                        <a ng-if="so.RequestOfferingLinkUrl!=null" href="{{so.RequestOfferingLinkUrl}}" target="{{so.RequestOfferingLinkTargetType}}">
+                            <img ng-src="/ServiceCatalog/GetRequestOfferingImg/{{ so.RequestOfferingId }}"
+                                 onerror="this.onerror=null; this.src='/Content/Images/Icons/RequestOffering/RO_Default.png';"
+                                 class="img-responsive">
+                        </a>
+                        <a ng-if="so.RequestOfferingLinkUrl==null" href="/ServiceCatalog/RequestOffering/{{ so.RequestOfferingId }},{{ soModel.ServiceInfo.Id }}">
+                            <img ng-src="/ServiceCatalog/GetRequestOfferingImg/{{ so.RequestOfferingId }}"
+                                 onerror="this.onerror=null; this.src='/Content/Images/Icons/RequestOffering/RO_Default.png';"
+                                 class="img-responsive">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h5 class="media-heading">
+                            <a ng-if="so.RequestOfferingLinkUrl!=null" href="{{so.RequestOfferingLinkUrl}}" target="{{so.RequestOfferingLinkTargetType}}">{{ so.RequestOfferingTitle }}</a>
+                            <a ng-if="so.RequestOfferingLinkUrl==null" href="/ServiceCatalog/RequestOffering/{{ so.RequestOfferingId }},{{ soModel.ServiceInfo.Id }}">{{ so.RequestOfferingTitle }}</a>
+                        </h5>
+                        <p class="media__so-desc" ng-bind-html="so.RequestOfferingDescription"></p>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="soItems.length === 0">
+                <p>{{ localization.NoRequestOfferings }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row sc__ka-lists sc-page-header">
+        <div class="col-sm-6">
+            <h3>{{ localization.RelatedKnowledgeArticles }} <small>{{ localization.ByCategory }}</small></h3>
+            <hr>
+            <nav class="sc-kabar-nav">
+                <ul class="sc-kanav article-list">
+                    <li data-ng-repeat="ka in categoryModel">
+                        <span ng-click="toggleBar($event)">{{ ka.Category.Name }}<small>({{ ka.Category.Count }})</small> <i class="fa fa-chevron-left pull-right"></i></span>
+                        <ul class="sc-kanav" data-ng-repeat="article in ka.Category.Articles" hidden>
+                            <li>
+                                <div>
+                                    <a class="a-link a-icon" href="/KnowledgeBase/View/{{ article.ArticleId }}" target="_blank"><i class="fa fa-external-link"></i></a>
+                                    <a class="a-link" href="/KnowledgeBase/View/{{ article.ArticleId }}">{{ article.Title  }}</a><br />
+                                    <small>{{ localization.Rating }} {{ article.Rating }}/5 | {{localization.Views}}: {{article.ViewCount}} | {{localization.LastModified}}: {{article.LastModifiedDate | date:"MMMM dd, yyyy"}}</small>
+                                </div>
+                                <p ng-show="article.Abstract.length > 0" ng-bind-html="article.Abstract"></p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li ng-show="kbNoResultCategory">
+                        <p>{{ localization.NoRelatedKnowledgeArticles }}</p>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-sm-6">
+            <h3>{{ localization.RelatedKnowledgeArticles }} <small>{{ localization.ByType }}</small></h3>
+            <hr>
+            <nav class="sc-kabar-nav">
+                <ul class="sc-kanav article-list">
+                    <li data-ng-repeat="ka in typeModel">
+                        <span ng-click="toggleBar($event)">{{ ka.Type.Name }}<small>({{ ka.Type.Count }})</small> <i class="fa fa-chevron-left pull-right"></i></span>
+                        <ul class="sc-kanav" data-ng-repeat="article in ka.Type.Articles" hidden>
+                            <li>
+                                <div>
+                                    <a class="a-link a-icon" href="/KnowledgeBase/View/{{ article.ArticleId }}" target="_blank"><i class="fa fa-external-link"></i></a>
+                                    <a class="a-link" href="/KnowledgeBase/View/{{ article.ArticleId }}">{{ article.Title  }}</a><br />
+                                    <small>{{ localization.Rating }} {{ article.Rating }}/5 | {{localization.Views}}: {{article.ViewCount}} | {{localization.LastModified}}: {{article.LastModifiedDate | date:"MMMM dd, yyyy"}}</small>
+                                </div>
+                                <p ng-show="article.Abstract.length > 0" ng-bind-html="article.Abstract"></p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li ng-show="kbNoResultType">
+                        <p>{{ localization.NoRelatedKnowledgeArticles }}</p>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

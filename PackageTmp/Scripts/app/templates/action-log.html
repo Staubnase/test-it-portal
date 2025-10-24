@@ -1,0 +1,42 @@
+﻿<div>
+    <div>
+        <input data-control="userPickerOld" data-control-itemtype="actionLog" />
+        <div data-show="userIsPicked">
+            <label class="checkbox">
+                <input data-bind="checked: Veto" type="checkbox" id="alHasVeto" />
+                <span class="checkbox-label" for="alHasVeto">Has Veto</span>
+            </label>
+            <label class="checkbox">
+                <input data-bind="checked: MustVote" type="checkbox" id="alMustVeto" />
+                <span class="checkbox-label" for="alMustVeto">Must Veto</span>
+            </label>
+        </div>
+        <button data-show="userInEdit" data-click="save" type="button">Save</button>
+        <button data-show="userInEdit" data-click="cancel" type="button">Cancel</button>
+        <button data-hide="userInEdit" data-enabled="userIsPicked" data-click="add" type="button">Add</button>
+        <button data-hide="userInEdit" data-enabled="userIsSelected" data-click="edit" type="button">Edit</button>
+        <button data-enabled="userIsSelected" data-click="remove" type="button">Remove</button>
+        <button data-enabled="userIsSelected" data-click="remove" type="button">Approve</button>
+        <button data-enabled="userIsSelected" data-click="remove" type="button">Reject</button>
+        <button data-enabled="userIsSelected" data-click="remove" type="button">Approve All</button>
+        <button data-enabled="userIsSelected" data-click="remove" type="button">Reject All</button>
+    </div>
+
+    <div>
+        <table data-kendo-control="grid">
+            <thead>
+                <tr>
+                    <th data-field="User.Name">Reviewer</th>
+                    <th data-field="Veto">Has Veto</th>
+                    <th data-field="MustVote">Must Vote</th>
+                    <th>Voted By</th>
+                    <th data-field="Decision.Name">Decision</th>
+                    <th data-field="DecisionDate">Decision Date</th>
+                    <th data-field="Comments">Comment</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+

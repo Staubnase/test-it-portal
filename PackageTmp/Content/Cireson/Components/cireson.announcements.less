@@ -1,0 +1,233 @@
+﻿/******************************************************************************************
+Announcements - Custom Styles
+*******************************************************************************************/
+
+.announcements {
+    display: none;
+    position: fixed;
+    top: @navbar-height-large-screen;
+    right: 0;
+    left: 0;
+    z-index: 1010;
+    padding: 0;
+    color: @announcements-heading-color;
+    background: fade(@announcements-heading-color-bg,97%); // creates rgba
+    @media @small-and-medium-screen-only {
+        top: @navbar-height-small-screen;
+    }
+    > .container-fluid, .announcements-menu {
+        padding: 0 15px;
+        min-height: @announcements-collapsed-height;
+        line-height: @announcements-collapsed-height;
+    }
+
+    > .container-fluid {
+        font-size: @font-size-heading-subsection;
+    }
+
+    .active-announcements & {
+        display: inherit;
+
+        @media @small-and-medium-screen-only {
+            .transition(top .2s);
+        }
+    }
+
+    .active-announcements &.scroll-hide-announcements {
+        @media @small-and-medium-screen-only {
+            top: -100px;
+        }
+    }
+
+    .announcements-fa {
+        color: @text-color-body-reverse;
+        float: left;
+        margin-right: 15px;
+
+        span {
+            font-size: @font-size-heading-section;
+            line-height: @announcements-collapsed-height - 2;
+        }
+    }
+
+    .announcements-title {
+        cursor: pointer;
+        text-transform: lowercase;
+    }
+
+    .announcement-link {
+        font-size: @font-size-body-text;
+        text-decoration: underline;
+        cursor: pointer;
+        float: right;
+
+        @media @small-and-medium-screen-only {
+            font-size: @font-size-heading-section;
+        }
+
+        .fa {
+            margin-right: 5px;
+            margin-left: 5px;
+            color: @text-color-body-reverse;
+
+            @media @small-and-medium-screen-only {
+                margin: 0;
+                position: absolute;
+                right: @main-content-margin-small-screen;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    .announcements-menu {
+        height: @announcements-menu-height;
+        line-height: @line-height-base;
+        color: @text-color-body-reverse;
+        background: fade(@announcements-heading-color-bg,97%);
+        padding-top: 10px;
+        padding-left: 51px;
+        overflow: hidden;
+        position: fixed;
+        right: 0;
+        left: 0;
+        top: (@navbar-height-large-screen + @announcements-collapsed-height)-1;
+        @media @small-and-medium-screen-only {
+            top: (@navbar-height-small-screen + @announcements-collapsed-height)-1;
+        }
+        strong {
+            color: @announcements-heading-color;
+        }
+
+        .announcements-nav {
+            float: left;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            color: @text-color-body-reverse-light;
+
+            .fa {
+                font-size: 2.5rem;
+            }
+        }
+
+        .announcements-previous {
+            .announcements-nav;
+            left: 15px;
+        }
+
+        .announcements-next {
+            .announcements-nav;
+            right: 15px;
+        }
+
+        .announcements-wrapper-outer {
+            overflow: hidden;
+
+            .announcements-wrapper {
+                position: relative;
+                display: block;
+            }
+
+            .announcement-item {
+                height: @announcements-menu-height - 30;
+                float: left;
+                width: 375px;
+                padding-right: 20px;
+                // TODO: use rules below; but need to update JS click event first
+                /*width: 47vw;
+                padding-right: 3vw;*/
+                @media @small-and-medium-screen-only {
+                    /*width: 97vw;*/
+                }
+
+                html[dir~="rtl"] & {
+                    float: right;
+                }
+
+                .announcement-item-heading {
+                    margin-bottom: 10px;
+                }
+
+                .announcement-item-title {
+                    color: @announcements-heading-color;
+                }
+
+                .fa {
+                    margin-right: 3px;
+                }
+                //to be used below
+                .priority-font {
+                    text-transform: lowercase;
+                }
+
+                .default {
+                    .announcement-item-priority {
+                        font-size: @font-size-meta-text;
+                        color: @text-color-body-reverse-light;
+                    }
+                }
+
+                .medium {
+                    //medium
+                    .announcement-item-priority {
+                        font-size: @font-size-meta-text;
+                        color: @v-color-warning;
+                    }
+                }
+
+                .high {
+                    //critical
+                    .announcement-item-priority {
+                        font-size: @font-size-meta-text;
+                        color: @v-color-error;
+                    }
+                }
+
+                .announcement-item-body {
+                    font-size: @font-size-body-text;
+                    height: @announcements-menu-height - 95;
+                    overflow: auto;
+                    padding-right: 8px;
+                }
+            }
+        }
+    }
+}
+
+//adjust for announcements area
+#side_nav {
+
+    .active-announcements & {
+        top: @navbar-height-large-screen + @announcements-collapsed-height;
+        @media @small-and-medium-screen-only {
+            top: 0;
+        }
+    }
+
+    .sub_panel {
+
+        .active-announcements & {
+            top: @navbar-height-large-screen + @announcements-collapsed-height;
+        }
+    }
+}
+
+#main_wrapper {
+    .active-announcements & {
+        margin-top: @announcements-collapsed-height;
+    }
+}
+
+.annoucncement-control-wrapper .defined-form {
+    @media @small-and-medium-screen-only {
+        .col-md-6,
+        .col-md-4 {
+            padding-top: 0 !important;
+        }
+    }
+}

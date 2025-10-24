@@ -1,0 +1,29 @@
+﻿<div class="form-group cs-form__textbox cs-form__textbox--<%= PropertyName %>">
+    <label class="control-label cs-form__textbox--label" for="<%= PropertyName %>" data-localize="<%= PropertyDisplayName %>">
+        <span><% if ( Required ){ %> <%= '(' + localization.Required + ')' %><% } %></span>
+    </label>
+    <input type="text"
+           name="<%= PropertyName %>"
+           class="k-textbox form-control input-sm cs-form__textbox--input"
+           data-bind="value: <%= PropertyName %><% if ( LimitLength ){ %>, events : { blur: view.stringController.CheckLength }<% } %>"
+
+
+    <% if ( LimitLength ){ %>
+    maxlength="<%= MaxLength %>"
+    <% } %>
+
+    <% if ( Disabled ){ %>
+    disabled
+    <% } %>
+
+    <% if ( Required ){ %>
+    required
+    <% } %>
+
+    />
+
+    <% if ( LimitLength ){ %>
+    <p class="help-block validation-summary-errors cs-form__textbox--errors" style="display: none;"><%= localization.MaxLengthError.replace("{0}", MaxLength) %></p>
+    <% } %>
+
+</div>

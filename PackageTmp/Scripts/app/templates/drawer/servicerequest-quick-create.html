@@ -1,0 +1,141 @@
+﻿<!-- Service Request Quick Add-->
+<div data-template="srQuickAdd" class="drawerdetails-action">
+    <form class="drawerdetails-form">
+        <div class="col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+                    <div class="editor-label">
+                        <label data-localize="AffectedUser"></label>
+                    </div>
+                    <div class="editor-field">
+                        <script>
+                            app.controls.filters.add("affectedUsers", function () {
+                                return {
+                                    userFilter: $("[data-control-bind='RequestedWorkItem']").data("kendoComboBox").input.val()
+                                };
+                            });
+                        </script>
+                        <input data-control="userPicker" data-bind="value: RequestedWorkItem" data-control-bind="RequestedWorkItem" data-control-itemtype="ServiceRequest" data-control-filter="affectedUsers">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="Alternatecontactmethod"></label>
+                    </div>
+                    <div class="editor-field">
+                        <input data-bind="value: ContactMethod" class="k-textbox" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12">
+            <div>
+                <div class="editor-label">
+                    <label data-localize="Title"></label> <span id="TitleVal" style="display:none" class="error">*</span>
+                </div>
+                <div class="editor-field">
+                    <input class="k-textbox" data-bind="value: Title" type="text">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12">
+            <div>
+                <div class="editor-label">
+                    <label data-localize="Description"></label>
+                </div>
+                <div class="editor-field">
+                    <textarea data-bind="value: Description" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+                    <div class="editor-label">
+                        <label data-localize="Urgency"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Urgency" data-control-enumid="eb35f771-8b0a-41aa-18fb-0432dfd957c4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="Priority"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Priority" data-control-enumid="d55e65ea-fae9-f7db-0937-843bfb1367c0"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-12 col-md-12">
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+
+
+                    <div class="editor-label">
+                        <label data-localize="Source"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Source" data-control-enumid="848211a2-393a-6eC5-9C97-8e1e0cfebba2"></div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="Area"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="Area" data-control-enumid="3880594c-dc54-9307-93e4-45a18bb0e9e1"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-sm-12 col-md-12">
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div>
+                    <div class="editor-label">
+                        <label data-localize="SupportGroup"></label>
+                    </div>
+                    <div class="editor-field">
+                        <div data-control="enumPicker" data-control-bind="SupportGroup" data-control-enumid="23c243f6-9365-d46f-dff2-03826e24d228"></div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="padleft10">
+                    <div class="editor-label">
+                        <label data-localize="AssignedTo"></label>
+                    </div>
+                    <div class="editor-field">
+                        <input data-control="userPicker" data-bind="value: AssignedWorkItem" data-control-bind="AssignedWorkItem" data-control-itemtype="ServiceRequest">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</div>

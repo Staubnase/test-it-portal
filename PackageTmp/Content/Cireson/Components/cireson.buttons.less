@@ -1,0 +1,53 @@
+﻿/******************************************************************************************
+Buttons - Custom Styles
+*******************************************************************************************/
+
+
+/* Base styles
+------------------------------------------------------------------------------------------*/
+button {
+    .button-base;
+    // webkit extra margin fix
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        margin: 0;
+    }
+
+    &[data-bind*="save"] {
+        width: auto;
+        @media @small-and-medium-screen-only {
+            min-width: 3rem;
+        }
+        @media @large-screen-only {
+            min-width: 8rem;
+        }
+    }
+}
+
+button, .btn, .k-button {
+    + button, + .btn, + .k-button {
+        margin-right: @button-space-between;
+    }
+}
+
+.btn-group {
+    .btn {
+        margin-bottom: 10px;
+    }
+}
+
+
+/* Icons within buttons (Bootstrap + Font Awesome classes)
+------------------------------------------------------------------------------------------*/
+.btn .fa {
+    margin-right: 2px;
+}
+
+.btn .fa_0 {
+    margin-right: 0;
+}
+
+/* label within buttons
+------------------------------------------------------------------------------------------*/
+.btn label, .k-button label {
+     font-weight: normal;
+}

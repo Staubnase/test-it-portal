@@ -1,0 +1,23 @@
+﻿<div class="drawerdetails-fromtemplate">
+    <span class="drawerdetails-heading" data-localize="Templates"></span>
+    <table data-kendo-control="grid">
+
+        <tbody></tbody>
+    </table>
+
+    <script id="rowTemplate" type="text/x-kendo-tmpl">
+        <tr>
+            <td class="templatename">
+                <strong>#: Name #</strong>
+                <div>#: (Description == null) ? ' ' : Description #</div>
+            </td>
+        </tr>
+    </script>
+
+    <script id="toolbarTemplate" type="text/x-kendo-templ">
+        <span class="k-textbox k-space-right pad0">
+            <input type="text" id="searchTemplates" />
+            <a href="javascript:void(0)" id="searchFilter" class="k-icon k-i-search"></a>
+        </span>
+    </script>
+</div>

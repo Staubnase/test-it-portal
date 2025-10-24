@@ -1,0 +1,299 @@
+﻿/******************************************************************************************
+Plug-in
+
+jQuery QueryBuilder
+Copyright 2014 Damien "Mistic" Sorel (http://www.strangeplanet.fr)
+Licensed under MIT (http://opensource.org/licenses/MIT)
+*******************************************************************************************/
+
+.query-or {
+    margin: 10px 0 5px;
+    color: @text-color-body-light;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &.first {
+        display: none;
+    }
+}
+
+@media @small-and-medium-screen-only {
+    .search-text {
+        width: 220px;
+    }
+}
+
+@media @large-screen-only {
+    .search-text {
+        width: 430px;
+    }
+}
+
+.config-item-dropdown {
+    position: relative;
+
+    .config-search {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 4px;
+        background-image: url('/Content/Images/Icons/Other/search-black.svg');
+        background-size: 16px;
+        background-position: left center;
+        background-repeat: no-repeat;
+        padding: 10px;
+        z-index: 2;
+    }
+
+    .k-dropdown-wrap {
+        padding-right: 25px !important;
+
+        .dropdowntree-button.k-button {
+            display: none;
+        }
+    }
+}
+
+.user-picker {
+    .ad-user-search {
+        display: inline-block;
+    }
+
+    .ad-user-info {
+        font-size: @font-size-heading-section;
+        padding: 5px 0 0 3px;
+        float: left;
+    }
+
+    .ad-user-info-disabled {
+        color: @text-color-body-reverse;
+        cursor: default;
+    }
+
+    .ad-user-input {
+        border-radius: @default-border-radius !important;
+        width: 100%;
+        padding: 0 1.9em 0 0;
+        padding-left: 0 !important;
+
+        input {
+            font-size: @font-size-heading-subsection;
+            padding: .177em 0 !important;
+            text-indent: .33em;
+            width: auto !important;
+            display: inline-block;
+
+            &.selection-is-invalid {
+                background-color: @v-color-error-light;
+            }
+
+            &.selection-is-valid {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .ad-user-group{
+        border-top-right-radius: @default-border-radius;
+        border-bottom-right-radius: @default-border-radius;
+        border-right: 1px solid @default-border-color;
+    }
+
+    .btn-user-info {
+    }
+}
+
+.rule-container,
+.rules-group-container,
+.rule-placeholder {
+    border: 1px solid @border-color-light;
+    background: @v-color-white;
+    background: fade(@v-color-white, 10%); // creates rgba
+    .form-inline {
+        margin: 4px 0;
+        padding: 5px;
+
+        .rule-container-operator {
+            width: 135px;
+        }
+    }
+}
+
+.rule-group-container {
+    margin: -9px -5px;
+}
+
+
+/* GROUPS */
+
+.rules-group-container {
+    padding: 10px 10px 5px 10px;
+    border: 1px solid @default-border-color;
+    background: @v-color-gray-lighter;
+
+    .k-select,
+    .dropdowntree-button.k-button {
+        padding-top: 0;
+    }
+
+    .btn {
+        color: @v-color-button-bg-primary;
+        border-color: @v-color-button-bg-primary;
+        background-color: @v-color-white;
+        &.btn-danger {
+            color: @v-color-button-bg-error;
+            border-color: @v-color-button-bg-error;
+            &:hover {
+                border-color: @v-color-button-bg-error !important;
+                background-color: @v-color-button-bg-error !important;
+            }
+        }
+        @media @small-and-medium-screen-only {
+            height: @input-height-small-screen * .75;
+            line-height: @input-height-small-screen * .75;
+        }
+    }
+
+    @media @small-and-medium-screen-only {
+        .section-header {
+            margin-bottom: 10px;
+            overflow: hidden;
+            .btn {
+                margin: 0 5px 10px 0 !important;
+            }
+        }
+    }
+}
+
+.rules-group-header {
+    @media @large-screen-only {
+        margin-bottom: 10px;
+    }
+
+    input[name$=_cond] {
+        display: none;
+    }
+
+    @media @small-and-medium-screen-only {
+        position: relative;
+        z-index: 1000;
+        select {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+/* RULES */
+
+.rules-list {
+    list-style: none;
+    padding: 20px 0 0 20px;
+    margin: 0;
+
+    .rule-container {
+        &.has-error {
+            background: @v-color-error-light;
+            border-color: @v-color-error;
+        }
+
+        & > div:not(.rule-header) {
+            display: block;
+            margin: 0;
+            vertical-align: top;
+        }
+
+        .rule-value-container:not(:empty) {
+            border-left: 1px solid @border-color-light;
+            padding-left: 5px;
+        }
+
+        .rule-value-container label {
+            margin-bottom: 0;
+        }
+
+        .rule-value-container label.block {
+            display: block;
+        }
+
+        select,
+        input[type=text],
+        input[type=number] {
+            padding: 0;
+        }
+
+        @media @small-and-medium-screen-only {
+            .form-group {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+
+/* TICKS */
+
+.rules-list {
+    & > * {
+        position: relative;
+    }
+
+    & > *:before,
+    & > *:after {
+        content: '';
+        position: absolute;
+        left: -15px;
+        width: 25px;
+        height: calc(~"50% + 4px");
+        border-color: @default-border-color;
+        border-style: solid;
+    }
+
+    & > *:before {
+        top: -2px;
+        border-width: 0 0 2px 2px;
+    }
+
+    & > *:after {
+        top: 50%;
+        border-width: 0 0 0 2px;
+    }
+
+    & > *:first-child:before {
+        top: -32px;
+        height: calc(~"50% + 34px");
+        @media @small-and-medium-screen-only {
+            height: 4rem;
+        }
+    }
+
+    & > *:last-child:after {
+        display: none;
+    }
+}
+
+.k-list-container {
+    ul {
+        overflow-x: hidden !important;
+        overflow-y: auto;
+        white-space: normal;
+    }
+}
+
+.config-item-dropdown {
+    ul {
+        overflow-x: hidden !important;
+        overflow-y: hidden !important;
+    }
+}
+
+.relative-datetime {
+    margin-left: 25px;
+}
+
+.wi-search-edit-btn {
+    position: relative;
+    top: -10px;
+    right: 0;
+    z-index: 1;
+}

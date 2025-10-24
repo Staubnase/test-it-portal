@@ -1,0 +1,276 @@
+﻿<div id="expanded_widget" class="content-header__flyout  cs-form__flyout--remoteManageWidget">
+    <h3 class="content-header__flyout__title">
+        <span><%= localization.RemoteManagementText %></span>
+    </h3>
+    <div class="content-header__flyout__section">
+        <div class="content-header__flyout__section__title"><%= localization.Users %></div>
+        <div class="content-header__flyout__section__main">
+        
+            <div class="dataUserContainer"></div>
+            <div class="addUserContainer"></div>
+
+            <div data-bind="attr: { class: widget.mainWidgetAttr }">
+                <div class="support-tools__widget__selection">
+                    <a class="support-tools__widget__select-type" id="affectedUserAddLink" data-bind="click: widget.addForm, value: widget.affectedUser.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/affected_user.svg" class="support-tools__widget__select-type__logo"/>
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.AffectedText  %>
+                        </div>
+                    </a>
+                    <a class="support-tools__widget__select-type" id="assignedUserAddLink" data-bind="click: widget.addForm, value: widget.assignedUser.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/assigned_user.svg" class="support-tools__widget__select-type__logo"/>
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.AssignedText  %>
+                        </div>
+                    </a>
+                    <a class="support-tools__widget__select-type" id="primaryOwnerAddLink" data-bind="click: widget.addForm, value: widget.primaryOwner.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/primary_user.svg" class="support-tools__widget__select-type__logo"/>
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.PrimaryText  %>
+                        </div>
+                    </a>
+                </div>
+                <div class="support-tools__widget__label">
+                    <div class="support-tools__widget__icon-container">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/add_user.svg" class="support-tools__widget__icon"/>
+                    </div>
+                    <div class="support-tools__widget__main support-tools__widget__input">
+                        <div class="support-tools__widget__input__label">
+                            <%= localization.AddaUserText  %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-header__flyout__section" data-bind="visible: widget.showDeviceSection">
+        <div class="content-header__flyout__section__title"><%= localization.DevicesText  %></div>
+        <div class="content-header__flyout__section__main">
+
+            <div class="dataDeviceContainer"></div>
+            <div class="addDeviceContainer"></div>
+    
+            <div data-bind="attr: { class: widget.mainWidgetDeviceAttr }, visible: widget.includeComputerAndAsset">
+                <div class="support-tools__widget__selection">
+                    <a class="support-tools__widget__select-type" data-bind="click: widget.addForm, value: widget.affectedDevice.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/affected_device.svg" class="support-tools__widget__select-type__logo"/>
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.AffectedDeviceText  %>
+                        </div>
+                    </a>
+                    <a class="support-tools__widget__select-type" data-bind="click: widget.addForm, value: widget.relatedDevice.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/related_device.svg" class="support-tools__widget__select-type__logo"/>
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.RelatedDeviceText  %>
+                        </div>
+                    </a>
+                    <!--<a class="support-tools__widget__select-type" data-bind="click: widget.addForm, value: widget.primaryDevice.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/primary_device.svg" class="support-tools__widget__select-type__logo"/>
+                        <div class="support-tools__widget__select-type__caption">
+                            Primary
+                        </div>
+                    </a>-->
+                    <a class="support-tools__widget__select-type" data-bind="click: widget.addForm, value: widget.userDevice.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/user_device.svg" class="support-tools__widget__select-type__logo"/>
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.UserDeviceText  %>
+                        </div>
+                    </a>
+                    <a class="support-tools__widget__select-type" data-bind="click: widget.addForm, value: widget.affectedAsset.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/affected_asset.svg" class="support-tools__widget__select-type__logo" />
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.AffectedAssetText  %>
+                        </div>
+                    </a>
+                    <a class="support-tools__widget__select-type" data-bind="click: widget.addForm, value: widget.relatedAsset.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/related_asset.svg" class="support-tools__widget__select-type__logo" />
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.RelatedAssetText  %>
+                        </div>
+                    </a>
+                </div>
+                <div class="support-tools__widget__label">
+                    <div class="support-tools__widget__icon-container">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/add_device.svg" class="support-tools__widget__icon"/>
+                    </div>
+                    <div class="support-tools__widget__main support-tools__widget__input" ng-show="assignedUser1 == null">
+                        <div class="support-tools__widget__input__label">
+                            <%= localization.AddaDeviceText  %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-bind="attr: { class: widget.mainWidgetDeviceAttr }, visible: widget.includeWindowsComputerOnly">
+                <div class="support-tools__widget__selection">
+                    <a class="support-tools__widget__select-type" data-bind="click: widget.addForm, value: widget.affectedDevice.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/affected_device.svg" class="support-tools__widget__select-type__logo" />
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.AffectedDeviceText  %>
+                        </div>
+                    </a>
+                    <a class="support-tools__widget__select-type" data-bind="click: widget.addForm, value: widget.relatedDevice.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/related_device.svg" class="support-tools__widget__select-type__logo" />
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.RelatedDeviceText  %>
+                        </div>
+                    </a>
+                    <a class="support-tools__widget__select-type" data-bind="click: widget.addForm, value: widget.userDevice.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/user_device.svg" class="support-tools__widget__select-type__logo" />
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.UserDeviceText  %>
+                        </div>
+                    </a>                </div>
+                <div class="support-tools__widget__label">
+                    <div class="support-tools__widget__icon-container">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/add_device.svg" class="support-tools__widget__icon" />
+                    </div>
+                    <div class="support-tools__widget__main support-tools__widget__input" ng-show="assignedUser1 == null">
+                        <div class="support-tools__widget__input__label">
+                            <%= localization.AddaDeviceText  %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-bind="attr: { class: widget.mainWidgetDeviceAttr }, visible: widget.includeHardwareAssetOnly" style="min-width: fit-content !important">
+                <div class="support-tools__widget__selection">
+                    <a class="support-tools__widget__select-type" data-bind="click: widget.addForm, value: widget.affectedAsset.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/affected_asset.svg" class="support-tools__widget__select-type__logo" />
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.AffectedAssetText  %>
+                        </div>
+                    </a>
+                    <a class="support-tools__widget__select-type" data-bind="click: widget.addForm, value: widget.relatedAsset.widgetType">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/related_asset.svg" class="support-tools__widget__select-type__logo" />
+                        <div class="support-tools__widget__select-type__caption">
+                            <%= localization.RelatedAssetText  %>
+                        </div>
+                    </a>
+                </div>
+                <div class="support-tools__widget__label">
+                    <div class="support-tools__widget__icon-container">
+                        <img alt="" src="../../../../Content/Images/Icons/RemoteManage/add_device.svg" class="support-tools__widget__icon" />
+                    </div>
+                    <div class="support-tools__widget__main support-tools__widget__input" ng-show="assignedUser1 == null">
+                        <div class="support-tools__widget__input__label">
+                            <%= localization.AddaDeviceText  %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="multipleDataTemplate" type="text/x-kendo-template">
+    # for (var i = 0; i < devices.length; i++) { #
+    # var device = devices[i] #
+    <div class="support-tools__widget support-tools__widget--item-selected support-tools__widget--user-selected #:type#dataTemplate" data-bind="click: widget.clickContainer, value: widget.#:type#[#:i#]">
+        <div class="support-tools__widget__icon-container">
+            <img alt="" src="../../../../Content/Images/Icons/RemoteManage/#:icon#" class="support-tools__widget__icon" />
+        </div>
+        <div class="support-tools__widget__main">
+            <div class="support-tools__widget__selected-item">
+                <div class="support-tools__widget__selected-item__title" data-bind="text: widget.#:type#[#:i#].DisplayName">
+                </div>
+                <div class="support-tools__widget__selected-item__details">
+                    #: title #
+                </div>
+            </div>
+            <div class="support-tools__widget__action" data-bind="click: widget.removeItem, value: widget.#:type#[#:i#]">
+                <a class="support-tools__widget__action__link">
+                    <div class="support-tools__widget__action-icon">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    # } #
+</script>
+
+<script id="dataTemplate" type="text/x-kendo-template">
+    <div class="support-tools__widget support-tools__widget--item-selected support-tools__widget--user-selected" id="#:type#dataTemplate" data-bind="click: widget.clickContainer, value: widget.#:type#">
+        <div class="support-tools__widget__icon-container">
+            <img alt="" src="../../../../Content/Images/Icons/RemoteManage/#:icon#" class="support-tools__widget__icon" />
+        </div>
+        <div class="support-tools__widget__main">
+            <div class="support-tools__widget__selected-item">
+                <div class="support-tools__widget__selected-item__title" data-bind="text: widget.#:type#.DisplayName">
+                </div>
+                <div class="support-tools__widget__selected-item__details">
+                    #: title #
+                </div>
+                <div class="support-tools__widget__selected-item__email" data-bind="visible: widget.#:type#.Email">
+                    <a data-bind="click: widget.openSendEmail, value: widget.#:type#">
+                        <span data-bind="text: widget.#:type#.Email"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="support-tools__widget__action" data-bind="click: widget.removeItem, value: widget.#:type#">
+                <a class="support-tools__widget__action__link">
+                    <div class="support-tools__widget__action-icon">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</script>
+
+<script id="addTemplate" type="text/x-kendo-template">
+    <div class="support-tools__widget">
+        <div class="support-tools__widget__icon-container">
+            <img alt="" src="../../../../Content/Images/Icons/RemoteManage/#:icon#" class="support-tools__widget__icon" />
+        </div>
+        <div class="support-tools__widget__main support-tools__widget__input">
+            <div class="support-tools__widget__input__form">
+                <span class="fa fa-search support-tools__widget__input__form__icon" data-bind="click: widget.openCombobox, value: widget.#:type#.widgetType"></span>
+                <input id="#:type#Combobox1" class="support-tools__widget__input__form__input" />
+                <div id="#:type#Container" class="support-tools__widget__input__form__dropdown"></div>
+            </div>
+            <div class="support-tools__widget__action" data-bind="click: widget.removeUserCombobox, value: widget.#:type#.widgetType">
+                <a class="support-tools__widget__action__link">
+                    <div class="support-tools__widget__action-icon">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="comboboxusertemplate" type="text/x-kendo-template">
+    <div class="multi-query__list__selected-items multi-query__list__selected-items--no-border">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="multi-query__list__selected-items__name">#: Name #</div>
+                <div class="multi-query__list__selected-items__details">#: (Email) ? Email : "" #</div>
+            </div>
+        </div>
+    </div>
+</script>
+<script id="comboboxdevicetemplate" type="text/x-kendo-template">
+    <div class="multi-query__list__selected-items multi-query__list__selected-items--no-border">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="multi-query__list__selected-items__name">#: DisplayName #</div>
+            </div>
+        </div>
+    </div>
+</script>
+<script id="comboboxuserdevicetemplate" type="text/x-kendo-template">
+    <div class="multi-query__list__selected-items multi-query__list__selected-items--no-border">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="multi-query__list__selected-items__name">#: Text #</div>
+            </div>
+        </div>
+    </div>
+</script>
+<script id="comboboxprimarydevicetemplate" type="text/x-kendo-template">
+    <div class="multi-query__list__selected-items multi-query__list__selected-items--no-border">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="multi-query__list__selected-items__name">#: Name #</div>
+            </div>
+        </div>
+    </div>
+</script>

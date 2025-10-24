@@ -1,0 +1,2870 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CiresonWebConsole</name>
+    </assembly>
+    <members>
+        <member name="T:CiresonWebConsole.ActionFilters.PlatformAuthenticationFilter">
+            Generic Basic Authentication filter that checks for basic authentication
+            headers and challenges for authentication if no authentication is provided
+            Sets the Thread Principle with a GenericAuthenticationPrincipal.
+            
+            You can override the OnAuthorize method for custom auth logic that
+            might be application specific.    
+        </member>
+        <member name="M:CiresonWebConsole.ActionFilters.PlatformAuthenticationFilter.#ctor">
+            <summary>
+            Overriden constructor to allow explicit disabling of this
+            filter's behavior. Pass false to disable (same as no filter
+            but declarative)
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.ActionFilters.PlatformAuthenticationFilter.OnAuthorizationAsync(System.Web.Http.Controllers.HttpActionContext,System.Threading.CancellationToken)">
+            <summary>
+            Override to Web API filter method to handle Basic Auth check
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="M:CiresonWebConsole.ActionFilters.WebApiAdminOnlyAttribute.OnAuthorizationAsync(System.Web.Http.Controllers.HttpActionContext,System.Threading.CancellationToken)">
+            <summary>
+            Override to Web API filter method
+            true, allow users with IsAdmin property set to true
+            false, allow all users
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:CiresonWebConsole.ActionFilters.BasicAuthenticationFilter">
+            Generic Basic Authentication filter that checks for basic authentication
+            headers and challenges for authentication if no authentication is provided
+            Sets the Thread Principle with a GenericAuthenticationPrincipal.
+            
+            You can override the OnAuthorize method for custom auth logic that
+            might be application specific.    
+        </member>
+        <member name="M:CiresonWebConsole.ActionFilters.BasicAuthenticationFilter.#ctor(System.Boolean)">
+            <summary>
+            Overriden constructor to allow explicit disabling of this
+            filter's behavior. Pass false to disable (same as no filter
+            but declarative)
+            </summary>
+            <param name="active"></param>
+        </member>
+        <member name="M:CiresonWebConsole.ActionFilters.BasicAuthenticationFilter.OnAuthorizationAsync(System.Web.Http.Controllers.HttpActionContext,System.Threading.CancellationToken)">
+            <summary>
+            Override to Web API filter method to handle Basic Auth check
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.Security.PortalCryptography">
+            <summary>
+            Extension methods for protecting and unprotecting a string that can be read by the platform api endpoints.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.Security.PortalCryptography.ProtectForPlatform(System.String,System.String)">
+             <summary>   Protects a string using the MachineKey. </summary>
+            
+             <remarks>
+             Use for encrypting data for return checking, such as cookies, etc.  The value can only be
+             unprotected on a server with an identical MachineKey.
+             </remarks>
+            
+             <param name="value">.</param>
+             <param name="key">. </param>
+            
+             <returns>   Encrypted String. </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.Security.PortalCryptography.UnprotectForPlatform(System.String,System.String)">
+             <summary>
+             Unprotects a string value that was previously protected using the Protect method.
+             </summary>
+            
+             <remarks>   Admin, 8/24/2017. </remarks>
+             
+             <param name="value">. </param>
+             <param name="key">. </param>
+             <returns>   Plain String </returns> 
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.Security.PortalCryptography.Encrypt(System.String,System.Security.Cryptography.Aes)">
+             <summary>   Encrypts a string value. </summary>
+            
+             <remarks>   Admin, 8/24/2017. </remarks>
+            
+             <param name="value">    . </param>
+             <param name="cryptor">  . </param>
+            
+             <returns>   A string. </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.Security.PortalCryptography.Encrypt(System.Byte[],System.Security.Cryptography.Aes)">
+             <summary>   Decrypts a string value. </summary>
+            
+             <remarks>   Admin, 8/24/2017. </remarks>
+            
+             <param name="value">    . </param>
+             <param name="cryptor">  . </param>
+            
+             <returns>   A byte[]. </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.Security.PortalCryptography.Decrypt(System.String,System.Security.Cryptography.Aes)">
+             <summary>   Decrypts a string value. </summary>
+            
+             <remarks>   Admin, 8/24/2017. </remarks>
+            
+             <param name="value">    . </param>
+             <param name="cryptor">  . </param>
+            
+             <returns>   A string. </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.Security.PortalCryptography.Decrypt(System.Byte[],System.Security.Cryptography.Aes)">
+             <summary>   Decrypts a string value. </summary>
+            
+             <remarks>   Admin, 8/24/2017. </remarks>
+            
+             <param name="value">    . </param>
+             <param name="cryptor">  . </param>
+            
+             <returns>   A byte[]. </returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.Teams.BotController">
+            <summary>
+            Endpoint to handle incoming messages from teams
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.Teams.BotController.Messages">
+            <summary>
+            Processes messages from Teams to the bot
+            </summary>
+            <returns>Bot response for teams</returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.Teams.BotController.SetSmpToken(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            The routine to call once the user has successfully logged in
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.Teams.BotController.SetPlatformToken(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Get and store the Platform Token received from successful logged in
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.AnnouncementController">
+            <summary>
+            End points to retrieve and manage announcements.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.AnnouncementController.GetAllAnnouncements(System.String)">
+            <summary>
+            Returns all announcements for specified language code.
+            </summary>
+            <param name="languageCode">The 3-letter language code</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.AnnouncementController.GetUserAnnouncements(System.Guid,System.String)">
+            <summary>
+            Get all announcements by user and language.
+            </summary>
+            <param name="userId">The user Id</param>
+            <param name="languageCode">The 3-letter language code</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.AnnouncementController.GetAnnouncement(System.Guid,System.String)">
+            <summary>
+            Get specific announcement by Id.
+            </summary>
+            <param name="announcementId">The announcement Id</param>
+            <param name="languageCode">The 3-letter language code</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.AnnouncementController.DeleteAnnouncement(System.Guid)">
+            <summary>
+            Delete specified announcement.
+            </summary>
+            <param name="announcementId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.AnnouncementController.UpdateAnnouncement(CiresonWebConsole.Controllers.api.Models.AnnouncementsApiModel)">
+            <summary>
+            Updates or Add announcement.
+            </summary>
+            <param name="announcementObject">The announcement object. Needs to be sent as a stringified json object. </param>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.ArticleCategoryController">
+            <summary>
+            Endpoints for interacting with Knowledge Article Categories
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleCategoryController.Get(System.Boolean)">
+            <summary>
+            Gets all Knowledge Article Categories.
+            </summary>
+            <returns>
+            CategoryTreeObject, which contains a single property: 
+            an array of CategoryNodeObject. 
+            </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleCategoryController.Get(System.Guid)">
+            <summary>
+            Returns breadcrumb heirarchy for article category
+            </summary>
+            <param name="categoryId">GUID Id of the category at the end of the heirarchy</param>
+            <returns>
+            List of DisplayEnumeration objects
+            </returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.ArticleCommentController">
+            <summary>
+            endpoint to retrieve, update, and delete Knowledge Article comments
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleCommentController.Get(System.Int32)">
+            <summary>
+            Get all comments associated with a knowledge article
+            </summary>
+            <param name="id">Id of the knowledge article</param>
+            <returns>List of article comments</returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleCommentController.Post(Cireson.ServiceManager.WebConsole.ViewModels.KAComment)">
+            <summary>
+            Adds a new comment
+            </summary>
+            <param name="kaComment">Knowledge Article comment object</param>
+            <returns>success: true/false</returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleCommentController.Patch(Cireson.ServiceManager.WebConsole.ViewModels.KAComment)">
+            <summary>
+            Updates existing comment
+            </summary>
+            <param name="kaComment">Knowledge article comment object</param>
+            <returns>Returns true on success </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleCommentController.Delete(System.Int32)">
+            <summary>
+            Delete specified knowledge article comment.
+            </summary>
+            <param name="commentId">The article comment id</param>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleCommentController.Archive(System.Int32)">
+            <summary>
+            Archive all user's comments on the specified html knowledge article.
+            </summary>
+            <param name="articleId">The article Id</param>
+            <returns>Returns true if number of records updated is greater than zero</returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.ArticleController">
+            <summary>
+            endpoint to retrieve Knowledge Article
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.Get">
+            <summary>
+            Gets a list of knowledge articles
+            </summary>
+            <returns>
+            Returns a list of html KnowledgeArticle objects
+            </returns> 
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.Get(System.String)">
+            <summary>
+            Gets knowledge article details by article id
+            </summary>
+            <param name="articleId">The article Id</param>
+            <returns>
+            Returns a knowledge article object
+            </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.GetForGrid">
+            <summary>
+            Gets a list of knowledge articles for a grid datasource
+            </summary>
+            <returns>
+            Returns a list of html KnowledgeArticle objects
+            </returns> 
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.Patch(System.Collections.Generic.List{Cireson.ServiceManager.WebConsole.ViewModels.KnowledgeArticle})">
+            <summary>
+            Updates a batch of article's popularity index only.
+            </summary>
+            <returns>
+            Returns true if number of records updated is greater than zero
+            </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.RelateToWorkItem(System.Guid,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Relates a work item to one or more knowledge articles
+            </summary>
+            <param name="workItemId">The work item's base id</param>
+            <param name="articleIdList">A list of article id's to be related</param>
+            <returns>
+            Returns true if number of records updated is greater than zero
+            </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.GetTopArticlesByRating(System.Int32)">
+            <summary>
+            Returns the highest rated html knowledge articles.
+            </summary>
+            <param name="count">The number of articles to be returned</param>
+            <returns>
+            Returns a list of html knowledge articles.
+            </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.GetTopArticlesByCreatedDate(System.Int32)">
+            <summary>
+            Returns the recently added html knowledge articles.
+            </summary>
+            <param name="count">The number of articles to be returned</param>
+            <returns>
+            Returns a list of html knowledge articles.
+            </returns> 
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.GetTopArticlesByViewCount(System.Int32)">
+            <summary>
+            Returns the most viewed html knowledge articles.
+            </summary>
+            <param name="count">The number of articles to be returned</param>
+            <returns>
+            Returns a list of html knowledge articles.
+            </returns> 
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.GetTopArticlesByPopularity(System.Int32)">
+            <summary>
+            Returns the most popular html knowledge articles.
+            </summary>
+            <param name="count">The number of articles to be returned</param>
+            <returns>
+            Returns a list of html knowledge articles.
+            </returns> 
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.Search(System.Nullable{System.Int32},System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.String)">
+            <summary>
+            Gets a list of knowledge articles based on the search criteria (Only the ArticleId, Title, and Abstract fields will be populated as this endpoint is used to populate a grid)
+            </summary>
+            <param name="articleId">The article Id</param>
+            <param name="title">The title text</param>
+            <param name="createdDateFrom">The created date's start date in a from-to scenario"</param>
+            <param name="createdDateTo">The created date's end date in a from-to scenario"</param>
+            <param name="lastModifiedDateFrom">The last modified date's start date in a from-to scenario"</param>
+            <param name="lastModifiedDateTo">The last modified date's end date in a from-to scenario"</param>
+            <param name="statusId">The status Id</param>
+            <param name="typeId">The type Id</param>
+            <param name="categoryId">The category Id</param>
+            <param name="ownerId">The owner user Id</param>
+            <param name="lastModifiedById">The last modified user Id</param>
+            <param name="languageId">The language Id</param>
+            <param name="languageName">The language Name</param>
+            <returns>
+            Returns a list of html KnowledgeArticle objects (Only the ArticleId, Title, and Abstract fields will be populated as this endpoint is used to populate a grid)
+            </returns> 
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.FullTextSearch(System.String)">
+            <summary>
+            Gets a list of knowledge articles using full text search
+            </summary>
+            <param name="searchValue">The article Id</param>
+            <returns>
+            Returns a list of html KnowledgeArticle objects
+            </returns> 
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.GetArticlesRelatedToWorkItem(System.Guid)">
+            <summary>
+            Gets a list of knowledge articles related to the specified work item
+            </summary>
+            <param name="workItemId">The work item id</param>
+            <returns>
+            Returns a list of html KnowledgeArticle objects
+            </returns> 
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.GetArticlesRelatedToAsset(System.Guid)">
+            <summary>
+            Gets a list of knowledge articles related to the specified asset
+            </summary>
+            <param name="assetId">The asset id</param>
+            <returns>
+            Returns a list of html KnowledgeArticle objects
+            </returns> 
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.RemoveArticlesRelatedToWorkItem(System.Guid,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Remove work item related articles
+            </summary>
+            <param name="workItemId">The work item's base id</param>
+            <param name="articleIdList">A list of related article id's to be removed</param>
+            <returns>
+            Returns true if number of records updated is greater than zero
+            </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleController.Patch(System.Int32)">
+            <summary>
+            Archives the knowledge article
+            </summary>
+            <param name="articleId">Id of the article to archive</param>
+            <returns>
+            No object is returned
+            </returns> 
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.ArticleListController">
+            <summary>
+            Endpoint specific for lists of articles, filtered or grouped.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleListController.Get(System.Guid,System.Int32,System.Int32)">
+            <summary>
+            Gets a list of articles grouped by the category passed as param.
+            Also includes sub category articles.
+            </summary>
+            <param name="categoryId">id of article category</param>
+            <param name="skipCount">Default to 0, calculated automatically based of results already returned</param>
+            <param name="takeCount">For pagination / infinite-scroll. Integer number of results to return per page</param>
+            <returns>
+            Returns list of articles with additional category data
+            </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleListController.Get(System.String,System.Collections.Generic.List{System.Guid},System.Collections.Generic.List{System.Guid},System.Int32,System.Int32)">
+            <summary>
+            Gets a list of knowledge articles filtered by text, categories, and types. 
+            </summary>
+            <param name="searchText">Text being searched on. Required</param>
+            <param name="selectedCategories">List of article category ids. Optional</param>
+            <param name="selectedTypes">List of article type ids. Optional</param>
+            <param name="skipCount">Default to 0, calculated automatically based of results already returned</param>
+            <param name="takeCount">For pagination / infinite-scroll. Integer number of results to return per page</param>
+            <returns>
+            Returns a list of KnownledgeArticle objects filtered on search text, catagories, and types.
+            </returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.ArticleRatingController">
+            <summary>
+            endpoint to retrieve, update, and delete Knowledge Article ratings
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleRatingController.Get(System.Int32,System.Guid)">
+            <summary>
+            Get user rating details of the specified knowledge article.
+            </summary>
+            <param name="articleId">The article Id</param>
+            <param name="userId">The user Id</param>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleRatingController.Post(Cireson.ServiceManager.WebConsole.ViewModels.KARating)">
+            <summary>
+            Add a new user rating on the specified knowledge article.
+            </summary>
+            <param name="rating">The article rating object</param>
+            <returns>Returns true if number of records updated is greater than zero </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleRatingController.Put(Cireson.ServiceManager.WebConsole.ViewModels.KARating)">
+            <summary>
+            Update user's rating of the specified knowledge article.
+            </summary>
+            <param name="rating">The article rating object</param>
+            <returns>Returns true if number of records updated is greater than zero </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ArticleTypeController.Get">
+            <summary>
+            Gets all root article types
+            </summary>
+            <returns>
+            CategoryTreeObject, which contains a single property: 
+            an array of CategoryNodeObject. 
+            </returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.AuthorizationController">
+            <summary>
+            Authorization Token for Web API use outside of the portal
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.AuthorizationController.GetToken(CiresonWebConsole.Controllers.api.TokenCredentials)">
+            <summary>
+            Create an access token
+            </summary>
+            <param name="credentials">Username = Active Directory Username (i.e. johndoe,  with domain i.e  mydomain\\johndoe), Password = Active Directory Password, Language = 3 letter language code
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ConfigController.#ctor(Cireson.ServiceManager.Services.Interfaces.IConfigItemsService)">
+            <summary>
+            Endpoints to retrieve configuration item data.
+            </summary>
+            <param name="configItemsService"></param>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ConfigController.GetAffectedItemsList(System.String)">
+            <summary>
+            Returns a list of the first 50 Configuration Items using a filter.
+            </summary>
+            <param name="itemFilter">The filter text</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ConfigController.GetAffectedItem(System.Guid,System.Guid,System.Boolean)">
+            <summary>
+            Returns the Configuration Item using User Id 
+            </summary>
+            <param name="configItemObjectId">The Configuration Item Id</param>
+            <param name="userId">The User Id</param>
+            <param name="isUserScoped">Boolean whether the user has configuration item scoping</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ConfigController.GetPopulatedConfigClasses">
+            <summary>
+            Returns all Config Item classes that have data.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ConfigController.GetConfigItemsByClass(System.Guid,System.Boolean,System.String,System.Guid)">
+            <summary>
+            Returns a list of Configuration Items that have a Class Id in the provided list.
+            </summary>
+            <param name="userId">The User Id</param>
+            <param name="isUserScoped">Boolean whether the user has configuration item scoping</param>
+            <param name="searchFilter">The filter text</param>
+            <param name="objectClassId">The Configuration Object Class Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ConfigController.GetConfigItemsByAbstractClass(System.Guid,System.Boolean,System.String,System.Guid)">
+            <summary>
+            Returns a list of Configuration Items that have the specified Class Id or any of the derived classes of the Class Id specified.
+            </summary>
+            <param name="userId">The User Id</param>
+            <param name="isUserScoped">Boolean whether the user has configuration item scoping</param>
+            <param name="searchFilter">The filter text</param>
+            <param name="objectClassId">The Configuration Object Class Id</param>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.DashboardController">
+            <summary>
+            Endpoints used to execute sql dashboard queries
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.DashboardController.GetDashboardDataById(System.Guid)">
+            <summary>
+            A GET method that executes the provided query id and returns the result in json format
+            </summary>
+            <param name="queryId">The query's unique identification id as specified on DataSource table</param>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.EnumController">
+            <summary>
+            Endpoints to retrieve enumerations.  
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.EnumController.GetAllList(System.Guid)">
+            <summary>
+            GetAllList retrieves all enum children and sub children. 
+            </summary>
+            <param name="id">The Guid of the enumeration class</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.EnumController.GetList(System.Guid,System.String,System.String,System.String)">
+            <summary>
+            GetList retrieves the children of an enumeration class id that is a parent.  Returns items that are only one level down from the root id that is sent. 
+            </summary>
+            <param name="id">The Guid of the enumeration class</param>
+            <param name="itemFilter">Optional Filter Text</param>
+            <param name="Flatten">Whether to Flatten the display names</param>
+            <param name="itemFilterIds">Used when we want to limit enum selection. A comma-separated list of enum Guid.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.EnumController.GetList(System.Guid,System.Guid,System.String,System.String)">
+            <summary>
+            GetList retrieves the children of an enumeration class id that is a child.
+            Used for lazy loading of the enum picker.   Returns items that are only one level down from the root id that is sent.
+            </summary>
+            <param name="id">The Guid of the child enumeration.</param>
+            <param name="parentId">The Guid of the parent enumeration.</param>
+            <param name="itemFilter">Optional Filter Text</param>
+            <param name="Flatten">Whether to Flatten the display names</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.EnumController.GetListForRequestOffering(System.Guid,System.String,System.String,System.String)">
+            <summary>
+            This method is used to get enumerations for an older version of the enumeration treeview.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.EnumController.GetFlatList(System.Guid,System.String,System.Boolean,System.String)">
+            <summary>
+            GetFlatList retrieves a flattened list of enumeration children.  This is used for client side filtering of the enum picker autocomplete.  This will only return the first 250 that match the filter.
+            For example: A,  A\B,  A\B\C
+            </summary>
+            <param name="id">The Guid of the parent enumeration.</param>
+            <param name="itemFilter">The text to filter by using contains.</param>
+            <param name="includeParents">Boolean on whether to include parent levels</param>
+            <param name="itemFilterIds">Used when we want to limit enum selection. A comma-separated list of enum Guid.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.EnumController.GetEnumDisplayName(System.String)">
+            <summary>
+            Retrieves the displayname for an enumeration id in this format:  Parent DisplayName\Child DisplayName
+            </summary>
+            <param name="id">The guid of the enumeration id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.EnumController.GetEnumFlatDisplayName(System.String,System.String)">
+            <summary>
+            Retrieves the flattened displayname for an enumeration id.
+            </summary>
+            <param name="TopLevelId">The guid of the parent enumeration id.</param>
+            <param name="Id">The guid of the enumeration id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.EnumController.GetMappedSupportGroupsList(System.Guid)">
+            <summary>
+            Retrieves a list of enumerations/support groups that are mapped
+            </summary>
+            <param name="id">The guid of the enumeration id.</param>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.KnowledgeBaseController">
+            <summary>
+            Endpoint to retrieve and update knowledge base articles.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.KnowledgeBaseController.GetKnowledgeArticlesByOfferingId(System.String)">
+            <summary>
+            (Deprecated) Returns a list of knowledge articles related to an offering.
+            </summary>
+            <param name="offeringId">The offering Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.KnowledgeBaseController.SearchArticles(System.String,System.Guid)">
+            <summary>
+            (Deprecated) Returns a list of RTF articles using search filters provided.
+            </summary>
+            <param name="searchfilter">The text to search on</param>
+            <param name="userId">The user Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.KnowledgeBaseController.GetKnowledgeArticle(System.String)">
+            <summary>
+            (Deprecated) Returns specified RTF knowledge article.
+            </summary>
+            <param name="articleId">The article Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.KnowledgeBaseController.GetHTMLKnowledgeArticle(System.String)">
+            <summary>
+            (Deprecated) Returns the specified html knowledge article.
+            </summary>
+            <param name="knowledgeArticleId">The article Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.KnowledgeBaseController.GetTopHTMLKnowledgeArticleList(System.Guid)">
+            <summary>
+            (Deprecated) Returns the top 10 most popular html knowledge articles.
+            </summary>
+            <param name="userId">The user Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.KnowledgeBaseController.GetTopHTMLKnowledgeArticleList(System.Int32,System.Guid)">
+            <summary>
+            (Deprecated) Returns the specified count of the most popular html knowledge articles.  
+            </summary>
+            <param name="count">The numder of articles to return</param>
+            <param name="userId">The user Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.KnowledgeBaseController.GetHTMLArticlesFullTextSearch(System.Guid,System.String,System.Boolean,System.String)">
+            <summary>
+            (Deprecated) Returns html knowledge articles that match the search value.
+            </summary>
+            <param name="userId">The user Id</param>
+            <param name="searchValue">The text to search on</param>
+            <param name="isManager">Boolean is the user an analyst</param>
+            <param name="userLanguageCode">The user's preferred language code</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.KnowledgeBaseController.GetHTMLArticles(System.Guid,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid},System.Nullable{System.Guid})">
+            <summary>
+            (Deprecated) Returns html knowledge articles matching the specified criteria.
+            </summary>
+            <param name="userId">The user Id</param>
+            <param name="articleId">The article Id</param>
+            <param name="statusId">The status Id</param>
+            <param name="typeId">The type Id</param>
+            <param name="categoryId">The category Id</param>
+            <param name="ownerId">The owner user Id</param>
+            <param name="createdDate">Returns articles that have a created date before this date in UTC format "2014-12-09T06:00:00.000Z"</param>
+            <param name="lastModifiedById">The last modified user Id</param>
+            <param name="lastModifiedDate">Returns articles that have a last modified date before this date in UTC format "2014-12-09T06:00:00.000Z"</param>
+            <param name="title">The title text</param>
+            <param name="languageId">The language Id</param>
+            <param name="languageName">The language Name</param>
+            <param name="createdDateAfter">Returns articles that have a created date after this date in UTC format "2014-12-09T06:00:00.000Z"</param>
+            <param name="lastModifiedDateAfter">Returns articles that have a last modified date after this date in UTC format "2014-12-09T06:00:00.000Z"</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.KnowledgeBaseController.AddOrUpdateHTMLKnowledge(CiresonWebConsole.Controllers.api.Models.HtmlKBArticleApiModel)">
+            <summary>
+            (Deprecated) Add or updates an HTML Knowledge article.  
+            </summary>
+            <param name="article">The article in appropriate json format.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.KnowledgeBaseController.AddOrUpdateHTMLKnowledgeApi(CiresonWebConsole.Controllers.api.Models.FormJson)">
+            <summary>
+            (Deprecated) Add or updates an HTML Knowledge article via the API
+            </summary>
+            <param name="json">JSON representation of the article in this format (see API Examples document for more info):  { "formJson" : { "current" : { projection object with changes }, "original" : { original projection object } } } </param>
+            <returns>Article ID is returned for new articles, otherwise boolean for success, 1=true, 0=false</returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.KnowledgeBaseController.DeleteHtmlKnowledge(System.String)">
+            <summary>
+            (Deprecated) Deletes the specified html knowledge article.
+            </summary>
+            <param name="articleId">The article Id</param>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.ProjectionController">
+            <summary>
+            Endpoints to retrieve and update projection objects.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ProjectionController.Commit(CiresonWebConsole.Controllers.api.Models.FormJson,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Updates a workitem projection in order to create a new workitem ensure that the LastModified property is set to :   "LastModified": "0001-01-01T00:00:00.000Z"
+            </summary>
+            <param name="json">Projection Object in JSON format :  { "formJson" : { "current" : { projection object with changes }, "original" : { original projection object } } }</param>
+            <param name="fileAttachmentPath">Optional - Path where file attachments are saved</param>
+            <param name="runConcurrencyCheck">Optional - Boolean to use Concurrency Checking</param>
+            <param name="invokeAsService">Optional - Boolean to save as service Checking</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ProjectionController.CreateProjectionByTemplate(System.String,System.Nullable{System.Guid})">
+            <summary>
+            Creates a projection using template id.
+            </summary>
+            <param name="id">The template id.</param>
+            <param name="createdById">The created by user id.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ProjectionController.GetProjectionByTemplateWithParameter(System.String,System.Nullable{System.Guid},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Creates a projection using template id and set default property value.
+            </summary>
+            <param name="id">The template id.</param>
+            <param name="createdById">The created by user id.</param>
+            <param name="queryString">The property and value parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ProjectionController.GetProjectionByCriteria(CiresonWebConsole.Controllers.api.Models.CriteriaSearch)">
+            <summary>
+            Performs a search using the class id and provided criteria filters.  For examples of criteria see the ApiExamples.docx.
+            </summary>
+            <param name="criteriaJson">Criteria Search Object in JSON format :   { "Id" : { projection Id }, "Criteria" : { criteria json } }</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ProjectionController.GetProjection(System.String,System.Guid)">
+            <summary>
+            Returns json format of an object based on the provided type projection id.
+            </summary>
+            <param name="id">The string id of the object (i.e. IR123) </param>
+            <param name="typeProjectionId">The id of the type projection</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ProjectionController.GetParentWorkItemSettings">
+            <summary>
+            Returns the SCSM settings for Work Items
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ProjectionController.CreateProjectionByTemplateName(System.String,System.Nullable{System.Guid})">
+            <summary>
+            Creates a projection using template name.
+            </summary>
+            <param name="templateName">The template name.</param>
+            <param name="createdById">The created by user id.</param>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.ServiceCatalogController">
+            <summary>
+            End points to retrieve the service catalog and offerings.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ServiceCatalogController.GetServiceCatalog(System.Guid,System.Boolean)">
+            <summary>
+            Returns the service catalog for a specified user.
+            </summary>
+            <param name="userId">The user Id</param>
+            <param name="isScoped">Boolean whether the user is scoped</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ServiceCatalogController.GetByRequestOfferingId(System.Guid)">
+            <summary>
+            Returns the request offering specified.
+            </summary>
+            <param name="requestOfferingId">The request offering id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ServiceCatalogController.GetByServiceOfferingId(System.Guid)">
+            <summary>
+             Returns the service offering specified.
+            </summary>
+            <param name="serviceOfferingId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ServiceCatalogController.MarkFavorite(System.Guid,System.Guid)">
+            <summary>
+            Marks the offering as a user favorite.
+            </summary>
+            <param name="requestOfferingId">The request offering id</param>
+            <param name="userId">The user Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ServiceCatalogController.GetRequestOffering(System.String,System.String,System.Guid,System.Boolean)">
+            <summary>
+            Returns the specified request offering.
+            </summary>
+            <param name="requestOfferingId">The request offering id</param>
+            <param name="serviceOfferingId">The service offering id</param>
+            <param name="userId">The userid in GUID</param>
+            <param name="isScoped">Boolean whether the user is scoped</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ServiceCatalogController.GetTopRequestOffering(System.Guid,System.Int32,System.Boolean)">
+            <summary>
+            Returns the top request offerings based on parameters specified.
+            </summary>
+            <param name="userId">The user Id</param>
+            <param name="returnAmount">The number of offerings to return</param>
+            <param name="isScoped">Boolean whether the user is scoped</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ServiceCatalogController.GetFavoriteRequestOffering(System.Guid,System.Int32,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Returns the user's favorite request offerings.
+            </summary>
+            <param name="userId">The user Id</param>
+            <param name="returnAmount">The number of offerings to return</param>
+            <param name="isScoped">Boolean whether the user is scoped</param>
+            <param name="skipCount">Default to 0, calculated automatically based of results already returned</param>
+            <param name="takeCount">For pagination / infinite-scroll. Integer number of results to return per page</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.ServiceCatalogController.Search(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Search the service catalog by type of RO and text.
+            </summary>
+            <param name="searchText">Text to search on</param>
+            <param name="searchType">String, values can be "Incidents", "Requests", "Favorites", or "All"</param>
+            <param name="skipCount">Default to 0, calculated automatically based of results already returned</param>
+            <param name="takeCount">For pagination / infinite-scroll. Integer number of results to return per page</param>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.SettingsController">
+            <summary>
+            End points to retrieve and update console settings.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.SettingsController.#ctor(Cireson.ServiceManager.ManagementService.Interfaces.ISettingsManager,Cireson.ServiceManager.ManagementService.Interfaces.ISettingsProvider)">
+            <summary>
+            default constructor
+            </summary>
+            <param name="settingsManager"></param>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.SettingsController.GetAllSettings">
+            <summary>
+            Gets all settings including all tenants.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.SettingsController.GetAllSettings(System.Int32)">
+            <summary>
+            Gets all settings by tenant.
+            </summary>
+            <param name="tenantId">The tenant Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.SettingsController.GetSetting(System.String,System.Int32)">
+            <summary>
+            Gets the specified setting.
+            </summary>
+            <param name="settingKey">The settings key</param>
+            <param name="tenantId">The tenant Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.SettingsController.SetSetting(Cireson.ServiceManager.Library.InfoObjects.SettingsItem)">
+            <summary>
+            Updates or adds a setting.
+            </summary>
+            <param name="setting">The SetingsItem object</param>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.TemplateController">
+            <summary>
+            Endpoints for retrieving template objects.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.TemplateController.GetTemplates(System.Guid)">
+            <summary>
+            Returns templates by class Id
+            </summary>
+            <param name="classId">The management pack class Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.TemplateController.GetNotificationTemplatesAsync(System.Guid)">
+            <summary>
+            Returns notification templates by class id.
+            </summary>
+            <param name="classId">The management pack class Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.TemplateController.GetNotificationTemplatesWithPrefix(System.Guid,System.String)">
+            <summary>
+            Returns notification templates by class Id with the Display name starting with the Prefix indicated.
+            </summary>
+            <param name="classId">The management pack class Id</param>
+            <param name="prefix">The Text prefix</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.TemplateController.GetHardwareAssetNotificationTemplates">
+            <summary>
+            Returns hardware asset notification templates.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.TemplateController.GetAllClasses">
+            <summary>
+            Returns templates from all classes.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.UserController">
+            <summary>
+            Endpoints to retrieve user objects.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.GetSupportGroupUsers(System.String)">
+            <summary>
+            Returns a list of members of a support group enumeration.
+            </summary>
+            <param name="id">The enumeration id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.GetUsersGroups(System.String)">
+            <summary>
+            Returns a list of the users's groups
+            </summary>
+            <param name="id">The User Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.GetUsersSupportGroupEnumerations(System.String)">
+            <summary>
+            Returns a list of Service Request Support Group Enumerations where the user is a member.
+            </summary>
+            <param name="id">The User Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.GetUsersTierQueueEnumerations(System.String)">
+            <summary>
+            Returns a list of Incident Tier Queue Enumerations where the user is a member.
+            </summary>
+            <param name="id">The User Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.GetUserRelatedInfoByUserId(System.String)">
+            <summary>
+            Returns user related information using the User Id
+            </summary>
+            <param name="userId">The User Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.GetUserRelatedInfoBySIPAddress(System.String)">
+            <summary>
+            Returns user related information using the SIPAddress
+            </summary>
+            <param name="sipAddress">The user SIPAddress</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.GetUserList(System.String,System.Boolean,System.Boolean,System.Int32,System.Boolean)">
+            <summary>
+            Returns a list of users with minimal properties.
+            </summary>
+            <param name="userFilter">A text string used to filter users.</param>
+            <param name="filterByAnalyst">Boolean used to filter by Analysts only, Default = false</param>
+            <param name="groupsOnly">Boolean used to filter by Groups only, Default = false</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.GetUserListWithEmail(System.String,System.Boolean,System.Boolean,System.Int32,System.Boolean)">
+            <summary>
+            Returns a list of users with minimal properties and requires email to be not null.
+            </summary>
+            <param name="userFilter">A text string used to filter users.</param>
+            <param name="filterByAnalyst">Boolean used to filter by Analysts only, Default = false</param>
+            <param name="groupsOnly">Boolean used to filter by Groups only, Default = false</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.GetUserListByFilteredDomain(System.String,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Returns a list of users with minimal properties filtered by domain.
+            </summary>
+            <param name="userFilter">A text string used to filter users.</param>
+            <param name="filterByAnalyst">Boolean used to filter by Analysts only, Default = false</param>
+            <param name="groupsOnly">Boolean used to filter by Groups only, Default = false</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.GetUserSearchResults(System.String,System.Int32,System.Int32,Cireson.ServiceManager.Services.Models.DataFilter[],Cireson.ServiceManager.Services.Models.DataSort[],System.Boolean,System.Boolean)">
+            <summary>
+            Returns a list of filtered users and/or groups
+            </summary>
+            <param name="userFilter">A text string used to filter users.</param>
+            <param name="filterByAnalyst">Boolean used to filter by Analysts only, Default = false</param>
+            <param name="groupsOnly">Boolean used to filter by Groups only, Default = false</param>
+            <param name="page">Indicates the page to return</param>
+            <param name="pageSize">Indicates the number of results that should be in each page</param>
+            <param name="dataFilters">Filters the results for examples inspect the call made when entering text into a user picker box</param>
+            <param name="dataSorts">Adds sorting for examples inspect the call made when using the User Picker Search icon and apply sorting to results</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.GetAnalystResults">
+            <summary>
+            Returns a list of all Analysts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.IsUserAuthorizedAsync(System.String,System.String)">
+            <summary>
+            Checks if the user is authorized to use the portal if so a ConsoleUser object is returned.
+            </summary>
+            <param name="userName">The username</param>
+            <param name="domain">The user domain</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.IsUserAuthorized(System.String,System.String)">
+            <summary>
+            Checks if the user is authorized to use the portal if so a ConsoleUser object is returned.
+            </summary>
+            <param name="userName">The username</param>
+            <param name="domain">The user domain</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.UserController.GetConsoleGroups">
+            <summary>
+            Returns a list of all domain groups.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.api.V3.WorkItemController">
+            <summary>
+            Endpoints to retrieve WorkItem objects.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetGridWorkItemsByUser(System.Guid,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Returns Grid Work Items By User
+            </summary>
+            <param name="userId">The Guid user Id.</param>
+            <param name="isScoped">Boolean - is the user scoped ?</param>
+            <param name="showActivities">Boolean - return activities ?</param>
+            <param name="showInactiveItems">Boolean - return inactive woritems ?</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetGridWorkItemsMyGroups(System.Guid,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Returns Grid Work Items for User Groups
+            </summary>
+            <param name="userId">The Guid user Id.</param>
+            <param name="isScoped">Boolean - is the user scoped ?</param>
+            <param name="showActivities">Boolean - return activities ?</param>
+            <param name="showInactiveItems">Boolean - return inactive work items ?</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetGridWorkItemsMyClosedRequests(System.Guid,System.Int32)">
+            <summary>
+            Returns Closed Grid Work Items for User
+            </summary>
+            <param name="userId">The Guid user Id.</param>
+            <param name="maxCount">The max count of records to return.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetGridWorkItemsMyRequests(System.Guid,System.Boolean)">
+            <summary>
+            Returns Work Items Requested By User
+            </summary>
+            <param name="userId">The Guid user Id.</param>
+            <param name="showInactiveItems">Boolean - return inactive work items ?</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetGridWorkItemsAll(System.Guid,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Returns All Work Items By User 
+            </summary>
+            <param name="userId">The Guid user Id.</param>
+            <param name="isScoped">Boolean - is the user scoped ?</param>
+            <param name="showActivities">Boolean - return activities ?</param>
+            <param name="showInactiveItems">Boolean - return inactive work items ?</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetMyTeamRequest(System.Guid,System.Boolean,System.Boolean)">
+            <summary>
+            Returns Work Items Requested By Users's Team
+            </summary>
+            <param name="userId"></param>
+            <param name="showInactiveItems"></param>
+            <param name="isScoped"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.BulkEditWorkItems(CiresonWebConsole.Controllers.api.Models.BulkEditWorkItemModel)">
+            <summary>
+            Updates Work Items specified in the ItemIds list to the values set in the 'EditedFields' of the BulkEditedWorkItemModel.  Currently only supports properties on the seed object.  Supported property types are as follows: enum, string, date, int, double, bool, singlecardinalityobject (i.e. AffectedUser), multiplecardinalityobject (i.e. Action Log).   The EditedValue for a property with type of singlecardinality will be equal to GUID of the specified object.  The EditedValue for a property with type of multiplecardinalityobject will be the object in json format.
+            </summary>
+            <param name="item">JSON string of a BulkEditedWorkItemModel</param>
+            <returns>
+            Returns boolean for successful update or failed update.
+            </returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetChildWorkItems(System.Collections.Generic.List{System.String})">
+            <summary>
+            Retrieves the child workitem Guids for any requested parent Base Ids
+            </summary>
+            <param name="parentIds">A list of parent WorkItem Ids to search on.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetWatchlistByWorkItemId(System.Guid)">
+            <summary>
+            Returns users for a specified workitem
+            </summary>
+            <param name="workitemId">Workitem id to search on.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetWatchListByUserId(System.Guid)">
+            <summary>
+            Returns all user's watched items
+            </summary>
+            <param name="userId">User id to search on.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.AddToWatchlist(System.Guid,System.Guid)">
+            <summary>
+            Add an item to the watchlist table  
+            </summary>
+            <param name="userId">User Id to add to watchlist.</param>
+            <param name="workitemId">Workitem id to add to watchlist.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.DeleteFromWatchlist(System.Guid,System.Guid)">
+            <summary>
+            Remove an item from the watchlist 
+            </summary>
+            <param name="userId">A list of user ids to remove.</param>
+            <param name="workitemId">Workitem id to remove.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.AddUsersToWatchlist(System.Guid,System.Collections.Generic.List{System.Guid})">
+            <summary>
+            Add multiple users to the watchlist   
+            </summary>
+            <param name="userIds">List of user's id to add to watchlist.</param>
+            <param name="workitemId">Workitem id to add to watchlist.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.RemoveUsersFromWatchlist(System.Guid,System.Collections.Generic.List{System.Guid})">
+            <summary>
+            Remove multiple users from the watchlist   
+            </summary>
+            <param name="userIds">List of user's id to remove from watchlist.</param>
+            <param name="workitemId">Workitem id to remove from watchlist.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetGridWorkItemsMyActivities(System.Guid,System.Boolean,System.Boolean)">
+            <summary>
+            Returns list of activities assigned to the specified user
+            </summary>
+            <param name="userId">The user's id in GUID format.</param>
+            <param name="isScoped">Boolean - is the user scoped ?</param>
+            <param name="showInActives">Boolean - is show inactive?</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetGridWorkItemsMyApprovals(System.Guid,System.Boolean,System.Boolean)">
+            <summary>
+            Returns list of uncompleted review activities assigned to the specified user
+            </summary>
+            <param name="userId">The user's id in GUID format.</param>
+            <param name="isScoped">Boolean - is the user scoped ?</param>
+            <param name="showInActives">Boolean - is show inactive?</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetGridWorkItemsMyManualActivities(System.Guid,System.Boolean,System.Boolean)">
+            <summary>
+            Returns list of manual activities assigned to the specified user
+            </summary>
+            <param name="userId">The user's id in GUID format.</param>
+            <param name="isScoped">Boolean - is the user scoped ?</param>
+            <param name="showInActives">Boolean - is show inactive?</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetGridIncidentsByUser(System.Guid,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Returns list incidents assigned to the specified user
+            </summary>
+            <param name="userId">The Guid user Id.</param>
+            <param name="isScoped">Boolean - is the user scoped ?</param>
+            <param name="showActivities">Boolean - return activities ?</param>
+            <param name="showInactiveItems">Boolean - return inactive woritems ?</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.GetGridWorkItemsAllIncident(System.Guid,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Returns list of all incident work item
+            </summary>
+            <param name="userId">The Guid user Id.</param>
+            <param name="isScoped">Boolean - is the user scoped ?</param>
+            <param name="showActivities">Boolean - return activities ?</param>
+            <param name="showInactiveItems">Boolean - return inactive woritems ?</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.api.V3.WorkItemController.AddRemoteSessionActionLog(System.Object)">
+            <summary>
+            Save action log passed back by the remote session.
+            </summary>
+            <param name="trackBackData">Json data that the remote session pass.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Controllers.FileAttachmentController.UploadFile(System.String,System.String,System.Collections.Generic.IEnumerable{System.Web.HttpPostedFileBase})">
+            <summary>
+            Accepts a form post with files and the work item id
+            </summary>
+            <param name="id">The work item Id</param>
+            <param name="className">The WorkItem Class Name needed for new ones since can't get it from id</param>
+            <param name="files">Form file uploads</param>
+            <returns>JSON ??</returns>
+        </member>
+        <member name="T:CiresonWebConsole.Controllers.JsonNetResult">
+            <summary>
+            A <see cref="T:System.Web.Mvc.JsonResult"/> implementation that uses JSON.NET to
+            perform the serialization.
+            </summary>
+        </member>
+        <member name="T:CiresonWebConsole.App_Code.jsConnect">
+            <summary>
+            This object contains the client code for Vanilla jsConnect single-sign-on.
+            Version 1.0.3
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.App_Code.jsConnect.JsonEncode(System.Collections.IDictionary)">
+            <summary>
+            Encode a dictionary as json.
+            </summary>
+            <param name="d">The data to encode.</param>
+            <returns>The json encoded string.</returns>
+        </member>
+        <member name="T:CiresonWebConsole.App_Start.UnityWebActivator">
+            <summary>Provides the bootstrapping for integrating Unity with ASP.NET MVC.</summary>
+        </member>
+        <member name="M:CiresonWebConsole.App_Start.UnityWebActivator.Start">
+            <summary>Integrates Unity when the application starts.</summary>
+        </member>
+        <member name="M:CiresonWebConsole.App_Start.UnityWebActivator.Shutdown">
+            <summary>Disposes the Unity container when the application is shut down.</summary>
+        </member>
+        <member name="T:CiresonWebConsole.App_Start.UnityWebApiActivator">
+            <summary>Provides the bootstrapping for integrating Unity with WebApi when it is hosted in ASP.NET</summary>
+        </member>
+        <member name="M:CiresonWebConsole.App_Start.UnityWebApiActivator.Start">
+            <summary>Integrates Unity when the application starts.</summary>
+        </member>
+        <member name="M:CiresonWebConsole.App_Start.UnityWebApiActivator.Shutdown">
+            <summary>Disposes the Unity container when the application is shut down.</summary>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:CiresonWebConsole.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:CiresonWebConsole.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.ControllerName">
+            <summary>
+            gets or sets the Controller name
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.ActionName">
+            <summary>
+            gets or sets the Action name
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:CiresonWebConsole.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:CiresonWebConsole.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:CiresonWebConsole.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:CiresonWebConsole.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,CiresonWebConsole.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,CiresonWebConsole.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:CiresonWebConsole.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},CiresonWebConsole.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.#ctor(CiresonWebConsole.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,CiresonWebConsole.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:CiresonWebConsole.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CiresonWebConsole.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:CiresonWebConsole.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CiresonWebConsole.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.SC.Controllers.ServiceCatalogController.GetServiceCatalogWithSOGroup(Kendo.Mvc.UI.DataSourceRequest)">
+            <summary>
+            //Resolve the flat ServiceCatalogItems to a grouped set by ServiceOfferingId per Task #529
+            </summary>
+            <param name="request">KendoUI DatasourceRequest for the catelog service.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.SC.Controllers.ServiceCatalogController.GetServiceCatalogWithCatGroup(Kendo.Mvc.UI.DataSourceRequest)">
+            <summary>
+            //Resolve the flat ServiceCatalogItems to a grouped set by CategoryId per Task #529
+            </summary>
+            <param name="request">KendoUI DatasourceRequest for the catelog service.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Areas.WIs.Controllers.IncidentController.New(System.String,System.String)">
+            <summary>
+            This is for testing purposes of new custom layout
+            and is not accessible by any menus
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.PromoteViewWebService">
+            <summary>
+            Summary description for PromoteView
+            </summary>
+        </member>
+        <member name="T:CiresonWebConsole.Provider.ConsoleUserProvider">
+            <summary>
+            Provides console user information outside of any http/session context
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.Provider.ConsoleUserProvider.#ctor(CiresonWebConsole.Provider.ConsoleUserDataCacheStore)">
+            <summary>
+            Constructs a new instance of the provider for the given ConsoleUser.
+            </summary>
+            <param name="consoleUser"></param>
+        </member>
+        <member name="M:CiresonWebConsole.Provider.ConsoleUserProvider.GetConsoleUser">
+            <summary>
+            Returns the current console user.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.Provider.ConsoleUserProvider.GetConsoleUserLanguageCode">
+            <summary>
+            Gets consoleUser language code string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CiresonWebConsole.TeamsIntegration.Adapters.AdapterWithErrorHandler">
+            <summary>
+            Bot HttpAdapter to handle any unexpected errors
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.TeamsIntegration.Adapters.AdapterWithErrorHandler.#ctor(Microsoft.Bot.Connector.Authentication.SimpleCredentialProvider)">
+            <summary>
+            Ctor, configures the turn error handler
+            </summary>
+        </member>
+        <member name="T:CiresonWebConsole.TeamsIntegration.Bots.TeamsBot">
+            <summary>
+            The base bot for the teams intregration, which handles the authentication logic
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.TeamsIntegration.Bots.TeamsBot.#ctor(Microsoft.Bot.Builder.UserState,CiresonWebConsole.TeamsIntegration.Models.RequestInfo,CiresonWebConsole.TeamsIntegration.Services.IPlatformItemService,Cireson.ServiceManager.ManagementService.Interfaces.ISettingsProvider,Cireson.ServiceManager.Services.Interfaces.ILocalizationService)">
+            <summary>
+            Default Constructor
+            </summary>
+            <param name="userState"></param>
+            <param name="conversations"></param>
+            <param name="info"></param>
+        </member>
+        <member name="M:CiresonWebConsole.TeamsIntegration.Bots.TeamsBot.OnMessageActivityAsync(Microsoft.Bot.Builder.ITurnContext{Microsoft.Bot.Schema.IMessageActivity},System.Threading.CancellationToken)">
+            <summary>
+            Handle the message
+            </summary>
+            <param name="turnContext"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.TeamsIntegration.Services.TeamsNotificationService.TriggerNotifications(System.String,System.String)">
+            <summary>
+            Sets of Teams Notification to be triggered once the WorkItem save get hit.
+            </summary>
+            <param name="formJson"></param>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.TeamsIntegration.Services.TeamsNotificationService.GetTeamsInfoByUserId(System.String)">
+            <summary>
+            Get the TeamsInfo which saved on BotStorage table
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.TeamsIntegration.Services.TeamsNotificationService.TeamsNotificationTrigger(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.String,System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Invoke a method base of the type of functionality to be notify in the teams user.
+            </summary>
+            <param name="preferences"></param>
+            <param name="notifyType"></param>
+            <param name="func"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.TeamsIntegration.Services.TeamsNotificationService.TeamsCommentTrigger(System.Guid,Newtonsoft.Json.Linq.JToken,Cireson.ServiceManager.ManagementService.Interfaces.IConsoleUser,System.String)">
+            <summary>
+            Trigger from ms teams
+            </summary>
+            <param name="userId"></param>
+            <param name="current"></param>
+            <param name="consoleUser"></param>
+            <param name="comment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.TeamsIntegration.Services.TeamsNotificationService.TeamsWorkItemChangeTrigger(System.Guid,Newtonsoft.Json.Linq.JToken,Newtonsoft.Json.Linq.JToken,Cireson.ServiceManager.ManagementService.Interfaces.IConsoleUser)">
+            <summary>
+            Trigger from ms teams
+            </summary>
+            <param name="userId"></param>
+            <param name="current"></param>
+            <param name="orignal"></param>
+            <param name="consoleUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.TeamsIntegration.Services.TeamsNotificationService.SaveTeamsUserAsync(Microsoft.Bot.Builder.ITurnContext,System.Threading.CancellationToken)">
+            <summary>
+            Save Teams User Information to SerivceManagement database
+            </summary>
+            <param name="turnContext"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CiresonWebConsole.UnityConfig.GetConfiguredContainer">
+            <summary>
+            Gets the configured Unity container.
+            </summary>
+        </member>
+        <member name="M:CiresonWebConsole.MvcApplication.RegisterGlobalFilters(System.Web.Mvc.GlobalFilterCollection)">
+            <summary>
+            Registers the global filters.
+            </summary>
+            <param name="filters">The filters.</param>
+        </member>
+        <member name="T:Resources.wc">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.About">
+            <summary>
+              Looks up a localized string similar to ABOUT.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AboutHeader">
+            <summary>
+              Looks up a localized string similar to VISION. COMMITMENT. PASSION..
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AboutMessage1">
+            <summary>
+              Looks up a localized string similar to Our company was born not just because we were dazzled by Microsoft System Center’s amazing technology but also by the unbelievable total cost of ownership it provides. As a registered Microsoft partner, Cireson are the forward thinkers of all things considered Microsoft System Center. Through our innovative approach, we help companies harness the power of System Center whilst delivering world class value to the business. Plain and simple..
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AboutMessage2">
+            <summary>
+              Looks up a localized string similar to At Cireson the core mission is simple - focus on the user and all else will follow. Since the beginning, we’ve focused on providing the best user experience possible. We take great care to ensure that all our apps will ultimately serve you, rather than our own internal goal or bottom line. As a result, we strive for perfection and if you have any issues or enhancement requests then please email.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AboutMessage3">
+            <summary>
+              Looks up a localized string similar to If you like this Cireson app, then check our App Store for other top quality extension to System Center at.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ActionLog">
+            <summary>
+              Looks up a localized string similar to Action Log.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Activities">
+            <summary>
+              Looks up a localized string similar to Activities.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ActivityImplementer">
+            <summary>
+              Looks up a localized string similar to Activity Implementer.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Add">
+            <summary>
+              Looks up a localized string similar to Add.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AdditionalInformation">
+            <summary>
+              Looks up a localized string similar to Additional Information.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AddObjects">
+            <summary>
+              Looks up a localized string similar to Add Objects.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AffectedConfigurationItems">
+            <summary>
+              Looks up a localized string similar to Affected Configuration Items.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AffectedItem">
+            <summary>
+              Looks up a localized string similar to Affected Configuration Item.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AffectedItems">
+            <summary>
+              Looks up a localized string similar to Affected Items.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AffectedUser">
+            <summary>
+              Looks up a localized string similar to Affected User.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AffectedUserDept">
+            <summary>
+              Looks up a localized string similar to Affected User Department.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AllWorkItems">
+            <summary>
+              Looks up a localized string similar to ALL WORK ITEMS.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AlternateContact">
+            <summary>
+              Looks up a localized string similar to Alternate Contact Method.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Analyst">
+            <summary>
+              Looks up a localized string similar to Analyst.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Answer">
+            <summary>
+              Looks up a localized string similar to Answer.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ApprovalCondition">
+            <summary>
+              Looks up a localized string similar to Approval Condition.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ApprovalThreshold">
+            <summary>
+              Looks up a localized string similar to Approval Threshold.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Approve">
+            <summary>
+              Looks up a localized string similar to Approve.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Area">
+            <summary>
+              Looks up a localized string similar to Area.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AssignedBy">
+            <summary>
+              Looks up a localized string similar to Assigned By.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AssignedTo">
+            <summary>
+              Looks up a localized string similar to Assigned To.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AssignedUser">
+            <summary>
+              Looks up a localized string similar to Assigned User.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AssignToAnalystByGroup">
+            <summary>
+              Looks up a localized string similar to Assign To Analyst By Group.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AssignToMe">
+            <summary>
+              Looks up a localized string similar to Assign To Me.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.AttachmentError">
+            <summary>
+              Looks up a localized string similar to The selected file is too large.  Files cannot exceed 2048 Kb..
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Attachments">
+            <summary>
+              Looks up a localized string similar to Attachments.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.BackoutPlan">
+            <summary>
+              Looks up a localized string similar to Backout Plan.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Cancel">
+            <summary>
+              Looks up a localized string similar to Cancel.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ChangeRequest">
+            <summary>
+              Looks up a localized string similar to Change Request.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ChangeStatus">
+            <summary>
+              Looks up a localized string similar to Change Status.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ChooseOne">
+            <summary>
+              Looks up a localized string similar to Choose One....
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Class">
+            <summary>
+              Looks up a localized string similar to Class.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ClassAreaCategory">
+            <summary>
+              Looks up a localized string similar to Class/Area/Category.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Classification">
+            <summary>
+              Looks up a localized string similar to Classification.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Clear">
+            <summary>
+              Looks up a localized string similar to Clear.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Close">
+            <summary>
+              Looks up a localized string similar to Close.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Comment">
+            <summary>
+              Looks up a localized string similar to Comment.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Company">
+            <summary>
+              Looks up a localized string similar to Company.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Complete">
+            <summary>
+              Looks up a localized string similar to Complete.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.CompletedDate">
+            <summary>
+              Looks up a localized string similar to Resolution/Completed Date.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Computer">
+            <summary>
+              Looks up a localized string similar to Computer.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ConfigItemsToChange">
+            <summary>
+              Looks up a localized string similar to Configuration Items To Change.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Configuration">
+            <summary>
+              Looks up a localized string similar to CONFIGURATION ITEMS.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Contains">
+            <summary>
+              Looks up a localized string similar to Contains.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.CostInformation">
+            <summary>
+              Looks up a localized string similar to Cost Information.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.CreatedDate">
+            <summary>
+              Looks up a localized string similar to Created Date.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Dashboard">
+            <summary>
+              Looks up a localized string similar to DASHBOARD.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.DecisionDate">
+            <summary>
+              Looks up a localized string similar to Decision Date.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.DependentActivity">
+            <summary>
+              Looks up a localized string similar to Dependent Activity.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Description">
+            <summary>
+              Looks up a localized string similar to Description.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Device">
+            <summary>
+              Looks up a localized string similar to Device.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.DisplayName">
+            <summary>
+              Looks up a localized string similar to Display Name.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Domain">
+            <summary>
+              Looks up a localized string similar to Domain.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.EnterRequiredFields">
+            <summary>
+              Looks up a localized string similar to Enter Required Fields.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ErrorOccured">
+            <summary>
+              Looks up a localized string similar to An error occured while processing your request..
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ExpandCollapse">
+            <summary>
+              Looks up a localized string similar to Expand/Collapse.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Failed">
+            <summary>
+              Looks up a localized string similar to Failed.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Favorites">
+            <summary>
+              Looks up a localized string similar to Favorites.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.FirstName">
+            <summary>
+              Looks up a localized string similar to First Name.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.From">
+            <summary>
+              Looks up a localized string similar to From.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.GridManyResults">
+            <summary>
+              Looks up a localized string similar to This view contains many results.  The first {0} are shown..
+            </summary>
+        </member>
+        <member name="P:Resources.wc.GridViewAllResults">
+            <summary>
+              Looks up a localized string similar to Click here to view all results.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.HasVeto">
+            <summary>
+              Looks up a localized string similar to Has Veto.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Impact">
+            <summary>
+              Looks up a localized string similar to Impact.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ImpactedConfigItems">
+            <summary>
+              Looks up a localized string similar to Impacted Configuration Items.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ImplementationPlan">
+            <summary>
+              Looks up a localized string similar to Implementation Plan.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ImplementationResults">
+            <summary>
+              Looks up a localized string similar to Implementation Results.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Incident">
+            <summary>
+              Looks up a localized string similar to Incident.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Instructions">
+            <summary>
+              Looks up a localized string similar to Instructions.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.InvalidDate">
+            <summary>
+              Looks up a localized string similar to Invalid Date.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Isequalto">
+            <summary>
+              Looks up a localized string similar to Is equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Isnotequalto">
+            <summary>
+              Looks up a localized string similar to Is not equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.KnowledgeBase">
+            <summary>
+              Looks up a localized string similar to KNOWLEDGE BASE.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.LastModified">
+            <summary>
+              Looks up a localized string similar to Last Modified.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.LastName">
+            <summary>
+              Looks up a localized string similar to Last Name.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.LicenseExpires">
+            <summary>
+              Looks up a localized string similar to This application is licensed until .
+            </summary>
+        </member>
+        <member name="P:Resources.wc.LicenseMessage">
+            <summary>
+              Looks up a localized string similar to This application is licensed for use and there is no expiry date..
+            </summary>
+        </member>
+        <member name="P:Resources.wc.LineManagerShouldReview">
+            <summary>
+              Looks up a localized string similar to Line Manager Should Review.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Loading">
+            <summary>
+              Looks up a localized string similar to Loading......
+            </summary>
+        </member>
+        <member name="P:Resources.wc.LoginController_Login_The_user_name_or_password_provided_is_incorrect_">
+            <summary>
+              Looks up a localized string similar to The user name or password provided is incorrect..
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Logout">
+            <summary>
+              Looks up a localized string similar to Logout.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ManualActivity">
+            <summary>
+              Looks up a localized string similar to Manual Activity.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.MarkAsCompleted">
+            <summary>
+              Looks up a localized string similar to Mark As Completed.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.MarkAsFailed">
+            <summary>
+              Looks up a localized string similar to Mark As Failed.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.MinSearchAlert">
+            <summary>
+              Looks up a localized string similar to Please enter at least 3 characters..
+            </summary>
+        </member>
+        <member name="P:Resources.wc.MoreInformation">
+            <summary>
+              Looks up a localized string similar to More Information.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.MustVote">
+            <summary>
+              Looks up a localized string similar to Must Vote.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.MyActiveWorkItems">
+            <summary>
+              Looks up a localized string similar to MY ACTIVE WORK ITEMS.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.MyRequests">
+            <summary>
+              Looks up a localized string similar to MY REQUESTS.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.MyWorkItems">
+            <summary>
+              Looks up a localized string similar to MY WORK ITEMS.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Name">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.New">
+            <summary>
+              Looks up a localized string similar to New.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.NewChangeRequest">
+            <summary>
+              Looks up a localized string similar to NEW CHANGE REQUEST.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.NewIncident">
+            <summary>
+              Looks up a localized string similar to NEW INCIDENT.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.NewServiceRequest">
+            <summary>
+              Looks up a localized string similar to NEW SERVICE REQUEST.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.NewWorkItem">
+            <summary>
+              Looks up a localized string similar to NEW WORK ITEM.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Notes">
+            <summary>
+              Looks up a localized string similar to Notes.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.OK">
+            <summary>
+              Looks up a localized string similar to OK.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Overview">
+            <summary>
+              Looks up a localized string similar to Overview.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Owner">
+            <summary>
+              Looks up a localized string similar to Owner.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ParallelActvity">
+            <summary>
+              Looks up a localized string similar to Parallel Activity.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Password">
+            <summary>
+              Looks up a localized string similar to Password.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Path">
+            <summary>
+              Looks up a localized string similar to Path.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Planning">
+            <summary>
+              Looks up a localized string similar to Planning.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.PostImplementationReview">
+            <summary>
+              Looks up a localized string similar to Post Implementation Review.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.PrimaryOwner">
+            <summary>
+              Looks up a localized string similar to Primary Owner.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Printer">
+            <summary>
+              Looks up a localized string similar to Printer.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Priority">
+            <summary>
+              Looks up a localized string similar to Priority.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Private">
+            <summary>
+              Looks up a localized string similar to Private.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.PutOnHold">
+            <summary>
+              Looks up a localized string similar to Put On Hold.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Question">
+            <summary>
+              Looks up a localized string similar to Question.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Reason">
+            <summary>
+              Looks up a localized string similar to Reason.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.RecordAssigned">
+            <summary>
+              Looks up a localized string similar to Record Assigned.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.RecordCap">
+            <summary>
+              Looks up a localized string similar to This view contains many results.  The first 250 are shown..
+            </summary>
+        </member>
+        <member name="P:Resources.wc.RecordResolved">
+            <summary>
+              Looks up a localized string similar to Record Resolved.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Reject">
+            <summary>
+              Looks up a localized string similar to Reject.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.RememberMe">
+            <summary>
+              Looks up a localized string similar to Remember me.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Remove">
+            <summary>
+              Looks up a localized string similar to Remove.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.RemoveObjects">
+            <summary>
+              Looks up a localized string similar to Remove Objects.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.RequestCreated">
+            <summary>
+              Looks up a localized string similar to The request has been created.   ID:  .
+            </summary>
+        </member>
+        <member name="P:Resources.wc.RequestOfferingFilterAny">
+            <summary>
+              Looks up a localized string similar to Any type of request.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.RequestOfferingFilterFavorites">
+            <summary>
+              Looks up a localized string similar to I want to choose one of my favorite requests.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.RequestOfferingFilterIncident">
+            <summary>
+              Looks up a localized string similar to I want to report an issue.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.RequestOfferingFilterServiceReqest">
+            <summary>
+              Looks up a localized string similar to I want to request something.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.RequestType">
+            <summary>
+              Looks up a localized string similar to Request Type.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Required">
+            <summary>
+              Looks up a localized string similar to Required.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ResolutionCategory">
+            <summary>
+              Looks up a localized string similar to Resolution Category.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ResolveIncident">
+            <summary>
+              Looks up a localized string similar to Resolve Incident.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Results">
+            <summary>
+              Looks up a localized string similar to Results.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Resume">
+            <summary>
+              Looks up a localized string similar to Resume.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ReviewActivity">
+            <summary>
+              Looks up a localized string similar to Review Activity.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ReviewerComment">
+            <summary>
+              Looks up a localized string similar to Reviewer Comment.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Reviewers">
+            <summary>
+              Looks up a localized string similar to Reviewers.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Risk">
+            <summary>
+              Looks up a localized string similar to Risk.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.RiskAssessmentPlan">
+            <summary>
+              Looks up a localized string similar to Risk Assessment Plan.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Save">
+            <summary>
+              Looks up a localized string similar to Save.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SavedMessage">
+            <summary>
+              Looks up a localized string similar to Successfully Saved.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ScheduledEndDate">
+            <summary>
+              Looks up a localized string similar to Scheduled End Date.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ScheduledStartDate">
+            <summary>
+              Looks up a localized string similar to Scheduled Start Date.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Search">
+            <summary>
+              Looks up a localized string similar to SEARCH WORK ITEMS.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SearchButton">
+            <summary>
+              Looks up a localized string similar to Search.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SearchObjectText">
+            <summary>
+              Looks up a localized string similar to Select a class of objects to filter by.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SearchParameters">
+            <summary>
+              Looks up a localized string similar to Search Parameters.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SearchPlaceHolder">
+            <summary>
+              Looks up a localized string similar to Search for something here....
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SearchResults">
+            <summary>
+              Looks up a localized string similar to Search Results.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SearchText">
+            <summary>
+              Looks up a localized string similar to Enter all or part of a name to search by.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SelectAStatus">
+            <summary>
+              Looks up a localized string similar to Select a Status.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SelectATemplate">
+            <summary>
+              Looks up a localized string similar to Please select a template.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SelectedObjects">
+            <summary>
+              Looks up a localized string similar to Selected Objects.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SelectObject">
+            <summary>
+              Looks up a localized string similar to Select Object.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SelectObjects">
+            <summary>
+              Looks up a localized string similar to Select Objects.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SelectObjectsTitle">
+            <summary>
+              Looks up a localized string similar to Select Objects.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SelectObjectTitle">
+            <summary>
+              Looks up a localized string similar to Select Object.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SelectUser">
+            <summary>
+              Looks up a localized string similar to Select User.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SelectWorkItemAlert">
+            <summary>
+              Looks up a localized string similar to Select a WorkItem Type..
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SequentialActivity">
+            <summary>
+              Looks up a localized string similar to Sequential Activity.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Service">
+            <summary>
+              Looks up a localized string similar to Service.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ServiceCatalog">
+            <summary>
+              Looks up a localized string similar to SERVICE CATALOG.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ServiceCategory">
+            <summary>
+              Looks up a localized string similar to Service Category.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ServiceRequest">
+            <summary>
+              Looks up a localized string similar to Service Request.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.ShowAllRecords">
+            <summary>
+              Looks up a localized string similar to Click here to view all results.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SLAInformation">
+            <summary>
+              Looks up a localized string similar to Service Level Agreement Information.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Source">
+            <summary>
+              Looks up a localized string similar to Source.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Stage">
+            <summary>
+              Looks up a localized string similar to Stage.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Startswith">
+            <summary>
+              Looks up a localized string similar to Starts with.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Status">
+            <summary>
+              Looks up a localized string similar to Status.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.StatusChanged">
+            <summary>
+              Looks up a localized string similar to Status Changed.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.SupportGroup">
+            <summary>
+              Looks up a localized string similar to Support Group.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Tasks">
+            <summary>
+              Looks up a localized string similar to Tasks.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.TeamWorkItems">
+            <summary>
+              Looks up a localized string similar to MY TEAM&apos;S WORK ITEMS.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.TestPlan">
+            <summary>
+              Looks up a localized string similar to Test Plan.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Title">
+            <summary>
+              Looks up a localized string similar to Title.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.To">
+            <summary>
+              Looks up a localized string similar to To.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Type">
+            <summary>
+              Looks up a localized string similar to Type.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Urgency">
+            <summary>
+              Looks up a localized string similar to Urgency.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.UseAsTemplate">
+            <summary>
+              Looks up a localized string similar to Use As Template.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.User">
+            <summary>
+              Looks up a localized string similar to User.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.UserInputs">
+            <summary>
+              Looks up a localized string similar to User Inputs.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Username">
+            <summary>
+              Looks up a localized string similar to Username.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Value">
+            <summary>
+              Looks up a localized string similar to Value.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Vote">
+            <summary>
+              Looks up a localized string similar to Vote.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.VotedBy">
+            <summary>
+              Looks up a localized string similar to Voted By.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.VoteWindowText">
+            <summary>
+              Looks up a localized string similar to You have decided to vote on an activity.  Please place your vote and provide your comments..
+            </summary>
+        </member>
+        <member name="P:Resources.wc.WebConsoleTitle">
+            <summary>
+              Looks up a localized string similar to SYSTEM MANAGER DASHBOARD:.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Welcome">
+            <summary>
+              Looks up a localized string similar to WELCOME.
+            </summary>
+        </member>
+        <member name="P:Resources.wc.Yes">
+            <summary>
+              Looks up a localized string similar to Yes.
+            </summary>
+        </member>
+    </members>
+</doc>

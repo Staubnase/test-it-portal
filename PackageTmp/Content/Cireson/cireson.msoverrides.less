@@ -1,0 +1,22 @@
+﻿/******************************************************************************************
+IE Specific Rules
+
+Use this document to fix style issues in IE
+Please put a comment in the file that defines the original property you are overriding
+*******************************************************************************************/
+::-ms-clear {
+    display: none;
+    width: 0;
+    height: 0;
+}
+// popup exit dialog buttons
+.k-ie .k-ext-dialog-buttons {
+    position: absolute;
+}
+
+.k-edge {
+    //popup window
+    div.k-window-content .cireson-window--wrapper {
+        padding-bottom: 90px;
+    }
+}

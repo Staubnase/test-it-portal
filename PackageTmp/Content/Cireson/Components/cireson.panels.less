@@ -1,0 +1,36 @@
+﻿/******************************************************************************************
+Panels - Custom Styles
+*******************************************************************************************/
+
+.panel {
+    padding: 0;
+
+    &.panel-widget {
+        border: 1px solid @border-color-light;
+
+        .panel-heading {
+            .border-radius(0);
+            border-bottom: 1px solid @border-color-light;
+            padding: 10px 15px;
+            background-color: @v-color-gray-lightest;
+        }
+    }
+}
+
+.panel-flat {
+    // Base class
+    &.panel {
+        .panel-body {
+            padding: 10px;
+            padding-bottom: 0;
+        }
+        // Optional heading
+        .panel-heading {
+            padding: 10px 15px;
+        }
+    }
+}
+
+.panel-heading {
+    color: @text-color-body-headings;
+}

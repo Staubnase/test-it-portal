@@ -1,0 +1,80 @@
+﻿<div tabindex="-1" role="dialog" class="modal right fade cs-form__flyout--attachment">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><%= localization.FileAttachments %></h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="fileattachment-list"></div>
+                    <div class="fileattachment-img-modal"></div>
+                </div>
+
+                <script type="text/x-kendo-template" id="filesTemplate">
+                    <div class="pull-left">
+                        <div class="panel panel-default">
+                            <div class="thumbnail-file">
+                                <div class="cursor-pointer thumbnail-img">
+                                    # if (DisplayName.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/)) { #
+                                    <img src="data:image/png;base64,#= Content.data #" onerror="this.onerror = null; this.src = '/Content/Images/Icons/FileUpload/document.svg';" alt="#: DisplayName # image" />
+                                    # } else{ #
+                                    <div class="thumbnail-type">#: Extension #</div>
+                                    # } #
+                                </div>
+                                <div class="thumbnail-caption">
+                                    <span>#: DisplayName #</span>
+                                    <div class="overlay">
+                                        # if (DisplayName.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/)) { #
+                                        <span class="label">
+                                            <a class="icon custom-click" view-image action="view" title="View Image">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </span>
+                                        <span class="label">
+                                            <a class="icon custom-click" title="Open in New Tab" action="opennewtab">
+                                                <i class="fa fa-external-link"></i>
+                                            </a>
+                                        </span>
+                                        # } #
+                                        # if (BaseId!=null) { #
+                                        <span class="label">
+                                            <a class="icon custom-click" title="Download" action="download">
+                                                <i class="fa fa-download"></i>
+                                            </a>
+                                        </span>
+                                        # } #
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="thumbnail-data"><span>#:AddedBy.DisplayName #</span></div>
+                                <div class="thumbnail-data"><span>#:kendo.toString(moment(AddedDate, moment.ISO_8601).toDate(),'g')#</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </script>
+                
+            </div>
+            <div class="modal-footer">
+                <button data-role="button"
+                        class="btn btn-primary cs-form__flyout--save"
+                        data-bind="events: { click: save }, visible: saveCancelBtn">
+                    <%= localization.OK %>
+                </button>
+                <button data-role="button"
+                        class="btn btn-default cs-form__flyout--cancel"
+                        data-bind="events: { click: cancel }, visible: saveCancelBtn">
+                    <%= localization.Cancel %>
+                </button>
+                <button data-role="button"
+                        class="btn btn-default cs-form__flyout--close"
+                        data-bind="events: { click: cancel}, visible: closeBtn ">
+                    <%= localization.Close %>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

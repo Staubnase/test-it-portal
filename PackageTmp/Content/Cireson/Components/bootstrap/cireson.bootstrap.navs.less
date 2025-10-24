@@ -1,0 +1,118 @@
+﻿/******************************************************************************************
+Bootstrap Navs - Overrides
+
+This document is only for styles that override this Bootstrap component's core classes.
+
+Do not include styles that amend these classes within specific contexts or extend these ideas into new classes.
+Instead these should be placed within the corresponding cireson.[component].less file.
+*******************************************************************************************/
+
+
+/* Import core Bootstrap component first
+------------------------------------------------------------------------------------------*/
+
+@import "../../../bootstrap/navs.less";
+
+/* Style Overrides
+------------------------------------------------------------------------------------------*/
+
+// .nav-tabs,
+// .nav-pills {
+//   margin-left: 0 !important;
+// }
+
+// .nav-pills > li + li {
+//   margin-left: 0;
+// }
+
+// .nav-pills > li a {
+//   padding-left: 0;
+//   padding-right: 30px;
+// }
+
+.nav-pills {
+    margin-bottom: 10px;
+    html[dir~="rtl"] & {
+        float: right;
+        padding: 0;
+        left: 30px;
+    }
+    
+    .tab-pane > & {
+        margin-left: 0;
+        border-bottom: 1px solid @nav-pills-link-hover-color;
+
+        > li {
+            background-color: @nav-pills-active-link-hover-bg;
+            cursor: pointer;
+            // Links rendered as pills
+            > a {
+                padding-top: 0;
+                color: @v-color-link;
+                /*font-size: 10px;*/
+                text-transform: uppercase;
+
+                .defined-form & {
+                    font-size: 14px;
+                }
+
+                &:hover,
+                &:focus {
+                    color: @nav-pills-link-hover-color;
+                    background-color: @nav-pills-active-link-hover-bg;
+                }
+            }
+            // Active state
+            &.active > a {
+                &,
+                &:hover,
+                &:focus {
+                    color: @nav-pills-active-link-hover-color;
+                    font-weight: bold;
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+
+    > li {
+        background-color: @nav-pills-active-link-hover-bg;
+        cursor: pointer;
+        // Links rendered as pills
+        > a {
+            /*font-size: 12px;*/
+            text-transform: uppercase;
+            text-decoration: none;
+            padding-left: 0;
+            padding-right: 30px;
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+                background-color: @nav-pills-active-link-hover-bg;
+            }
+        }
+        // Active state
+        &.active > a {
+            font-weight: bold;
+            cursor: default;
+
+            &,
+            &:hover,
+            &:focus {
+                color: @nav-pills-active-link-hover-color;
+                text-decoration: none !important;
+            }
+        }
+        html[dir~="rtl"] & {
+            float: right;
+        }
+    }
+
+    li.tabdrop{
+       @media @large-screen-only {
+           margin-top: 7px;
+       }
+    }
+}

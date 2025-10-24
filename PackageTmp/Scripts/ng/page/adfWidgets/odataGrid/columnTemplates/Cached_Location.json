@@ -1,0 +1,63 @@
+﻿{
+  "DisplayName": {
+    "field": "DisplayName",
+    "title": "Location Name",
+    "template": "#= (DisplayName) ? DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "LocationAddress1": {
+    "field": "LocationAddress1",
+    "title": "Address 1",
+    "template": "#= (LocationAddress1) ? LocationAddress1 : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "LocationAddress2": {
+    "field": "LocationAddress2",
+    "title": "Address 2",
+    "template": "#= (LocationAddress2) ? LocationAddress2 : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "LocationCity": {
+    "field": "LocationCity",
+    "title": "City",
+    "template": "#= (LocationCity) ? LocationCity : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "LocationState": {
+    "field": "LocationState",
+    "title": "State",
+    "template": "#= (LocationState) ? LocationState : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+   "LocationCountry": {
+    "field": "LocationCountry",
+    "title": "Country",
+    "template": "#= (LocationCountry) ? LocationCountry : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

@@ -1,0 +1,23 @@
+﻿<div class="form-group cs-form__urltexbox cs-form__urltexbox--<%= PropertyName %>">
+    <label class="control-label cs-form__urltexbox--label" for="<%= PropertyName %>" data-localize="<%= PropertyDisplayName %>">
+        <span><% if ( Required ){ %> <%= '(' + localization.Required + ')' %><% } %></span>
+    </label>
+    <input type="text"
+           name="<%= PropertyName %>"
+           class="k-textbox form-control input-sm cs-form__urltexbox--input"
+           data-bind="value: <%= PropertyName %>, events:{change:textChange}" <% if ( Disabled ){ %>
+        disabled
+        <% } %>
+
+        <% if ( Required ){ %>
+        required
+        <% } %>
+
+        />
+    <div data-role="button"
+         data-sprite-css-class="k-icon k-edit"
+         class="urlTextboxIcon cs-form__urltexbox--button"
+         data-bind="events: { click: openURL }">
+        <i class="fa fa-external-link nav-icon-color"></i>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en-us" ng-app="affectedUserApp">
+<head>
+   
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+
+    <!-- Load Angular Modules -->
+    <script src="/Scripts/libs/angular/angular.min.js"></script>
+    <script src="/Scripts/libs/angular/angular-route.min.js"></script>
+    <script src="/Scripts/libs/angular/angular-resource.min.js"></script>
+    <script src="/Scripts/libs/angular/angular-animate.min.js"></script>
+    <script src="/Scripts/libs/angular/angular-messages.js"></script>
+    <script src="/Scripts/libs/angular/angular-sanitize.js"></script>
+    <script src="/Scripts/libs/angular/angular-aria.js"></script>
+    <script src="/Scripts/libs/angular/angular-material.js"></script>
+
+    <!-- Load boostrap -->
+    <script src="/Scripts/libs/angular/ui-bootstrap-tpls-1.3.3.min.js"></script>
+
+    <!-- Load Application Scripts  -->
+    <script src="/Scripts/viewPanels/affectedUser/app/app.js"></script>
+    <script src="/Scripts/viewPanels/affectedUser/app/routes.js"></script>
+    <script src="/Scripts/viewPanels/affectedUser/app/ircontroller.js"></script>
+    <script src="/Scripts/viewPanels/affectedUser/app/srcontroller.js"></script>
+    <script src="/Scripts/viewPanels/affectedUser/app/services.js"></script>
+    <script src="/Scripts/viewPanels/affectedUser/app/directives.js"></script>
+
+    <!-- Initialize -->
+    <script src="/Scripts/viewPanels/affectedUser/scripts/init.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="page_bar clearfix">
+            <div class="row">
+                <div class="col-md-5 col-xs-12">
+                    <h1 class="page_title" data-localize="AffectedUserApp"></h1>
+                </div>
+            </div>
+        </div>
+        <div ng-view></div>
+    </div>
+    <script>
+        $('<button id="createIRTaskbar" class="btn btn-link btn-lg"><span class="drawer-icon ci ci-incident"></span> <div>' + localization.CreateIncident  + '</div></button>').appendTo($('#drawer-taskbar'));
+        $('<button id="createSRTaskbar" class="btn btn-link btn-lg"><span class="drawer-icon ci ci-service-request"></span> <div>' + localization.CreateRequest  + '</div></button>').appendTo($('#drawer-taskbar'));
+
+        $('#createIRTaskbar').click(function () {
+            $('#createIR').click();
+        });
+        $('#createSRTaskbar').click(function () {
+            $('#createSR').click();
+        });
+    </script>
+</body>
+</html>

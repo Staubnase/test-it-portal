@@ -1,0 +1,42 @@
+﻿{
+  "Span": {
+    "field": "Span",
+    "title": "Notice Span",
+    "template": "#= (Span) ? Span : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "Notifications": {
+    "field": "Notifications",
+    "title": "Notifications",
+    "template": "#= (Notifications) ? Notifications : 0 #",
+    "DataType": "number",
+    "hidden": false
+  },
+  "NoticeEventHasOwner_DisplayName": {
+    "field": "NoticeEventHasOwner_DisplayName",
+    "title": "Owner",
+    "template": "#= (NoticeEventHasOwner_DisplayName) ? NoticeEventHasOwner_DisplayName : '' #",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Base_LastModified": {
+    "field": "Base_LastModified",
+    "title": "Last Modified",
+    "template": "#= (Base_LastModified) ? kendo.toString(new Date(Base_LastModified), 'g') : '' #",
+    "DataType": "date",
+    "hidden": false
+  },
+  "LanguageCode": {
+    "field": "LanguageCode",
+    "title": "LanguageCode",
+    "DataType": "string",
+    "hidden": false
+  },
+  "Guid": {
+    "field": "Guid",
+    "title": "Guid",
+    "DataType": "string",
+    "hidden": true
+  }
+}

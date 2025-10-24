@@ -1,0 +1,55 @@
+﻿/******************************************************************************************
+Bootstrap Alerts - Overrides
+
+This document is only for styles that override this Bootstrap component's core classes.
+
+Do not include styles that amend these classes within specific contexts or extend these ideas into new classes.
+Instead these should be placed within the corresponding cireson.[component].less file.
+*******************************************************************************************/
+
+/* Import core Bootstrap component first
+------------------------------------------------------------------------------------------*/
+@import "../../../bootstrap/alerts.less";
+/* Style Overrides
+------------------------------------------------------------------------------------------*/
+
+.alert {
+  font-weight: normal;
+  padding: 15px 15px 13px;
+  margin-bottom: 20px;
+  color: @text-color-body;
+  text-shadow: none;
+  .alert-link {
+    font-weight: normal;
+    color: @text-color-body !important;
+    text-decoration: underline;
+  }
+  &.alert-info {
+    background-color: @v-color-info-light;
+    .fa {
+      color: @v-color-info;
+    }
+}
+
+  &.alert-danger {
+    background-color: @v-color-error-light;
+    .fa {
+      color: @v-color-error;
+    }
+  }
+  &.alert-success {
+    background-color: @v-color-success-light;
+    .fa {
+      color: @v-color-success;
+    }
+  }
+  &.alert-warning {
+    background-color: @v-color-warning-light;
+    .fa {
+      color: @v-color-warning;
+    }
+  }
+  &.alert-dismissable .close {
+    .opacity(@button-disabled-opacity);
+    }
+}

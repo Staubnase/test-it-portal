@@ -1,0 +1,457 @@
+﻿/* 
+    InstaTheme:
+    1. Change primary color value
+    2. Compile this file: http://winless.org/online-less-compiler
+    3. Copy compilled css to custom.css in the CustomSpace dir
+    4. That's it you are done.
+    */
+
+@clickable-color: #398cb3;
+@heading-color: #444;
+@selection-color: #3aa0cc;
+@status-color: #4fbeba;
+@urgent-color: #b0d003;
+@text-color: white;
+@border-radius: 3px;
+
+//no need to edit below this line
+@accent-color-dark: darken(@heading-color, 12%);
+@secondary-color: lighten(@heading-color, 10%);
+@secondary-lighten: lighten(@secondary-color, 20%);
+@clickable-color-darken: darken(@clickable-color, 10%);
+@clickable-color-darken-hover: darken(@clickable-color, 5%);
+@clickable-color-hover: lighten(@clickable-color, 20%);
+
+/*header background color*/
+.header-bg-color {
+    background-color: @heading-color !important;
+}
+
+/*announcements bar*/
+.announcements {
+    background: @accent-color-dark;
+}
+/* Header Menu Hover and Background Color*/
+.header-user:hover {
+    background-color: @selection-color !important;
+}
+
+/* sidebar background color */
+.sidebar-bg-color {
+    background-color: lighten(@selection-color,10%) !important;
+}
+
+/*****************************************NEW V3 NAV STYLES********************************/
+
+/* sidebar sub panel background color */
+#side_nav .sub_panel {
+    background-color: @clickable-color !important;
+}
+
+/* Link color new for V3 */
+a,
+a:link,
+a:visited,
+.link,
+.link:visited {
+    color: @clickable-color;
+}
+
+.link:hover,
+a:hover,
+a:focus,
+.link:focus {
+    color: darken(@clickable-color,20%);
+}
+
+.drawertaskbar .drawertaskbar-commands .btn-link .fa {
+    color: @text-color !important;
+}
+
+/*open sub nav item background color*/
+.nav_open > a {
+    background-color: @clickable-color !important;
+}
+
+/*pinned sub nav item background color*/
+.pinned_subnav .nav_active > a {
+    background-color: @clickable-color !important;
+}
+
+/*active nav item text color */
+#side_nav > ul > li.nav_active > a,
+#side_nav > ul > li > a > span.nav_icon > i {
+    color: @clickable-color;
+}
+/*****************************************NEW V3 NAV STYLES********************************/
+
+/* drawer closed background color/gradient*/
+.drawertaskbar {
+    background-color: @accent-color-dark;
+    background-image: none;
+}
+
+/* open drawer menu*/
+.drawer-drawermenu {
+    background-color: @accent-color-dark;
+}
+
+/* drawer title 'NEW' color */
+.drawer-drawermenu .drawermenu-title {
+    color: lighten(@accent-color-dark,30%);
+}
+
+/* Drawer menu item hover background color */
+.drawer-drawermenu .drawermenu-tile ul li:hover,
+.drawer-drawermenu .drawermenu-tile ul li.drawermenu-selected {
+    background-color: lighten(@accent-color-dark,30%);
+}
+
+/* Drawer Menu Section Left Border Color */
+.drawer-drawermenu .drawermenu-tile ul {
+    border-color: lighten(@accent-color-dark,10%);
+}
+
+/*  Grid Higlighted Column(s) Background Color */
+.k-grid td.grid-highlight-column,
+.k-grid td.grid-highlight-column-last,
+.k-grid td.grid-highlight-column-title {
+    background-color: lighten(@selection-color,40%);
+
+    & a {
+        color: @clickable-color !important;
+        transition: none;
+        text-decoration: none;
+    }
+}
+
+/*  Grid Higlighted Column(s) Hover Background Color */
+.k-grid tr:hover td.grid-highlight-column,
+.k-grid tr:hover td.grid-highlight-column-last,
+.k-grid tr:hover td.grid-highlight-column-title {
+    background-color: @selection-color;
+
+    & a {
+        color: darken(@clickable-color,20%) !important;
+        transition: none;
+        text-decoration: none;
+    }
+}
+
+/*  Grid Higlighted Column(s) Selected Background Color */
+.k-grid .k-state-selected td.grid-highlight-column,
+.k-grid .k-state-selected td.grid-highlight-column-last,
+.k-grid .k-state-selected td.grid-highlight-column-title {
+    background-color: @selection-color;
+
+    & a {
+        color: darken(@clickable-color,20%) !important;
+        transition: none;
+        text-decoration: none;
+    }
+}
+
+/* Form Heading Bottom accent color */
+.panel-heading {
+    border-color: @heading-color !important;
+}
+
+/* Status Label Background Color */
+.label-info {
+    background-color: @status-color !important;
+}
+
+/* Activity Status Text Color */
+.activity-list-container .activity-item-header .k-dropdown .k-dropdown-wrap .k-input,
+.activity-list-container .activity-item #activityStatus {
+    color: @status-color;
+}
+
+
+.k-state-selected {
+    background-color: @selection-color !important;
+    border-color: @selection-color !important;
+}
+
+/*set the color of clickable controls like buttons checkboxes, etc*/
+/* we use standard bootstrap primary classes*/
+.checkbox input[type=checkbox]:checked + label:before,
+.checkbox-primary input[type=checkbox]:checked + label:before,
+.checkbox input[type=checkbox]:checked ~ .checkbox-label:before,
+.checkbox-primary input[type=checkbox]:checked ~ .checkbox-label:before {
+    background-color: @clickable-color;
+    border-color: @clickable-color;
+}
+
+.btn.btn-primary,
+.k-button.btn-primary,
+.affecteditems-grid .two-action-input-group .k-button,
+.relateditems-grid .two-action-input-group .k-button {
+    background-color: @clickable-color;
+    border-color: @clickable-color;
+
+    &.btn-link {
+        background-color: transparent;
+
+        &:hover,
+        &:active,
+        &.active,
+        &.active &:focus,
+        &:focus {
+            background-color: rgba(0, 0, 0, 0.20) !important;
+            border-color: rgba(0, 0, 0, 0.20) !important;
+        }
+    }
+
+    &:hover,
+    &:active,
+    &.active,
+    &.active &:focus,
+    &:focus {
+        background-color: @clickable-color-hover !important;
+        border-color: @clickable-color-hover !important;
+    }
+}
+
+.btn.btn-default,
+.k-button.btn-default {
+    background-color: @clickable-color-darken;
+    border-color: @clickable-color-darken;
+    color: @text-color;
+
+    &:hover,
+    &:active,
+    &.active,
+    &.active &:focus,
+    &:focus {
+        background-color: @clickable-color-darken-hover !important;
+        border-color: @clickable-color-darken-hover !important;
+    }
+}
+
+.drawertaskbar .drawertaskbar-newbutton:hover {
+    background-color: @clickable-color-hover;
+}
+
+/* special radio styles */
+.radio-primary input[type=radio]:checked + label:before {
+    border-color: @clickable-color;
+}
+
+.radio-primary input[type=radio]:checked + label:after {
+    background-color: @clickable-color;
+}
+
+.announcements,
+.announcement-item-title {
+    color: @urgent-color !important;
+}
+
+/*some background seleted & hover states have some pretty deep definitions coming from our js framework,
+  so the only way to override them is to create a new rule for each definition
+*/
+
+/*RO heading bottom border*/
+.form-panel-narrow h3 {
+    border-color: @heading-color;
+}
+
+.search-row .search-wrapper {
+    border: 2px solid @clickable-color;
+}
+
+/*grid menu hover bg color*/
+.k-menu > .k-state-hover {
+    background-color: @selection-color !important;
+}
+
+/*grid menu selected bg color*/
+.k-menu > .k-state-selected {
+    background-color: @selection-color !important;
+}
+
+/*grid filter button color*/
+.k-animation-container .k-filter-item button[type='submit'] {
+    background-color: @clickable-color;
+    border-color: @clickable-color;
+}
+
+/*grid filter button hover color*/
+.k-animation-container .k-filter-item button[type='submit']:hover,
+.k-animation-container .k-filter-item button[type='submit']:focus,
+.k-animation-container .k-filter-item button[type='submit']:active,
+.k-animation-container .k-filter-item button[type='submit'].active {
+    background-color: @selection-color;
+    border-color: @selection-color;
+}
+
+/*This is for query prompt hover state*/
+div[data-control="checkboxGridByCriteria"].k-grid tr:hover {
+    background-color: @selection-color !important;
+}
+
+/*This is for query prompt selected state*/
+div[data-control="checkboxGridByCriteria"] .k-state-selected td {
+    background-color: @selection-color !important;
+}
+
+/*link colors on home page and kb home*/
+.articles .article-result a:link,
+.articles .article-result a:visited,
+.articles .article-result a:focus,
+.articles .article-result a:active,
+.breadcrumb a,
+.breadcrumb a:visited {
+    color: @clickable-color;
+}
+
+
+
+/*V6 - ARO wizard styles*/
+.form-wizard-levels {
+    background-color: @accent-color-dark !important;
+}
+
+.form-wizard-levels > li.active {
+    background-color: @accent-color-dark !important;
+}
+
+.form-wizard-levels > li.active > a {
+    background-color: @secondary-color !important;
+}
+
+.form-wizard-levels > li.active > a:after {
+    border-color: @accent-color-dark !important;
+    border-left-color: @secondary-color !important;
+}
+
+.form-wizard-levels > li > a > span {
+    background-color: @status-color !important;
+    border-bottom-color: @status-color !important;
+    border-left-color: @status-color !important;
+    border-right-color: @status-color !important;
+    border-top-color: @status-color !important;
+}
+
+.dropdown-menu {
+    background-color: @clickable-color;
+
+    li {
+        a:hover {
+            background-color: @clickable-color-hover;
+        }
+    }
+}
+
+
+.drawertaskbar .drawertaskbar-commands .btn-link:hover,
+.drawertaskbar .drawertaskbar-commands .btn-link:active,
+.drawertaskbar .drawertaskbar-commands .btn-link:focus {
+    background-color: @secondary-color;
+}
+
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus,
+.navbar .navbar-nav > li > a:active,
+.navbar .navbar__search .navbar__search--dropdown .btn:hover,
+.navbar .navbar__search .navbar__search--dropdown .btn:focus,
+.navbar .navbar__search .navbar__search--dropdown .btn:active {
+    background-color: @secondary-color !important;
+}
+
+/*icon colors*/
+.form-group .fa, .form-group .icon-class,
+.defined-form .k-datetimepicker .k-select span.k-icon.k-i-calendar:before,
+.defined-form .k-datetimepicker .k-select span.k-icon.k-i-clock:before {
+    color: @clickable-color;
+}
+
+.fa.text-primary {
+    color: @clickable-color;
+}
+
+/*form inputs*/
+.k-textbox:hover, .k-state-default:hover, .k-state-focused, .k-state-active {
+    border-color: @clickable-color;
+}
+
+/*border radius reset*/
+.dropdown-menu {
+    border-radius: 0 0 @border-radius @border-radius !important;
+}
+
+.drawer-task-menu {
+    border-radius: @border-radius @border-radius 0 0 !important;
+}
+
+.search-wrapper,
+#UserPickerPopupWindow .popup-search-box,
+.form-control,
+.k-multiselect-wrap ul li,
+#UserPickerWindow .popup-search-box,
+#UserPickerWindow .popup-search-box .search-icon .cireson-window--body table.k-editor td.k-editable-area,
+.gridcard__checkbox.checkbox label:before,
+textarea.k-textbox,
+.k-header,
+.k-grid-header-wrap,
+.k-grid .k-grouping-header,
+.k-grid-header,
+.k-pager-wrap .k-link,
+.k-grouping-header .k-group-indicator,
+.k-autocomplete.k-state-default,
+.k-picker-wrap.k-state-default,
+.k-numeric-wrap.k-state-default,
+.k-dropdown-wrap.k-state-default,
+.k-pager-numbers .k-state-selected,
+.k-pager-numbers .k-state-selected,
+.k-pager-wrap .k-state-selected,
+.k-ff .k-pager-numbers .k-link,
+.k-ff .k-pager-numbers .k-state-selected,
+.k-ie11 .k-pager-numbers .k-link,
+.k-ie11 .k-pager-numbers .k-state-selected,
+.k-safari .k-pager-numbers .k-link,
+.k-safari .k-pager-numbers .k-state-selected,
+.k-webkit .k-pager-numbers .k-link,
+.k-webkit .k-pager-numbers .k-state-selected,
+div.k-window-content > .km-scroll-container span.k-dropdown-wrap,
+.user-picker .ad-user-input,
+.user-picker .ad-user-group,
+.k-numeric-wrap input,
+.input-userpicker,
+textarea,
+select,
+.k-input,
+.k-autocomplete,
+.k-picker-wrap,
+.k-numeric-wrap,
+.k-dropdown-wrap,
+.k-select,
+.k-textbox,
+.breadcrumb,
+.btn,
+code,
+pre,
+.input-group-addon,
+.defined-form .k-multiselect.k-header,
+.drawertaskbar .tooltip-inner,
+.btn-group-vertical > .btn:last-child:not(:first-child),
+.btn-group-vertical > .btn:first-child:not(:last-child),
+.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+    border-radius: @border-radius !important;
+}
+
+.k-custom-visible {
+    border-radius: 0 0 @border-radius @border-radius !important;
+}
+
+.navbar__search--dropdown {
+    .btn {
+        border-radius: @border-radius 0 0 @border-radius !important;
+    }
+}
+
+.navbar__search--btn {
+    .btn {
+        border-radius: 0 @border-radius @border-radius 0 !important;
+    }
+}

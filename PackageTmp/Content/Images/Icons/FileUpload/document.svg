@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="42px" viewBox="0 0 32 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>document</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="v3--3" transform="translate(-166.000000, -493.000000)" fill-rule="nonzero">
+            <g id="document" transform="translate(166.000000, 493.000000)">
+                <polygon id="Shape" fill="#D6D6D6" points="32 42 0 42 0 0 22 0 32 10"></polygon>
+                <polygon id="Shape" fill="#FFFFFF" points="30.5 11 21 11 21 1.5"></polygon>
+                <g id="Group" transform="translate(8.000000, 18.000000)" fill="#7E7E7E">
+                    <rect id="Rectangle-path" x="0" y="0" width="17" height="2"></rect>
+                    <rect id="Rectangle-path" x="0" y="4" width="13" height="2"></rect>
+                    <rect id="Rectangle-path" x="0" y="8" width="17" height="2"></rect>
+                    <rect id="Rectangle-path" x="0" y="12" width="13" height="2"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
