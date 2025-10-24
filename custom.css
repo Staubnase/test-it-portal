@@ -1,0 +1,957 @@
+@import 'custom.theme.min.css';
+
+#main_wrapper > .row:first-child:empty {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* ===================== Incidents-Karte ===================== */
+
+/* Altes Announcement-Karussell hart verstecken (Quelle) */
+.announcements-wrapper,
+.announcements,
+.announcements-menu {
+  display: none !important;
+}
+
+/* Neue „Aktuelle Störungen“-Karte */
+.cp-incidents-card {
+  background: #fff;
+  border: 1px solid rgba(16,24,40,.08);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(16,24,40,.06);
+  padding: 18px 20px;
+  margin: 12px 0 24px;
+}
+
+/* Header */
+.cp-incidents-card__title {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: 16px; color: #0f172a; margin: 0 0 8px;
+}
+.cp-incidents-card__subtitle {
+  color: #475569; font-size: 13px; margin: 0 0 12px 28px;
+}
+
+/* Liste */
+.cp-incidents-list { list-style: none; margin: 0 0 0 28px; padding: 0; }
+.cp-incidents-list li {
+  display: grid; grid-template-columns: 12px 1fr; gap: 10px; align-items: start;
+  padding: 8px 0; border-bottom: 1px dashed rgba(16,24,40,.08);
+}
+.cp-incidents-list li:last-child { border-bottom: 0; }
+
+/* Severity-Dot */
+.cp-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; background: #64748b; }
+.cp-dot--high { background: #ef4444; }
+.cp-dot--medium { background: #f59e0b; }
+.cp-dot--low { background: #22c55e; }
+
+/* Inhalt */
+.cp-item-title { font-weight: 600; color: #0f172a; margin: 0 0 2px; }
+.cp-item-text  { color: #475569; font-size: 13px; margin: 0; }
+
+/* Karte ausblenden, wenn leer */
+.cp-incidents-card--hidden { display: none !important; }
+
+/* ===================== Euer vorhandenes Styling ===================== */
+
+/* header backround color */
+.header-bg-color { background-color: #628bd9 !important; }
+
+/* header content picture */
+.headerContent {
+  background-image: url(/CustomSpace/logo1.png);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  padding-left: 35px;
+  background-position: 0px 5px;
+}
+
+/* sidebar background color */
+.sidebar-bg-color { background-color: #002366 !important; }
+
+/* side bar icon color */
+.k-state-selected, .nav-icon-color { color:#F2F2F0 !important; }
+
+/* side bar open sub icon color */
+.nav_open .nav-icon-color { color:#F2F2F0 !important; }
+
+/* Link color */
+.link, a {color: #002366;}
+.link:hover, a:hover, a:focus, .link:focus { color: #FF3030; }
+
+/* drawer closed background color*/
+.drawertaskbar { background-color: #002366 !important; }
+
+/* Make Navigation Scrollbar tranparent*/
+#side_nav .ps-scrollbar-y { opacity: 0; }
+
+/* Ausblenden der Suchleiste oben */
+.search-wrapper { display:none !important; }
+
+/* Grid Select Summary Layout */
+.gridSelectSummary { font-size: 0.86rem; font-family: "PT Sans",sans-serif; }
+
+/* Select Summary Label */
+.gridSelectSummary-label {
+  text-align: center;
+  margin: 15px 0 0 2px;
+  border: 1px solid white;
+  padding: 3px;
+  background-color: white;
+  display: inline-block;
+  color: black;
+}
+
+/* Select Summary Selection Entry */
+.gridSelectSummary-entity {
+  text-align: center;
+  margin: 8px 0 0 8px;
+  border: 1px dashed rgba(163,184,194,1);
+  padding: 3px;
+  background-color: #FF3C2E;
+  display: inline-block;
+  color: rgba(0,0,0,1);
+}
+
+.k-grid-pager.k-pager-wrap { padding: 5px 0 0; }
+
+/* Hide the option to create 'From Template' */
+li[data-click-template="srFromTemplate"],
+li[data-click-template="incidentFromTemplate"] { display: none; }
+
+/* Color coded priorities */
+.statusInfo,
+.statusInProgress,
+.statusPending,
+.statusWartend,
+.contractAutoRenewaltrue { background-color: #99CCFF !important; }
+
+.statusRejected,
+.statusFailed,
+.statusFehler,
+.contractAutoRenewalfalse { background-color: #FF9999 !important; }
+
+.statusAwatingExternal,
+.statusUpdatedByUser,
+.statusOnHold { background-color: #FFCC99 !important; }
+
+.title .statusInProgress { background-color: #FFFF99 !important; }
+
+.statusActive,
+.statusSubmitted { background-color: #99FF99 !important; }
+
+.statusResolved,
+.statusClosed,
+.statusCompleted,
+.statusAbgeschlossen,
+.statusGeschlossen,
+.statusCancelled,
+.statusInfo.status { background-color: transparent !important; }
+
+/* Modify Color of Save/Submit Button (and Checkmark) */
+.fa-check { color: #00FF00 !important; }
+.fa-times { color: #FF0000 !important; }
+.fa-pencil { color: #FFFF00 !important; }
+.fa-arrow-left { color: #000 !important; }
+.fa-arrow-right { color: #000 !important; }
+.fa-star-o { color: #000 !important; }
+.fa-tasks { color: #000 !important; }
+
+label { text-transform: none; }
+
+/* WI dates in heading */
+div.headingFields { float: right; font-size: 14px; }
+span.headingFieldLabel { font-weight: bold; padding-left: 10px; padding-right: 5px; }
+
+/* Hiding the Top Knowledge Articles Panel on the Home Page */
+[data-bind="visible: topKA"] { display:none; }
+
+/* ===== Obere Portal-Navigation dunkelblau – NICHT .k-header ===== */
+.header-bg-color,
+.navbar,
+.navbar-default,
+.topbar,
+.header {
+  background-color: #002366 !important;
+  border-color: #002366 !important;
+}
+
+/* ===================== Home-View-spezifische Layout-Resets ===================== */
+/* Aktiv nur, wenn <html class="cp-announce-on"> gesetzt ist (per JS auf eurer Ziel-View) */
+
+.cp-announce-on #main_wrapper,
+.cp-announce-on .page-content,
+.cp-announce-on .content,
+.cp-announce-on .container,
+.cp-announce-on .container-fluid,
+.cp-announce-on .main-content,
+.cp-announce-on #content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.cp-announce-on .home h1,
+.cp-announce-on .page-title,
+.cp-announce-on .k-page-title,
+.cp-announce-on .header h1 {
+  margin-top: 8px !important;
+  margin-bottom: 12px !important;
+}
+
+.cp-announce-on .home .fa,
+.cp-announce-on .home .nav-icon,
+.cp-announce-on .home .k-icon {
+  margin-top: 0 !important;
+  vertical-align: middle !important;
+}
+
+.cp-announce-on .page-header,
+.cp-announce-on .page-title,
+.cp-announce-on .page-title-wrapper,
+.cp-announce-on .home .content > .row:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.cp-announce-on h1,
+.cp-announce-on .page-title h1,
+.cp-announce-on .k-page-title h1 {
+  margin-top: 4px !important;
+  margin-bottom: 12px !important;
+  line-height: 1.2 !important;
+}
+
+.cp-announce-on #main_wrapper h1 {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  line-height: 1.2 !important;
+}
+
+/* Karte knapp unter H1 */
+.cp-announce-on #main_wrapper #cpIncidentsCard { margin-top: 8px !important; }
+
+/* Linie/HR direkt nach H1 ausblenden */
+.cp-announce-on #main_wrapper h1 + hr,
+.cp-announce-on .page-content h1 + hr { display: none !important; }
+
+/* Vertical gaps rund um H1 minimieren */
+.cp-announce-on #main_wrapper .page-content,
+.cp-announce-on #main_wrapper .container-fluid {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Karte kompakter */
+.cp-announce-on #cpIncidentsCard { margin-bottom: 12px !important; }
+
+/* HR/Divider direkt nach Karte verbergen */
+.cp-announce-on #cpIncidentsCard + hr,
+.cp-announce-on #cpIncidentsCard + .row > hr,
+.cp-announce-on #main_wrapper .page-content > hr:first-of-type,
+.cp-announce-on #cpIncidentsCard + .divider,
+.cp-announce-on #cpIncidentsCard + .k-hr,
+.cp-announce-on #cpIncidentsCard + .line,
+.cp-announce-on #cpIncidentsCard + .separator {
+  display: none !important;
+  border: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Generische Divider im Headerbereich neutralisieren */
+.cp-announce-on #main_wrapper hr,
+.cp-announce-on #main_wrapper .page-content hr,
+.cp-announce-on #main_wrapper .content hr {
+  display: none !important;
+  border: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.cp-announce-on #main_wrapper .page-content,
+.cp-announce-on #main_wrapper .content,
+.cp-announce-on #main_wrapper .container-fluid {
+  border-top: 0 !important;
+  box-shadow: none !important;
+}
+
+.cp-announce-on #main_wrapper .page-content > .row:first-child,
+.cp-announce-on #main_wrapper .content > .row:first-child {
+  border-top: 0 !important;
+  box-shadow: none !important;
+}
+
+.cp-announce-on #main_wrapper .page-content::before,
+.cp-announce-on #main_wrapper .page-content::after,
+.cp-announce-on #main_wrapper .content::before,
+.cp-announce-on #main_wrapper .content::after {
+  content: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* --- Alte Announcement-Bar überall neutralisieren (Sicherheitsnetz) --- */
+.announcement-bar,
+#announcement-bar {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* === Home-View: orange Linie/Block über "Home" sicher entfernen === */
+.cp-announce-on #main_wrapper .page_bar_clearfix,
+.cp-announce-on #main_wrapper .row:first-child {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Pseudo-Elemente, die den Balken erzeugen */
+.cp-announce-on #main_wrapper .page_bar_clearfix::before,
+.cp-announce-on #main_wrapper .page_bar_clearfix::after,
+.cp-announce-on #main_wrapper .row:first-child::before,
+.cp-announce-on #main_wrapper .row:first-child::after {
+  content: none !important;
+  display: none !important;
+  border: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Falls die Linie als "divider"/"k-hr"/"separator" gerendert wird */
+.cp-announce-on #main_wrapper .divider,
+.cp-announce-on #main_wrapper .k-hr,
+.cp-announce-on #main_wrapper .separator,
+.cp-announce-on #main_wrapper .line {
+  display: none !important;
+  border: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Direkter Nachbar: keine zusätzliche Oberkante */
+.cp-announce-on #main_wrapper .page_bar_clearfix + .row {
+  border-top: 0 !important;
+  box-shadow: none !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Alle Abstände im main_wrapper und seinen Kindern entfernen */
+#main_wrapper,
+#main_wrapper > *,
+#main_wrapper > *:first-child,
+#main_wrapper .row,
+#main_wrapper .page-header,
+#main_wrapper .page-title,
+#main_wrapper .container-fluid,
+#main_wrapper .content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    min-height: 0 !important;
+}
+
+/* Pseudo-Elemente neutralisieren */
+#main_wrapper::before,
+#main_wrapper::after,
+#main_wrapper > *::before,
+#main_wrapper > *::after {
+    content: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+    display: none !important;
+}
+
+/* Nur wenn Announcements wirklich da/sichtbar sind */
+.has-announcement #side_nav,
+.has-announcement .side-nav,
+.has-announcement .sidebar {
+  margin-top: -42px !important;
+  padding-top: 0 !important;
+}
+
+/* --- Home Überschrift ausblenden --- */
+
+/* --- "Browse By Category" ausblenden --- */
+#main_wrapper h3,
+#main_wrapper .browseByCategory,
+#main_wrapper [data-bind*="BrowseByCategory"] {
+  display: none !important;
+}
+
+/* --- "All Requests" ausblenden --- */
+#main_wrapper h2,
+#main_wrapper .allRequests,
+#main_wrapper [data-bind*="AllRequests"] {
+  display: none !important;
+}
+
+/* --- Service Catalog linke Spalte ausblenden --- */
+#servicecat-nav,
+.servicecat-nav,
+#servicecat-nav.col-lg-2,
+#servicecat-nav.col-md-3,
+div[id="servicecat-nav"] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* --- Rechte Spalte (Content) auf volle Breite ziehen --- */
+#servicecat-content,
+.service-catalog-content,
+#servicecat-nav ~ .col-lg-9,
+#servicecat-nav ~ .col-md-9 {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+}
+
+/* --- Kategorie-Überschriften im Service Catalog ausblenden --- */
+#servicecat-content h4,
+#servicecat-content .catalog-area h4,
+#servicecat-content .cat_general h4,
+.catalog-content h4 {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* --- Nervigen Trennstrich unterhalb der Navbar/Home entfernen --- */
+
+/* Erste Row NUR entfernen, wenn sie wirklich leer ist ODER gezielt im Announce-Fall */
+#main_wrapper > .row:first-child:empty,
+.cp-announce-on #main_wrapper > .row:first-child,
+.cp-announce-on #main_wrapper > .container-fluid > .row:first-child {
+  display: none !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+}
+
+/* Falls der Strich als hr/separator/divider gerendert wird */
+#main_wrapper hr,
+#main_wrapper .divider,
+#main_wrapper .separator,
+#main_wrapper .line,
+#main_wrapper .k-hr {
+  display: none !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+}
+
+/* --- Linke orange Spalte im Service Catalog komplett entfernen --- */
+#servicecat-nav,
+.servicecat-nav,
+div[id="servicecat-nav"] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+/* --- Rechte Content-Spalte auf volle Breite ziehen --- */
+#servicecat-content,
+.service-catalog-content,
+#servicecat-nav ~ .col-lg-9,
+#servicecat-nav ~ .col-md-9,
+.col-lg-10.col-md-9.service-request-body {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* --- Kachelbereich mittig zentrieren mit Abstand links/rechts --- */
+/* Linke Nav ist verborgen; die rechte Spalte bekommt zentrierte Maxbreite */
+.col-lg-10.col-md-9.service-request-body {
+  float: none !important;          /* Float lösen, sonst kein echtes Zentrieren */
+  display: block !important;
+  width: auto !important;          /* keine fixe Grid-Breite */
+  max-width: 1200px !important;    /* gewünschte Gesamtbreite der Kacheln */
+  margin: 0 auto !important;       /* zentrieren */
+  padding-left: 24px !important;   /* seitlicher Innenabstand */
+  padding-right: 24px !important;
+}
+
+/* Falls der eigentliche Kachel-Container zusätzlich adressiert werden muss */
+#catalog-area,
+#catalog_area,
+.catalog-area {
+  max-width: none!important;    /* gleich wie oben, damit nix übersteht */
+  margin: 0 auto !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+/* Sicherstellen, dass der äußere Content-Wrapper nicht querschießt */
+.service-catalog-content,
+#servicecat-content {
+  width: 100% !important;
+}
+
+/* ===== Service-Catalog-Kacheln: immer exakt 3 Spalten, mittig & mit Gaps ===== */
+
+/* Kachel-Container als Flex-Grid */
+#catalog-area .mini-template-body,
+#catalog_area .mini-template-body,
+.catalog-area .mini-template-body {
+  --tile-gap: 32px;        /* horizontaler Abstand */
+  --tile-row-gap: 40px;    /* vertikaler Abstand */
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  column-gap: var(--tile-gap);
+  row-gap: var(--tile-row-gap);
+  margin-left: 0 !important;   /* Bootstrap Offsets neutralisieren */
+  margin-right: 0 !important;
+}
+
+/* Bootstrap-Spalten der Kachel-Items neutralisieren */
+#catalog-area .mini-template-body > [class*="col-"],
+#catalog_area .mini-template-body > [class*="col-"],
+.catalog-area .mini-template-body > [class*="col-"],
+#catalog-area .mini-template-body > .mini-services,
+#catalog_area .mini-template-body > .mini-services,
+.catalog-area .mini-template-body > .mini-services {
+  float: none !important;
+  width: auto !important;
+  max-width: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-align: center; /* optional: Inhalt zentrieren */
+}
+
+/* Jede Kachel nimmt genau 1/3 Breite (-> 3 Spalten) inkl. Gaps */
+#catalog-area .mini-template-body > [class*="col-"],
+#catalog_area .mini-template-body > [class*="col-"],
+.catalog-area .mini-template-body > [class*="col-"],
+#catalog-area .mini-template-body > .mini-services,
+#catalog_area .mini-template-body > .mini-services,
+.catalog-area .mini-template-body > .mini-services {
+  flex: 0 0 calc((100% - 2 * var(--tile-gap)) / 3) !important;
+  max-width: calc((100% - 2 * var(--tile-gap)) / 3) !important;
+}
+
+/* (optional) Icons in der Kachel zentrieren */
+#catalog-area .mini-services img,
+#catalog_area .mini-services img,
+.catalog-area .mini-services img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* ===== Service Catalog: Reihen (row) wirklich zentrieren & Rand entfernen ===== */
+
+/* Container-Padding im Catalog-Bereich neutralisieren, damit rechts kein Weiß stehen bleibt */
+#servicecat-content .container,
+#servicecat-content .container-fluid,
+.service-catalog-content .container,
+.service-catalog-content .container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Alle relevanten .row im Kachelbereich als Flex-Container zentrieren */
+#servicecat-content .catalog-area .row,
+.service-catalog-content .catalog-area .row,
+#catalog-area .mini-template-body .row,
+#catalog_area .mini-template-body .row,
+.catalog-area .mini-template-body .row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;   /* Inhalte in der Zeile zentrieren */
+  margin-left: 0 !important;            /* Bootstrap-Negativränder killen */
+  margin-right: 0 !important;
+  width: 100% !important;
+}
+
+/* Spalten innerhalb dieser Rows exakt auf 3 pro Zeile verteilen – passend zu deinen Gaps */
+#servicecat-content .catalog-area .row > [class*="col-"],
+#catalog-area .mini-template-body .row > [class*="col-"],
+#catalog_area .mini-template-body .row > [class*="col-"],
+.catalog-area .mini-template-body .row > [class*="col-"] {
+  flex: 0 0 calc((100% - 2 * 32px) / 3) !important;  /* 3 Spalten inkl. 32px Gap */
+  max-width: calc((100% - 2 * 32px) / 3) !important;
+  padding-left: 0 !important;                        /* Kollisions-Padding entfernen */
+  padding-right: 0 !important;
+  text-align: center;                                /* Icons/Labels zentrieren */
+}
+
+/* === Inhalt der Kacheln (Icon + Text) zentrieren === */
+
+/* Kachel selbst als Flex-Container senkrecht ausrichten */
+#catalog-area .mini-services,
+#catalog_area .mini-services,
+.catalog-area .mini-services {
+  display: flex !important;
+  flex-direction: column !important;   /* Icon über Text */
+  align-items: center !important;      /* horizontal zentrieren */
+  justify-content: center !important;  /* vertikal zentrieren */
+  text-align: center !important;       /* Text mittig */
+}
+
+/* Bilder/Icons mittig */
+#catalog-area .mini-services img,
+#catalog_area .mini-services img,
+.catalog-area .mini-services img {
+  display: block;
+  margin: 0 auto 8px auto;   /* mittig + kleiner Abstand zum Text */
+  max-width: 80px;           /* optional: feste Icon-Größe */
+  height: auto;
+}
+
+/* Links unter den Icons mittig */
+#catalog-area .mini-services a,
+#catalog_area .mini-services a,
+.catalog-area .mini-services a {
+  text-align: center !important;
+  display: block;
+}
+
+/* =========================
+   Service Catalog – Modern Cards (Flex statt Grid)
+   ========================= */
+
+/* ---- Variablen & Basen ---- */
+:root{
+  --card-max: 1200px;
+  --card-gap-x: 24px;   /* horizontaler Abstand */
+  --card-gap-y: 22px;   /* vertikaler Abstand */
+  --card-radius: 16px;
+  --card-shadow: 0 8px 24px rgba(16,24,40,.06);
+  --card-shadow-hover: 0 12px 28px rgba(16,24,40,.12);
+  --card-border: 1px solid rgba(16,24,40,.08);
+  --card-bg: linear-gradient(135deg,#f7fbff 0%,#f2f6ff 100%);
+}
+
+/* ---- Inhalt mittig mit definierter Max-Breite ---- */
+.col-lg-10.col-md-9.service-request-body{
+  float:none !important;
+  width:auto !important;
+  max-width:var(--card-max) !important;
+  margin:0 auto !important;
+  padding-left:var(--card-gap-x) !important;
+  padding-right:var(--card-gap-x) !important;
+}
+
+/* Container-Padding im Catalog-Bereich neutralisieren */
+#servicecat-content .container,
+#servicecat-content .container-fluid,
+.service-catalog-content .container,
+.service-catalog-content .container-fluid{
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
+
+/* ---- Flex-Grid: 3/2/1 Spalten, zentriert ---- */
+#catalog-area .mini-template-body,
+#catalog_area .mini-template-body,
+.catalog-area .mini-template-body{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  justify-content:center !important;
+  column-gap:var(--card-gap-x);
+  row-gap:var(--card-gap-y);
+  margin:0 !important;                /* Bootstrap Offsets killen */
+  /* Grid-Reste sicher neutralisieren */
+  grid-template-columns:unset !important;
+  grid-template-rows:unset !important;
+  grid-auto-flow:unset !important;
+}
+
+/* Bootstrap-Spalten innen neutralisieren */
+#catalog-area .mini-template-body > [class*="col-"],
+#catalog_area .mini-template-body > [class*="col-"],
+.catalog-area .mini-template-body > [class*="col-"]{
+  float:none !important;
+  width:auto !important;
+  max-width:none !important;
+  padding:0 !important;
+  box-sizing:border-box;
+}
+
+/* 3 Spalten (Desktop) */
+#catalog-area .mini-template-body > [class*="col-"],
+#catalog_area .mini-template-body > [class*="col-"],
+.catalog-area .mini-template-body > [class*="col-"]{
+  flex:0 0 calc((100% - 2 * var(--card-gap-x)) / 3) !important;
+  max-width:calc((100% - 2 * var(--card-gap-x)) / 3) !important;
+}
+
+/* 2 Spalten (≤1200px) */
+@media (max-width:1200px){
+  #catalog-area .mini-template-body > [class*="col-"],
+  #catalog_area .mini-template-body > [class*="col-"],
+  .catalog-area .mini-template-body > [class*="col-"]{
+    flex:0 0 calc((100% - var(--card-gap-x)) / 2) !important;
+    max-width:calc((100% - var(--card-gap-x)) / 2) !important;
+  }
+}
+
+/* 1 Spalte (≤680px) */
+@media (max-width:680px){
+  #catalog-area .mini-template-body > [class*="col-"],
+  #catalog_area .mini-template-body > [class*="col-"],
+  .catalog-area .mini-template-body > [class*="col-"]{
+    flex:0 0 100% !important;
+    max-width:100% !important;
+  }
+}
+
+/* =========================
+   Card selbst
+   ========================= */
+.catalog-area .mini-services,
+#catalog-area .mini-services,
+#catalog_area .mini-services{
+  display:flex !important;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:#fff;
+  border:1px solid rgba(16,24,40,.08);
+  border-radius:14px;
+  box-shadow:0 2px 10px rgba(16,24,40,.06);
+  padding:20px 18px;
+  min-height:160px;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+/* --- Service-Catalog: Titel als statischer Text, nicht klickbar --- */
+#catalog-area .mini-services .link,
+#catalog_area .mini-services .link,
+#catalog-area .mini-services a,
+#catalog_area .mini-services a {
+  pointer-events: none;          /* Maus-Klicks deaktivieren */
+  cursor: default;               /* kein Hand-Cursor */
+  text-decoration: none !important;
+  color: #0f172a !important;     /* dunkles Grau/Schwarz */
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.25;
+  display: block;
+  margin-top: 12px;              /* Abstand unter Icon */
+  text-align: center;
+  word-break: break-word;
+}
+
+/* Wenn du eine eigene Klasse für statische Titel nutzt (siehe JS unten) */
+.cp-card-title {
+  color: #0f172a !important;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.25;
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Hover */
+.catalog-area .mini-services:hover,
+#catalog-area .mini-services:hover,
+#catalog_area .mini-services:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 22px rgba(16,24,40,.10);
+  border-color:rgba(16,24,40,.14);
+}
+
+/* Icon */
+.catalog-area .mini-services img,
+#catalog-area .mini-services img,
+#catalog_area .mini-services img{
+  display:block;
+  margin:0 auto;
+  max-width:90px;
+  height:auto;
+}
+
+/* Titel/Link */
+.catalog-area .mini-services > a,
+#catalog-area .mini-services > a,
+#catalog_area .mini-services > a{
+  display:block;
+  margin-top:12px;
+  font-weight:600;
+  line-height:1.25;
+  color:#0f172a !important;
+  text-decoration:none;
+  word-break:break-word;
+}
+.catalog-area .mini-services > a:hover,
+#catalog-area .mini-services > a:hover,
+#catalog_area .mini-services > a:hover{
+  color:#0a58ca !important;
+  text-decoration:underline;
+}
+
+/* H4 in Kachel ausblenden (falls vorhanden) */
+.catalog-area .mini-services h4,
+#catalog-area .mini-services h4,
+#catalog_area .mini-services h4{
+  display:none !important;
+  margin:0 !important; padding:0 !important;
+}
+
+/* Variante: Titel über dem Icon */
+.title-top .catalog-area .mini-services,
+.title-top #catalog-area .mini-services,
+.title-top #catalog_area .mini-services{ flex-direction:column; }
+.title-top .catalog-area .mini-services > a,
+.title-top #catalog-area .mini-services > a,
+.title-top #catalog_area .mini-services > a{
+  order:0; margin-top:0; margin-bottom:10px;
+}
+.title-top .catalog-area .mini-services img,
+.title-top #catalog-area .mini-services img,
+.title-top #catalog_area .mini-services img{ order:1; }
+
+/* --- Icons in den Kacheln immer zentrieren --- */
+.catalog-area .mini-services,
+#catalog-area .mini-services,
+#catalog_area .mini-services {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;       /* horizontal mittig */
+  justify-content: center;   /* vertikal mittig */
+  text-align: center;
+}
+
+/* Bild-Icons selbst mittig halten */
+.catalog-area .mini-services img,
+#catalog-area .mini-services img,
+#catalog_area .mini-services img {
+  display: block;
+  margin: 0 auto;
+  max-width: 90px;
+  height: auto;
+}
+
+.catalog-area .mini-services img {
+  margin-bottom: 12px;
+}
+
+/* ============== Service Catalog – 4-Spalten Flex-Grid ============== */
+
+/* Breite freigeben, damit 4 Spalten Platz haben */
+.col-lg-10.col-md-9.service-request-body,
+#catalog-area,
+#catalog_area,
+.catalog-area {
+  max-width: none !important;   /* keine künstliche Begrenzung */
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+
+/* Altes Float-Layout neutralisieren (nur Reset) */
+.service-catalog-content .mini-template-body .so-blocks section {
+  float: none !important;
+  width: auto !important;
+  margin: 0 !important;
+}
+
+/* Die eigentliche Zeile als Flex-Container mit Gaps */
+.service-catalog-content .mini-template-body .row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 24px !important;       /* ersetzt column-/row-gap */
+  margin-left: 0 !important;  /* Bootstrap-Negativränder neutralisieren */
+  margin-right: 0 !important;
+}
+
+/* 4 Spalten: jedes Kachel-Element nimmt 1/4 – inkl. 3 Zwischenräume */
+.service-catalog-content .mini-template-body .row > .mini-services {
+  flex: 0 1 calc((100% - 3 * 24px) / 4) !important;
+  max-width: calc((100% - 3 * 24px) / 4) !important;
+}
+
+/* Inhalt in der Card mittig & einheitliche Höhe */
+.service-catalog-content .mini-template-body .row > .mini-services .mini-services,
+.service-catalog-content .mini-template-body .row > .mini-services {
+  width: 100% !important;
+  min-height: 180px;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Responsive: 3 → 2 → 1 Spalte */
+@media (max-width: 1200px) {
+  .service-catalog-content .mini-template-body .row > .mini-services {
+    flex-basis: calc((100% - 2 * 24px) / 3) !important;
+    max-width:  calc((100% - 2 * 24px) / 3) !important;
+  }
+}
+@media (max-width: 900px) {
+  .service-catalog-content .mini-template-body .row > .mini-services {
+    flex-basis: calc((100% - 24px) / 2) !important;
+    max-width:  calc((100% - 24px) / 2) !important;
+  }
+}
+@media (max-width: 680px) {
+  .service-catalog-content .mini-template-body .row > .mini-services {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Keine zusätzlichen Gaps in inneren Rows innerhalb der Card */
+.catalog-area .mini-services .row,
+#catalog-area .mini-services .row,
+#catalog_area .mini-services .row {
+  column-gap: 0 !important;
+  row-gap: 0 !important;
+}
+
+/* Titel-Section in der Kachel wirklich mittig ausrichten */
+.service-catalog-content .mini-template-body .row > .mini-services > section,
+#catalog-area .mini-services > section,
+#catalog_area .mini-services > section,
+.catalog-area .mini-services > section {
+  float: none !important;
+  width: 100% !important;
+  margin: 8px 0 0 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
